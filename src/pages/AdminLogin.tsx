@@ -150,7 +150,7 @@ const AdminLogin = () => {
     const checkSession = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
-        // Check both admin_users and mt_team_directory for admin/owner status
+        // Check both admin_users and team_directory for admin/owner status
         const queries: Promise<any>[] = [
           supabase
             .from('admin_users')
@@ -160,11 +160,11 @@ const AdminLogin = () => {
             .maybeSingle()
         ];
 
-        // Only check mt_team_directory if we have a tenant ID
+        // Only check team_directory if we have a tenant ID
         if (TENANT_ID) {
           queries.push(
             supabase
-              .from('mt_team_directory')
+              .from('team_directory')
               .select('role, status')
               .eq('user_id', user.id)
               .eq('tenant_id', TENANT_ID)
@@ -310,38 +310,26 @@ const AdminLogin = () => {
 
       if (authData.user && authData.session) {
         // Register user with tenant - auto-assigns owner/admin for first 2 users
-        // Uses FASTFIX_EDGE_URL to call the function in the main FastFix project
-        if (TENANT_ID && FASTFIX_EDGE_URL) {
+        // Uses supabase.functions.invoke() which calls the MT project
+        if (TENANT_ID) {
           let registerResult: any = null;
           let registerError: Error | null = null;
 
           try {
-            const registerResponse = await fetch(`${FASTFIX_EDGE_URL}/register-tenant-user`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${authData.session.access_token}`,
-              },
-              body: JSON.stringify({
+            // Use supabase.functions.invoke() - it automatically includes auth header
+            // and calls the correctly configured MT project
+            const { data, error } = await supabase.functions.invoke('register-tenant-user', {
+              body: {
                 tenantId: TENANT_ID,
                 phone: e164Phone,
                 name: authData.user.user_metadata?.name || authData.user.user_metadata?.full_name,
-              }),
+              },
             });
 
-            // Read body once as text, then parse
-            const responseText = await registerResponse.text();
-            let responseData: any = {};
-            try {
-              responseData = JSON.parse(responseText);
-            } catch {
-              // Body wasn't valid JSON
-            }
-
-            if (registerResponse.ok) {
-              registerResult = responseData;
+            if (error) {
+              registerError = new Error(error.message || 'Failed to register user');
             } else {
-              registerError = new Error(responseData.error || 'Failed to register user');
+              registerResult = data;
             }
           } catch (err) {
             registerError = err as Error;
@@ -382,11 +370,11 @@ const AdminLogin = () => {
           .eq('is_active', true)
           .maybeSingle();
 
-        // Check mt_team_directory with tenant filter
+        // Check team_directory with tenant filter
         let teamCheck = null;
         if (TENANT_ID) {
           const { data } = await supabase
-            .from('mt_team_directory')
+            .from('team_directory')
             .select('id, role, status, user_id')
             .eq('user_id', authData.user.id)
             .eq('tenant_id', TENANT_ID)
