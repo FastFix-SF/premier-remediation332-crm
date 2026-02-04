@@ -3,11 +3,14 @@ import { useQuery } from '@tanstack/react-query'
 import { supabase } from '@/integrations/supabase/client'
 import { useAuth } from '@/contexts/AuthContext'
 
+// Get tenant ID from environment (set during deployment)
+const TENANT_ID = import.meta.env.VITE_TENANT_ID;
+
 export const useAdminStatus = () => {
   const { user, loading: authLoading } = useAuth()
-  
+
   return useQuery({
-    queryKey: ['admin-status', user?.id],
+    queryKey: ['admin-status', user?.id, TENANT_ID],
     queryFn: async () => {
       if (!user) {
         return { isAdmin: false, isOwner: false, isLeader: false, user: null }
@@ -22,12 +25,19 @@ export const useAdminStatus = () => {
         .maybeSingle()
 
       // Check if user is owner or admin in team_directory (including secondary_role)
-      const { data: teamMember } = await supabase
+      // Must filter by tenant_id for multi-tenant isolation
+      let teamQuery = supabase
         .from('team_directory')
         .select('role, secondary_role, status')
         .eq('user_id', user.id)
         .eq('status', 'active')
-        .maybeSingle()
+
+      // Add tenant filter if available
+      if (TENANT_ID) {
+        teamQuery = teamQuery.eq('tenant_id', TENANT_ID)
+      }
+
+      const { data: teamMember } = await teamQuery.maybeSingle()
 
       // Check both primary and secondary roles for admin/owner/leader status
       const isAdmin = !!adminUser || 
