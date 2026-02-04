@@ -1,68 +1,94 @@
 {
-  "name": "The Roofing Friend",
-  "tagline": "Your Trusted Roofing Partner",
-  "description": "Premium metal roofing services in the San Francisco Bay Area. Expert installation, repair, and maintenance with a 25-year warranty.",
-  "phone": "(415) 697-1849",
-  "phoneRaw": "+14156971849",
-  "email": "info@theroofingfriend.com",
+  "name": "Premier Remediation",
+  "tagline": "Restore. Verify. Reoccupy. Confidently.",
+  "description": "Premier Remediation is a 24/7 mold remediation and property damage restoration company serving San Francisco, CA and the Bay Area. We focus on commercial and multi-family buildings. That includes apartments, HOAs, high-rises, hotels, retail, offices, and industrial sites. Our team handles mold remediation, water damage mitigation, fire and smoke cleanup, and licensed asbestos and lead abatement. We work fast to reduce downtime and protect tenants, staff, and customers. Expect clear communication, strong containment, HEPA filtration, and jobsite safety. We also provide full documentation for property managers, insurers, and compliance needs. Need clearance? We coordinate third-party testing and support final verification so you can reoccupy with confidence. With 10 years in business, Premier Remediation is known for a commercial-first approach, rapid response, and full-scope execution from assessment to final sign-off. Call +1 415-319-6166 for an on-site evaluation.",
+  "phone": "+14153196166",
+  "phoneRaw": "14153196166",
+  "email": "support@premierremediationca.com",
   "address": {
     "street": "1030 Duane Ave",
     "city": "Santa Clara",
     "state": "CA",
     "zip": "95054",
-    "full": "1030 Duane Ave, Santa Clara, CA 95054"
+    "full": "1030 Duane Ave, Santa Clara, CA, 95054",
+    "region": "Santa Clara, CA"
   },
-  "owner": "The Roofing Friend Team",
-  "logo": "/lovable-uploads/roofing-friend-logo.png",
+  "owner": {
+    "name": "Juan Mejia",
+    "bio": "Premier Remediation stands as a leading expert in comprehensive property damage restoration, specifically tailored for commercial and multi-family properties. With a decade of dedicated service, we understand the unique challenges and critical importance of minimizing downtime and ensuring operational continuity for businesses of all sizes, from bustling apartment complexes and towering high-rises to vibrant hotels and essential retail facilities. Our commitment is to deliver swift, effective, a",
+    "photo": "/images/placeholders/owner-default.jpg"
+  },
+  "logo": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/b3f91aa3-37c4-4e90-9840-1277d374cb14/logo-1770168725944.png",
+  "logoDark": "",
+  "favicon": "/favicon.ico",
   "colors": {
-    "primary": "#1a5f7a",
-    "secondary": "#57c5b6",
-    "accent": "#f97316"
+    "primary": "#022654",
+    "secondary": "#bb1a21",
+    "accent": "#0059a5"
   },
-  "hours": "Mon-Fri: 7AM-6PM, Sat: 8AM-4PM",
-  "certifications": ["Licensed", "Insured", "Bonded", "Sheffield Metals Certified"],
-  "uniqueSellingPoints": ["25-Year Warranty", "Free Estimates", "Same-Day Quotes", "24/7 Emergency Service"],
+  "hours": "24/7 Service",
+  "emergencyService": true,
+  "certifications": [
+    "Licensed"
+  ],
+  "uniqueSellingPoints": [
+    "Commercial-first approach built for large, complex sites",
+    "24/7 rapid response to reduce downtime",
+    "Full-scope services: water, mold, fire, asbestos, and lead",
+    "Strong documentation for compliance and insurance",
+    "Clearance and verification support for faster re-occupancy"
+  ],
+  "yearsInBusiness": 10,
+  "foundedYear": 2016,
+  "licenseNumber": "",
+  "employeesCount": "11-25",
   "social": {
-    "facebook": "https://facebook.com/theroofingfriend",
-    "instagram": "https://instagram.com/theroofingfriend",
+    "facebook": "",
+    "instagram": "",
+    "twitter": "",
     "linkedin": "",
-    "yelp": "https://yelp.com/biz/the-roofing-friend",
-    "youtube": "https://youtube.com/@theroofingfriend",
-    "tiktok": "",
-    "google": ""
-  },
-  "seo": {
-    "siteUrl": "https://theroofingfriend.com",
-    "defaultTitle": "The Roofing Friend | Premium Metal Roofing Bay Area",
-    "titleTemplate": "%s | The Roofing Friend",
-    "description": "Expert metal roofing installation, repair, and maintenance in the San Francisco Bay Area. Standing seam, R-panel, fire-resistant solutions. Free estimates, 25-year warranty.",
-    "keywords": ["metal roofing", "Bay Area", "roofing contractor", "standing seam", "fire resistant roof"]
+    "youtube": "",
+    "yelp": "",
+    "google": "",
+    "tiktok": ""
   },
   "hero": {
-    "headline": "Make Your Roof the",
-    "headlineHighlight": "Best on the Block.",
-    "subheadline": "Premium Metal Roofing, Priced Right. Installed to Last.",
+    "headline": "ater, Mold & Fire",
+    "headlineHighlight": "Damage Remediation ",
+    "subheadline": "For Commercial Properties",
     "ctaPrimary": "Get Free Estimate",
-    "ctaSecondary": "View Our Work"
+    "ctaSecondary": "View Our Work",
+    "image": "/images/placeholders/hero-default.jpg",
+    "video": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/b3f91aa3-37c4-4e90-9840-1277d374cb14/hero-video-1770168730145.mp4"
   },
-  "trustIndicators": [
-    {"icon": "Shield", "text": "25-Year Warranty"},
-    {"icon": "Truck", "text": "Free Bay Area Delivery"},
-    {"icon": "Award", "text": "Locally Owned & Operated"}
-  ],
-  "statistics": [
-    {"icon": "Users", "number": "500+", "label": "Projects Completed", "description": "Successful installations across the Bay Area"},
-    {"icon": "MapPin", "number": "13+", "label": "Service Areas", "description": "Serving communities throughout California"},
-    {"icon": "Shield", "number": "25", "label": "Year Warranty", "description": "Industry-leading protection for your investment"},
-    {"icon": "Clock", "number": "24/7", "label": "Emergency Service", "description": "Always here when you need us most"}
-  ],
-  "certificationLogos": [
-    {"src": "/lovable-uploads/sheffield-metals.png", "alt": "Sheffield Metals Partner"},
-    {"src": "/lovable-uploads/metal-roofing-alliance.png", "alt": "Metal Roofing Alliance Member"}
-  ],
-  "ratings": {
-    "average": "4.9",
-    "count": "150",
-    "platform": "Google"
+  "seo": {
+    "siteUrl": "",
+    "defaultTitle": "Premier Remediation | Restore. Verify. Reoccupy. Confidently.",
+    "titleTemplate": "%s | Premier Remediation",
+    "description": "Premier Remediation is a 24/7 mold remediation and property damage restoration company serving San Francisco, CA and the Bay Area. We focus on commercial and multi-family buildings. That includes apartments, HOAs, high-rises, hotels, retail, offices, and industrial sites. Our team handles mold remediation, water damage mitigation, fire and smoke cleanup, and licensed asbestos and lead abatement. We work fast to reduce downtime and protect tenants, staff, and customers. Expect clear communication, strong containment, HEPA filtration, and jobsite safety. We also provide full documentation for property managers, insurers, and compliance needs. Need clearance? We coordinate third-party testing and support final verification so you can reoccupy with confidence. With 10 years in business, Premier Remediation is known for a commercial-first approach, rapid response, and full-scope execution from assessment to final sign-off. Call +1 415-319-6166 for an on-site evaluation.",
+    "keywords": [
+      "mold remediation near me",
+      "commercial mold remediation near me",
+      "mold removal San Francisco",
+      "mold remediation San Francisco CA",
+      "mold remediation San Jose CA",
+      "mold remediation Santa Clara CA",
+      "mold remediation Oakland CA",
+      "mold remediation Berkeley CA",
+      "mold remediation Hayward CA",
+      "water damage mitigation near me",
+      "water damage restoration San Francisco",
+      "emergency water extraction San Francisco",
+      "structural drying San Jose",
+      "fire damage cleanup near me",
+      "smoke odor removal San Francisco",
+      "soot cleanup Bay Area",
+      "asbestos abatement near me",
+      "asbestos removal Santa Clara",
+      "lead abatement Bay Area",
+      "commercial restoration contractor San Francisco"
+    ],
+    "aeoSnippet": "Premier Remediation is a Bay Area commercial-first remediation company providing 24/7 mold remediation, water mitigation, fire and smoke cleanup, and licensed asbestos and lead abatement with documentation and clearance support.",
+    "geoEntity": "Premier Remediation is a 24/7 property damage restoration and mold remediation company based at 1030 Duane Ave, Santa Clara, CA 95054. It serves San Francisco and the Bay Area. Services include mold remediation, water damage mitigation, fire and smoke cleanup, commercial and multifamily remediation, asbestos and lead abatement, and clearance documentation support. Owner: Juan Mejia."
   }
 }
