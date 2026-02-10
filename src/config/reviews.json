@@ -1,0 +1,57 @@
+ {
+   "source": "Google",
+   "totalReviews": 184,
+   "averageRating": 4.9,
+   "lastUpdated": "2026-02",
+   "googleProfileUrl": "https://www.google.com/search?q=West+Peak+Trenchless+%26+Plumbing+Reviews#lrd=0x808f7938ddee3581:0xca3bd749d3188263,1,,,,",
+   "reviews": [
+     {
+       "id": "review-1",
+       "name": "Esmeralda Romero",
+       "rating": 5,
+       "date": "3 months ago",
+       "text": "Cesar was AMAZING! An hour after contacting him he was fixing my sink. I thought I had to replace it since it was leaking below but he quickly fixed it and removed all the gunk from the stopper. Very professional and friendly, highly recommend!",
+       "serviceType": "Sink Repair"
+     },
+     {
+       "id": "review-2",
+       "name": "Abel Beas",
+       "rating": 5,
+       "date": "2 months ago",
+       "text": "We had an outstanding experience with West Peak Trenchless & Plumbing. Our main sewer line needed repair, and we were worried about the disruption it might cause to our concrete and deck. To our surprise, their team came in with an innovative trenchless solution that saved our landscaping. Professional, punctual, and reasonably priced!",
+       "serviceType": "Sewer Line Repair"
+     },
+     {
+       "id": "review-3",
+       "name": "Luigi Bañas",
+       "rating": 5,
+       "date": "1 month ago",
+       "text": "Gave me options on repair with pricing very quickly. Very responsive and professional. Would definitely use again for any plumbing needs.",
+       "serviceType": "General Plumbing"
+     },
+     {
+       "id": "review-4",
+       "name": "Mario Norberto Martinez",
+       "rating": 5,
+       "date": "2 weeks ago",
+       "text": "Excellent service, great communication and seen to the finish line. The team kept me informed throughout the entire process. Highly recommend for any plumbing work.",
+       "serviceType": "Plumbing Service"
+     },
+     {
+       "id": "review-5",
+       "name": "Zoe Alvarez",
+       "rating": 5,
+       "date": "1 month ago",
+       "text": "We couldn't be happier with the fast turnover and product quality. From start to finish, the team was professional and efficient. Our water heater installation was done perfectly.",
+       "serviceType": "Water Heater Installation"
+     },
+     {
+       "id": "review-6",
+       "name": "Jennifer Chen",
+       "rating": 5,
+       "date": "3 weeks ago",
+       "text": "Juan and his team were fantastic! They diagnosed our sewer issue quickly with their camera inspection and provided a clear explanation of our options. The trenchless repair was done in one day with minimal mess. Great communication throughout!",
+       "serviceType": "Trenchless Repair"
+     }
+   ]
+ }

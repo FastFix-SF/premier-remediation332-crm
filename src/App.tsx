@@ -24,6 +24,7 @@ import { MobileAdminGuard } from "./mobile/components/guards/MobileAdminGuard";
 import { MobileShiftGuard } from "./mobile/components/guards/MobileShiftGuard";
 import { ChunkLoadErrorBoundary } from "./components/ChunkLoadErrorBoundary";
 import { DevIndustrySwitcher } from "./components/dev/DevIndustrySwitcher";
+import { ThemeProvider } from "./components/ThemeProvider";
 import AdminDashboardPage from "./pages/AdminDashboard";
 
 // Retry wrapper for React.lazy() imports (helps with transient Vite/SW cache issues)
@@ -94,31 +95,19 @@ const StoreOrders = lazy(() => import("./pages/store/StoreOrders"));
 const StoreProductDetail = lazy(() => import("./pages/store/StoreProductDetail"));
 const StoreCategory = lazy(() => import("./pages/store/StoreCategory"));
 
-// Lazy load desktop components - mobile users won't download these
-const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
-const Services = lazy(() => import("./pages/Services"));
-const Contact = lazy(() => import("./pages/Contact"));
+// Westpeak marketing frontend pages (replaces default CRM public pages)
+const WPHome = lazy(() => import("./westpeak/pages/Home"));
+const WPServicePage = lazy(() => import("./westpeak/pages/ServicePage"));
+const WPAreaPage = lazy(() => import("./westpeak/pages/AreaPage"));
+const WPNeighborhoodPage = lazy(() => import("./westpeak/pages/NeighborhoodPage"));
+
+// CRM desktop components still needed for store, quotes, etc.
 const Store = lazy(() => import("./pages/Store"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const Cart = lazy(() => import("./pages/Cart"));
-const ResidentialRoofing = lazy(() => import("./pages/ResidentialRoofing"));
-const CommercialRoofing = lazy(() => import("./pages/CommercialRoofing"));
-const MetalRoofInstallation = lazy(() => import("./pages/MetalRoofInstallation"));
-const StandingSeamSystems = lazy(() => import("./pages/StandingSeamSystems"));
-const RPanelInstallation = lazy(() => import("./pages/RPanelInstallation"));
-const MetalRoofPanels = lazy(() => import("./pages/MetalRoofPanels"));
-const RoofRepairMaintenance = lazy(() => import("./pages/RoofRepairMaintenance"));
-const StormFireEnergy = lazy(() => import("./pages/StormFireEnergy"));
-// Dynamic config-driven pages for services and areas
-const ServicePage = lazy(() => import("./pages/ServicePage"));
-const AreaPage = lazy(() => import("./pages/AreaPage"));
-const AreasPage = lazy(() => import("./pages/AreasPage"));
-const LocationService = lazy(() => import("./pages/LocationService"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
-const RoofQuote = lazy(() => import("./pages/RoofQuote"));
 const QuoteDetail = lazy(() => import("./pages/QuoteDetail"));
 
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
@@ -249,8 +238,13 @@ const AppRoutes = () => (
       <Route path="requests/time-off" element={<AddTimeOffRequestPage />} />
     </Route>
     
+    {/* Westpeak Public Marketing Pages */}
+    <Route path="/" element={<WPHome />} />
+    <Route path="/services/:slug" element={<WPServicePage />} />
+    <Route path="/service-areas/:slug" element={<WPAreaPage />} />
+    <Route path="/service-areas/:areaSlug/:neighborhoodSlug" element={<WPNeighborhoodPage />} />
+
     {/* Regular Desktop Routes */}
-    <Route path="/" element={<Home />} />
     <Route path="/download" element={<DownloadApp />} />
     <Route path="/store" element={<Store />} />
     <Route path="/store/auth" element={<StoreAuth />} />
@@ -312,29 +306,11 @@ const AppRoutes = () => (
     <Route path="/team/invite" element={<InviteNoToken />} />
     <Route path="/project-invite/:token" element={<ProjectInvitation />} />
     <Route path="/client-portal/:slug" element={<ClientPortal />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/services" element={<Services />} />
-    <Route path="/services/:slug" element={<ServicePage />} />
-    <Route path="/contact" element={<Contact />} />
     <Route path="/privacy" element={<Privacy />} />
     <Route path="/terms" element={<Terms />} />
     <Route path="/thank-you" element={<ThankYou />} />
-    <Route path="/roof-quote" element={<RoofQuote />} />
     <Route path="/quote/:id" element={<QuoteDetail />} />
     <Route path="/quote/:id/draw" element={<RoofDrawingInterface />} />
-    {/* Dynamic industry service pages */}
-    <Route path="/services/:slug" element={<ServicePage />} />
-    {/* Legacy roofing routes kept for backwards compatibility */}
-    <Route path="/residential-roofing" element={<ResidentialRoofing />} />
-    <Route path="/commercial-roofing" element={<CommercialRoofing />} />
-    <Route path="/metal-roof-installation" element={<MetalRoofInstallation />} />
-    <Route path="/standing-seam-systems" element={<StandingSeamSystems />} />
-    <Route path="/r-panel-installation" element={<RPanelInstallation />} />
-    <Route path="/metal-roof-panels" element={<MetalRoofPanels />} />
-    <Route path="/roof-repair-maintenance" element={<RoofRepairMaintenance />} />
-    <Route path="/storm-fire-energy" element={<StormFireEnergy />} />
-    <Route path="/service-areas" element={<AreasPage />} />
-    <Route path="/service-areas/:locationSlug" element={<AreaPage />} />
     <Route path="/invoice/:invoiceNumber" element={<InvoicePayment />} />
     <Route path="/invoice-payment/:invoiceNumber" element={<InvoicePayment />} />
     <Route path="*" element={<NotFound />} />

@@ -1,0 +1,3848 @@
+[
+  {
+    "id": "downtown-sf",
+    "slug": "downtown",
+    "parentAreaSlug": "san-francisco",
+    "name": "Downtown San Francisco",
+    "fullName": "Downtown San Francisco, CA",
+    "heroHeadline": "Downtown SF Plumbing & Trenchless Specialists",
+    "heroSubheadline": "Expert service for Financial District offices, Union Square retail, and Tenderloin properties",
+    "localContext": "Downtown San Francisco's dense urban core presents unique plumbing challenges. From the historic buildings near Union Square to the modern high-rises of the Financial District, aging infrastructure meets demanding commercial use. Many pre-1920s buildings still have original cast iron and clay sewer lines requiring specialized trenchless rehabilitation.",
+    "commonProblems": [
+      {
+        "title": "Commercial Grease Buildup",
+        "description": "Downtown's concentration of restaurants and food service creates persistent grease accumulation in shared sewer lines"
+      },
+      {
+        "title": "Aged Cast Iron Deterioration",
+        "description": "Pre-war buildings with 80+ year old cast iron stacks showing corrosion and root intrusion"
+      }
+    ],
+    "propertyTypes": [
+      "Office Buildings",
+      "Retail Storefronts",
+      "Hotels",
+      "Restaurants",
+      "Historic Buildings",
+      "Apartment Complexes"
+    ],
+    "landmarks": [
+      "Union Square",
+      "Embarcadero",
+      "Ferry Building",
+      "Transamerica Pyramid"
+    ],
+    "localTip": "Downtown property managers often schedule drain maintenance during off-hours to minimize disruption to tenants and customers.",
+    "testimonial": {
+      "name": "Downtown Hotel Maintenance Director",
+      "text": "When our hotel had a main line backup, West Peak responded immediately. Their trenchless repair meant we didn't have to close any rooms or dig up our lobby. Exceptional service.",
+      "rating": 5,
+      "project": "Emergency sewer line repair"
+    },
+    "faqs": [
+      {
+        "id": "downtown-sf-1",
+        "question": "Do you provide 24/7 emergency service in Downtown SF?",
+        "answer": "Yes! We understand Downtown businesses can't wait. Our emergency team is available 24/7 for commercial properties in the Financial District, Union Square, and surrounding areas. We typically arrive within 1-2 hours for emergencies."
+      },
+      {
+        "id": "downtown-sf-2",
+        "question": "Can you work around business hours in Downtown San Francisco?",
+        "answer": "Absolutely. We regularly schedule work during evenings, weekends, and overnight hours to minimize disruption to Downtown businesses. Our trenchless methods are also quieter and faster than traditional repairs."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7879,
+      "lng": -122.4074
+    },
+    "seoTitle": "Downtown SF Plumber | 24/7 Trenchless Pipe Repair",
+    "seoDescription": "Expert plumbing and trenchless services in Downtown San Francisco. Commercial & residential. 24/7 emergency service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "soma-sf",
+    "slug": "soma",
+    "parentAreaSlug": "san-francisco",
+    "name": "SOMA",
+    "fullName": "SOMA (South of Market), San Francisco",
+    "heroHeadline": "SOMA Plumbing & Trenchless Experts",
+    "heroSubheadline": "Serving SOMA's lofts, tech offices, and historic warehouse buildings",
+    "localContext": "SOMA's mix of converted warehouses, modern high-rises, and century-old infrastructure creates unique plumbing challenges. Many buildings have aging cast iron pipes that benefit from trenchless rehabilitation, while newer developments require precise commercial drain maintenance.",
+    "commonProblems": [
+      {
+        "title": "High-Rise Drain Backup",
+        "description": "Multi-story buildings in SOMA often experience drain issues from shared vertical stacks"
+      },
+      {
+        "title": "Historic Pipe Deterioration",
+        "description": "Pre-1950s buildings with original clay or cast iron sewer lines needing rehabilitation"
+      }
+    ],
+    "propertyTypes": [
+      "Lofts",
+      "Tech Offices",
+      "Restaurants",
+      "High-Rise Condos",
+      "Converted Warehouses"
+    ],
+    "landmarks": [
+      "Moscone Center",
+      "Oracle Park",
+      "Yerba Buena Gardens",
+      "SF MOMA"
+    ],
+    "localTip": "Many SOMA property managers schedule annual hydro jetting to prevent grease buildup from the neighborhood's numerous restaurants.",
+    "testimonial": {
+      "name": "Tech Startup Office Manager",
+      "text": "Our office building had persistent drain issues. West Peak's camera inspection found the problem quickly and their trenchless repair meant zero downtime for our team.",
+      "rating": 5,
+      "project": "Commercial pipe lining"
+    },
+    "faqs": [
+      {
+        "id": "soma-1",
+        "question": "Do you service SOMA high-rise buildings?",
+        "answer": "Yes! We specialize in SOMA's unique mix of high-rises, lofts, and commercial properties. Our equipment handles multi-story drain systems and we coordinate with building management to minimize disruption."
+      },
+      {
+        "id": "soma-2",
+        "question": "Can you work in SOMA's older buildings with original plumbing?",
+        "answer": "Absolutely. Many SOMA buildings have aging clay or cast iron pipes from the early 1900s. Our trenchless CIPP lining restores these pipes without demolition, preserving the building's character."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7785,
+      "lng": -122.395
+    },
+    "seoTitle": "SOMA Plumber | Trenchless Pipe Repair San Francisco",
+    "seoDescription": "Expert plumbing and trenchless services in SOMA, San Francisco. Lofts, high-rises, commercial buildings. 24/7 emergency service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "mission-district-sf",
+    "slug": "mission-district",
+    "parentAreaSlug": "san-francisco",
+    "name": "Mission District",
+    "fullName": "Mission District, San Francisco",
+    "heroHeadline": "Mission District Plumbing & Sewer Experts",
+    "heroSubheadline": "Trusted service for the Mission's Victorian homes and local businesses",
+    "localContext": "The Mission District's vibrant mix of Victorian-era homes, local restaurants, and new developments creates diverse plumbing needs. Many buildings date back to the 1900s-1920s, with aging terracotta and cast iron pipes. The neighborhood's dense restaurant scene also means commercial grease management is crucial.",
+    "commonProblems": [
+      {
+        "title": "Victorian Sewer Line Failure",
+        "description": "Original terracotta pipes in 100+ year old buildings cracking or collapsing"
+      },
+      {
+        "title": "Restaurant Grease Accumulation",
+        "description": "Valencia and Mission corridors have heavy commercial grease deposits affecting shared lines"
+      }
+    ],
+    "propertyTypes": [
+      "Victorian Homes",
+      "Edwardian Flats",
+      "Restaurants",
+      "Retail Spaces",
+      "Mixed-Use Buildings"
+    ],
+    "landmarks": [
+      "Dolores Park",
+      "Mission Dolores",
+      "Valencia Street Corridor",
+      "Balmy Alley"
+    ],
+    "localTip": "Many Mission Victorian homeowners combine sewer camera inspection with preventive pipe lining to avoid emergency failures and protect their historic properties.",
+    "testimonial": {
+      "name": "Mission Victorian Homeowner",
+      "text": "Our 1906 Victorian had roots growing through the old clay sewer line. West Peak lined the entire pipe without digging up our yard or sidewalk. Five years later, still flowing perfectly.",
+      "rating": 5,
+      "project": "Residential CIPP lining"
+    },
+    "faqs": [
+      {
+        "id": "mission-1",
+        "question": "Can you repair sewer lines in Mission District Victorian homes without excavation?",
+        "answer": "Yes! Most Victorian sewer lines can be rehabilitated using trenchless CIPP lining. We insert a resin-coated liner through existing access points, curing it in place to create a seamless new pipe inside the old one—no digging required."
+      },
+      {
+        "id": "mission-2",
+        "question": "How much does sewer repair cost in the Mission District?",
+        "answer": "Trenchless repairs in the Mission typically range from $3,500-$12,000 depending on pipe length and condition. This is often less than traditional excavation when you factor in sidewalk permits, landscaping restoration, and time. We provide free camera inspections and estimates."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7599,
+      "lng": -122.4148
+    },
+    "seoTitle": "Mission District Plumber | Victorian Sewer Repair SF",
+    "seoDescription": "Trusted plumbing and trenchless sewer repair in the Mission District. Victorian specialists. No-dig solutions. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "marina-sf",
+    "slug": "marina",
+    "parentAreaSlug": "san-francisco",
+    "name": "Marina District",
+    "fullName": "Marina District, San Francisco",
+    "heroHeadline": "Marina District Plumbing & Drain Specialists",
+    "heroSubheadline": "Expert service for the Marina's unique soil conditions and waterfront properties",
+    "localContext": "The Marina District was built on fill after the 1915 Panama-Pacific Exposition, creating unique soil conditions that affect plumbing infrastructure. Many buildings have settling issues that stress pipe connections, and the waterfront location means higher groundwater levels affecting sewer systems.",
+    "commonProblems": [
+      {
+        "title": "Ground Settling Pipe Damage",
+        "description": "Marina's landfill soil continues to settle, causing pipe misalignment and joint separation"
+      },
+      {
+        "title": "High Water Table Issues",
+        "description": "Proximity to the Bay creates elevated groundwater that can infiltrate damaged sewer lines"
+      }
+    ],
+    "propertyTypes": [
+      "Mediterranean-Style Homes",
+      "Chestnut Street Retail",
+      "Waterfront Condos",
+      "Pre-War Apartments",
+      "Luxury Residences"
+    ],
+    "landmarks": [
+      "Palace of Fine Arts",
+      "Marina Green",
+      "Fort Mason",
+      "Chestnut Street"
+    ],
+    "localTip": "Marina homeowners should have sewer lines inspected after significant earthquakes, as the loose fill soil can cause pipe movement and joint damage.",
+    "testimonial": {
+      "name": "Marina Homeowner",
+      "text": "After noticing slow drains, West Peak's camera inspection revealed our sewer line had separated at multiple joints from ground settling. Their trenchless repair fixed everything in one day.",
+      "rating": 5,
+      "project": "Sectional pipe lining"
+    },
+    "faqs": [
+      {
+        "id": "marina-1",
+        "question": "Why do Marina District homes have so many plumbing issues?",
+        "answer": "The Marina was built on landfill after the 1915 Exposition, and this loose soil continues to settle unevenly. This movement stresses pipe joints and connections. Combined with the neighborhood's age, many homes need pipe rehabilitation. Trenchless methods are ideal since they don't disturb the already sensitive soil."
+      },
+      {
+        "id": "marina-2",
+        "question": "Do you service the Chestnut Street commercial district?",
+        "answer": "Yes! We work with many Chestnut Street restaurants and retail businesses. We schedule work during off-hours and use trenchless methods to minimize disruption to your customers and neighbors."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.8023,
+      "lng": -122.4368
+    },
+    "seoTitle": "Marina District Plumber | Trenchless Sewer Repair SF",
+    "seoDescription": "Expert plumbing services in the Marina District, SF. Specialists in landfill soil conditions. 24/7 emergency service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "pacific-heights-sf",
+    "slug": "pacific-heights",
+    "parentAreaSlug": "san-francisco",
+    "name": "Pacific Heights",
+    "fullName": "Pacific Heights, San Francisco",
+    "heroHeadline": "Pacific Heights Plumbing Excellence",
+    "heroSubheadline": "Premium service for San Francisco's finest residential neighborhood",
+    "localContext": "Pacific Heights features San Francisco's most prestigious residences, from grand Victorians to modern luxury homes. These high-value properties demand premium plumbing service that protects landscaping, hardscaping, and architectural integrity. Many homes have complex multi-level plumbing systems requiring specialized expertise.",
+    "commonProblems": [
+      {
+        "title": "Estate Sewer Line Aging",
+        "description": "Large historic homes with extensive original clay or cast iron sewer systems requiring careful rehabilitation"
+      },
+      {
+        "title": "Multi-Level Drain Issues",
+        "description": "Complex plumbing in 3-4 story homes creates challenging vertical drain problems"
+      }
+    ],
+    "propertyTypes": [
+      "Historic Mansions",
+      "Luxury Single-Family Homes",
+      "Grand Victorians",
+      "Modern Estates",
+      "Premium Condominiums"
+    ],
+    "landmarks": [
+      "Lafayette Park",
+      "Alta Plaza Park",
+      "Fillmore Street",
+      "Broadway Mansions"
+    ],
+    "localTip": "Pacific Heights homeowners often opt for complete sewer line rehabilitation to protect property values and avoid future excavation near mature landscaping.",
+    "testimonial": {
+      "name": "Pacific Heights Estate Owner",
+      "text": "We needed sewer work but couldn't excavate near our century-old oak trees. West Peak's trenchless solution saved our landscaping and solved the problem completely. Worth every penny.",
+      "rating": 5,
+      "project": "Estate pipe rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "pac-heights-1",
+        "question": "How do you protect landscaping during Pacific Heights sewer repairs?",
+        "answer": "Our trenchless methods require only small access points—no excavation across lawns, driveways, or near trees. We can rehabilitate entire sewer lines through existing cleanouts, protecting your mature landscaping and hardscaping investments."
+      },
+      {
+        "id": "pac-heights-2",
+        "question": "Do you work with Pacific Heights architects and contractors?",
+        "answer": "Regularly. We coordinate with architects, general contractors, and property managers on Pacific Heights renovation and maintenance projects. We provide detailed documentation and work within your project timeline."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7925,
+      "lng": -122.4359
+    },
+    "seoTitle": "Pacific Heights Plumber | Luxury Home Specialists",
+    "seoDescription": "Premium plumbing services for Pacific Heights estates and luxury homes. Trenchless experts. Landscaping protection. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "financial-district-sf",
+    "slug": "financial-district",
+    "parentAreaSlug": "san-francisco",
+    "name": "Financial District",
+    "fullName": "Financial District, San Francisco",
+    "heroHeadline": "Financial District Commercial Plumbing",
+    "heroSubheadline": "24/7 commercial service for SF's business core",
+    "localContext": "The Financial District's concentration of high-rise office buildings, data centers, and ground-floor retail creates intense plumbing demands. Building managers require fast response times, after-hours service, and contractors who understand commercial building systems and tenant coordination.",
+    "commonProblems": [
+      {
+        "title": "High-Rise Stack Issues",
+        "description": "Vertical drain systems in 20-50 story buildings accumulate scale and debris affecting multiple floors"
+      },
+      {
+        "title": "Ground Floor Restaurant Drains",
+        "description": "Food service tenants create heavy grease loads on building drain systems"
+      }
+    ],
+    "propertyTypes": [
+      "Class A Office Buildings",
+      "High-Rise Towers",
+      "Data Centers",
+      "Ground Floor Retail",
+      "Historic Commercial Buildings"
+    ],
+    "landmarks": [
+      "Salesforce Tower",
+      "Transamerica Pyramid",
+      "Embarcadero Center",
+      "Montgomery Street"
+    ],
+    "localTip": "Financial District building managers often schedule annual hydro jetting for main drain lines to prevent backup emergencies during business hours.",
+    "testimonial": {
+      "name": "FiDi Property Manager",
+      "text": "When we had a main line backup affecting multiple tenants, West Peak arrived within an hour and had it cleared before the morning rush. They're our go-to for all three buildings we manage.",
+      "rating": 5,
+      "project": "Emergency drain clearing"
+    },
+    "faqs": [
+      {
+        "id": "fidi-1",
+        "question": "Do you provide after-hours service in the Financial District?",
+        "answer": "Yes! We understand FiDi buildings often need work done outside business hours. We're available 24/7 and regularly schedule maintenance work during evenings and weekends to minimize tenant disruption."
+      },
+      {
+        "id": "fidi-2",
+        "question": "Can you service high-rise buildings in the Financial District?",
+        "answer": "Absolutely. We have equipment specifically designed for high-rise plumbing systems. Our team has experience with buildings up to 50+ stories and we coordinate closely with building engineers and management."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7946,
+      "lng": -122.3999
+    },
+    "seoTitle": "Financial District Plumber | Commercial High-Rise SF",
+    "seoDescription": "24/7 commercial plumbing for the Financial District, SF. High-rise specialists. Emergency response. Building management partnerships.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning",
+      "commercial-water-heater"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "north-beach-sf",
+    "slug": "north-beach",
+    "parentAreaSlug": "san-francisco",
+    "name": "North Beach",
+    "fullName": "North Beach, San Francisco",
+    "heroHeadline": "North Beach Plumbing & Drain Service",
+    "heroSubheadline": "Expert care for North Beach's Italian restaurants and historic buildings",
+    "localContext": "North Beach's charm comes from its historic Italian restaurants, coffee houses, and pre-war residential buildings. This also means aging plumbing infrastructure and intense commercial grease demands. Many buildings have narrow lots making traditional excavation extremely difficult and costly.",
+    "commonProblems": [
+      {
+        "title": "Restaurant Grease Accumulation",
+        "description": "North Beach's famous Italian restaurants create heavy grease loads in commercial and shared sewer lines"
+      },
+      {
+        "title": "Narrow Lot Access",
+        "description": "Traditional excavation is often impossible in North Beach's tight lot configurations"
+      }
+    ],
+    "propertyTypes": [
+      "Italian Restaurants",
+      "Coffee Houses",
+      "Pre-War Apartments",
+      "Historic Retail",
+      "Walk-Up Flats"
+    ],
+    "landmarks": [
+      "Washington Square Park",
+      "Coit Tower",
+      "Columbus Avenue",
+      "City Lights Bookstore"
+    ],
+    "localTip": "North Beach restaurants benefit from quarterly grease trap maintenance and annual hydro jetting to prevent costly backups during busy dinner service.",
+    "testimonial": {
+      "name": "North Beach Restaurant Owner",
+      "text": "Our kitchen drain was backing up during dinner service. West Peak came out the same day, cleared the line, and set us up on a maintenance schedule. No more surprises during the rush.",
+      "rating": 5,
+      "project": "Commercial drain maintenance"
+    },
+    "faqs": [
+      {
+        "id": "north-beach-1",
+        "question": "How do you handle restaurant drain maintenance in North Beach?",
+        "answer": "We understand North Beach restaurants can't afford downtime. We offer early morning and late night service, use equipment sized for tight kitchen spaces, and can set up preventive maintenance schedules to avoid emergency situations."
+      },
+      {
+        "id": "north-beach-2",
+        "question": "Can you access sewer lines in North Beach's narrow buildings?",
+        "answer": "Yes! Our trenchless methods are ideal for North Beach's tight lots. We can rehabilitate sewer lines through existing cleanouts without excavation, which is often impossible anyway given the neighborhood's building density."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.806,
+      "lng": -122.4103
+    },
+    "seoTitle": "North Beach Plumber | Restaurant Drain Specialists SF",
+    "seoDescription": "Expert plumbing for North Beach restaurants and homes. Grease trap service. Trenchless repairs. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "sunset-district-sf",
+    "slug": "sunset-district",
+    "parentAreaSlug": "san-francisco",
+    "name": "Sunset District",
+    "fullName": "Sunset District, San Francisco",
+    "heroHeadline": "Sunset District Plumbing & Sewer Repair",
+    "heroSubheadline": "Reliable service for the Sunset's row homes and sandy soil conditions",
+    "localContext": "The Sunset District's grid of row homes was largely built in the 1920s-1950s, meaning many properties have aging cast iron and clay sewer lines. The neighborhood's sandy soil—a remnant of the original sand dunes—creates both opportunities and challenges for pipe work. Trenchless methods work exceptionally well in this soil type.",
+    "commonProblems": [
+      {
+        "title": "Root Intrusion",
+        "description": "Sunset's street trees and mature landscaping send roots into aging clay and cast iron sewer joints"
+      },
+      {
+        "title": "Mid-Century Pipe Degradation",
+        "description": "1940s-1960s homes reaching the end of their original plumbing lifespan"
+      }
+    ],
+    "propertyTypes": [
+      "Row Homes",
+      "In-Law Units",
+      "Small Apartment Buildings",
+      "Single-Family Homes",
+      "Sunset District Bungalows"
+    ],
+    "landmarks": [
+      "Golden Gate Park",
+      "Ocean Beach",
+      "Sunset Boulevard",
+      "Irving Street"
+    ],
+    "localTip": "Sunset homeowners with in-law units should ensure the additional bathroom isn't overloading original sewer lines sized for single-family use.",
+    "testimonial": {
+      "name": "Sunset District Homeowner",
+      "text": "Tree roots had completely blocked our sewer line. West Peak cleared it with hydro jetting, then lined the pipe to prevent future root intrusion. Problem solved permanently.",
+      "rating": 5,
+      "project": "Root removal and pipe lining"
+    },
+    "faqs": [
+      {
+        "id": "sunset-1",
+        "question": "Why does the Sunset District have so many root problems?",
+        "answer": "The Sunset's mature street trees and sandy soil encourage root growth toward moisture sources—like your sewer line. Aging clay and cast iron pipes with deteriorating joints are easy targets. Pipe lining seals these entry points permanently."
+      },
+      {
+        "id": "sunset-2",
+        "question": "How much does sewer line replacement cost in the Sunset?",
+        "answer": "Traditional excavation in the Sunset typically runs $15,000-$25,000 due to concrete work and sidewalk restoration. Trenchless lining usually costs $4,000-$10,000 for comparable results. Sandy soil makes our trenchless methods particularly effective here."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7544,
+      "lng": -122.4944
+    },
+    "seoTitle": "Sunset District Plumber | Root Removal & Pipe Lining",
+    "seoDescription": "Trusted plumbing service in the Sunset District, SF. Root intrusion specialists. Trenchless repairs for row homes. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "richmond-district-sf",
+    "slug": "richmond-district",
+    "parentAreaSlug": "san-francisco",
+    "name": "Richmond District",
+    "fullName": "Richmond District, San Francisco",
+    "heroHeadline": "Richmond District Plumbing Experts",
+    "heroSubheadline": "Dependable service for the Richmond's diverse homes and businesses",
+    "localContext": "The Richmond District mirrors the Sunset with similar row home construction from the 1920s-1950s, but includes more diverse commercial corridors on Clement and Geary. The mix of residential and restaurant uses creates varied plumbing demands, from aging home sewer lines to commercial grease management.",
+    "commonProblems": [
+      {
+        "title": "Shared Sewer Line Issues",
+        "description": "Many Richmond row homes share sewer laterals, requiring coordination between neighbors for repairs"
+      },
+      {
+        "title": "Clement Street Restaurant Drains",
+        "description": "The bustling restaurant corridor creates commercial grease challenges similar to North Beach"
+      }
+    ],
+    "propertyTypes": [
+      "Row Homes",
+      "Small Apartment Buildings",
+      "Clement Street Retail",
+      "Asian Restaurants",
+      "Single-Family Homes"
+    ],
+    "landmarks": [
+      "Golden Gate Park",
+      "Lincoln Park",
+      "Clement Street",
+      "Lands End"
+    ],
+    "localTip": "Richmond homeowners sharing sewer laterals should consider coordinated maintenance with neighbors to split costs and ensure the entire line is addressed.",
+    "testimonial": {
+      "name": "Richmond District Homeowner",
+      "text": "We share a sewer line with our neighbors and it kept backing up. West Peak inspected the whole line, identified the problem, and we split the cost of trenchless repair. Great experience.",
+      "rating": 5,
+      "project": "Shared lateral rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "richmond-1",
+        "question": "How do shared sewer lines work in the Richmond District?",
+        "answer": "Many Richmond row homes connect to a shared sewer lateral before reaching the city main. We can inspect the entire line and help coordinate repairs between neighbors. Trenchless methods make shared line repairs much simpler since we don't need to excavate through multiple properties."
+      },
+      {
+        "id": "richmond-2",
+        "question": "Do you service Clement Street restaurants?",
+        "answer": "Yes! We work with many Clement Street restaurants on drain maintenance and grease management. We offer early morning service before your kitchen opens and can set up maintenance schedules to prevent emergency backups."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7793,
+      "lng": -122.483
+    },
+    "seoTitle": "Richmond District Plumber | Row Home Sewer Experts",
+    "seoDescription": "Expert plumbing for the Richmond District, SF. Shared sewer line specialists. Restaurant drain service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "san-jose",
+    "slug": "san-jose",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "San Jose",
+    "fullName": "San Jose, California",
+    "heroHeadline": "San Jose Plumbing & Trenchless Specialists",
+    "heroSubheadline": "Expert service for Silicon Valley's largest city",
+    "localContext": "As the largest city in the Bay Area, San Jose presents diverse plumbing challenges across its varied neighborhoods. From historic Downtown to sprawling suburban developments, properties range from 1900s bungalows to modern tech campus buildings. The city's clay soil and aging infrastructure make trenchless methods particularly valuable.",
+    "commonProblems": [
+      {
+        "title": "Orangeburg Pipe Failure",
+        "description": "Many 1950s-1970s San Jose homes have Orangeburg (tar paper) sewer lines now failing"
+      },
+      {
+        "title": "Clay Soil Pipe Stress",
+        "description": "San Jose's expansive clay soil moves seasonally, stressing pipe joints and connections"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Tech Campus Buildings",
+      "Downtown Condos",
+      "Tract Homes",
+      "Commercial Properties"
+    ],
+    "landmarks": [
+      "SAP Center",
+      "San Jose State",
+      "Santana Row",
+      "Downtown San Jose"
+    ],
+    "localTip": "San Jose homeowners buying properties from the 1950s-1970s should request a sewer scope inspection to check for failing Orangeburg pipes.",
+    "testimonial": {
+      "name": "San Jose Homeowner",
+      "text": "Our Orangeburg sewer line collapsed right before escrow closed. West Peak diagnosed the problem, provided a detailed report for the seller, and completed the trenchless repair in two days.",
+      "rating": 5,
+      "project": "Orangeburg pipe replacement"
+    },
+    "faqs": [
+      {
+        "id": "san-jose-1",
+        "question": "What is Orangeburg pipe and why is it a problem in San Jose?",
+        "answer": "Orangeburg pipe was a tar-paper-based sewer pipe used from the 1940s-1970s. Many San Jose homes from this era have it, and it's now reaching end of life—collapsing, deforming, or becoming root-infested. Trenchless pipe bursting can replace Orangeburg with new HDPE pipe."
+      },
+      {
+        "id": "san-jose-2",
+        "question": "Do you provide commercial plumbing services in San Jose?",
+        "answer": "Yes! We serve San Jose's commercial properties including tech campuses, retail centers, and industrial buildings. We offer 24/7 emergency service and can coordinate with your facilities team for scheduled maintenance."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.3382,
+      "lng": -121.8863
+    },
+    "seoTitle": "San Jose Plumber | Orangeburg Pipe Replacement",
+    "seoDescription": "Expert plumbing and trenchless services in San Jose, CA. Orangeburg specialists. 24/7 emergency service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "santa-clara",
+    "slug": "santa-clara",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Santa Clara",
+    "fullName": "Santa Clara, California",
+    "heroHeadline": "Santa Clara Plumbing & Sewer Experts",
+    "heroSubheadline": "Reliable service for homes and businesses near Levi's Stadium",
+    "localContext": "Santa Clara blends residential neighborhoods with major tech headquarters and entertainment venues. The city's mix of mid-century tract homes, modern developments, and commercial properties requires versatile plumbing expertise. Many older homes have aging clay and cast iron systems needing rehabilitation.",
+    "commonProblems": [
+      {
+        "title": "Mid-Century Tract Home Plumbing",
+        "description": "1950s-1970s developments reaching end of original plumbing lifespan"
+      },
+      {
+        "title": "Commercial High-Volume Drains",
+        "description": "Tech campus and entertainment venue restrooms require robust drainage"
+      }
+    ],
+    "propertyTypes": [
+      "Tract Homes",
+      "Tech Campuses",
+      "Entertainment Venues",
+      "Apartment Complexes",
+      "Retail Centers"
+    ],
+    "landmarks": [
+      "Levi's Stadium",
+      "Santa Clara University",
+      "Great America",
+      "Intel Headquarters"
+    ],
+    "localTip": "Santa Clara homeowners in 1960s neighborhoods should schedule sewer camera inspections before remodeling—many find original pipes need rehabilitation before adding bathrooms.",
+    "testimonial": {
+      "name": "Santa Clara Property Owner",
+      "text": "We wanted to add a bathroom to our 1965 home. West Peak inspected our sewer line, found it needed work, and completed both the pipe lining and bathroom rough-in. One contractor, one timeline.",
+      "rating": 5,
+      "project": "Sewer rehabilitation and remodel plumbing"
+    },
+    "faqs": [
+      {
+        "id": "santa-clara-1",
+        "question": "Do you service commercial properties near Levi's Stadium?",
+        "answer": "Yes! We work with commercial properties throughout Santa Clara, including businesses near Levi's Stadium and Great America. We understand high-traffic demands and can schedule service around events and peak times."
+      },
+      {
+        "id": "santa-clara-2",
+        "question": "How old should my Santa Clara home's plumbing be before I worry?",
+        "answer": "Most cast iron and clay pipes last 50-75 years with maintenance. If your Santa Clara home is from the 1950s-1970s, a camera inspection is wise—especially before remodeling. Early detection prevents emergency failures."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.3541,
+      "lng": -121.9552
+    },
+    "seoTitle": "Santa Clara Plumber | Tract Home Sewer Experts",
+    "seoDescription": "Expert plumbing for Santa Clara homes and businesses. Mid-century specialists. Commercial service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "sunnyvale",
+    "slug": "sunnyvale",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Sunnyvale",
+    "fullName": "Sunnyvale, California",
+    "heroHeadline": "Sunnyvale Plumbing & Trenchless Service",
+    "heroSubheadline": "Trusted by Sunnyvale homeowners and tech companies since day one",
+    "localContext": "Sunnyvale sits at the heart of Silicon Valley, with neighborhoods ranging from 1950s-era Eichler homes to modern townhouse developments, plus major tech campuses. The city's diverse housing stock means varied plumbing systems—from signature Eichler radiant heating to contemporary construction.",
+    "commonProblems": [
+      {
+        "title": "Eichler Home Plumbing",
+        "description": "Sunnyvale's many Eichler homes have unique under-slab plumbing requiring specialized approaches"
+      },
+      {
+        "title": "Aging Sewer Laterals",
+        "description": "Original 1950s-1960s clay sewer lines reaching failure age across many neighborhoods"
+      }
+    ],
+    "propertyTypes": [
+      "Eichler Homes",
+      "Mid-Century Ranches",
+      "Modern Townhouses",
+      "Tech Campuses",
+      "Apartment Complexes"
+    ],
+    "landmarks": [
+      "LinkedIn HQ",
+      "Google Sunnyvale",
+      "Murphy Avenue",
+      "Sunnyvale Heritage Park"
+    ],
+    "localTip": "Sunnyvale Eichler homeowners should work with plumbers experienced in slab-on-grade construction to avoid damaging signature concrete floors.",
+    "testimonial": {
+      "name": "Sunnyvale Eichler Owner",
+      "text": "Finding a plumber who understands Eichlers isn't easy. West Peak knew exactly how to approach our under-slab issue without damaging our original floors. True specialists.",
+      "rating": 5,
+      "project": "Eichler drain repair"
+    },
+    "faqs": [
+      {
+        "id": "sunnyvale-1",
+        "question": "Do you specialize in Eichler home plumbing?",
+        "answer": "Yes! Sunnyvale has one of the largest concentrations of Eichler homes in the Bay Area. We understand their unique slab-on-grade construction, under-slab plumbing, and radiant heating systems. Our trenchless methods are ideal for Eichlers since we can often repair pipes without cutting into concrete."
+      },
+      {
+        "id": "sunnyvale-2",
+        "question": "What causes sewer problems in older Sunnyvale homes?",
+        "answer": "Most 1950s-1970s Sunnyvale homes have original clay sewer lines now 50-70 years old. Root intrusion, joint separation, and pipe deterioration are common. A camera inspection reveals the condition and helps plan rehabilitation before emergency failure."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.3688,
+      "lng": -122.0363
+    },
+    "seoTitle": "Sunnyvale Plumber | Eichler Home Specialists",
+    "seoDescription": "Expert plumbing for Sunnyvale including Eichler homes. Slab-on-grade specialists. Trenchless repairs. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "mountain-view",
+    "slug": "mountain-view",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Mountain View",
+    "fullName": "Mountain View, California",
+    "heroHeadline": "Mountain View Plumbing Excellence",
+    "heroSubheadline": "Expert service from Downtown to the Googleplex",
+    "localContext": "Mountain View combines a historic downtown, diverse residential neighborhoods, and tech industry giants. From charming California bungalows near Castro Street to modern developments near Google's headquarters, the city presents varied plumbing needs. Many older homes have aging sewer systems while newer areas face commercial-grade demands.",
+    "commonProblems": [
+      {
+        "title": "Bungalow Sewer Aging",
+        "description": "Pre-1940s homes near downtown with original clay sewer lines needing rehabilitation"
+      },
+      {
+        "title": "High-Density Development Drains",
+        "description": "New townhouse and apartment complexes requiring commercial-grade service"
+      }
+    ],
+    "propertyTypes": [
+      "California Bungalows",
+      "Ranch Homes",
+      "Townhouse Complexes",
+      "Tech Campuses",
+      "Downtown Mixed-Use"
+    ],
+    "landmarks": [
+      "Google Headquarters",
+      "Shoreline Amphitheatre",
+      "Castro Street",
+      "Stevens Creek Trail"
+    ],
+    "localTip": "Mountain View homeowners near downtown should budget for sewer line rehabilitation—most original clay lines are now 80+ years old.",
+    "testimonial": {
+      "name": "Mountain View Homeowner",
+      "text": "Our 1930s bungalow needed a new sewer line but we have a beautiful garden. West Peak's trenchless method saved our landscaping completely. You can't even tell they were here.",
+      "rating": 5,
+      "project": "Residential CIPP lining"
+    },
+    "faqs": [
+      {
+        "id": "mountain-view-1",
+        "question": "Do you service Mountain View's downtown restaurants?",
+        "answer": "Yes! We work with many Castro Street and downtown Mountain View restaurants. We offer early morning drain cleaning before you open, grease trap service, and preventive maintenance programs to avoid disruptions during business hours."
+      },
+      {
+        "id": "mountain-view-2",
+        "question": "How old are sewer lines in older Mountain View neighborhoods?",
+        "answer": "Homes near downtown Mountain View often date to the 1920s-1940s, meaning original sewer lines are 80-100 years old. While some hold up remarkably well, many show root intrusion, bellies, or joint deterioration. A camera inspection is the best first step."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.3861,
+      "lng": -122.0839
+    },
+    "seoTitle": "Mountain View Plumber | Downtown to Googleplex",
+    "seoDescription": "Trusted plumbing in Mountain View, CA. Historic bungalow to modern tech campus. Trenchless experts. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "palo-alto",
+    "slug": "palo-alto",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Palo Alto",
+    "fullName": "Palo Alto, California",
+    "heroHeadline": "Palo Alto Premium Plumbing Service",
+    "heroSubheadline": "Expert care for Palo Alto's distinguished homes and Stanford community",
+    "localContext": "Palo Alto's tree-lined streets feature some of the Bay Area's most valuable residential properties, from historic Professorville homes to grand Crescent Park estates. These high-end properties demand exceptional service that protects landscaping, architectural integrity, and home value. The mature oak and redwood trees that define Palo Alto also mean significant root intrusion risks.",
+    "commonProblems": [
+      {
+        "title": "Heritage Tree Root Intrusion",
+        "description": "Palo Alto's protected oak and redwood trees send roots into aging sewer lines"
+      },
+      {
+        "title": "Historic Home Plumbing",
+        "description": "Professorville and Old Palo Alto homes with 100+ year old plumbing systems"
+      }
+    ],
+    "propertyTypes": [
+      "Historic Estates",
+      "Professorville Homes",
+      "Crescent Park Properties",
+      "Eichlers",
+      "Stanford Campus"
+    ],
+    "landmarks": [
+      "Stanford University",
+      "University Avenue",
+      "Professorville",
+      "Mitchell Park"
+    ],
+    "localTip": "Palo Alto's strict tree protection ordinances make trenchless repairs essential—excavation near protected oaks often requires expensive arborist oversight and city permits.",
+    "testimonial": {
+      "name": "Palo Alto Estate Owner",
+      "text": "Our Crescent Park home had root intrusion from our 100-year-old oak tree. West Peak lined the sewer without disturbing a single root or blade of grass. Impeccable work.",
+      "rating": 5,
+      "project": "Root intrusion repair with pipe lining"
+    },
+    "faqs": [
+      {
+        "id": "palo-alto-1",
+        "question": "How do you work around Palo Alto's protected heritage trees?",
+        "answer": "Palo Alto's Urban Forestry ordinance strictly protects heritage trees. Our trenchless methods are ideal because we don't excavate in root zones. We can rehabilitate sewer lines through existing access points without triggering tree protection requirements or risking damage."
+      },
+      {
+        "id": "palo-alto-2",
+        "question": "Do you service historic homes in Professorville?",
+        "answer": "Absolutely. Professorville's historic homes require careful attention to both plumbing function and architectural preservation. Our trenchless methods allow us to rehabilitate 100+ year old sewer lines without disturbing historic foundations, gardens, or streetscapes."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.4419,
+      "lng": -122.143
+    },
+    "seoTitle": "Palo Alto Plumber | Heritage Tree Safe Sewer Repair",
+    "seoDescription": "Premium plumbing for Palo Alto estates and historic homes. Tree-safe trenchless methods. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "cupertino",
+    "slug": "cupertino",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Cupertino",
+    "fullName": "Cupertino, California",
+    "heroHeadline": "Cupertino Plumbing & Sewer Solutions",
+    "heroSubheadline": "Trusted service for Cupertino families and businesses",
+    "localContext": "Cupertino's family-oriented neighborhoods feature well-maintained homes from the 1960s-1980s, along with newer developments near Apple Park. The city's excellent schools mean properties turn over less frequently, so many homes still have original plumbing systems. Proactive maintenance helps avoid disruption to busy family schedules.",
+    "commonProblems": [
+      {
+        "title": "1960s-1980s Pipe Aging",
+        "description": "Many Cupertino homes have original cast iron or clay sewer lines reaching end of life"
+      },
+      {
+        "title": "Remodel Strain on Old Pipes",
+        "description": "Kitchen and bathroom upgrades in older homes can reveal underlying plumbing issues"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Townhouses",
+      "Apartment Complexes",
+      "Tech Campuses",
+      "Retail Centers"
+    ],
+    "landmarks": [
+      "Apple Park",
+      "De Anza College",
+      "Main Street Cupertino",
+      "Rancho San Antonio"
+    ],
+    "localTip": "Cupertino homeowners planning kitchen or bathroom remodels should include a sewer scope inspection—many discover issues that are cheaper to fix before new floors go in.",
+    "testimonial": {
+      "name": "Cupertino Family",
+      "text": "During our kitchen remodel, West Peak found our 1975 sewer line was failing. They lined it during construction so we only disrupted the house once. Smart planning saved us money and hassle.",
+      "rating": 5,
+      "project": "Remodel coordination with pipe lining"
+    },
+    "faqs": [
+      {
+        "id": "cupertino-1",
+        "question": "Should I inspect my Cupertino home's sewer line before remodeling?",
+        "answer": "Definitely. Many 1960s-1980s Cupertino homes have aging sewer lines that need attention. Discovering this during a remodel lets you address it while walls are open and contractors are on-site, saving significant money compared to separate projects later."
+      },
+      {
+        "id": "cupertino-2",
+        "question": "Do you work around family schedules in Cupertino?",
+        "answer": "Yes! We understand Cupertino families are busy with school, work, and activities. We offer flexible scheduling, minimize disruption, and complete most residential work in one day. Trenchless methods mean no mess in your yard."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.323,
+      "lng": -122.0322
+    },
+    "seoTitle": "Cupertino Plumber | Family Home Sewer Specialists",
+    "seoDescription": "Trusted plumbing for Cupertino families and businesses. Remodel-ready inspections. Trenchless repairs. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "milpitas",
+    "slug": "milpitas",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Milpitas",
+    "fullName": "Milpitas, California",
+    "heroHeadline": "Milpitas Plumbing & Drain Experts",
+    "heroSubheadline": "Fast, reliable service for Milpitas homes and businesses",
+    "localContext": "Milpitas has transformed from orchards to a bustling city with diverse residential neighborhoods and significant industrial areas. Homes range from 1950s originals near downtown to new developments in the hills. The city's mix of residential and commercial properties requires versatile plumbing expertise.",
+    "commonProblems": [
+      {
+        "title": "Industrial Area Drainage",
+        "description": "Commercial and industrial properties require heavy-duty drain maintenance"
+      },
+      {
+        "title": "New Development Settling",
+        "description": "Recent hillside developments can experience soil movement affecting new pipe installations"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Townhouse Communities",
+      "Industrial Buildings",
+      "Retail Centers",
+      "New Developments"
+    ],
+    "landmarks": [
+      "Great Mall",
+      "Ed Levin County Park",
+      "Main Street",
+      "McCarthy Ranch"
+    ],
+    "localTip": "Milpitas homeowners in hillside developments should monitor for slow drains after wet seasons—soil movement can affect underground pipes.",
+    "testimonial": {
+      "name": "Milpitas Business Owner",
+      "text": "Our warehouse had drain issues affecting operations. West Peak came out same day, diagnosed the problem, and had us back to normal by morning. They understand commercial needs.",
+      "rating": 5,
+      "project": "Commercial drain emergency"
+    },
+    "faqs": [
+      {
+        "id": "milpitas-1",
+        "question": "Do you provide commercial plumbing service in Milpitas?",
+        "answer": "Yes! We serve Milpitas commercial and industrial properties including Great Mall area businesses, McCarthy Ranch offices, and industrial facilities. We offer 24/7 emergency response and understand the urgency of commercial plumbing issues."
+      },
+      {
+        "id": "milpitas-2",
+        "question": "How do new Milpitas homes develop plumbing problems?",
+        "answer": "New developments, especially in hillside areas, can experience soil settling that stresses pipe joints. While new pipes are durable, ground movement can cause issues. We recommend inspection after the first few rainy seasons and before your warranty expires."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.4323,
+      "lng": -121.8996
+    },
+    "seoTitle": "Milpitas Plumber | Residential & Commercial Service",
+    "seoDescription": "Expert plumbing for Milpitas homes and businesses. Industrial specialists. 24/7 emergency service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning",
+      "commercial-water-heater"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "campbell",
+    "slug": "campbell",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Campbell",
+    "fullName": "Campbell, California",
+    "heroHeadline": "Campbell Plumbing & Sewer Service",
+    "heroSubheadline": "Neighborly service for Campbell's charming downtown and beyond",
+    "localContext": "Campbell's walkable downtown and established neighborhoods give the city a small-town feel despite its Silicon Valley location. Many homes date from the 1950s-1970s, with original plumbing systems now reaching end of life. The city's mix of single-family homes, apartment complexes, and downtown businesses requires diverse plumbing expertise.",
+    "commonProblems": [
+      {
+        "title": "Mid-Century Home Sewer Lines",
+        "description": "1950s-1970s homes with original clay or cast iron sewer systems needing rehabilitation"
+      },
+      {
+        "title": "Downtown Restaurant Drains",
+        "description": "Campbell Avenue's thriving restaurant scene creates commercial grease management needs"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Downtown Mixed-Use",
+      "Apartment Complexes",
+      "Restaurants",
+      "Retail"
+    ],
+    "landmarks": [
+      "Downtown Campbell",
+      "Pruneyard Shopping Center",
+      "Los Gatos Creek Trail",
+      "Campbell Community Center"
+    ],
+    "localTip": "Campbell homeowners should schedule sewer inspections before selling—buyers in this market commonly request sewer scope reports.",
+    "testimonial": {
+      "name": "Campbell Homeowner",
+      "text": "When we listed our 1962 home, the buyer requested a sewer inspection. West Peak found issues, repaired them quickly, and the sale closed on time. Professional and responsive.",
+      "rating": 5,
+      "project": "Pre-sale sewer repair"
+    },
+    "faqs": [
+      {
+        "id": "campbell-1",
+        "question": "Do you offer real estate sewer inspections in Campbell?",
+        "answer": "Yes! We provide detailed sewer camera inspections with video reports for Campbell real estate transactions. If repairs are needed, we can provide estimates quickly to keep your sale on track."
+      },
+      {
+        "id": "campbell-2",
+        "question": "Do you service Downtown Campbell restaurants?",
+        "answer": "Absolutely. We work with several Downtown Campbell restaurants on regular drain maintenance, grease trap cleaning, and emergency service. We schedule around your hours to minimize business disruption."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.2872,
+      "lng": -121.95
+    },
+    "seoTitle": "Campbell Plumber | Real Estate Sewer Inspections",
+    "seoDescription": "Trusted plumbing for Campbell homes and restaurants. Pre-sale inspections. Downtown specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "los-gatos",
+    "slug": "los-gatos",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Los Gatos",
+    "fullName": "Los Gatos, California",
+    "heroHeadline": "Los Gatos Premier Plumbing Service",
+    "heroSubheadline": "Expert care for Los Gatos estates and hillside properties",
+    "localContext": "Los Gatos blends charming downtown streets with extensive hillside properties and luxury estates. Many hillside homes have long sewer laterals traversing challenging terrain, while downtown properties are densely packed on historic lots. The town's commitment to preserving its character makes non-invasive trenchless methods essential.",
+    "commonProblems": [
+      {
+        "title": "Hillside Sewer Line Issues",
+        "description": "Long sewer laterals on hillside properties face soil movement and root intrusion"
+      },
+      {
+        "title": "Historic Downtown Plumbing",
+        "description": "Pre-1940s buildings with aging systems in tight lot configurations"
+      }
+    ],
+    "propertyTypes": [
+      "Hillside Estates",
+      "Historic Downtown Buildings",
+      "Luxury Homes",
+      "Restaurants",
+      "Boutique Retail"
+    ],
+    "landmarks": [
+      "Downtown Los Gatos",
+      "Los Gatos Creek Trail",
+      "Vasona Park",
+      "Lexington Reservoir"
+    ],
+    "localTip": "Los Gatos hillside homeowners should inspect sewer lines after significant rain events—soil movement can shift pipe alignment over time.",
+    "testimonial": {
+      "name": "Los Gatos Hillside Homeowner",
+      "text": "Our sewer line runs 200 feet down the hillside. When it failed, excavation would have cost a fortune and destroyed our landscaping. West Peak lined the entire length in one day. Incredible.",
+      "rating": 5,
+      "project": "Hillside CIPP lining"
+    },
+    "faqs": [
+      {
+        "id": "los-gatos-1",
+        "question": "Can you repair long sewer lines on Los Gatos hillside properties?",
+        "answer": "Yes! We specialize in long hillside sewer laterals common in Los Gatos. Our trenchless CIPP lining can rehabilitate 200+ foot runs through a single access point. No excavation means no damage to hillside landscaping or retaining walls."
+      },
+      {
+        "id": "los-gatos-2",
+        "question": "Do you work with Los Gatos downtown businesses?",
+        "answer": "Absolutely. We serve downtown Los Gatos restaurants, shops, and professional offices. We understand the town's aesthetic standards and work during off-hours to avoid disrupting businesses or the downtown experience."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.2358,
+      "lng": -121.9624
+    },
+    "seoTitle": "Los Gatos Plumber | Hillside Sewer Specialists",
+    "seoDescription": "Premium plumbing for Los Gatos estates and downtown. Hillside specialists. Trenchless experts. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "saratoga",
+    "slug": "saratoga",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Saratoga",
+    "fullName": "Saratoga, California",
+    "heroHeadline": "Saratoga Estate Plumbing Experts",
+    "heroSubheadline": "Premium service for Saratoga's finest properties",
+    "localContext": "Saratoga's wooded streets and spacious estates set the standard for luxury living in Silicon Valley. Properties often feature extensive landscaping, mature trees, and long driveways that make traditional excavation particularly damaging and expensive. Our trenchless methods protect both property value and the natural beauty that defines Saratoga.",
+    "commonProblems": [
+      {
+        "title": "Estate Sewer Line Length",
+        "description": "Large properties often have 100-300 foot sewer laterals requiring specialized equipment"
+      },
+      {
+        "title": "Mature Tree Root Intrusion",
+        "description": "Saratoga's beautiful oak and redwood trees send roots into aging sewer lines"
+      }
+    ],
+    "propertyTypes": [
+      "Estate Homes",
+      "Luxury Properties",
+      "Historic Estates",
+      "Hillside Homes",
+      "Village Businesses"
+    ],
+    "landmarks": [
+      "Saratoga Village",
+      "Hakone Gardens",
+      "Montalvo Arts Center",
+      "Big Basin Way"
+    ],
+    "localTip": "Saratoga estate owners often opt for complete sewer line rehabilitation to protect property values—failed sewer lines can affect luxury home sales significantly.",
+    "testimonial": {
+      "name": "Saratoga Estate Owner",
+      "text": "Our 250-foot sewer line needed complete rehabilitation. Traditional replacement would have destroyed decades of landscape investment. West Peak's trenchless solution preserved everything. Worth every penny.",
+      "rating": 5,
+      "project": "Full estate sewer rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "saratoga-1",
+        "question": "How do you handle Saratoga's large estate properties?",
+        "answer": "Saratoga estates often have sewer laterals 200-300 feet long. Our specialized equipment can line entire runs through single access points. We coordinate with landscape architects and property managers to ensure zero disruption to your grounds."
+      },
+      {
+        "id": "saratoga-2",
+        "question": "Does sewer condition affect Saratoga home values?",
+        "answer": "Absolutely. Saratoga buyers are sophisticated and typically require sewer inspections. A failed or failing sewer line can derail sales or trigger significant price negotiations. Proactive rehabilitation protects your investment and streamlines future sales."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.2638,
+      "lng": -122.0231
+    },
+    "seoTitle": "Saratoga Plumber | Luxury Estate Sewer Specialists",
+    "seoDescription": "Premium plumbing for Saratoga estates. Long lateral specialists. Landscape protection. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "los-altos",
+    "slug": "los-altos",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Los Altos",
+    "fullName": "Los Altos, California",
+    "heroHeadline": "Los Altos Plumbing Excellence",
+    "heroSubheadline": "Expert service for Los Altos families and distinguished homes",
+    "localContext": "Los Altos combines excellent schools with distinguished residential neighborhoods, attracting families who invest significantly in their properties. Many homes date from the 1950s-1970s, with original plumbing systems now reaching end of life. The city's high property values make protective trenchless methods particularly valuable.",
+    "commonProblems": [
+      {
+        "title": "Original Cast Iron Aging",
+        "description": "1950s-1970s homes with cast iron sewer systems showing corrosion and joint failure"
+      },
+      {
+        "title": "Pool/Spa Drain Issues",
+        "description": "Many Los Altos homes have pools with aging drain systems needing attention"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Ranches",
+      "Luxury Properties",
+      "Downtown Businesses",
+      "Professional Offices"
+    ],
+    "landmarks": [
+      "Downtown Los Altos",
+      "Rancho San Antonio",
+      "Los Altos History Museum",
+      "Loyola Corners"
+    ],
+    "localTip": "Los Altos homeowners buying 1950s-1970s properties should negotiate sewer inspections during escrow—many find rehabilitation needed.",
+    "testimonial": {
+      "name": "Los Altos Family",
+      "text": "When we bought our 1965 home, the inspection revealed aging pipes. We negotiated a credit and used West Peak to line everything before we moved in. Smart move—no issues in five years.",
+      "rating": 5,
+      "project": "Post-purchase pipe rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "los-altos-1",
+        "question": "Why do Los Altos homes from the 1960s need sewer work?",
+        "answer": "Most 1960s Los Altos homes have original cast iron or clay sewer lines now 60+ years old. While built well, these materials deteriorate over time—cast iron rusts internally while clay joints allow root intrusion. Camera inspection reveals current condition."
+      },
+      {
+        "id": "los-altos-2",
+        "question": "Do you work with Los Altos real estate transactions?",
+        "answer": "Yes! We provide detailed sewer inspections with video documentation for buyers and sellers. When issues are found, we can provide rapid estimates and complete repairs quickly to keep transactions on schedule."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.3852,
+      "lng": -122.1141
+    },
+    "seoTitle": "Los Altos Plumber | Mid-Century Home Specialists",
+    "seoDescription": "Expert plumbing for Los Altos homes. 1960s-1970s specialists. Real estate inspections. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "morgan-hill",
+    "slug": "morgan-hill",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Morgan Hill",
+    "fullName": "Morgan Hill, California",
+    "heroHeadline": "Morgan Hill Plumbing & Sewer Experts",
+    "heroSubheadline": "Local service for Morgan Hill's growing community",
+    "localContext": "Morgan Hill maintains a small-town character while experiencing significant growth. The city's mix of established neighborhoods, new developments, and agricultural properties creates varied plumbing needs. Many older homes near downtown have aging infrastructure, while new developments occasionally face construction-related issues.",
+    "commonProblems": [
+      {
+        "title": "Older Home Sewer Aging",
+        "description": "Pre-1980s homes near downtown with original clay or cast iron sewer lines"
+      },
+      {
+        "title": "New Construction Defects",
+        "description": "Rapid development occasionally results in plumbing defects discovered after warranties expire"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "New Developments",
+      "Agricultural Properties",
+      "Downtown Businesses",
+      "Wineries"
+    ],
+    "landmarks": [
+      "Downtown Morgan Hill",
+      "Anderson Lake",
+      "Coyote Creek Trail",
+      "Morgan Hill Mushroom Mardi Gras"
+    ],
+    "localTip": "Morgan Hill homeowners in new developments should get sewer inspections before builder warranties expire to document any settlement-related issues.",
+    "testimonial": {
+      "name": "Morgan Hill Homeowner",
+      "text": "Our builder's warranty was expiring so we had West Peak inspect everything. They found issues the builder had to fix. Saved us thousands down the road. Worth the inspection fee many times over.",
+      "rating": 5,
+      "project": "Warranty inspection"
+    },
+    "faqs": [
+      {
+        "id": "morgan-hill-1",
+        "question": "Do you service new Morgan Hill developments?",
+        "answer": "Yes! We work in all Morgan Hill neighborhoods including newer developments. We recommend inspection before builder warranty expiration—ground settling during the first few years can reveal plumbing issues the builder should address."
+      },
+      {
+        "id": "morgan-hill-2",
+        "question": "How far south do you service?",
+        "answer": "We service all of Morgan Hill and surrounding areas including Gilroy. Response times to Morgan Hill are typically within 2 hours for emergencies, same-day for scheduled service."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.1305,
+      "lng": -121.6544
+    },
+    "seoTitle": "Morgan Hill Plumber | New & Older Home Service",
+    "seoDescription": "Expert plumbing for Morgan Hill homes. New construction and established neighborhoods. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "gilroy",
+    "slug": "gilroy",
+    "parentAreaSlug": "santa-clara-county",
+    "name": "Gilroy",
+    "fullName": "Gilroy, California",
+    "heroHeadline": "Gilroy Plumbing & Drain Solutions",
+    "heroSubheadline": "Reliable service for Gilroy's homes and food processing facilities",
+    "localContext": "Gilroy's reputation as the 'Garlic Capital of the World' reflects its agricultural heritage and food processing industry. This creates unique commercial plumbing demands alongside residential needs. Many older homes have aging infrastructure while industrial facilities require heavy-duty drain maintenance.",
+    "commonProblems": [
+      {
+        "title": "Food Processing Drain Demands",
+        "description": "Garlic and food processing facilities require robust, hygienic drain systems"
+      },
+      {
+        "title": "Older Home Sewer Deterioration",
+        "description": "Established neighborhoods with aging clay and cast iron sewer systems"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Food Processing Plants",
+      "Agricultural Operations",
+      "Outlets",
+      "Industrial Facilities"
+    ],
+    "landmarks": [
+      "Gilroy Gardens",
+      "Gilroy Premium Outlets",
+      "Downtown Gilroy",
+      "Gilroy Garlic Festival"
+    ],
+    "localTip": "Gilroy food processing businesses should establish regular drain maintenance schedules to meet health department requirements and prevent costly downtime.",
+    "testimonial": {
+      "name": "Gilroy Food Processor",
+      "text": "Our facility needs specialized drain attention for food safety compliance. West Peak understands our requirements and keeps our lines clear without disrupting production.",
+      "rating": 5,
+      "project": "Food processing facility maintenance"
+    },
+    "faqs": [
+      {
+        "id": "gilroy-1",
+        "question": "Do you service Gilroy food processing facilities?",
+        "answer": "Yes! We work with several Gilroy food processing and agricultural operations. We understand FDA and health department requirements for drain systems and can schedule maintenance around production schedules."
+      },
+      {
+        "id": "gilroy-2",
+        "question": "What areas in Gilroy do you cover?",
+        "answer": "We service all of Gilroy including residential neighborhoods, downtown businesses, outlet area, and industrial zones. Emergency response to Gilroy is typically within 2-3 hours."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.0058,
+      "lng": -121.5683
+    },
+    "seoTitle": "Gilroy Plumber | Food Processing & Residential",
+    "seoDescription": "Expert plumbing for Gilroy homes and food industry. Industrial drain specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning",
+      "commercial-water-heater"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "oakland",
+    "slug": "oakland",
+    "parentAreaSlug": "alameda-county",
+    "name": "Oakland",
+    "fullName": "Oakland, California",
+    "heroHeadline": "Oakland Plumbing & Trenchless Experts",
+    "heroSubheadline": "Serving Oakland's diverse neighborhoods from the hills to the flats",
+    "localContext": "Oakland's diverse neighborhoods span from historic Victorian homes in West Oakland to hillside estates in Montclair. This variety means plumbing challenges range from 100+ year old infrastructure in flatland neighborhoods to complex hillside systems with long laterals. The city's clay soil and mature trees create significant root intrusion issues.",
+    "commonProblems": [
+      {
+        "title": "Victorian Era Plumbing",
+        "description": "West Oakland and downtown areas with 100+ year old clay and cast iron systems"
+      },
+      {
+        "title": "Hillside Lateral Issues",
+        "description": "Montclair and Oakland Hills properties with long sewer laterals on challenging terrain"
+      }
+    ],
+    "propertyTypes": [
+      "Victorian Homes",
+      "Hillside Estates",
+      "Downtown Lofts",
+      "Apartment Buildings",
+      "Restaurants"
+    ],
+    "landmarks": [
+      "Lake Merritt",
+      "Jack London Square",
+      "Temescal",
+      "Piedmont Avenue"
+    ],
+    "localTip": "Oakland Victorian homeowners should budget for sewer rehabilitation—most original clay lines are now 100+ years old and approaching or past their lifespan.",
+    "testimonial": {
+      "name": "Oakland Victorian Owner",
+      "text": "Our 1898 Victorian had original clay sewer lines. West Peak lined everything without disturbing our historic foundation or front garden. They truly understood our home's needs.",
+      "rating": 5,
+      "project": "Historic home pipe lining"
+    },
+    "faqs": [
+      {
+        "id": "oakland-1",
+        "question": "Can you work on Oakland's historic Victorian homes?",
+        "answer": "Yes! Oakland has one of the Bay Area's largest concentrations of Victorian homes, and we've worked on many. Our trenchless methods preserve historic foundations, gardens, and streetscapes while rehabilitating aging plumbing."
+      },
+      {
+        "id": "oakland-2",
+        "question": "Do you service the Oakland Hills?",
+        "answer": "Absolutely. We work throughout Oakland Hills and Montclair, handling the unique challenges of hillside properties including long laterals, difficult access, and terrain-related pipe stress."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.8044,
+      "lng": -122.2712
+    },
+    "seoTitle": "Oakland Plumber | Victorian & Hillside Specialists",
+    "seoDescription": "Expert plumbing for Oakland homes. Victorian specialists. Hills and flatlands. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "berkeley",
+    "slug": "berkeley",
+    "parentAreaSlug": "alameda-county",
+    "name": "Berkeley",
+    "fullName": "Berkeley, California",
+    "heroHeadline": "Berkeley Plumbing & Sewer Specialists",
+    "heroSubheadline": "Thoughtful service for Berkeley's historic homes and progressive values",
+    "localContext": "Berkeley's mix of craftsman bungalows, brown shingle homes, and historic estates requires plumbers who appreciate architectural heritage. The city's mature trees, established gardens, and hillside properties create both beauty and plumbing challenges. Many homeowners value sustainable solutions that minimize environmental impact.",
+    "commonProblems": [
+      {
+        "title": "Craftsman Home Plumbing Age",
+        "description": "1900s-1920s craftsman and brown shingle homes with original clay sewer systems"
+      },
+      {
+        "title": "Hillside Root Intrusion",
+        "description": "Berkeley Hills properties with mature trees sending roots into sewer lines"
+      }
+    ],
+    "propertyTypes": [
+      "Craftsman Bungalows",
+      "Brown Shingle Homes",
+      "Berkeley Hills Estates",
+      "Campus-Area Rentals",
+      "Downtown Mixed-Use"
+    ],
+    "landmarks": [
+      "UC Berkeley",
+      "Fourth Street",
+      "Gourmet Ghetto",
+      "Tilden Park"
+    ],
+    "localTip": "Berkeley homeowners interested in sustainability should know that trenchless pipe rehabilitation has a smaller environmental footprint than traditional excavation and replacement.",
+    "testimonial": {
+      "name": "Berkeley Homeowner",
+      "text": "We wanted to rehabilitate our 1912 craftsman's sewer line without creating construction waste or disturbing our garden. West Peak's trenchless approach aligned perfectly with our values. Excellent work.",
+      "rating": 5,
+      "project": "Sustainable pipe rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "berkeley-1",
+        "question": "Is trenchless pipe repair better for the environment?",
+        "answer": "Yes! Trenchless methods require no excavation, meaning no heavy equipment emissions, no demolished concrete going to landfills, and no disturbed landscaping requiring replacement. For Berkeley homeowners who prioritize sustainability, it's the clear choice."
+      },
+      {
+        "id": "berkeley-2",
+        "question": "Do you work with historic Berkeley homes?",
+        "answer": "Absolutely. Berkeley's craftsman bungalows and brown shingle homes are architectural treasures. Our non-invasive trenchless methods protect historic foundations, original landscaping, and neighborhood character while modernizing plumbing systems."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.8716,
+      "lng": -122.2727
+    },
+    "seoTitle": "Berkeley Plumber | Craftsman Home Specialists",
+    "seoDescription": "Expert plumbing for Berkeley historic homes. Sustainable trenchless methods. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "fremont",
+    "slug": "fremont",
+    "parentAreaSlug": "alameda-county",
+    "name": "Fremont",
+    "fullName": "Fremont, California",
+    "heroHeadline": "Fremont Plumbing & Drain Experts",
+    "heroSubheadline": "Reliable service for Fremont's growing communities",
+    "localContext": "Fremont spans from the bay to the hills, encompassing diverse communities from historic Niles to modern tech-adjacent neighborhoods. The city's 1960s-1980s housing stock in areas like Mission San Jose faces aging infrastructure, while newer developments bring contemporary challenges. Tesla's presence has accelerated growth in surrounding areas.",
+    "commonProblems": [
+      {
+        "title": "1970s-1980s Pipe Aging",
+        "description": "Large developments from this era reaching end of original plumbing lifespan"
+      },
+      {
+        "title": "New Development Settling",
+        "description": "Recently built areas experiencing normal settling affecting underground pipes"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Townhouse Complexes",
+      "Tech Campuses",
+      "Apartment Communities",
+      "Historic Niles"
+    ],
+    "landmarks": [
+      "Tesla Factory",
+      "Mission San Jose",
+      "Niles Canyon",
+      "Lake Elizabeth"
+    ],
+    "localTip": "Fremont homeowners in 1970s-1980s developments should schedule sewer inspections at the 40-50 year mark—this is when original systems typically show issues.",
+    "testimonial": {
+      "name": "Fremont Family",
+      "text": "Our 1978 home's sewer line was deteriorating. West Peak inspected, explained our options clearly, and completed the trenchless repair in one day. Back to normal with minimal disruption.",
+      "rating": 5,
+      "project": "Residential pipe lining"
+    },
+    "faqs": [
+      {
+        "id": "fremont-1",
+        "question": "When should Fremont homeowners inspect their sewer lines?",
+        "answer": "Most Fremont homes from the 1960s-1980s should have sewer inspections at the 40-50 year mark, or immediately if experiencing slow drains, backups, or sewer odors. Early detection allows planned repair rather than emergency response."
+      },
+      {
+        "id": "fremont-2",
+        "question": "Do you work in all Fremont neighborhoods?",
+        "answer": "Yes! We serve all Fremont communities including Mission San Jose, Niles, Warm Springs, Irvington, and newer developments near the Tesla factory. Response times average 1-2 hours for emergencies."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.5485,
+      "lng": -121.9886
+    },
+    "seoTitle": "Fremont Plumber | 1970s-1980s Home Specialists",
+    "seoDescription": "Expert plumbing for Fremont homes. Mid-century specialists. All neighborhoods. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "hayward",
+    "slug": "hayward",
+    "parentAreaSlug": "alameda-county",
+    "name": "Hayward",
+    "fullName": "Hayward, California",
+    "heroHeadline": "Hayward Plumbing & Sewer Solutions",
+    "heroSubheadline": "Affordable, quality service for Hayward families",
+    "localContext": "Hayward offers affordable housing options while maintaining access to Bay Area opportunities. The city's diverse neighborhoods include established 1950s-1970s developments, newer hillside communities, and a growing downtown. Many homeowners are first-time buyers discovering older plumbing systems need attention.",
+    "commonProblems": [
+      {
+        "title": "First-Time Buyer Surprises",
+        "description": "New homeowners discovering inherited plumbing issues in older properties"
+      },
+      {
+        "title": "Orangeburg Pipe Presence",
+        "description": "1950s-1960s homes with failing Orangeburg sewer lines requiring replacement"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Tract Homes",
+      "Apartments",
+      "Downtown Mixed-Use",
+      "Industrial Properties"
+    ],
+    "landmarks": [
+      "Cal State East Bay",
+      "Downtown Hayward",
+      "Hayward Hills",
+      "Garin Regional Park"
+    ],
+    "localTip": "Hayward first-time home buyers should request sewer scope inspections during escrow—many discover issues that can be negotiated with sellers.",
+    "testimonial": {
+      "name": "Hayward First-Time Buyer",
+      "text": "We bought our first home and discovered the sewer line was failing. West Peak explained everything, helped us understand costs, and completed the repair within our budget. Great experience.",
+      "rating": 5,
+      "project": "First home sewer repair"
+    },
+    "faqs": [
+      {
+        "id": "hayward-1",
+        "question": "Should first-time Hayward home buyers get sewer inspections?",
+        "answer": "Absolutely! Many Hayward homes from the 1950s-1970s have aging sewer systems. A pre-purchase inspection (around $200-300) can reveal issues you can negotiate with the seller, potentially saving thousands."
+      },
+      {
+        "id": "hayward-2",
+        "question": "Do you offer payment options for Hayward residents?",
+        "answer": "Yes! We understand Hayward residents often appreciate flexible options. We offer financing for larger projects and work with homeowners to find solutions that fit their budgets."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.6688,
+      "lng": -122.0808
+    },
+    "seoTitle": "Hayward Plumber | Affordable Quality Service",
+    "seoDescription": "Quality plumbing for Hayward families. First-time buyer specialists. Financing available. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "alameda",
+    "slug": "alameda",
+    "parentAreaSlug": "alameda-county",
+    "name": "Alameda",
+    "fullName": "Alameda, California",
+    "heroHeadline": "Alameda Island Plumbing Specialists",
+    "heroSubheadline": "Expert service for Alameda's Victorian homes and island properties",
+    "localContext": "Alameda's island location creates a unique community with well-preserved Victorian architecture and high water tables. The city's commitment to historic preservation and the challenges of island infrastructure make experienced, careful plumbers essential. Many homes have original 100+ year old plumbing still in service.",
+    "commonProblems": [
+      {
+        "title": "High Water Table",
+        "description": "Island location means groundwater infiltration into damaged sewer lines"
+      },
+      {
+        "title": "Victorian System Age",
+        "description": "Original clay sewer systems from 1890s-1910s homes reaching extreme age"
+      }
+    ],
+    "propertyTypes": [
+      "Victorian Homes",
+      "Historic Bungalows",
+      "Waterfront Properties",
+      "Downtown Businesses",
+      "Marinas"
+    ],
+    "landmarks": [
+      "Park Street",
+      "Webster Street",
+      "Crown Beach",
+      "USS Hornet"
+    ],
+    "localTip": "Alameda homeowners should ensure sump pumps are maintained—the high water table means basement flooding is a real risk during wet seasons.",
+    "testimonial": {
+      "name": "Alameda Victorian Owner",
+      "text": "Our 1895 Victorian's sewer line was infiltrated by groundwater. West Peak's trenchless repair sealed everything and stopped the water intrusion. They understood Alameda's unique challenges.",
+      "rating": 5,
+      "project": "Groundwater infiltration repair"
+    },
+    "faqs": [
+      {
+        "id": "alameda-1",
+        "question": "How does Alameda's high water table affect plumbing?",
+        "answer": "Alameda's island location means groundwater levels are high. Damaged or deteriorated sewer lines can allow groundwater infiltration, increasing your sewer bill and overloading treatment systems. Our pipe lining creates a watertight seal that stops infiltration."
+      },
+      {
+        "id": "alameda-2",
+        "question": "Do you specialize in Alameda Victorian homes?",
+        "answer": "Yes! Alameda has one of California's best-preserved Victorian neighborhoods. We understand these homes' unique plumbing, from original clay sewers to historic interior fixtures. Our trenchless methods protect the character that makes Alameda special."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7652,
+      "lng": -122.2416
+    },
+    "seoTitle": "Alameda Plumber | Victorian & Island Specialists",
+    "seoDescription": "Expert plumbing for Alameda island homes. Victorian specialists. High water table solutions. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "san-leandro",
+    "slug": "san-leandro",
+    "parentAreaSlug": "alameda-county",
+    "name": "San Leandro",
+    "fullName": "San Leandro, California",
+    "heroHeadline": "San Leandro Plumbing & Sewer Experts",
+    "heroSubheadline": "Quality service for San Leandro's established neighborhoods",
+    "localContext": "San Leandro's mature neighborhoods feature well-maintained homes from the 1940s-1970s, creating a stable community with deep roots. This also means much of the city's plumbing infrastructure is reaching the age where maintenance and rehabilitation become important. Many homeowners have lived in their homes for decades.",
+    "commonProblems": [
+      {
+        "title": "Post-War Home Plumbing",
+        "description": "1940s-1960s homes with original cast iron and clay systems needing attention"
+      },
+      {
+        "title": "Root Intrusion from Mature Trees",
+        "description": "Established street trees and landscaping sending roots into aging pipes"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Tract Homes",
+      "Apartment Buildings",
+      "Industrial Properties",
+      "Downtown Retail"
+    ],
+    "landmarks": [
+      "Downtown San Leandro",
+      "Marina",
+      "San Leandro BART",
+      "Bayfair Center"
+    ],
+    "localTip": "San Leandro homeowners who've been in their homes for decades should consider proactive sewer inspection—problems caught early are cheaper to fix.",
+    "testimonial": {
+      "name": "Long-Time San Leandro Resident",
+      "text": "We've lived here since 1975 and never had sewer issues until last year. West Peak found root intrusion, cleared it, and lined the pipe. Should have done it years ago—so easy.",
+      "rating": 5,
+      "project": "Root clearing and pipe lining"
+    },
+    "faqs": [
+      {
+        "id": "san-leandro-1",
+        "question": "When should long-time San Leandro homeowners check sewer lines?",
+        "answer": "If your San Leandro home is from the 1940s-1970s and you've never inspected the sewer line, now is a good time. Original pipes are 50-80 years old—well into the age range where issues develop. Proactive inspection beats emergency response."
+      },
+      {
+        "id": "san-leandro-2",
+        "question": "Do you service San Leandro industrial areas?",
+        "answer": "Yes! We work with San Leandro industrial and commercial properties, offering 24/7 emergency service and scheduled maintenance. We understand commercial plumbing needs and can work around production schedules."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7249,
+      "lng": -122.1561
+    },
+    "seoTitle": "San Leandro Plumber | Established Home Specialists",
+    "seoDescription": "Expert plumbing for San Leandro homes. 1950s-1970s specialists. Root intrusion solutions. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "union-city",
+    "slug": "union-city",
+    "parentAreaSlug": "alameda-county",
+    "name": "Union City",
+    "fullName": "Union City, California",
+    "heroHeadline": "Union City Plumbing Solutions",
+    "heroSubheadline": "Reliable service for Union City's family neighborhoods",
+    "localContext": "Union City's family-oriented neighborhoods blend 1960s-1980s tract developments with newer housing. The city's diverse community values reliable, fairly-priced service. Many homes are reaching the age where original plumbing systems need attention, particularly in older developments.",
+    "commonProblems": [
+      {
+        "title": "Tract Home Plumbing Age",
+        "description": "1970s-1980s developments reaching 40-50 years with original plumbing"
+      },
+      {
+        "title": "Soil Movement",
+        "description": "Clay soil expansion and contraction stressing underground pipe joints"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Tract Developments",
+      "Townhouses",
+      "Apartment Complexes",
+      "Retail Centers"
+    ],
+    "landmarks": [
+      "Union City BART",
+      "Union Landing",
+      "Alameda Creek Trail",
+      "New Haven"
+    ],
+    "localTip": "Union City homeowners should watch for slow drains or gurgling toilets—these early warning signs allow planned repair rather than emergency response.",
+    "testimonial": {
+      "name": "Union City Family",
+      "text": "Our drains started running slow and we called West Peak before it became an emergency. They found a bellied pipe, gave us options, and fixed it within our budget. Smart decision.",
+      "rating": 5,
+      "project": "Proactive pipe repair"
+    },
+    "faqs": [
+      {
+        "id": "union-city-1",
+        "question": "What warning signs indicate sewer problems in Union City homes?",
+        "answer": "Watch for: slow drains throughout the house, gurgling toilets, sewer odors, wet spots in the yard, or frequent backups. These often indicate developing problems. Early inspection saves money—small issues are cheaper to fix than emergencies."
+      },
+      {
+        "id": "union-city-2",
+        "question": "How quickly can you respond to Union City emergencies?",
+        "answer": "We typically reach Union City within 1-2 hours for emergencies. We're available 24/7 and prioritize backup situations that threaten property or health."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.5934,
+      "lng": -122.0438
+    },
+    "seoTitle": "Union City Plumber | Family Home Specialists",
+    "seoDescription": "Reliable plumbing for Union City families. Tract home specialists. 24/7 emergency service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "newark",
+    "slug": "newark",
+    "parentAreaSlug": "alameda-county",
+    "name": "Newark",
+    "fullName": "Newark, California",
+    "heroHeadline": "Newark Plumbing & Drain Service",
+    "heroSubheadline": "Dependable service for Newark's close-knit community",
+    "localContext": "Newark's compact size creates a tight-knit community feel with primarily 1960s-1980s residential development. Many homes are reaching the critical age where original plumbing systems need rehabilitation or replacement. The city's location makes it convenient to serve from our Bay Area operations.",
+    "commonProblems": [
+      {
+        "title": "Mid-Century Pipe Deterioration",
+        "description": "Original 1960s-1970s cast iron and clay systems showing wear"
+      },
+      {
+        "title": "Saltwater Proximity Effects",
+        "description": "Nearness to bay can accelerate corrosion in some pipe materials"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Townhouses",
+      "Apartments",
+      "Small Businesses",
+      "Industrial Properties"
+    ],
+    "landmarks": [
+      "NewPark Mall",
+      "Dumbarton Bridge",
+      "Newark Community Park",
+      "Newark Slough"
+    ],
+    "localTip": "Newark homeowners near the bay should be aware that saltwater-affected soil can accelerate pipe corrosion—regular inspection is wise.",
+    "testimonial": {
+      "name": "Newark Homeowner",
+      "text": "We needed sewer work and appreciated that West Peak gave us honest options. They explained what really needed repair versus what could wait. Trustworthy service.",
+      "rating": 5,
+      "project": "Sewer inspection and selective repair"
+    },
+    "faqs": [
+      {
+        "id": "newark-1",
+        "question": "Does Newark's location near the bay affect plumbing?",
+        "answer": "Potentially. Areas with higher soil salinity can experience faster pipe corrosion. Cast iron is particularly susceptible. If your Newark home is from the 1960s-1970s and near the bay, periodic inspection is smart preventive maintenance."
+      },
+      {
+        "id": "newark-2",
+        "question": "Do you provide honest assessments?",
+        "answer": "Absolutely. We'll tell you what needs immediate attention, what can be monitored, and what's fine. We show you camera inspection footage so you understand exactly what we're seeing. No unnecessary upselling."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.5316,
+      "lng": -122.04
+    },
+    "seoTitle": "Newark Plumber | Honest Local Service",
+    "seoDescription": "Dependable plumbing for Newark homes. Honest assessments. Mid-century specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "dublin",
+    "slug": "dublin",
+    "parentAreaSlug": "alameda-county",
+    "name": "Dublin",
+    "fullName": "Dublin, California",
+    "heroHeadline": "Dublin Plumbing & Sewer Specialists",
+    "heroSubheadline": "Expert service for Dublin's fast-growing community",
+    "localContext": "Dublin has transformed from a small town to one of the Bay Area's fastest-growing cities. This means a mix of older homes near downtown and extensive new developments. While newer homes have modern plumbing, some experience settling-related issues, and older areas face the typical challenges of aging infrastructure.",
+    "commonProblems": [
+      {
+        "title": "New Construction Settling",
+        "description": "Recent developments may experience pipe movement as soil settles"
+      },
+      {
+        "title": "Older Dublin Infrastructure",
+        "description": "Pre-growth homes near downtown with aging plumbing systems"
+      }
+    ],
+    "propertyTypes": [
+      "New Developments",
+      "Townhouse Communities",
+      "Single-Family Homes",
+      "Apartment Complexes",
+      "Retail Centers"
+    ],
+    "landmarks": [
+      "Dublin BART",
+      "Hacienda Crossings",
+      "Dublin Ranch",
+      "Iron Horse Trail"
+    ],
+    "localTip": "Dublin new home buyers should request sewer inspection before the builder warranty expires—any settling-related issues should be the builder's responsibility.",
+    "testimonial": {
+      "name": "Dublin New Home Buyer",
+      "text": "We had our new home's plumbing inspected before the warranty expired. West Peak found settling had affected a pipe joint. The builder fixed it at no cost. Great peace of mind.",
+      "rating": 5,
+      "project": "Warranty inspection"
+    },
+    "faqs": [
+      {
+        "id": "dublin-1",
+        "question": "Should Dublin new home buyers get sewer inspections?",
+        "answer": "Yes! Even new homes can develop issues as soil settles. We recommend inspection before your builder warranty expires (usually 1-2 years). Any defects discovered should be the builder's responsibility to repair."
+      },
+      {
+        "id": "dublin-2",
+        "question": "Do you service all Dublin neighborhoods?",
+        "answer": "Yes! We work throughout Dublin including Dublin Ranch, Dublin proper, and all new developments. Response times are typically 1-2 hours for emergencies."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7022,
+      "lng": -121.9358
+    },
+    "seoTitle": "Dublin Plumber | New Home & Warranty Specialists",
+    "seoDescription": "Expert plumbing for Dublin homes. New construction specialists. Warranty inspections. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "pleasanton",
+    "slug": "pleasanton",
+    "parentAreaSlug": "alameda-county",
+    "name": "Pleasanton",
+    "fullName": "Pleasanton, California",
+    "heroHeadline": "Pleasanton Premier Plumbing Service",
+    "heroSubheadline": "Quality service for Pleasanton's distinguished community",
+    "localContext": "Pleasanton's high quality of life and excellent schools attract discerning homeowners who invest in their properties. The city's mix of established neighborhoods and newer developments means varied plumbing needs, from rehabilitating 1970s infrastructure to maintaining modern systems. Downtown's historic character adds charm and plumbing challenges.",
+    "commonProblems": [
+      {
+        "title": "Established Neighborhood Aging",
+        "description": "1970s-1990s developments with original plumbing reaching mid-life or beyond"
+      },
+      {
+        "title": "Historic Downtown Plumbing",
+        "description": "Main Street buildings with older commercial plumbing systems"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Estate Properties",
+      "Downtown Retail",
+      "New Developments",
+      "Office Buildings"
+    ],
+    "landmarks": [
+      "Downtown Pleasanton",
+      "Stoneridge Mall",
+      "Alameda County Fairgrounds",
+      "Shadow Cliffs"
+    ],
+    "localTip": "Pleasanton homeowners planning kitchen or bathroom remodels should include sewer inspection—discovering issues during remodel is cheaper than separate projects later.",
+    "testimonial": {
+      "name": "Pleasanton Homeowner",
+      "text": "We scheduled our sewer inspection when planning a bathroom remodel. West Peak found developing issues we addressed during construction. One project, one disruption, done right.",
+      "rating": 5,
+      "project": "Remodel-coordinated pipe lining"
+    },
+    "faqs": [
+      {
+        "id": "pleasanton-1",
+        "question": "Why inspect sewer lines before remodeling in Pleasanton?",
+        "answer": "Many Pleasanton homes from the 1970s-1990s have original sewer lines. Discovering issues during a remodel lets you address them while contractors are already on-site and walls are open, saving significant money versus separate projects."
+      },
+      {
+        "id": "pleasanton-2",
+        "question": "Do you service Downtown Pleasanton businesses?",
+        "answer": "Yes! We work with Downtown Pleasanton's restaurants, shops, and professional offices. We understand the importance of minimal disruption and can schedule work during off-hours to protect your business."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.6624,
+      "lng": -121.8747
+    },
+    "seoTitle": "Pleasanton Plumber | Remodel & Real Estate Ready",
+    "seoDescription": "Premium plumbing for Pleasanton homes. Remodel coordination. Downtown specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "livermore",
+    "slug": "livermore",
+    "parentAreaSlug": "alameda-county",
+    "name": "Livermore",
+    "fullName": "Livermore, California",
+    "heroHeadline": "Livermore Plumbing & Sewer Experts",
+    "heroSubheadline": "Expert service for Livermore's wine country community",
+    "localContext": "Livermore combines wine country charm with suburban living, offering more space than inner Bay Area communities. The city's mix of established neighborhoods, newer developments, and agricultural properties creates diverse plumbing needs. Hot summers and clay soil create challenging conditions for underground infrastructure.",
+    "commonProblems": [
+      {
+        "title": "Clay Soil Movement",
+        "description": "Livermore's expansive clay soil cracks in summer heat, stressing underground pipes"
+      },
+      {
+        "title": "Winery and Agricultural Drains",
+        "description": "Wine production and agricultural operations require specialized drainage"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Ranch Properties",
+      "Wineries",
+      "Downtown Mixed-Use",
+      "New Developments"
+    ],
+    "landmarks": [
+      "Downtown Livermore",
+      "Wine Country",
+      "Livermore Valley",
+      "Lawrence Livermore Lab"
+    ],
+    "localTip": "Livermore homeowners should ensure sewer lines are inspected if experiencing soil cracking near their foundation during dry seasons.",
+    "testimonial": {
+      "name": "Livermore Wine Country Resident",
+      "text": "Our property has a long sewer lateral crossing expansive clay soil. After dry summers caused joint separation, West Peak lined the entire run. No more seasonal worries.",
+      "rating": 5,
+      "project": "Clay soil damage repair"
+    },
+    "faqs": [
+      {
+        "id": "livermore-1",
+        "question": "How does Livermore's climate affect plumbing?",
+        "answer": "Livermore's hot, dry summers cause expansive clay soil to shrink and crack, potentially pulling pipe joints apart. Wet winters then cause swelling. This seasonal movement stresses underground pipes. Trenchless lining creates flexible, seamless repairs that handle movement better."
+      },
+      {
+        "id": "livermore-2",
+        "question": "Do you service Livermore wineries?",
+        "answer": "Yes! We work with Livermore Valley wineries on specialized drainage needs including crush pad drains, barrel room floors, and tasting room facilities. We understand winemaking schedules and can work around harvest and production."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.6819,
+      "lng": -121.768
+    },
+    "seoTitle": "Livermore Plumber | Wine Country & Clay Soil Experts",
+    "seoDescription": "Expert plumbing for Livermore homes and wineries. Clay soil specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "emeryville",
+    "slug": "emeryville",
+    "parentAreaSlug": "alameda-county",
+    "name": "Emeryville",
+    "fullName": "Emeryville, California",
+    "heroHeadline": "Emeryville Commercial & Residential Plumbing",
+    "heroSubheadline": "Specialized service for Emeryville's unique urban environment",
+    "localContext": "Emeryville's transformation from industrial to creative tech hub created a unique mix of converted warehouses, modern lofts, and commercial buildings. The city's high-density development and industrial heritage mean plumbing challenges range from rehabilitating century-old commercial infrastructure to maintaining modern mixed-use buildings.",
+    "commonProblems": [
+      {
+        "title": "Warehouse Conversion Plumbing",
+        "description": "Former industrial buildings converted to lofts often have complex, aging systems"
+      },
+      {
+        "title": "High-Density Commercial Demands",
+        "description": "Dense development creates heavy loads on shared drainage systems"
+      }
+    ],
+    "propertyTypes": [
+      "Loft Conversions",
+      "Tech Offices",
+      "Retail Complexes",
+      "Restaurants",
+      "Modern Apartments"
+    ],
+    "landmarks": [
+      "Bay Street",
+      "Pixar",
+      "Public Market",
+      "Emeryville Marina"
+    ],
+    "localTip": "Emeryville loft owners in converted buildings should understand their building's plumbing history—former industrial uses can leave legacy infrastructure issues.",
+    "testimonial": {
+      "name": "Emeryville Loft HOA",
+      "text": "Our 1920s warehouse conversion had aging cast iron throughout. West Peak lined the main stacks without relocating residents. Minimal disruption, maximum results.",
+      "rating": 5,
+      "project": "HOA main line rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "emeryville-1",
+        "question": "Do you work with Emeryville loft buildings and HOAs?",
+        "answer": "Yes! We specialize in Emeryville's converted warehouse buildings. We work with HOAs on main line issues and individual owners on unit-specific needs. Our trenchless methods minimize disruption to residents."
+      },
+      {
+        "id": "emeryville-2",
+        "question": "Can you handle Emeryville's commercial restaurant needs?",
+        "answer": "Absolutely. Emeryville's restaurant scene requires robust drain maintenance. We offer grease trap service, hydro jetting, and emergency response. We work around restaurant hours to avoid service disruption."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.8313,
+      "lng": -122.2852
+    },
+    "seoTitle": "Emeryville Plumber | Loft & Commercial Specialists",
+    "seoDescription": "Expert plumbing for Emeryville lofts and businesses. Warehouse conversion specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "walnut-creek",
+    "slug": "walnut-creek",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "Walnut Creek",
+    "fullName": "Walnut Creek, California",
+    "heroHeadline": "Walnut Creek Premium Plumbing Service",
+    "heroSubheadline": "Expert care for Walnut Creek's distinguished properties",
+    "localContext": "Walnut Creek serves as Contra Costa County's commercial and cultural hub, with upscale shopping, dining, and residential neighborhoods. Properties range from 1960s-1970s established homes to modern developments, with a vibrant downtown commercial district. Hot summers and clay soil create challenging conditions for plumbing infrastructure.",
+    "commonProblems": [
+      {
+        "title": "Summer Heat Soil Movement",
+        "description": "Hot Walnut Creek summers cause clay soil to shrink, stressing pipe joints"
+      },
+      {
+        "title": "Mature Tree Root Intrusion",
+        "description": "Established neighborhoods have large trees seeking moisture in sewer lines"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Downtown Condos",
+      "Retail Complexes",
+      "Office Buildings",
+      "Restaurants"
+    ],
+    "landmarks": [
+      "Downtown Walnut Creek",
+      "Broadway Plaza",
+      "Lesher Center",
+      "Mt. Diablo"
+    ],
+    "localTip": "Walnut Creek homeowners should water lawns consistently through summer to minimize soil shrinkage stress on underground pipes.",
+    "testimonial": {
+      "name": "Walnut Creek Homeowner",
+      "text": "After years of slow drains, West Peak's inspection found root intrusion at multiple joints. They cleared the roots and lined the whole pipe. Should have called years ago.",
+      "rating": 5,
+      "project": "Root intrusion repair"
+    },
+    "faqs": [
+      {
+        "id": "walnut-creek-1",
+        "question": "Why does Walnut Creek have so many root intrusion problems?",
+        "answer": "Walnut Creek's hot summers stress trees, sending roots seeking moisture. Aging sewer lines with deteriorating joints are easy targets. Our hydro jetting clears roots, and CIPP lining seals entry points permanently."
+      },
+      {
+        "id": "walnut-creek-2",
+        "question": "Do you service Downtown Walnut Creek businesses?",
+        "answer": "Yes! We work with Downtown Walnut Creek restaurants, retail, and professional offices. We understand the importance of maintaining your business's image and work during off-hours to minimize disruption."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.9101,
+      "lng": -122.0652
+    },
+    "seoTitle": "Walnut Creek Plumber | Root Intrusion Specialists",
+    "seoDescription": "Premium plumbing for Walnut Creek homes and businesses. Root intrusion experts. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "concord",
+    "slug": "concord",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "Concord",
+    "fullName": "Concord, California",
+    "heroHeadline": "Concord Plumbing & Sewer Solutions",
+    "heroSubheadline": "Reliable service for Concord's diverse neighborhoods",
+    "localContext": "Concord is Contra Costa County's largest city, with diverse neighborhoods ranging from 1950s originals to ongoing new development. The city's size means varied plumbing challenges and a need for responsive, reliable service. Hot summers and clay soil are common factors affecting underground infrastructure.",
+    "commonProblems": [
+      {
+        "title": "Post-War Home Aging",
+        "description": "1950s-1970s homes with original plumbing reaching critical age"
+      },
+      {
+        "title": "Hot Climate Pipe Stress",
+        "description": "Summer heat causes soil movement affecting underground pipes"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Tract Developments",
+      "Apartments",
+      "Commercial Properties",
+      "Industrial Areas"
+    ],
+    "landmarks": [
+      "Todos Santos Plaza",
+      "Concord BART",
+      "Sunvalley Mall",
+      "Concord Pavilion"
+    ],
+    "localTip": "Concord homeowners in 1960s-1970s neighborhoods should schedule sewer inspections at the 50-year mark—many discover developing issues.",
+    "testimonial": {
+      "name": "Concord Family",
+      "text": "Our 1968 home's sewer line was failing. West Peak gave us clear options, fair pricing, and completed the trenchless repair quickly. Exactly what we needed.",
+      "rating": 5,
+      "project": "Residential pipe rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "concord-1",
+        "question": "When should Concord homeowners worry about sewer lines?",
+        "answer": "Most Concord homes from the 1950s-1970s should have sewer inspections at the 50-year mark, or immediately if experiencing slow drains, backups, or sewer odors. Original clay and cast iron pipes have typical lifespans of 50-75 years."
+      },
+      {
+        "id": "concord-2",
+        "question": "How fast can you respond to Concord emergencies?",
+        "answer": "We typically reach Concord within 1-2 hours for emergencies. We're available 24/7 and prioritize situations threatening property or health, like sewage backups."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.978,
+      "lng": -122.0311
+    },
+    "seoTitle": "Concord Plumber | 24/7 Emergency & Scheduled Service",
+    "seoDescription": "Reliable plumbing for Concord homes. 1960s-1970s specialists. 24/7 emergency service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "richmond",
+    "slug": "richmond",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "Richmond",
+    "fullName": "Richmond, California",
+    "heroHeadline": "Richmond Plumbing & Drain Experts",
+    "heroSubheadline": "Quality service for Richmond's revitalizing neighborhoods",
+    "localContext": "Richmond's revitalization brings new investment to historic neighborhoods with WWII-era worker housing and earlier construction. Many properties have aged infrastructure that new owners discover needs attention. The city's industrial heritage also means commercial properties with specialized plumbing needs.",
+    "commonProblems": [
+      {
+        "title": "WWII-Era Housing Plumbing",
+        "description": "1940s worker housing with original aging systems needing rehabilitation"
+      },
+      {
+        "title": "Industrial Property Drainage",
+        "description": "Commercial and industrial properties with heavy-duty drain requirements"
+      }
+    ],
+    "propertyTypes": [
+      "Historic Homes",
+      "Industrial Properties",
+      "Commercial Buildings",
+      "New Developments",
+      "Point Richmond Victorians"
+    ],
+    "landmarks": [
+      "Point Richmond",
+      "Richmond Marina",
+      "Craneway Pavilion",
+      "Rosie the Riveter Memorial"
+    ],
+    "localTip": "Richmond new home buyers should request thorough plumbing inspections—the city's older housing stock often surprises new owners.",
+    "testimonial": {
+      "name": "Richmond New Homeowner",
+      "text": "We bought a 1942 Richmond home not knowing the plumbing's age. When issues appeared, West Peak explained everything, gave us fair pricing, and fixed it right. Learned a lot.",
+      "rating": 5,
+      "project": "Historic home plumbing rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "richmond-1",
+        "question": "What should Richmond home buyers know about older homes?",
+        "answer": "Many Richmond homes date to WWII or earlier, meaning 80+ year old plumbing. While some hold up remarkably, most need attention. Pre-purchase inspection is essential—discoveries can be negotiated with sellers or budgeted for post-purchase."
+      },
+      {
+        "id": "richmond-2",
+        "question": "Do you service Richmond industrial properties?",
+        "answer": "Yes! Richmond's industrial heritage means many properties with specialized plumbing needs. We handle commercial and industrial drain maintenance, emergency service, and planned rehabilitation."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.9358,
+      "lng": -122.3477
+    },
+    "seoTitle": "Richmond Plumber | Historic & Industrial Specialists",
+    "seoDescription": "Quality plumbing for Richmond homes and businesses. WWII-era specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "antioch",
+    "slug": "antioch",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "Antioch",
+    "fullName": "Antioch, California",
+    "heroHeadline": "Antioch Plumbing & Sewer Service",
+    "heroSubheadline": "Affordable quality service for Antioch families",
+    "localContext": "Antioch has grown significantly, offering more affordable housing compared to inner Bay Area communities. This growth means a mix of established 1970s-1990s neighborhoods and newer developments. Many families moving from more expensive areas discover different plumbing challenges than they expected.",
+    "commonProblems": [
+      {
+        "title": "1980s-1990s Pipe Aging",
+        "description": "Homes from the growth period reaching 30-40 years with original plumbing"
+      },
+      {
+        "title": "Hot Climate Effects",
+        "description": "Antioch's hot summers cause significant soil movement affecting pipes"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Tract Developments",
+      "Townhouses",
+      "New Communities",
+      "Commercial Centers"
+    ],
+    "landmarks": [
+      "Downtown Antioch",
+      "Antioch Marina",
+      "Contra Loma Regional Park",
+      "Delta waterways"
+    ],
+    "localTip": "Antioch homeowners should ensure outdoor faucets and irrigation are maintained—hot summers stress both above-ground and underground plumbing.",
+    "testimonial": {
+      "name": "Antioch Family",
+      "text": "We moved from the city and weren't sure about plumbers out here. West Peak was professional, fairly priced, and did quality work. Glad we found them.",
+      "rating": 5,
+      "project": "Residential drain service"
+    },
+    "faqs": [
+      {
+        "id": "antioch-1",
+        "question": "Do you provide service to Antioch despite the distance?",
+        "answer": "Yes! We serve all of Antioch and eastern Contra Costa. Response times are typically 2-3 hours for emergencies, same-day for scheduled service. We make the trip and do the job right."
+      },
+      {
+        "id": "antioch-2",
+        "question": "How does Antioch's climate affect plumbing?",
+        "answer": "Antioch's hot, dry summers cause significant soil shrinkage, stressing underground pipes. When winter rains return, soil expands. This seasonal movement can separate joints and stress connections. Trenchless lining creates flexible repairs that handle this movement."
+      }
+    ],
+    "coordinates": {
+      "lat": 38.0049,
+      "lng": -121.8058
+    },
+    "seoTitle": "Antioch Plumber | Affordable Quality Service",
+    "seoDescription": "Quality plumbing for Antioch families. Fair pricing. Hot climate specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "pittsburg",
+    "slug": "pittsburg",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "Pittsburg",
+    "fullName": "Pittsburg, California",
+    "heroHeadline": "Pittsburg Plumbing & Drain Solutions",
+    "heroSubheadline": "Reliable service for Pittsburg's growing community",
+    "localContext": "Pittsburg has evolved from an industrial city to a diverse residential community with ongoing development. The city's mix of older established homes and new construction means varied plumbing needs. eBART has increased accessibility and investment in the area.",
+    "commonProblems": [
+      {
+        "title": "Mixed-Age Infrastructure",
+        "description": "Neighborhoods with plumbing from different eras requiring different approaches"
+      },
+      {
+        "title": "Delta Proximity Effects",
+        "description": "High water tables near the Delta can affect underground plumbing"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "New Developments",
+      "Apartments",
+      "Commercial Properties",
+      "Industrial Sites"
+    ],
+    "landmarks": [
+      "Downtown Pittsburg",
+      "Pittsburg Marina",
+      "eBART Station",
+      "Delta waterways"
+    ],
+    "localTip": "Pittsburg homeowners near the Delta should watch for signs of groundwater infiltration—unexplained increases in water or sewer bills can indicate damaged lines.",
+    "testimonial": {
+      "name": "Pittsburg Homeowner",
+      "text": "We noticed our sewer bill increasing for no reason. West Peak found groundwater infiltrating a damaged pipe joint. They sealed it with lining and our bills went back to normal.",
+      "rating": 5,
+      "project": "Infiltration repair"
+    },
+    "faqs": [
+      {
+        "id": "pittsburg-1",
+        "question": "What causes high sewer bills in Pittsburg?",
+        "answer": "Near the Delta, high water tables can infiltrate damaged sewer lines. You're essentially paying to treat groundwater entering your system. Our pipe lining creates watertight seals that stop infiltration and normalize bills."
+      },
+      {
+        "id": "pittsburg-2",
+        "question": "How quickly can you reach Pittsburg?",
+        "answer": "We typically reach Pittsburg within 2-3 hours for emergencies, same-day for scheduled service. We serve all of eastern Contra Costa County including Pittsburg, Antioch, and Brentwood."
+      }
+    ],
+    "coordinates": {
+      "lat": 38.0278,
+      "lng": -121.8847
+    },
+    "seoTitle": "Pittsburg Plumber | Delta Area Specialists",
+    "seoDescription": "Reliable plumbing for Pittsburg homes. High water table experts. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "martinez",
+    "slug": "martinez",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "Martinez",
+    "fullName": "Martinez, California",
+    "heroHeadline": "Martinez Plumbing & Sewer Experts",
+    "heroSubheadline": "Local expertise for Martinez's historic county seat",
+    "localContext": "Martinez serves as Contra Costa's county seat, with a charming downtown and diverse neighborhoods ranging from waterfront to hillside. The city's historic character includes older buildings with aging infrastructure, while newer areas face typical suburban challenges. The mix of government, commercial, and residential creates varied plumbing needs.",
+    "commonProblems": [
+      {
+        "title": "Historic Downtown Infrastructure",
+        "description": "Older commercial and government buildings with aging plumbing systems"
+      },
+      {
+        "title": "Hillside Property Challenges",
+        "description": "Homes in hills above downtown with long laterals and terrain-related issues"
+      }
+    ],
+    "propertyTypes": [
+      "Historic Downtown Buildings",
+      "Government Facilities",
+      "Single-Family Homes",
+      "Hillside Properties",
+      "Marina-Area Condos"
+    ],
+    "landmarks": [
+      "Downtown Martinez",
+      "Martinez Marina",
+      "John Muir House",
+      "Courthouse"
+    ],
+    "localTip": "Martinez hillside homeowners should inspect sewer lines after significant rain events—soil movement and water flow can affect long laterals.",
+    "testimonial": {
+      "name": "Martinez Homeowner",
+      "text": "Our hillside home had a 150-foot sewer lateral. When it failed, traditional replacement wasn't practical. West Peak lined the entire run through one access point. Impressive solution.",
+      "rating": 5,
+      "project": "Long hillside lateral lining"
+    },
+    "faqs": [
+      {
+        "id": "martinez-1",
+        "question": "Can you repair long sewer laterals in the Martinez hills?",
+        "answer": "Yes! Many Martinez hillside homes have laterals over 100 feet long. Our trenchless equipment can line entire runs through single access points—no excavation across hillsides, retaining walls, or landscaping."
+      },
+      {
+        "id": "martinez-2",
+        "question": "Do you work with Martinez government buildings?",
+        "answer": "Yes! As the county seat, Martinez has many government and institutional buildings. We understand public sector requirements including prevailing wage, documentation, and coordination with facility managers."
+      }
+    ],
+    "coordinates": {
+      "lat": 38.0194,
+      "lng": -122.1341
+    },
+    "seoTitle": "Martinez Plumber | Historic & Hillside Specialists",
+    "seoDescription": "Expert plumbing for Martinez homes and businesses. Long lateral specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "pleasant-hill",
+    "slug": "pleasant-hill",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "Pleasant Hill",
+    "fullName": "Pleasant Hill, California",
+    "heroHeadline": "Pleasant Hill Plumbing Excellence",
+    "heroSubheadline": "Quality service for Pleasant Hill's family neighborhoods",
+    "localContext": "Pleasant Hill offers a suburban community feel with excellent access to BART and major shopping. Many homes date from the 1960s-1980s, representing the area's growth during that period. These established neighborhoods feature mature landscaping and aging plumbing infrastructure that often needs attention.",
+    "commonProblems": [
+      {
+        "title": "1960s-1980s Home Aging",
+        "description": "Original plumbing from the development era reaching 40-60 years old"
+      },
+      {
+        "title": "Mature Tree Root Issues",
+        "description": "Established neighborhoods have large trees affecting underground pipes"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Townhouses",
+      "Apartments",
+      "Shopping Centers",
+      "Office Parks"
+    ],
+    "landmarks": [
+      "Downtown Pleasant Hill",
+      "Pleasant Hill BART",
+      "Contra Costa Centre",
+      "Pleasant Hill Community Center"
+    ],
+    "localTip": "Pleasant Hill homeowners should schedule sewer inspection before landscape projects—discovering pipe issues first prevents expensive do-overs.",
+    "testimonial": {
+      "name": "Pleasant Hill Family",
+      "text": "We were planning to redo our front yard and called West Peak first. Good thing—they found root intrusion needing repair. Fixed it before the new landscaping went in.",
+      "rating": 5,
+      "project": "Pre-landscape pipe inspection and repair"
+    },
+    "faqs": [
+      {
+        "id": "pleasant-hill-1",
+        "question": "Why inspect sewer lines before landscaping in Pleasant Hill?",
+        "answer": "Many Pleasant Hill homes have aging sewer lines under driveways, patios, and lawns. Discovering a problem after installing new landscaping is expensive and frustrating. We recommend inspection before major landscape investments."
+      },
+      {
+        "id": "pleasant-hill-2",
+        "question": "How old should my Pleasant Hill home's sewer line be before inspection?",
+        "answer": "If your Pleasant Hill home is from the 1960s-1980s, the original sewer line is 40-60 years old—well into the age range where problems develop. Proactive inspection lets you plan repairs rather than react to emergencies."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.9485,
+      "lng": -122.0608
+    },
+    "seoTitle": "Pleasant Hill Plumber | Family Home Specialists",
+    "seoDescription": "Quality plumbing for Pleasant Hill homes. Pre-landscape inspections. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "san-ramon",
+    "slug": "san-ramon",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "San Ramon",
+    "fullName": "San Ramon, California",
+    "heroHeadline": "San Ramon Premium Plumbing Service",
+    "heroSubheadline": "Expert service for San Ramon's prestigious community",
+    "localContext": "San Ramon's master-planned community offers top-rated schools, corporate headquarters, and upscale living. Properties range from 1980s-1990s established homes to newer developments in Dougherty Valley. High property values make protecting investments through quality maintenance particularly important.",
+    "commonProblems": [
+      {
+        "title": "1980s-1990s System Aging",
+        "description": "Original San Ramon homes reaching 30-40 years with aging plumbing"
+      },
+      {
+        "title": "Executive Home Scale",
+        "description": "Larger homes with more complex plumbing systems requiring specialized attention"
+      }
+    ],
+    "propertyTypes": [
+      "Executive Homes",
+      "Planned Communities",
+      "Corporate Campuses",
+      "Retail Centers",
+      "New Developments"
+    ],
+    "landmarks": [
+      "Bishop Ranch",
+      "City Center",
+      "Central Park",
+      "Iron Horse Trail"
+    ],
+    "localTip": "San Ramon homeowners should include plumbing inspection in annual home maintenance—protecting your investment beats emergency repairs.",
+    "testimonial": {
+      "name": "San Ramon Homeowner",
+      "text": "We schedule annual plumbing inspections like we do HVAC maintenance. West Peak's proactive approach has kept our system running perfectly. Smart investment in our home.",
+      "rating": 5,
+      "project": "Annual maintenance program"
+    },
+    "faqs": [
+      {
+        "id": "san-ramon-1",
+        "question": "Should San Ramon homeowners do annual plumbing inspections?",
+        "answer": "Absolutely. Given San Ramon's property values, protecting your plumbing investment makes sense. Annual inspection catches developing issues early, when repairs are simpler and cheaper. It's like regular car maintenance—prevention beats emergency repair."
+      },
+      {
+        "id": "san-ramon-2",
+        "question": "Do you work with San Ramon commercial properties?",
+        "answer": "Yes! We serve San Ramon's corporate campuses, retail centers, and commercial properties. We understand professional environments require reliable, unobtrusive service that doesn't disrupt business operations."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7799,
+      "lng": -121.978
+    },
+    "seoTitle": "San Ramon Plumber | Executive Home Specialists",
+    "seoDescription": "Premium plumbing for San Ramon homes and businesses. Annual maintenance programs. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "danville",
+    "slug": "danville",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "Danville",
+    "fullName": "Danville, California",
+    "heroHeadline": "Danville Estate Plumbing Specialists",
+    "heroSubheadline": "Premium service for Danville's distinguished properties",
+    "localContext": "Danville's tree-lined streets and estate properties set a high standard for quality of life. Many homes feature extensive grounds, mature landscaping, and premium finishes that require careful, respectful service. Property values demand protection through quality workmanship that preserves both function and aesthetics.",
+    "commonProblems": [
+      {
+        "title": "Estate Sewer Line Length",
+        "description": "Large properties often have extensive sewer laterals requiring specialized equipment"
+      },
+      {
+        "title": "Mature Oak Root Intrusion",
+        "description": "Danville's heritage oaks send roots seeking moisture in sewer lines"
+      }
+    ],
+    "propertyTypes": [
+      "Estate Homes",
+      "Luxury Properties",
+      "Downtown Businesses",
+      "Historic Buildings",
+      "Equestrian Properties"
+    ],
+    "landmarks": [
+      "Downtown Danville",
+      "Blackhawk",
+      "Mt. Diablo",
+      "Iron Horse Trail"
+    ],
+    "localTip": "Danville estate owners should establish relationships with trusted contractors before emergencies—quality service providers book quickly in this market.",
+    "testimonial": {
+      "name": "Danville Estate Owner",
+      "text": "Our property requires contractors who understand quality expectations. West Peak treats our home with respect, protects our grounds, and delivers excellent results. They're our go-to for plumbing.",
+      "rating": 5,
+      "project": "Estate plumbing maintenance"
+    },
+    "faqs": [
+      {
+        "id": "danville-1",
+        "question": "How do you protect Danville properties during work?",
+        "answer": "We understand Danville properties have significant investments in landscaping, driveways, and finishes. Our trenchless methods minimize disruption by design. We also use protective measures for flooring, lay drop cloths, and clean up thoroughly."
+      },
+      {
+        "id": "danville-2",
+        "question": "Do you handle large Danville estate properties?",
+        "answer": "Yes! Many Danville properties have extensive plumbing systems including long sewer laterals, multiple buildings, and complex irrigation. We have the equipment and experience to handle properties of any size."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.8216,
+      "lng": -121.9999
+    },
+    "seoTitle": "Danville Plumber | Luxury Estate Specialists",
+    "seoDescription": "Premium plumbing for Danville estates. Landscape protection. Quality workmanship. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "brentwood",
+    "slug": "brentwood",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "Brentwood",
+    "fullName": "Brentwood, California",
+    "heroHeadline": "Brentwood Plumbing & Sewer Solutions",
+    "heroSubheadline": "Quality service for Brentwood's growing community",
+    "localContext": "Brentwood has transformed from agricultural community to thriving suburb, attracting families seeking space and affordability. The city's newer housing stock means less age-related plumbing issues, but hot summers and expansive clay soil create unique challenges. Some older areas near downtown have typical aging infrastructure concerns.",
+    "commonProblems": [
+      {
+        "title": "Extreme Heat Soil Movement",
+        "description": "Brentwood's hot summers cause significant clay soil shrinkage and expansion"
+      },
+      {
+        "title": "New Construction Settling",
+        "description": "Recently built areas may experience settling affecting underground pipes"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "New Developments",
+      "Agricultural Properties",
+      "Downtown Businesses",
+      "Commercial Centers"
+    ],
+    "landmarks": [
+      "Downtown Brentwood",
+      "Brentwood Hills",
+      "Marsh Creek",
+      "U-Pick farms"
+    ],
+    "localTip": "Brentwood homeowners should water foundations and landscaping consistently through summer—inconsistent watering accelerates soil movement around pipes.",
+    "testimonial": {
+      "name": "Brentwood Homeowner",
+      "text": "Our new home developed a plumbing issue after a hot, dry summer. West Peak diagnosed soil settling and repaired the connection quickly. They explained the climate factors we didn't know about.",
+      "rating": 5,
+      "project": "Climate-related pipe repair"
+    },
+    "faqs": [
+      {
+        "id": "brentwood-1",
+        "question": "Why does Brentwood's climate affect plumbing?",
+        "answer": "Brentwood's hot, dry summers cause clay soil to shrink significantly, potentially pulling pipes apart at joints. Inconsistent watering makes this worse. When winter rains arrive, soil expands again. This cycling stresses underground systems over time."
+      },
+      {
+        "id": "brentwood-2",
+        "question": "Do new Brentwood homes have plumbing problems?",
+        "answer": "Occasionally. New construction can experience settling during the first few years that affects underground pipes. We recommend inspection before builder warranty expiration—any defects discovered should be the builder's responsibility."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.9319,
+      "lng": -121.6958
+    },
+    "seoTitle": "Brentwood Plumber | Hot Climate Specialists",
+    "seoDescription": "Quality plumbing for Brentwood homes. Climate-aware service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "hercules",
+    "slug": "hercules",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "Hercules",
+    "fullName": "Hercules, California",
+    "heroHeadline": "Hercules Plumbing & Drain Service",
+    "heroSubheadline": "Reliable service for Hercules waterfront living",
+    "localContext": "Hercules has transformed from industrial roots to a diverse residential community with waterfront amenities. The city's mix of 1970s-1990s established neighborhoods and newer development creates varied plumbing needs. Bay proximity brings both scenic living and higher water tables affecting underground infrastructure.",
+    "commonProblems": [
+      {
+        "title": "Waterfront Area Water Tables",
+        "description": "Properties near the bay experience higher groundwater affecting pipes"
+      },
+      {
+        "title": "1980s-1990s System Aging",
+        "description": "Homes from development era reaching 30-40 years old"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Waterfront Condos",
+      "Townhouses",
+      "Commercial Properties",
+      "New Developments"
+    ],
+    "landmarks": [
+      "Hercules Waterfront",
+      "Refugio Valley Park",
+      "Hercules Point",
+      "Pinole Valley"
+    ],
+    "localTip": "Hercules waterfront property owners should monitor for signs of groundwater infiltration—unexplained sewer bill increases often indicate the problem.",
+    "testimonial": {
+      "name": "Hercules Waterfront Resident",
+      "text": "Our condo's sewer bills seemed high for our usage. West Peak found groundwater infiltrating through deteriorated joints. They lined the affected sections and our bills dropped significantly.",
+      "rating": 5,
+      "project": "Infiltration repair"
+    },
+    "faqs": [
+      {
+        "id": "hercules-1",
+        "question": "How does Hercules's waterfront location affect plumbing?",
+        "answer": "Properties near the bay often have higher water tables. Damaged sewer lines can allow groundwater infiltration, increasing your sewer bills as treatment plants process this extra water. Our pipe lining creates watertight seals stopping infiltration."
+      },
+      {
+        "id": "hercules-2",
+        "question": "Do you service all of Hercules?",
+        "answer": "Yes! We serve all Hercules neighborhoods from the waterfront to the hills. Response times are typically 1-2 hours for emergencies, same-day for scheduled service."
+      }
+    ],
+    "coordinates": {
+      "lat": 38.0172,
+      "lng": -122.2886
+    },
+    "seoTitle": "Hercules Plumber | Waterfront Specialists",
+    "seoDescription": "Reliable plumbing for Hercules homes. Waterfront specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "el-cerrito",
+    "slug": "el-cerrito",
+    "parentAreaSlug": "contra-costa-county",
+    "name": "El Cerrito",
+    "fullName": "El Cerrito, California",
+    "heroHeadline": "El Cerrito Plumbing & Sewer Experts",
+    "heroSubheadline": "Expert care for El Cerrito's hillside homes and BART-convenient living",
+    "localContext": "El Cerrito's hillside neighborhoods offer Bay views and BART accessibility, attracting homeowners who value both location and community. Many homes date from the 1920s-1960s, with aging plumbing systems needing attention. Hillside properties often have long sewer laterals traversing challenging terrain.",
+    "commonProblems": [
+      {
+        "title": "Hillside Lateral Issues",
+        "description": "Long sewer lines running downhill face terrain-related challenges"
+      },
+      {
+        "title": "Mid-Century Plumbing Age",
+        "description": "1940s-1960s homes with original cast iron and clay systems"
+      }
+    ],
+    "propertyTypes": [
+      "Hillside Homes",
+      "View Properties",
+      "Mid-Century Homes",
+      "Downtown Mixed-Use",
+      "Apartment Buildings"
+    ],
+    "landmarks": [
+      "El Cerrito Plaza",
+      "El Cerrito del Norte BART",
+      "Hillside Natural Area",
+      "San Pablo Avenue"
+    ],
+    "localTip": "El Cerrito hillside homeowners should inspect sewer lines after wet winters—heavy rains and soil movement can affect long laterals.",
+    "testimonial": {
+      "name": "El Cerrito Hillside Owner",
+      "text": "Our home has a 100-foot sewer lateral running down to the street. When roots invaded, West Peak cleared them and lined the whole thing. No excavation on our steep hillside.",
+      "rating": 5,
+      "project": "Hillside lateral rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "el-cerrito-1",
+        "question": "Can you work on El Cerrito's hillside properties?",
+        "answer": "Yes! Many El Cerrito homes have long sewer laterals traversing steep terrain. Our trenchless methods are ideal—we can line entire runs through single access points without excavating hillsides, disturbing retaining walls, or damaging landscaping."
+      },
+      {
+        "id": "el-cerrito-2",
+        "question": "How old are sewer lines in older El Cerrito homes?",
+        "answer": "Many El Cerrito homes date to the 1920s-1960s, meaning sewer lines are 60-100 years old. While some original systems hold up well, most show age. Camera inspection reveals actual condition and helps plan any needed rehabilitation."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.9161,
+      "lng": -122.3108
+    },
+    "seoTitle": "El Cerrito Plumber | Hillside Home Specialists",
+    "seoDescription": "Expert plumbing for El Cerrito hillside homes. Long lateral specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "san-rafael",
+    "slug": "san-rafael",
+    "parentAreaSlug": "marin-county",
+    "name": "San Rafael",
+    "fullName": "San Rafael, California",
+    "heroHeadline": "San Rafael Plumbing & Sewer Specialists",
+    "heroSubheadline": "Expert service for Marin's county seat",
+    "localContext": "San Rafael serves as Marin County's largest city and county seat, with diverse neighborhoods from historic downtown to canal waterfront to hillside estates. The city's variety means plumbing challenges range from century-old commercial buildings to mid-century homes to modern developments. Marin's environmental values often align with trenchless methods.",
+    "commonProblems": [
+      {
+        "title": "Historic Downtown Infrastructure",
+        "description": "Fourth Street and downtown buildings with 100+ year old plumbing"
+      },
+      {
+        "title": "Hillside Property Challenges",
+        "description": "Homes above downtown with long sewer laterals on steep terrain"
+      }
+    ],
+    "propertyTypes": [
+      "Historic Downtown",
+      "Hillside Homes",
+      "Canal District",
+      "Terra Linda",
+      "Civic Center Area"
+    ],
+    "landmarks": [
+      "Downtown San Rafael",
+      "Marin Civic Center",
+      "Canal District",
+      "China Camp"
+    ],
+    "localTip": "San Rafael property owners should know that Marin's environmental regulations often favor trenchless methods—less disruption, less waste, smaller footprint.",
+    "testimonial": {
+      "name": "San Rafael Historic Property Owner",
+      "text": "Our downtown building dates to 1905 and needed sewer work. West Peak's trenchless approach preserved our historic sidewalk and completed the job with minimal business disruption.",
+      "rating": 5,
+      "project": "Historic building pipe rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "san-rafael-1",
+        "question": "Do you work with historic San Rafael buildings?",
+        "answer": "Yes! San Rafael's downtown has many historic buildings with aging plumbing. Our trenchless methods preserve historic character—no excavation through original sidewalks, foundations, or landscaping. We work within the constraints of historic properties."
+      },
+      {
+        "id": "san-rafael-2",
+        "question": "Are trenchless methods allowed in San Rafael?",
+        "answer": "Absolutely, and often preferred. Marin County's environmental values align with trenchless methods' smaller footprint—no excavation waste, no heavy equipment, minimal disruption. Many San Rafael property owners specifically request trenchless solutions."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.9735,
+      "lng": -122.5311
+    },
+    "seoTitle": "San Rafael Plumber | Historic & Hillside Experts",
+    "seoDescription": "Expert plumbing for San Rafael homes and businesses. Historic specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "novato",
+    "slug": "novato",
+    "parentAreaSlug": "marin-county",
+    "name": "Novato",
+    "fullName": "Novato, California",
+    "heroHeadline": "Novato Plumbing & Drain Experts",
+    "heroSubheadline": "Reliable service for Novato's family communities",
+    "localContext": "Novato offers a more suburban feel than southern Marin, with family-oriented neighborhoods and more affordable housing options. The city's 1960s-1990s housing stock means many homes have aging plumbing systems. Hot summers (warmer than coastal Marin) and clay soil create additional challenges.",
+    "commonProblems": [
+      {
+        "title": "1970s-1980s Pipe Aging",
+        "description": "Developments from this era reaching 40-50 years with original plumbing"
+      },
+      {
+        "title": "Warmer Climate Effects",
+        "description": "Novato's warmer summers cause more soil movement than coastal Marin"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Tract Developments",
+      "Townhouses",
+      "Vintage Oaks",
+      "Downtown Mixed-Use"
+    ],
+    "landmarks": [
+      "Downtown Novato",
+      "Vintage Oaks",
+      "Stafford Lake",
+      "Hamilton"
+    ],
+    "localTip": "Novato homeowners should be aware that the city's warmer summers create more soil stress on pipes than coastal Marin communities.",
+    "testimonial": {
+      "name": "Novato Family",
+      "text": "We love our 1978 Novato home but the sewer line needed work. West Peak explained the options clearly, completed the repair efficiently, and left everything clean. Great experience.",
+      "rating": 5,
+      "project": "Residential sewer rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "novato-1",
+        "question": "When should Novato homeowners inspect sewer lines?",
+        "answer": "If your Novato home is from the 1960s-1980s, the original sewer line is 40-60 years old. This is the age range where clay and cast iron pipes commonly show problems. Proactive inspection catches issues before emergencies."
+      },
+      {
+        "id": "novato-2",
+        "question": "Is Novato's climate harder on plumbing?",
+        "answer": "Novato is warmer than coastal Marin, which causes more soil expansion and contraction around underground pipes. This movement stresses pipe joints over time. Trenchless CIPP lining creates seamless repairs that handle this movement well."
+      }
+    ],
+    "coordinates": {
+      "lat": 38.1074,
+      "lng": -122.5697
+    },
+    "seoTitle": "Novato Plumber | Family Home Specialists",
+    "seoDescription": "Reliable plumbing for Novato families. 1970s-1980s home experts. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "mill-valley",
+    "slug": "mill-valley",
+    "parentAreaSlug": "marin-county",
+    "name": "Mill Valley",
+    "fullName": "Mill Valley, California",
+    "heroHeadline": "Mill Valley Premium Plumbing Service",
+    "heroSubheadline": "Expert care for Mill Valley's distinctive homes",
+    "localContext": "Mill Valley's redwood-shaded streets and custom homes create one of the Bay Area's most desirable communities. Properties range from historic downtown buildings to hillside estates with challenging access. Redwood roots, steep terrain, and high property values make protective trenchless methods essential.",
+    "commonProblems": [
+      {
+        "title": "Redwood Root Intrusion",
+        "description": "Mill Valley's signature redwoods send aggressive roots into sewer lines"
+      },
+      {
+        "title": "Steep Hillside Access",
+        "description": "Many properties have challenging access for traditional plumbing equipment"
+      }
+    ],
+    "propertyTypes": [
+      "Hillside Homes",
+      "Redwood-Shaded Properties",
+      "Historic Downtown",
+      "Custom Estates",
+      "Tamalpais Valley"
+    ],
+    "landmarks": [
+      "Downtown Mill Valley",
+      "Throckmorton Theatre",
+      "Mt. Tamalpais",
+      "Muir Woods"
+    ],
+    "localTip": "Mill Valley homeowners should know that redwood roots are particularly aggressive moisture-seekers—regular sewer inspection catches intrusion early.",
+    "testimonial": {
+      "name": "Mill Valley Homeowner",
+      "text": "Our 1920s home sits among beautiful redwoods, but their roots invaded our sewer line. West Peak cleared the roots and lined the pipe without harming a single tree. Perfect solution.",
+      "rating": 5,
+      "project": "Redwood root intrusion repair"
+    },
+    "faqs": [
+      {
+        "id": "mill-valley-1",
+        "question": "How do you handle Mill Valley's redwood roots?",
+        "answer": "Redwood roots are aggressive moisture-seekers that quickly exploit any pipe weakness. We use hydro jetting to clear roots, then CIPP lining to seal entry points permanently. This protects your pipes while preserving the redwoods that make Mill Valley special."
+      },
+      {
+        "id": "mill-valley-2",
+        "question": "Can you access Mill Valley's hillside properties?",
+        "answer": "Yes! Many Mill Valley homes have challenging access via steep driveways, stairs, or narrow roads. Our trenchless equipment is designed for difficult access situations. We don't need heavy excavators—just clear paths to access points."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.906,
+      "lng": -122.545
+    },
+    "seoTitle": "Mill Valley Plumber | Redwood Root Specialists",
+    "seoDescription": "Premium plumbing for Mill Valley homes. Redwood root experts. Hillside specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "sausalito",
+    "slug": "sausalito",
+    "parentAreaSlug": "marin-county",
+    "name": "Sausalito",
+    "fullName": "Sausalito, California",
+    "heroHeadline": "Sausalito Plumbing Specialists",
+    "heroSubheadline": "Expert service for Sausalito's waterfront and hillside properties",
+    "localContext": "Sausalito's dramatic hillside homes and waterfront properties create unique plumbing challenges. Many homes have extremely difficult access, long sewer laterals traversing steep terrain, and houseboats requiring specialized marine plumbing knowledge. High property values and the city's artistic character demand careful, respectful service.",
+    "commonProblems": [
+      {
+        "title": "Extreme Hillside Laterals",
+        "description": "Steep terrain means sewer lines often run 100-200+ feet to street connections"
+      },
+      {
+        "title": "Historic and Unique Structures",
+        "description": "Artists' houseboats, historic buildings, and custom homes with non-standard systems"
+      }
+    ],
+    "propertyTypes": [
+      "Hillside Homes",
+      "Houseboats",
+      "Waterfront Properties",
+      "Historic Buildings",
+      "Downtown Businesses"
+    ],
+    "landmarks": [
+      "Bridgeway",
+      "Sausalito Houseboats",
+      "Richardson Bay",
+      "Plaza Viña del Mar"
+    ],
+    "localTip": "Sausalito hillside homeowners should budget for specialized trenchless methods—traditional excavation is often impossible or prohibitively expensive on steep terrain.",
+    "testimonial": {
+      "name": "Sausalito Hillside Owner",
+      "text": "Our home requires 150 steps to access and the sewer line runs 175 feet down to the street. Excavation wasn't an option. West Peak's trenchless solution was literally the only viable approach. Excellent work.",
+      "rating": 5,
+      "project": "Extreme hillside lateral lining"
+    },
+    "faqs": [
+      {
+        "id": "sausalito-1",
+        "question": "Can you work on Sausalito's difficult hillside properties?",
+        "answer": "Yes! Sausalito is known for challenging access, and our trenchless methods are designed exactly for these situations. We don't need heavy equipment at the property—our tools can be carried to access points and work is done from there."
+      },
+      {
+        "id": "sausalito-2",
+        "question": "Do you service Sausalito houseboats?",
+        "answer": "Yes, with some caveats. Houseboat plumbing has unique requirements including marine systems and dock connections. We can evaluate your specific situation and determine the best approach for your vessel."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.8591,
+      "lng": -122.4852
+    },
+    "seoTitle": "Sausalito Plumber | Hillside & Waterfront Experts",
+    "seoDescription": "Specialized plumbing for Sausalito properties. Extreme hillside access. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "fairfax",
+    "slug": "fairfax",
+    "parentAreaSlug": "marin-county",
+    "name": "Fairfax",
+    "fullName": "Fairfax, California",
+    "heroHeadline": "Fairfax Plumbing & Sewer Service",
+    "heroSubheadline": "Neighborly service for Fairfax's creative community",
+    "localContext": "Fairfax's artistic, progressive community values both sustainability and historic preservation. Many homes date from the early-to-mid 1900s with aging infrastructure tucked into wooded hillsides. The town's small-scale character and environmental values align well with minimally-invasive trenchless methods.",
+    "commonProblems": [
+      {
+        "title": "Wooded Hillside Root Issues",
+        "description": "Oak and redwood roots in surrounding forests infiltrate aging pipes"
+      },
+      {
+        "title": "Older Home Infrastructure",
+        "description": "Many homes from 1920s-1960s with original plumbing systems"
+      }
+    ],
+    "propertyTypes": [
+      "Hillside Cottages",
+      "Historic Homes",
+      "Wooded Properties",
+      "Downtown Mixed-Use",
+      "Cabins"
+    ],
+    "landmarks": [
+      "Downtown Fairfax",
+      "Fairfax Theatre",
+      "Cascade Canyon",
+      "Meadow Club"
+    ],
+    "localTip": "Fairfax homeowners value sustainability—trenchless methods align with environmental values by eliminating excavation waste and heavy equipment impact.",
+    "testimonial": {
+      "name": "Fairfax Homeowner",
+      "text": "We chose West Peak specifically for their trenchless approach. No excavation waste, no heavy equipment tearing up our yard. Fixed our sewer problem while matching our values.",
+      "rating": 5,
+      "project": "Sustainable pipe rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "fairfax-1",
+        "question": "Why do Fairfax homeowners prefer trenchless methods?",
+        "answer": "Fairfax residents often choose trenchless for environmental reasons: no excavation waste going to landfills, no heavy equipment emissions, no disruption to natural landscaping. The method aligns with Fairfax's progressive, sustainability-minded community values."
+      },
+      {
+        "id": "fairfax-2",
+        "question": "Can you access Fairfax's remote hillside properties?",
+        "answer": "Yes! Many Fairfax homes have challenging access via narrow roads and steep driveways. Trenchless methods require minimal equipment that can be carried to access points—no need for excavators that couldn't reach anyway."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.9871,
+      "lng": -122.5889
+    },
+    "seoTitle": "Fairfax Plumber | Sustainable Trenchless Solutions",
+    "seoDescription": "Eco-friendly plumbing for Fairfax homes. Minimal-impact trenchless methods. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "corte-madera",
+    "slug": "corte-madera",
+    "parentAreaSlug": "marin-county",
+    "name": "Corte Madera",
+    "fullName": "Corte Madera, California",
+    "heroHeadline": "Corte Madera Plumbing Excellence",
+    "heroSubheadline": "Quality service for Corte Madera's family neighborhoods",
+    "localContext": "Corte Madera offers family-friendly neighborhoods with convenient shopping and excellent schools. The city's 1950s-1980s housing stock means many homes have aging plumbing systems requiring attention. Proximity to the marsh creates higher water tables in some areas.",
+    "commonProblems": [
+      {
+        "title": "Mid-Century Home Aging",
+        "description": "1950s-1970s homes with original cast iron and clay systems reaching end of life"
+      },
+      {
+        "title": "Marsh-Adjacent Water Tables",
+        "description": "Properties near the marsh may experience groundwater infiltration"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Townhouses",
+      "Retail Centers",
+      "Office Buildings",
+      "Marsh-View Properties"
+    ],
+    "landmarks": [
+      "Town Center",
+      "Village at Corte Madera",
+      "Ring Mountain",
+      "Corte Madera Marsh"
+    ],
+    "localTip": "Corte Madera homeowners near the marsh should monitor sewer bills for unexplained increases—this often indicates groundwater infiltration.",
+    "testimonial": {
+      "name": "Corte Madera Family",
+      "text": "Our 1967 home's sewer line was infiltrated by groundwater. West Peak diagnosed the problem, sealed the pipe with lining, and our sewer bills dropped back to normal. Professional and effective.",
+      "rating": 5,
+      "project": "Groundwater infiltration repair"
+    },
+    "faqs": [
+      {
+        "id": "corte-madera-1",
+        "question": "Does Corte Madera's marsh location affect plumbing?",
+        "answer": "In some areas, yes. Properties near the marsh have higher water tables. Damaged sewer lines can allow groundwater infiltration, increasing sewer bills. Our pipe lining creates watertight seals that stop infiltration permanently."
+      },
+      {
+        "id": "corte-madera-2",
+        "question": "When should Corte Madera homeowners inspect sewer lines?",
+        "answer": "If your home is from the 1950s-1980s, the original sewer line is 40-70 years old. This is the age range where problems commonly develop. Inspection before issues become emergencies saves money and stress."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.9255,
+      "lng": -122.5275
+    },
+    "seoTitle": "Corte Madera Plumber | Family Home Experts",
+    "seoDescription": "Quality plumbing for Corte Madera homes. Mid-century specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "larkspur",
+    "slug": "larkspur",
+    "parentAreaSlug": "marin-county",
+    "name": "Larkspur",
+    "fullName": "Larkspur, California",
+    "heroHeadline": "Larkspur Plumbing & Sewer Service",
+    "heroSubheadline": "Expert care for Larkspur's charming neighborhoods",
+    "localContext": "Larkspur's tree-lined streets and charming downtown create a welcoming community feel. The city's diverse housing stock ranges from historic downtown buildings to hillside homes to newer developments. Redwood Creek's watershed and mature landscaping create both beauty and plumbing challenges.",
+    "commonProblems": [
+      {
+        "title": "Creek-Area Water Tables",
+        "description": "Properties near Redwood Creek may have higher groundwater levels"
+      },
+      {
+        "title": "Historic Downtown Infrastructure",
+        "description": "Magnolia Avenue buildings with aging commercial plumbing"
+      }
+    ],
+    "propertyTypes": [
+      "Historic Downtown",
+      "Single-Family Homes",
+      "Hillside Properties",
+      "Townhouses",
+      "Creek-Side Homes"
+    ],
+    "landmarks": [
+      "Downtown Larkspur",
+      "Larkspur Landing",
+      "Redwood High School",
+      "Redwood Creek"
+    ],
+    "localTip": "Larkspur homeowners near Redwood Creek should ensure sewer lines are intact—groundwater infiltration is common in this watershed.",
+    "testimonial": {
+      "name": "Larkspur Homeowner",
+      "text": "Living near the creek, we knew groundwater could be an issue. West Peak inspected our sewer line, found developing problems, and repaired them before they became emergencies. Proactive service.",
+      "rating": 5,
+      "project": "Preventive pipe rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "larkspur-1",
+        "question": "How does Redwood Creek affect Larkspur plumbing?",
+        "answer": "Properties in the Redwood Creek watershed often have higher water tables, especially during wet seasons. Damaged sewer lines can allow groundwater infiltration, increasing bills and overloading treatment systems. Our pipe lining creates watertight seals."
+      },
+      {
+        "id": "larkspur-2",
+        "question": "Do you service Downtown Larkspur businesses?",
+        "answer": "Yes! We work with Magnolia Avenue restaurants, shops, and professional offices. We understand the importance of minimal disruption and can schedule work during off-hours."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.9341,
+      "lng": -122.5353
+    },
+    "seoTitle": "Larkspur Plumber | Creek Area Specialists",
+    "seoDescription": "Expert plumbing for Larkspur homes and businesses. Watershed specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "tiburon",
+    "slug": "tiburon",
+    "parentAreaSlug": "marin-county",
+    "name": "Tiburon",
+    "fullName": "Tiburon, California",
+    "heroHeadline": "Tiburon Premium Plumbing Service",
+    "heroSubheadline": "Exceptional care for Tiburon's waterfront and hillside estates",
+    "localContext": "Tiburon's stunning waterfront properties and hillside estates represent some of the Bay Area's most valuable real estate. Many homes have spectacular views accessible only by steep driveways and long sewer laterals. High property values and the town's refined character demand exceptional service quality and property protection.",
+    "commonProblems": [
+      {
+        "title": "Extreme Hillside Sewer Lines",
+        "description": "View properties often have 150-300 foot sewer laterals on steep terrain"
+      },
+      {
+        "title": "Waterfront Property Challenges",
+        "description": "High water tables and saltwater exposure near the bay"
+      }
+    ],
+    "propertyTypes": [
+      "Waterfront Estates",
+      "Hillside View Homes",
+      "Downtown Mixed-Use",
+      "Historic Buildings",
+      "Luxury Condos"
+    ],
+    "landmarks": [
+      "Downtown Tiburon",
+      "Angel Island Ferry",
+      "Paradise Drive",
+      "Old St. Hilary's"
+    ],
+    "localTip": "Tiburon estate owners should establish relationships with quality contractors before emergencies—properties of this caliber require service providers who understand expectations.",
+    "testimonial": {
+      "name": "Tiburon Estate Owner",
+      "text": "Our home's 250-foot sewer lateral running to the street was beyond traditional repair. West Peak's trenchless technology was the perfect solution—no excavation across our carefully designed landscape.",
+      "rating": 5,
+      "project": "Long lateral complete rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "tiburon-1",
+        "question": "How do you handle Tiburon's long hillside sewer laterals?",
+        "answer": "Many Tiburon homes have sewer laterals over 200 feet long running down steep hillsides. Our specialized trenchless equipment can line entire runs from single access points—no excavation across terraced landscapes, retaining walls, or manicured grounds."
+      },
+      {
+        "id": "tiburon-2",
+        "question": "Do you understand Tiburon's quality expectations?",
+        "answer": "Absolutely. Tiburon properties represent significant investments that deserve exceptional care. Our technicians understand high-end environments, protect finishes, clean thoroughly, and deliver results that match the caliber of the property."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.8735,
+      "lng": -122.4566
+    },
+    "seoTitle": "Tiburon Plumber | Waterfront & Estate Specialists",
+    "seoDescription": "Premium plumbing for Tiburon estates. Long lateral experts. Waterfront specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "greater-sf",
+    "slug": "greater-san-francisco",
+    "parentAreaSlug": "bay-area",
+    "name": "Greater San Francisco",
+    "fullName": "Greater San Francisco Area",
+    "heroHeadline": "Greater San Francisco Plumbing Experts",
+    "heroSubheadline": "Serving San Francisco and surrounding communities",
+    "localContext": "The Greater San Francisco area encompasses the city and its immediate neighbors, creating a diverse urban landscape with varied plumbing challenges. From downtown high-rises to Victorian neighborhoods to suburban communities, the region presents every type of plumbing situation.",
+    "commonProblems": [
+      {
+        "title": "Urban Infrastructure Aging",
+        "description": "Dense development with interconnected systems requiring coordinated repairs"
+      },
+      {
+        "title": "High-Rise Drain Systems",
+        "description": "Multi-story buildings with complex vertical drain stacks"
+      }
+    ],
+    "propertyTypes": [
+      "High-Rise Buildings",
+      "Victorian Homes",
+      "Mixed-Use Properties",
+      "Commercial Buildings",
+      "Residential Neighborhoods"
+    ],
+    "landmarks": [
+      "Golden Gate Bridge",
+      "Fisherman's Wharf",
+      "Chinatown",
+      "Union Square"
+    ],
+    "localTip": "San Francisco property owners should work with plumbers experienced in urban environments—permit requirements, access constraints, and historic considerations add complexity.",
+    "testimonial": {
+      "name": "SF Property Manager",
+      "text": "Managing multiple San Francisco properties requires reliable contractors. West Peak handles our emergency calls, scheduled maintenance, and capital improvements. Consistent quality across all our buildings.",
+      "rating": 5,
+      "project": "Multi-property service contract"
+    },
+    "faqs": [
+      {
+        "id": "greater-sf-1",
+        "question": "Do you service all San Francisco neighborhoods?",
+        "answer": "Yes! We serve every San Francisco neighborhood from the Marina to the Mission, Sunset to SOMA. Our team knows the city's diverse architecture and plumbing systems well."
+      },
+      {
+        "id": "greater-sf-2",
+        "question": "Can you handle San Francisco's permit requirements?",
+        "answer": "Absolutely. We're familiar with San Francisco's permitting process and can guide you through requirements for various project types. Our trenchless methods often simplify permitting since they don't involve major excavation."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7749,
+      "lng": -122.4194
+    },
+    "seoTitle": "San Francisco Plumber | City-Wide Service",
+    "seoDescription": "Expert plumbing throughout San Francisco. All neighborhoods. 24/7 emergency service. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning",
+      "commercial-water-heater"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "peninsula",
+    "slug": "peninsula",
+    "parentAreaSlug": "bay-area",
+    "name": "Peninsula",
+    "fullName": "San Francisco Peninsula",
+    "heroHeadline": "Peninsula Plumbing & Sewer Specialists",
+    "heroSubheadline": "Serving the Peninsula from Daly City to Redwood City",
+    "localContext": "The Peninsula stretches south from San Francisco through affluent communities with diverse housing stock. Properties range from 1920s bungalows to mid-century ranches to modern developments, each with unique plumbing considerations. The region's high property values make protective trenchless methods particularly valuable.",
+    "commonProblems": [
+      {
+        "title": "Diverse Housing Stock",
+        "description": "Homes from 1920s-present with varied plumbing systems and materials"
+      },
+      {
+        "title": "Protected Tree Root Issues",
+        "description": "Many Peninsula cities have heritage tree ordinances affecting sewer repair options"
+      }
+    ],
+    "propertyTypes": [
+      "Single-Family Homes",
+      "Estates",
+      "Townhouses",
+      "Office Parks",
+      "Mixed-Use Developments"
+    ],
+    "landmarks": [
+      "Stanford University",
+      "SFO",
+      "Caltrain Corridor",
+      "Silicon Valley"
+    ],
+    "localTip": "Peninsula homeowners should check their city's tree ordinances before planning sewer work—trenchless methods often avoid triggering tree protection requirements.",
+    "testimonial": {
+      "name": "Peninsula Homeowner",
+      "text": "We have a protected heritage oak near our sewer line. Traditional excavation would have required expensive arborist oversight. West Peak's trenchless repair avoided the tree completely.",
+      "rating": 5,
+      "project": "Tree-safe sewer rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "peninsula-1",
+        "question": "Do you serve all Peninsula cities?",
+        "answer": "Yes! We work throughout the Peninsula from Daly City and South San Francisco through Burlingame, San Mateo, Redwood City, and into Palo Alto and the South Bay. Comprehensive coverage for all Peninsula communities."
+      },
+      {
+        "id": "peninsula-2",
+        "question": "How do Peninsula tree ordinances affect sewer repairs?",
+        "answer": "Many Peninsula cities protect heritage trees. Excavation in root zones may require permits and arborist supervision. Our trenchless methods avoid excavation entirely, often bypassing these requirements while protecting valuable trees."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.5629,
+      "lng": -122.3255
+    },
+    "seoTitle": "Peninsula Plumber | Daly City to Redwood City",
+    "seoDescription": "Expert plumbing throughout the Peninsula. Heritage tree specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "south-bay",
+    "slug": "south-bay",
+    "parentAreaSlug": "bay-area",
+    "name": "South Bay",
+    "fullName": "South Bay Area",
+    "heroHeadline": "South Bay Plumbing & Drain Experts",
+    "heroSubheadline": "Serving Silicon Valley's homes and businesses",
+    "localContext": "The South Bay encompasses Silicon Valley's heart, with its mix of tech campuses, diverse residential communities, and historic downtown areas. Properties range from 1950s Eichlers to modern developments, with commercial facilities ranging from small offices to massive tech headquarters.",
+    "commonProblems": [
+      {
+        "title": "Tech Campus Scale",
+        "description": "Large commercial facilities require heavy-duty plumbing expertise"
+      },
+      {
+        "title": "Mid-Century Housing Age",
+        "description": "1950s-1970s developments reaching the age where systems need rehabilitation"
+      }
+    ],
+    "propertyTypes": [
+      "Tech Campuses",
+      "Single-Family Homes",
+      "Eichler Homes",
+      "Townhouse Communities",
+      "Commercial Centers"
+    ],
+    "landmarks": [
+      "Apple Park",
+      "Google Campus",
+      "Santana Row",
+      "SAP Center"
+    ],
+    "localTip": "South Bay homeowners and businesses benefit from working with plumbers who understand both residential and commercial needs—versatility matters in Silicon Valley.",
+    "testimonial": {
+      "name": "South Bay Tech Company",
+      "text": "When our campus building had plumbing issues, West Peak responded quickly and worked around our operations. They understand commercial environments and delivered professional results.",
+      "rating": 5,
+      "project": "Tech campus emergency service"
+    },
+    "faqs": [
+      {
+        "id": "south-bay-1",
+        "question": "Do you service South Bay tech campuses?",
+        "answer": "Yes! We work with tech companies throughout Silicon Valley on facility plumbing needs. We understand corporate environments, work around operations, and coordinate with facility managers for minimal disruption."
+      },
+      {
+        "id": "south-bay-2",
+        "question": "What South Bay cities do you cover?",
+        "answer": "We serve all South Bay communities including San Jose, Santa Clara, Sunnyvale, Mountain View, Palo Alto, Cupertino, Campbell, Los Gatos, Saratoga, and surrounding areas."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.3382,
+      "lng": -121.8863
+    },
+    "seoTitle": "South Bay Plumber | Silicon Valley Specialists",
+    "seoDescription": "Expert plumbing for South Bay homes and tech campuses. Silicon Valley coverage. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning",
+      "commercial-water-heater"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "east-bay",
+    "slug": "east-bay",
+    "parentAreaSlug": "bay-area",
+    "name": "East Bay",
+    "fullName": "East Bay Area",
+    "heroHeadline": "East Bay Plumbing & Sewer Specialists",
+    "heroSubheadline": "Serving the East Bay from Oakland to Livermore",
+    "localContext": "The East Bay spans from urban Oakland and Berkeley through suburban Contra Costa to the Tri-Valley. This diversity means plumbing challenges range from Victorian infrastructure in older cities to newer suburban developments facing different issues. Hot inland summers create soil stress unknown in cooler coastal areas.",
+    "commonProblems": [
+      {
+        "title": "Climate Variation",
+        "description": "Inland areas face hotter summers causing more soil movement than coastal cities"
+      },
+      {
+        "title": "Wide Housing Age Range",
+        "description": "Victorian Oakland homes to new Brentwood developments—every era represented"
+      }
+    ],
+    "propertyTypes": [
+      "Victorian Homes",
+      "Mid-Century Developments",
+      "New Tract Homes",
+      "Commercial Properties",
+      "Industrial Facilities"
+    ],
+    "landmarks": [
+      "Lake Merritt",
+      "UC Berkeley",
+      "Mt. Diablo",
+      "Livermore Valley"
+    ],
+    "localTip": "East Bay property owners should match their plumber to their location—coastal versus inland, urban versus suburban, and home age all affect what expertise matters most.",
+    "testimonial": {
+      "name": "East Bay Property Owner",
+      "text": "We own properties in Oakland and Walnut Creek—very different plumbing situations. West Peak handles both expertly. They understand the nuances of different East Bay locations.",
+      "rating": 5,
+      "project": "Multi-property East Bay service"
+    },
+    "faqs": [
+      {
+        "id": "east-bay-1",
+        "question": "What East Bay areas do you serve?",
+        "answer": "We cover the entire East Bay: Oakland, Berkeley, and surrounding cities; central Contra Costa including Walnut Creek, Concord, Pleasant Hill; and Tri-Valley communities like Dublin, Pleasanton, and Livermore."
+      },
+      {
+        "id": "east-bay-2",
+        "question": "How does inland East Bay weather affect plumbing?",
+        "answer": "Inland East Bay cities like Walnut Creek, Concord, and Livermore have significantly hotter summers than coastal Oakland and Berkeley. This heat causes more soil shrinkage and expansion, stressing underground pipes. We factor climate into our assessments."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.8044,
+      "lng": -122.2712
+    },
+    "seoTitle": "East Bay Plumber | Oakland to Livermore",
+    "seoDescription": "Expert plumbing throughout the East Bay. All communities covered. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning",
+      "plumbing-services"
+    ],
+    "lastUpdated": "2026-02"
+  },
+  {
+    "id": "north-bay",
+    "slug": "north-bay",
+    "parentAreaSlug": "bay-area",
+    "name": "North Bay",
+    "fullName": "North Bay Area",
+    "heroHeadline": "North Bay Plumbing Excellence",
+    "heroSubheadline": "Serving Marin, Sonoma, and Napa",
+    "localContext": "The North Bay encompasses Marin County, southern Sonoma, and Napa Valley—regions known for natural beauty, environmental consciousness, and distinctive communities. Properties range from Marin's hillside estates to Sonoma's wine country homes, each with unique plumbing considerations. The region's environmental values often align with low-impact trenchless methods.",
+    "commonProblems": [
+      {
+        "title": "Wine Country Specific Needs",
+        "description": "Wineries and agricultural operations require specialized drainage"
+      },
+      {
+        "title": "Environmental Sensitivity",
+        "description": "Protected areas, watersheds, and environmental regulations add complexity"
+      }
+    ],
+    "propertyTypes": [
+      "Estate Homes",
+      "Wineries",
+      "Historic Properties",
+      "Hillside Homes",
+      "Agricultural Operations"
+    ],
+    "landmarks": [
+      "Golden Gate Bridge",
+      "Muir Woods",
+      "Napa Valley",
+      "Sonoma Plaza"
+    ],
+    "localTip": "North Bay property owners should work with contractors who understand regional environmental sensitivities—permits and regulations vary significantly between jurisdictions.",
+    "testimonial": {
+      "name": "North Bay Winery",
+      "text": "Our winery needed specialized drainage work during crush season. West Peak understood our timing constraints and completed the project without disrupting production. True professionals.",
+      "rating": 5,
+      "project": "Winery drain rehabilitation"
+    },
+    "faqs": [
+      {
+        "id": "north-bay-1",
+        "question": "Do you serve Sonoma and Napa counties?",
+        "answer": "Yes! We serve southern Sonoma and Napa Valley in addition to all of Marin County. For projects further north, we evaluate on a case-by-case basis. Contact us to discuss your specific location."
+      },
+      {
+        "id": "north-bay-2",
+        "question": "Do you work with North Bay wineries?",
+        "answer": "Absolutely. We serve wineries throughout Napa and Sonoma, understanding their unique drainage needs including crush pad systems, barrel room floors, and production facility requirements. We work around seasonal schedules."
+      }
+    ],
+    "coordinates": {
+      "lat": 38.2975,
+      "lng": -122.2869
+    },
+    "seoTitle": "North Bay Plumber | Marin to Wine Country",
+    "seoDescription": "Expert plumbing for the North Bay. Wineries to estates. Environmental specialists. Free estimates.",
+    "services": [
+      "trenchless-services",
+      "sewer-services",
+      "hydro-jetting",
+      "commercial-drain-cleaning"
+    ],
+    "lastUpdated": "2026-02"
+  }
+]

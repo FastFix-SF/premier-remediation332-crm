@@ -7,6 +7,9 @@
 /* Tenant color customization - imported from config */
 @import "./config/theme.css";
 
+/* West Peak marketing frontend styles */
+@import "./westpeak/styles.css";
+
 /* Prevent zoom on all mobile devices */
 html {
   touch-action: manipulation;
