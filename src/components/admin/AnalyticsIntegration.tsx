@@ -171,7 +171,7 @@ const AnalyticsIntegration = () => {
           <Label htmlFor="analytics_site">Site Domain</Label>
           <Input
             id="analytics_site"
-            placeholder="e.g., yourdomain.com"
+            placeholder="e.g., yourcompany.com"
             value={config.analytics_shared_site}
             onChange={(e) => setConfig(prev => ({ ...prev, analytics_shared_site: e.target.value }))}
           />

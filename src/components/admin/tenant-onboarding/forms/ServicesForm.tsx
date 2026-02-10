@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Plus, Trash2, GripVertical, Wrench } from 'lucide-react';
+import { getIndustryConfig } from '@/config/industries';
 
 // Single service schema
 export const serviceSchema = z.object({
@@ -46,10 +47,11 @@ interface ServicesFormProps {
   isLoading?: boolean;
   submitLabel?: string;
   showCard?: boolean;
+  industry?: string;
 }
 
-// Pre-defined roofing services for quick add
-const PRESET_SERVICES: Partial<ServiceFormData>[] = [
+// Fallback roofing presets used when no industry config is available
+const FALLBACK_PRESETS: Partial<ServiceFormData>[] = [
   { name: 'Residential Roofing', description: 'Complete roofing solutions for homes', icon: 'home' },
   { name: 'Commercial Roofing', description: 'Professional roofing for businesses', icon: 'building' },
   { name: 'Roof Repair', description: 'Expert repair services for all roof types', icon: 'wrench' },
@@ -218,7 +220,23 @@ export const ServicesForm: React.FC<ServicesFormProps> = ({
   isLoading = false,
   submitLabel = 'Save',
   showCard = true,
+  industry,
 }) => {
+  // Get service presets from industry config, falling back to hardcoded roofing defaults
+  const presetServices: Partial<ServiceFormData>[] = React.useMemo(() => {
+    if (industry) {
+      const config = getIndustryConfig(industry);
+      if (config?.servicePresets && config.servicePresets.length > 0) {
+        return config.servicePresets.map((p) => ({
+          name: p.name,
+          description: p.description,
+          icon: p.icon,
+        }));
+      }
+    }
+    return FALLBACK_PRESETS;
+  }, [industry]);
+
   const [services, setServices] = useState<ServiceFormData[]>(
     defaultValues?.services || [{ name: '', display_order: 0, is_featured: false }]
   );
@@ -315,7 +333,7 @@ export const ServicesForm: React.FC<ServicesFormProps> = ({
             <div className="p-4 bg-muted rounded-lg">
               <p className="text-sm text-muted-foreground mb-3">Click to add preset services:</p>
               <div className="flex flex-wrap gap-2">
-                {PRESET_SERVICES.map((preset, i) => (
+                {presetServices.map((preset, i) => (
                   <Button
                     key={i}
                     type="button"

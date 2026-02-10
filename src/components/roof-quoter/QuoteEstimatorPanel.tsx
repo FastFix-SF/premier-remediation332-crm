@@ -9,6 +9,7 @@ import { Calculator, DollarSign, Download, Loader2 } from 'lucide-react';
 import { useRoofQuoteEstimator } from '@/hooks/useRoofQuoteEstimator';
 import { PITCH_PRESETS } from '@/lib/roof/pitch';
 import { toast } from 'sonner';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 interface QuoteEstimatorPanelProps {
   maskPolygon?: Array<{ x: number; y: number }>;
@@ -24,6 +25,7 @@ export function QuoteEstimatorPanel({
   onQuoteGenerated
 }: QuoteEstimatorPanelProps) {
   const { generateQuote, isGenerating, data } = useRoofQuoteEstimator();
+  const industryConfig = useIndustryConfig();
   const [pitch, setPitch] = useState('4/12');
   const [pricingConfig, setPricingConfig] = useState({
     costPerSquare: 350,
@@ -34,6 +36,17 @@ export function QuoteEstimatorPanel({
     skylightCost: 1200,
     hvacCost: 500
   });
+
+  // Gate: roof quote estimator is only available for roofing tenants
+  if (industryConfig.slug !== 'roofing') {
+    return (
+      <Card>
+        <CardContent className="py-6 text-center text-muted-foreground">
+          Roof quote estimation is only available for roofing tenants.
+        </CardContent>
+      </Card>
+    );
+  }
 
   const canGenerate = maskPolygon && maskPolygon.length >= 3 && imageUrl;
 

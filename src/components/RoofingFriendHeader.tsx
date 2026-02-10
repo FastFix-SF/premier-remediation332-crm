@@ -1,56 +1,29 @@
 
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { Menu, Phone, MapPin, ShoppingCart, User, X } from 'lucide-react';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 import { companyConfig } from '@/config/company';
-import { useMainMenu, useServiceNavigation, useAreas, useFeatures } from '@/hooks/useBusinessConfig';
 
 
 const RoofingFriendHeader = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const tenantConfig = useTenantConfig();
+  const industryConfig = useIndustryConfig();
 
-  // Load navigation from navigation.json
-  const mainMenu = useMainMenu();
-
-  // Fallback: Load services and areas for populating children if not in navigation.json
-  const serviceNavItems = useServiceNavigation();
-  const areas = useAreas();
-  const features = useFeatures();
-
-  // Build area navigation items (first 8 areas for dropdown)
-  const areaNavItems = areas.slice(0, 8).map(area => ({
-    label: area.name,
-    path: `/service-areas/${area.slug}`
-  }));
-
-  // Build navigation items from navigation.json, with fallback children from services/areas
-  const navigationItems = useMemo(() => {
-    return mainMenu.map(item => {
-      // Convert href to path for compatibility
-      const navItem: any = {
-        label: item.label,
-        path: item.href,
-      };
-
-      // If this is the Services menu, populate children from services if not present
-      if (item.label === 'Services' && (!item.children || item.children.length === 0)) {
-        navItem.submenu = serviceNavItems.length > 0 ? serviceNavItems : undefined;
-      } else if (item.label === 'Service Areas' && (!item.children || item.children.length === 0)) {
-        navItem.submenu = areaNavItems.length > 0 ? areaNavItems : undefined;
-        navItem.mobileOnly = true;
-      } else if (item.children && item.children.length > 0) {
-        navItem.submenu = item.children.map(child => ({
-          label: child.label,
-          path: child.href
-        }));
-      }
-
-      return navItem;
-    });
-  }, [mainMenu, serviceNavItems, areaNavItems]);
+  const navigationItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Material Store', path: '/store' },
+    { label: industryConfig.servicesLabel, path: '/services', submenu: industryConfig.navigationServices },
+    { label: 'Service Areas', path: '/#service-areas', mobileOnly: true },
+    { label: 'Projects', path: '/projects' },
+    { label: 'About Us', path: '/about' },
+    { label: 'Contact', path: '/contact' }
+  ];
 
   return (
     <header className="bg-background border-b border-border shadow-card sticky top-0 z-50">
@@ -59,13 +32,13 @@ const RoofingFriendHeader = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-6">
-              <a href={`tel:${companyConfig.phoneRaw}`} className="flex items-center gap-2 hover:text-accent transition-colors">
+              <a href={`tel:${tenantConfig.phoneRaw}`} className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Phone className="w-4 h-4" />
-                <span>{companyConfig.phone}</span>
+                <span>{tenantConfig.phone}</span>
               </a>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>Serving {companyConfig.address.region}</span>
+                <span>Serving {tenantConfig.address?.full || 'your area'}</span>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -85,16 +58,16 @@ const RoofingFriendHeader = () => {
               className="flex items-center space-x-1.5 sm:space-x-2 hover:opacity-80 transition-opacity"
             >
               <img 
-                src={companyConfig.logo}
-                alt={companyConfig.name}
+                src={tenantConfig.logo}
+                alt={tenantConfig.name}
                 className="h-8 sm:h-10 lg:h-12 w-auto object-contain"
               />
               <div className="hidden xs:block">
                 <div className="text-sm sm:text-base lg:text-lg font-display font-bold text-primary whitespace-nowrap">
-                  {companyConfig.name}
+                  {tenantConfig.name}
                 </div>
                 <div className="text-[10px] sm:text-xs text-muted-foreground">
-                  {companyConfig.tagline}
+                  {tenantConfig.tagline}
                 </div>
               </div>
             </button>
@@ -137,20 +110,18 @@ const RoofingFriendHeader = () => {
 
           {/* Action buttons */}
           <div className="flex items-center gap-2 sm:gap-2 lg:gap-3">
-            {features.storeEnabled && (
-              <Button
-                onClick={() => {
-                  navigate('/store');
-                  window.scrollTo(0, 0);
-                }}
-                variant="outline"
-                size="sm"
-                className="hidden sm:flex items-center gap-1.5 text-xs lg:text-sm px-2 lg:px-3 h-8 lg:h-9"
-              >
-                <ShoppingCart className="w-4 h-4" />
-                <span className="hidden lg:inline">Store</span>
-              </Button>
-            )}
+            <Button 
+              onClick={() => {
+                navigate('/store');
+                window.scrollTo(0, 0);
+              }}
+              variant="outline" 
+              size="sm" 
+              className="hidden sm:flex items-center gap-1.5 text-xs lg:text-sm px-2 lg:px-3 h-8 lg:h-9"
+            >
+              <ShoppingCart className="w-4 h-4" />
+              <span className="hidden lg:inline">Store</span>
+            </Button>
             
             <Button 
               onClick={() => {
@@ -176,16 +147,16 @@ const RoofingFriendHeader = () => {
                   <div className="flex items-center justify-between p-4 border-b">
                     <div className="flex items-center space-x-3">
                       <img 
-                        src={companyConfig.logo}
-                        alt={companyConfig.name}
+                        src={tenantConfig.logo}
+                        alt={tenantConfig.name}
                         className="h-10 w-auto object-contain"
                       />
                       <div>
                         <div className="text-base font-display font-bold text-primary">
-                          {companyConfig.name}
+                          {tenantConfig.name}
                         </div>
                         <div className="text-xs text-muted-foreground">
-                          {companyConfig.tagline}
+                          {tenantConfig.tagline}
                         </div>
                       </div>
                     </div>
@@ -194,13 +165,13 @@ const RoofingFriendHeader = () => {
                   {/* Contact info - Mobile */}
                   <div className="p-4 bg-primary text-primary-foreground sm:hidden">
                     <div className="flex flex-col gap-2">
-                      <a href={`tel:${companyConfig.phoneRaw}`} className="flex items-center gap-2 hover:text-accent transition-colors">
+                      <a href={`tel:${tenantConfig.phoneRaw}`} className="flex items-center gap-2 hover:text-accent transition-colors">
                         <Phone className="w-4 h-4" />
-                        <span className="text-lg font-bold text-orange-400">{companyConfig.phone}</span>
+                        <span className="text-lg font-bold text-orange-400">{tenantConfig.phone}</span>
                       </a>
                       <div className="flex items-center gap-2 text-sm">
                         <MapPin className="w-4 h-4" />
-                        <span>Serving {companyConfig.address.region}</span>
+                        <span>Serving {tenantConfig.address?.full || 'your area'}</span>
                       </div>
                     </div>
                   </div>
@@ -255,21 +226,20 @@ const RoofingFriendHeader = () => {
                   {/* Action buttons */}
                   <div className="p-4 sm:p-6 border-t">
                     <div className="flex flex-col gap-3">
-                      {features.storeEnabled && (
-                        <Button
-                          onClick={() => {
-                            navigate('/store');
-                            window.scrollTo(0, 0);
-                            setIsOpen(false);
-                          }}
-                          variant="outline"
-                          className="w-full justify-center"
-                        >
-                          <ShoppingCart className="w-4 h-4 mr-2" />
-                          Material Store
-                        </Button>
-                      )}
-                      <Button
+                      
+                      <Button 
+                        onClick={() => {
+                          navigate('/store');
+                          window.scrollTo(0, 0);
+                          setIsOpen(false);
+                        }}
+                        variant="outline" 
+                        className="w-full justify-center"
+                      >
+                        <ShoppingCart className="w-4 h-4 mr-2" />
+                        Material Store
+                      </Button>
+                      <Button 
                         onClick={() => {
                           navigate('/contact');
                           window.scrollTo(0, 0);

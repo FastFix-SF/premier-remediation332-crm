@@ -18,13 +18,14 @@ import { ProposalGallery } from '@/components/proposal/ProposalGallery';
 import { ProposalCallToAction } from '@/components/proposal/ProposalCallToAction';
 import { ProposalHero } from '@/components/proposal/ProposalHero';
 import { TrustIndicators } from '@/components/proposal/TrustIndicators';
-import { companyConfig } from '@/config/company';
 import { FloatingActions } from '@/components/proposal/FloatingActions';
 import { cn } from '@/lib/utils';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 // Remove duplicate interface - using the one from useProposalManagement
 
 export const ProjectProposalPage: React.FC = () => {
+  const tenantConfig = useTenantConfig();
   const { id, token } = useParams<{ id?: string; token?: string }>();
   const navigate = useNavigate();
   
@@ -318,10 +319,10 @@ export const ProjectProposalPage: React.FC = () => {
                 <CardContent className="py-6 px-6">
                   <div className="max-w-4xl mx-auto">
                     <h2 className="text-xl font-bold text-center mb-4 text-foreground">
-                      Why Choose {companyConfig.name}?
+                      {`Why Choose ${tenantConfig.name}?`}
                     </h2>
                     <p className="text-sm text-center mb-6 text-muted-foreground max-w-2xl mx-auto">
-                      At {companyConfig.name}, we're not just contractors — we're your partner in protecting and transforming your property.
+                      {`At ${tenantConfig.name}, we're not just contractors — we're your partner in protecting and transforming your home.`}
                     </p>
                     
                     <div className="grid md:grid-cols-2 gap-6">
@@ -358,7 +359,7 @@ export const ProjectProposalPage: React.FC = () => {
                       <div>
                         <h3 className="text-base font-semibold mb-3 text-foreground">Our Work Speaks for Itself</h3>
                         <p className="text-sm text-muted-foreground mb-4">
-                          Clients choose {companyConfig.name} for reliable, beautiful results. Our gallery of before-and-after transformations shows exactly what you can expect.
+                          {`Clients choose ${tenantConfig.name} for reliable, beautiful results. Our gallery of before-and-after transformations shows exactly what you can expect.`}
                         </p>
                         
                         <h3 className="text-base font-semibold mb-3 text-foreground">Products You Can Trust</h3>
@@ -399,8 +400,8 @@ export const ProjectProposalPage: React.FC = () => {
           <div className="bg-muted/30 mt-8 py-4">
             <div className="max-w-6xl mx-auto px-6 text-center">
               <div className="text-xs text-muted-foreground space-y-1">
-                <p>Questions about this proposal? Contact us at {companyConfig.email}</p>
-                <p>© {new Date().getFullYear()} {companyConfig.name} - Professional Services</p>
+                <p>{`Questions about this proposal? Contact us at ${tenantConfig.email}`}</p>
+                <p>{`© ${new Date().getFullYear()} ${tenantConfig.name} - Professional Roofing Solutions`}</p>
               </div>
             </div>
           </div>

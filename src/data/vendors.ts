@@ -1,14 +1,3 @@
-/**
- * DEMO/SAMPLE DATA
- *
- * This file contains sample vendor data for development and demo purposes.
- * In production deployments, vendor data is stored in the database and
- * managed through the admin interface.
- *
- * Contact information shown here is sample data and should not be used
- * for actual business purposes.
- */
-
 export interface Vendor {
   id: string;
   company: string;
@@ -108,7 +97,7 @@ export const vendors: Vendor[] = [
   { id: '84', company: 'Superior Metals Inc', contactName: 'George Garcia', cell: '(408) 938-3488', address: '890 Faulstich Court, San Jose, CA 95112', email: 'george@superiorroofmetals.com', type: 'vendors' },
   { id: '85', company: 'GTM Roofing', contactName: 'Meyder Garcia Tobar', phone: '(415) 608-0857', cell: '(415) 948-9459', address: '723 Lisbon Street, San Francisco, CA 94112', type: 'vendors' },
   { id: '86', company: 'Western States Metal Roofing', contactName: 'Johnnie Gibson', phone: '(602) 495-0048', address: '901 West Watkins Street, Phoenix, AZ 85007', email: 'johnnie@westernstatesmetalroofing.com', type: 'vendors' },
-  { id: '87', company: 'TINO', contactName: 'Florentino Guerrero', cell: '(510) 200-3693', address: '211 East Jackson Street, Hayward, CA 94544', email: 'sample.vendor@example.com', type: 'vendors' },
+  { id: '87', company: 'TINO', contactName: 'Florentino Guerrero', cell: '(510) 200-3693', address: '211 East Jackson Street, Hayward, CA 94544', email: 'florentino@example.com', type: 'vendors' },
   { id: '88', company: 'Tremco', contactName: 'Robert Harding', cell: '(216) 577-8118', address: '3735 Green Road, Beachwood, OH 44122', email: 'rharding@tremcoinc.com', type: 'vendors' },
   { id: '89', company: 'ABC Supply', contactName: 'Nolan Heinz', email: 'nolan.heinz@abcsupply.com', type: 'vendors' },
   { id: '90', company: 'Sheet Metal Coronel', contactName: 'Arturo Hernandez Gaitan', phone: '(415) 900-6517', cell: '(415) 900-6517', address: '1510 Wallace Avenue, San Francisco, CA 94124', email: 'smcoronel24@hotmail.com', type: 'vendors' },
@@ -119,7 +108,7 @@ export const vendors: Vendor[] = [
   { id: '95', company: 'Triangle Fastner Corporation', contactName: 'Shane Ledbetter', cell: '(408) 982-0581', address: '1425 Koll Circle #104, San Jose, CA 95112', email: 'sales@trianglefastener.com', type: 'vendors' },
   { id: '96', company: 'Sherwin Williams Paints', contactName: 'Aaron Llere', cell: '(925) 997-4973', email: 'Sw708147@sherwin.com', type: 'vendors' },
   { id: '97', company: 'Pacific Coast Building Supply', contactName: 'Andrew Lopez', phone: '(510) 851-6757', email: 'andrew.lopez@paccoast.com', type: 'vendors' },
-  { id: '98', company: 'JTMacy Trial, INC', contactName: 'Theresa Macy', phone: '(510) 714-5062', address: '38383 Oliver Way, Fremont, CA 94536', email: 'sample.contact@example.com', type: 'vendors' },
+  { id: '98', company: 'JTMacy Trial, INC', contactName: 'Theresa Macy', phone: '(510) 714-5062', address: '38383 Oliver Way, Fremont, CA 94536', email: 'theresa@example.com', type: 'vendors' },
   { id: '99', company: 'Custom Bilt Metals - San Jose, CA', contactName: 'Amelia Magana', phone: '(408) 433-0823', cell: '(408) 433-9604', address: '121 Component Drive, San Jose, CA 95131', email: 'amelia.magana@custombiltmetals.com', type: 'vendors' },
   { id: '100', company: 'Roof line of Stockton', contactName: 'Ted Martinez', cell: '(209) 559-5413', email: 'ted.martinez@rooflinesupply.com', type: 'vendors' },
   { id: '101', company: 'Triangle Fastener', contactName: 'Gloria Meza', cell: '(408) 515-5443', address: '1425 Koll Circle, San Jose, CA 95112', email: 'gmeza@trianglefastener.com', type: 'vendors' },

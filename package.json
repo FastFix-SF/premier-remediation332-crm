@@ -8,7 +8,17 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:report": "playwright show-report",
+    "local:db": "docker start fastfix-postgres || docker run -d --name fastfix-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=fastfix -p 5432:5432 postgres:15-alpine",
+    "local:postgrest": "postgrest local/postgrest.conf",
+    "local:proxy": "node local/proxy.cjs",
+    "local:setup": "npm run local:db && sleep 3 && docker exec -i fastfix-postgres psql -U postgres -d fastfix < local/schema.sql",
+    "local:start": "npm run local:db && npm run local:postgrest & npm run local:proxy &"
   },
   "dependencies": {
     "@capacitor/cli": "^7.4.4",
@@ -99,6 +109,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@playwright/test": "^1.58.1",
     "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^22.5.5",
     "@types/react": "^18.3.3",

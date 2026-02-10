@@ -1,0 +1,151 @@
+{
+  "slug": "electrical",
+  "label": "Electrical",
+  "icon": "Zap",
+  "servicesLabel": "Electrical Services",
+  "heroHeadline": "Power Your Home,",
+  "heroHighlight": "Safely and Efficiently.",
+  "heroSubtitle": "Licensed Electrical Services for Residential and Commercial Properties.",
+  "projectCategories": [
+    { "value": "residential", "label": "Residential" },
+    { "value": "commercial", "label": "Commercial" },
+    { "value": "industrial", "label": "Industrial" }
+  ],
+  "projectTypes": [
+    { "value": "panel_upgrade", "label": "Panel Upgrade" },
+    { "value": "rewiring", "label": "Rewiring" },
+    { "value": "outlet_install", "label": "Outlet / Switch Installation" },
+    { "value": "lighting", "label": "Lighting Installation" },
+    { "value": "ev_charger", "label": "EV Charger Installation" },
+    { "value": "generator", "label": "Generator Installation" },
+    { "value": "solar", "label": "Solar Panel Electrical" },
+    { "value": "inspection", "label": "Electrical Inspection" },
+    { "value": "emergency", "label": "Emergency Service" }
+  ],
+  "industryFields": [
+    {
+      "key": "service_type",
+      "label": "Service Type",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "100amp", "label": "100 Amp Service" },
+        { "value": "200amp", "label": "200 Amp Service" },
+        { "value": "400amp", "label": "400 Amp Service" },
+        { "value": "3phase", "label": "3-Phase Service" }
+      ],
+      "showInFilters": true,
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "wiring_type",
+      "label": "Wiring Type",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "romex", "label": "Romex (NM-B)" },
+        { "value": "mc_cable", "label": "MC Cable" },
+        { "value": "conduit_emt", "label": "EMT Conduit" },
+        { "value": "conduit_rigid", "label": "Rigid Conduit" },
+        { "value": "knob_tube", "label": "Knob & Tube (existing)" },
+        { "value": "aluminum", "label": "Aluminum (existing)" }
+      ],
+      "showInAdminForm": true
+    },
+    {
+      "key": "circuit_count",
+      "label": "Number of Circuits",
+      "type": "number",
+      "required": false,
+      "placeholder": "e.g. 4",
+      "showInAdminForm": true
+    }
+  ],
+  "servicePresets": [
+    { "name": "Panel Upgrades", "description": "Electrical panel replacement and upgrades", "icon": "zap" },
+    { "name": "Rewiring", "description": "Full home or commercial rewiring", "icon": "cable" },
+    { "name": "Lighting", "description": "Interior and exterior lighting installation", "icon": "lightbulb" },
+    { "name": "EV Charger", "description": "Electric vehicle charger installation", "icon": "battery-charging" },
+    { "name": "Generator Installation", "description": "Standby and portable generator setup", "icon": "power" },
+    { "name": "Outlet & Switch", "description": "Outlet, switch, and receptacle work", "icon": "toggle-right" },
+    { "name": "Electrical Inspection", "description": "Safety inspections and code compliance", "icon": "clipboard-check" },
+    { "name": "Emergency Electrical", "description": "24/7 emergency electrical service", "icon": "alert-triangle" }
+  ],
+  "navigationServices": [
+    { "label": "Panel Upgrades", "path": "/services/panel-upgrades" },
+    { "label": "Residential Electrical", "path": "/services/residential-electrical" },
+    { "label": "EV Chargers", "path": "/services/ev-chargers" },
+    { "label": "Commercial Electrical", "path": "/services/commercial-electrical" }
+  ],
+  "seo": {
+    "defaultKeywords": "electrician, electrical contractor, panel upgrade, rewiring, EV charger, lighting",
+    "defaultDescription": "Professional electrical services. Licensed, insured, and committed to safety and quality."
+  },
+  "warranty": {
+    "defaultYears": 3,
+    "description": "Warranty on workmanship and installed components"
+  },
+  "filterLabels": {
+    "primaryFilter": "Service Type"
+  },
+  "faqPresets": [
+    { "question": "When should I upgrade my electrical panel?", "answer": "If your home has a fuse box, 100 amp service, or you're adding major appliances, a panel upgrade is recommended." },
+    { "question": "How much does rewiring cost?", "answer": "Whole-home rewiring typically costs $8,000-$30,000 depending on home size and accessibility." },
+    { "question": "Can you install an EV charger?", "answer": "Yes, we install Level 2 EV chargers for all vehicle brands with proper circuit and panel sizing." }
+  ],
+  "defaultFeatures": [],
+  "quoteConfig": {
+    "headerTitle": "ELECTRICAL QUOTE",
+    "headerColor": "bg-yellow-600",
+    "defaultTab": "overview",
+    "postCreateTab": "overview",
+    "tabs": [
+      { "key": "overview", "label": "Overview", "component": "GenericOverviewTab" },
+      { "key": "quote-builder", "label": "Quote Builder", "component": "QuoteBuilderTab" },
+      { "key": "reports", "label": "Reports", "component": "ReportsTab" }
+    ],
+    "lineItemCategories": [
+      {
+        "key": "panels",
+        "label": "Panels & Breakers",
+        "unitTypes": ["ea"],
+        "defaultItems": [
+          { "name": "Main Panel", "unit": "ea", "unitPrice": 0 },
+          { "name": "Sub Panel", "unit": "ea", "unitPrice": 0 },
+          { "name": "Circuit Breaker", "unit": "ea", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "wiring",
+        "label": "Wiring & Conduit",
+        "unitTypes": ["lf", "ea"],
+        "defaultItems": [
+          { "name": "Romex Wire", "unit": "lf", "unitPrice": 0 },
+          { "name": "Conduit", "unit": "lf", "unitPrice": 0 },
+          { "name": "Junction Box", "unit": "ea", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "devices",
+        "label": "Devices & Fixtures",
+        "unitTypes": ["ea"],
+        "defaultItems": [
+          { "name": "Outlet", "unit": "ea", "unitPrice": 0 },
+          { "name": "Switch", "unit": "ea", "unitPrice": 0 },
+          { "name": "Light Fixture", "unit": "ea", "unitPrice": 0 },
+          { "name": "Ceiling Fan", "unit": "ea", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "labor",
+        "label": "Labor",
+        "unitTypes": ["hr"],
+        "defaultItems": [
+          { "name": "Electrician Labor", "unit": "hr", "unitPrice": 0 },
+          { "name": "Apprentice Labor", "unit": "hr", "unitPrice": 0 }
+        ]
+      }
+    ]
+  }
+}

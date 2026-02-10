@@ -1,0 +1,287 @@
+{
+  "slug": "roofing",
+  "label": "Roofing",
+  "icon": "Home",
+  "servicesLabel": "Installation Services",
+  "heroHeadline": "Make Your Roof the",
+  "heroHighlight": "Best on the Block.",
+  "heroSubtitle": "Premium Metal Roofing, Priced Right. Installed to Last.",
+  "projectCategories": [
+    { "value": "residential", "label": "Residential" },
+    { "value": "commercial", "label": "Commercial" }
+  ],
+  "projectTypes": [
+    { "value": "new_roof", "label": "New Roof Installation" },
+    { "value": "roof_replacement", "label": "Roof Replacement" },
+    { "value": "roof_repair", "label": "Roof Repair" },
+    { "value": "roof_inspection", "label": "Roof Inspection" },
+    { "value": "maintenance", "label": "Maintenance" },
+    { "value": "emergency", "label": "Emergency Repair" }
+  ],
+  "industryFields": [
+    {
+      "key": "roof_type",
+      "label": "Roof Type",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "standing_seam", "label": "Standing Seam" },
+        { "value": "metal_panels", "label": "Metal Panels" },
+        { "value": "stone_coated", "label": "Stone Coated" },
+        { "value": "shingles", "label": "Shingles" },
+        { "value": "tile_roof", "label": "Tile Roof" },
+        { "value": "flat_roof", "label": "Flat Roof" }
+      ],
+      "showInFilters": true,
+      "showInQuoteForm": true,
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "existing_roof",
+      "label": "Existing Roof Material",
+      "type": "nested_select",
+      "required": false,
+      "groups": [
+        {
+          "groupLabel": "Architectural Shingles",
+          "options": [
+            { "value": "GAF Timberline HDZ", "label": "GAF Timberline HDZ" },
+            { "value": "GAF Timberline Ultra HD", "label": "GAF Timberline Ultra HD" },
+            { "value": "GAF Grand Canyon", "label": "GAF Grand Canyon" },
+            { "value": "CertainTeed Landmark", "label": "CertainTeed Landmark" },
+            { "value": "CertainTeed Landmark TL", "label": "CertainTeed Landmark TL" },
+            { "value": "CertainTeed Landmark PRO", "label": "CertainTeed Landmark PRO" },
+            { "value": "CertainTeed Landmark Premium", "label": "CertainTeed Landmark Premium" },
+            { "value": "Owens Corning Oakridge", "label": "Owens Corning Oakridge" },
+            { "value": "Owens Corning TruDefinition Duration", "label": "Owens Corning TruDefinition Duration" },
+            { "value": "Malarkey Ecoasis 282", "label": "Malarkey Ecoasis 282" },
+            { "value": "Malarkey Highlander 241", "label": "Malarkey Highlander 241" }
+          ]
+        },
+        {
+          "groupLabel": "Premium Architectural Shingles",
+          "options": [
+            { "value": "GAF Grand Sequoia", "label": "GAF Grand Sequoia" },
+            { "value": "CertainTeed Presidential Shake", "label": "CertainTeed Presidential Shake" },
+            { "value": "CertainTeed Presidential TL", "label": "CertainTeed Presidential TL" },
+            { "value": "CertainTeed Presidential Solaris", "label": "CertainTeed Presidential Solaris" },
+            { "value": "Owens Corning TruDefinition Duration Premium", "label": "Owens Corning TruDefinition Duration Premium" }
+          ]
+        },
+        {
+          "groupLabel": "Stone-Coated",
+          "options": [
+            { "value": "Boral Barrel Vault", "label": "Boral Barrel Vault" },
+            { "value": "Boral Pine Crest Shake", "label": "Boral Pine Crest Shake" },
+            { "value": "Boral Cottage Shingle", "label": "Boral Cottage Shingle" },
+            { "value": "Boral Pacific Tile Stone", "label": "Boral Pacific Tile Stone" }
+          ]
+        },
+        {
+          "groupLabel": "Standing Seam",
+          "options": [
+            { "value": "Steel Sheffield 24 Gage 15\" S50 Snap lock", "label": "Steel Sheffield 24 Gage 15\" S50 Snap lock" },
+            { "value": "Steel Sheffield 24 Gage 14\" Mechanical seam SS200", "label": "Steel Sheffield 24 Gage 14\" Mechanical seam SS200" },
+            { "value": "Steel Sheffield 24 Gage 18\" S50 Snap lock", "label": "Steel Sheffield 24 Gage 18\" S50 Snap lock" },
+            { "value": "Steel McElroy 24 Gage 15\" S50 Snap lock", "label": "Steel McElroy 24 Gage 15\" S50 Snap lock" },
+            { "value": "Aluminum Sheffield 0.040 18\" S50 Snap lock", "label": "Aluminum Sheffield 0.040 18\" S50 Snap lock" }
+          ]
+        },
+        {
+          "groupLabel": "Concrete Tile",
+          "options": [
+            { "value": "Eagle Capistrano", "label": "Eagle Capistrano" },
+            { "value": "Eagle Malibu", "label": "Eagle Malibu" },
+            { "value": "Eagle Bel Air", "label": "Eagle Bel Air" },
+            { "value": "Boral Saxony 900 Shake", "label": "Boral Saxony 900 Shake" }
+          ]
+        },
+        {
+          "groupLabel": "Wood Shakes & Shingles",
+          "options": [
+            { "value": "Cedar Shingles", "label": "Cedar Shingles" },
+            { "value": "Cedar Shake Medium Premium", "label": "Cedar Shake Medium Premium" },
+            { "value": "Cedur Synthetic Shake", "label": "Cedur Synthetic Shake" }
+          ]
+        },
+        {
+          "groupLabel": "Slate",
+          "options": [
+            { "value": "Tru Slate", "label": "Tru Slate" },
+            { "value": "DaVinci Slate", "label": "DaVinci Slate" }
+          ]
+        }
+      ],
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "wanted_roof",
+      "label": "Desired Roof Material",
+      "type": "nested_select",
+      "required": false,
+      "groups": [
+        {
+          "groupLabel": "Architectural Shingles",
+          "options": [
+            { "value": "GAF Timberline HDZ", "label": "GAF Timberline HDZ" },
+            { "value": "GAF Timberline Ultra HD", "label": "GAF Timberline Ultra HD" },
+            { "value": "GAF Grand Canyon", "label": "GAF Grand Canyon" },
+            { "value": "CertainTeed Landmark", "label": "CertainTeed Landmark" },
+            { "value": "CertainTeed Landmark TL", "label": "CertainTeed Landmark TL" },
+            { "value": "CertainTeed Landmark PRO", "label": "CertainTeed Landmark PRO" },
+            { "value": "CertainTeed Landmark Premium", "label": "CertainTeed Landmark Premium" },
+            { "value": "Owens Corning Oakridge", "label": "Owens Corning Oakridge" },
+            { "value": "Owens Corning TruDefinition Duration", "label": "Owens Corning TruDefinition Duration" },
+            { "value": "Malarkey Ecoasis 282", "label": "Malarkey Ecoasis 282" },
+            { "value": "Malarkey Highlander 241", "label": "Malarkey Highlander 241" }
+          ]
+        },
+        {
+          "groupLabel": "Premium Architectural Shingles",
+          "options": [
+            { "value": "GAF Grand Sequoia", "label": "GAF Grand Sequoia" },
+            { "value": "CertainTeed Presidential Shake", "label": "CertainTeed Presidential Shake" },
+            { "value": "CertainTeed Presidential TL", "label": "CertainTeed Presidential TL" },
+            { "value": "CertainTeed Presidential Solaris", "label": "CertainTeed Presidential Solaris" },
+            { "value": "Owens Corning TruDefinition Duration Premium", "label": "Owens Corning TruDefinition Duration Premium" }
+          ]
+        },
+        {
+          "groupLabel": "Stone-Coated",
+          "options": [
+            { "value": "Boral Barrel Vault", "label": "Boral Barrel Vault" },
+            { "value": "Boral Pine Crest Shake", "label": "Boral Pine Crest Shake" },
+            { "value": "Boral Cottage Shingle", "label": "Boral Cottage Shingle" },
+            { "value": "Boral Pacific Tile Stone", "label": "Boral Pacific Tile Stone" }
+          ]
+        },
+        {
+          "groupLabel": "Standing Seam",
+          "options": [
+            { "value": "Steel Sheffield 24 Gage 15\" S50 Snap lock", "label": "Steel Sheffield 24 Gage 15\" S50 Snap lock" },
+            { "value": "Steel Sheffield 24 Gage 14\" Mechanical seam SS200", "label": "Steel Sheffield 24 Gage 14\" Mechanical seam SS200" },
+            { "value": "Steel Sheffield 24 Gage 18\" S50 Snap lock", "label": "Steel Sheffield 24 Gage 18\" S50 Snap lock" },
+            { "value": "Steel McElroy 24 Gage 15\" S50 Snap lock", "label": "Steel McElroy 24 Gage 15\" S50 Snap lock" },
+            { "value": "Aluminum Sheffield 0.040 18\" S50 Snap lock", "label": "Aluminum Sheffield 0.040 18\" S50 Snap lock" }
+          ]
+        },
+        {
+          "groupLabel": "Concrete Tile",
+          "options": [
+            { "value": "Eagle Capistrano", "label": "Eagle Capistrano" },
+            { "value": "Eagle Malibu", "label": "Eagle Malibu" },
+            { "value": "Eagle Bel Air", "label": "Eagle Bel Air" },
+            { "value": "Boral Saxony 900 Shake", "label": "Boral Saxony 900 Shake" }
+          ]
+        },
+        {
+          "groupLabel": "Wood Shakes & Shingles",
+          "options": [
+            { "value": "Cedar Shingles", "label": "Cedar Shingles" },
+            { "value": "Cedar Shake Medium Premium", "label": "Cedar Shake Medium Premium" },
+            { "value": "Cedur Synthetic Shake", "label": "Cedur Synthetic Shake" }
+          ]
+        },
+        {
+          "groupLabel": "Slate",
+          "options": [
+            { "value": "Tru Slate", "label": "Tru Slate" },
+            { "value": "DaVinci Slate", "label": "DaVinci Slate" }
+          ]
+        }
+      ],
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "existing_roof_deck",
+      "label": "Existing Roof Deck",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "osb", "label": "OSB (Oriented Strand Board)" },
+        { "value": "plywood", "label": "Plywood" }
+      ],
+      "showInAdminForm": true
+    },
+    {
+      "key": "wanted_roof_deck",
+      "label": "Desired Roof Deck",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "osb", "label": "OSB (Oriented Strand Board)" },
+        { "value": "plywood", "label": "Plywood" }
+      ],
+      "showInAdminForm": true
+    },
+    {
+      "key": "insulation",
+      "label": "Insulation Thickness",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "0.5", "label": "1/2\"" },
+        { "value": "1", "label": "1\"" },
+        { "value": "1.5", "label": "1 1/2\"" },
+        { "value": "2", "label": "2\"" },
+        { "value": "3", "label": "3\"" },
+        { "value": "4", "label": "4\"" }
+      ],
+      "showInAdminForm": true
+    }
+  ],
+  "servicePresets": [
+    { "name": "Residential Roofing", "description": "Complete roofing solutions for homes", "icon": "home" },
+    { "name": "Commercial Roofing", "description": "Professional roofing for businesses", "icon": "building" },
+    { "name": "Roof Repair", "description": "Expert repair services for all roof types", "icon": "wrench" },
+    { "name": "Metal Roofing", "description": "Durable metal roof installation", "icon": "shield" },
+    { "name": "Roof Inspection", "description": "Comprehensive roof assessments", "icon": "search" },
+    { "name": "Emergency Services", "description": "24/7 emergency roof repairs", "icon": "alert-triangle" },
+    { "name": "Gutter Installation", "description": "Professional gutter systems", "icon": "droplet" },
+    { "name": "Skylights", "description": "Skylight installation and repair", "icon": "sun" }
+  ],
+  "navigationServices": [
+    { "label": "Residential Roofing", "path": "/residential-roofing" },
+    { "label": "Commercial & Industrial", "path": "/commercial-roofing" },
+    { "label": "Metal Roof Panels", "path": "/metal-roof-panels" },
+    { "label": "Storm, Fire & Energy", "path": "/storm-fire-energy" }
+  ],
+  "seo": {
+    "defaultKeywords": "roofing, roof installation, roof repair, roofing contractor",
+    "defaultDescription": "Professional roofing installation, repair, and replacement services. Licensed, insured, and committed to quality."
+  },
+  "warranty": {
+    "defaultYears": 25,
+    "description": "Warranty covering materials and workmanship"
+  },
+  "filterLabels": {
+    "primaryFilter": "Roof Type"
+  },
+  "faqPresets": [
+    { "question": "How long does a metal roof last?", "answer": "Metal roofs typically last 40-70+ years, compared to 15-20 years for asphalt shingles." },
+    { "question": "What warranty do you offer?", "answer": "We offer a 25-year warranty on materials and workmanship." },
+    { "question": "How much does a new roof cost?", "answer": "Residential roofing typically costs $8-16 per square foot depending on materials chosen." }
+  ],
+  "defaultFeatures": ["roof-analysis", "roof-vision", "roof-measurements"],
+  "quoteConfig": {
+    "headerTitle": "ROOF QUOTE",
+    "headerColor": "bg-blue-600",
+    "defaultTab": "overview",
+    "postCreateTab": "solar-api",
+    "tabs": [
+      { "key": "overview", "label": "Overview", "component": "OverviewTab" },
+      { "key": "draw", "label": "Plan Viewer", "component": "DrawTab", "fullscreenCapable": true },
+      { "key": "estimate", "label": "Estimator", "component": "EstimatorTab" },
+      { "key": "materials", "label": "Materials", "component": "MaterialsTab" },
+      { "key": "reports", "label": "Reports", "component": "ReportsTab" },
+      { "key": "solar-api", "label": "Solar API", "component": "SolarApiTab", "fullscreenCapable": true },
+      { "key": "templates", "label": "Templates", "component": "TemplatesTab" },
+      { "key": "training", "label": "Training", "component": "TrainingTab" }
+    ],
+    "lineItemCategories": [],
+    "measurementUnit": "sq"
+  }
+}

@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/accordion';
 import { Settings2, Zap, Crown, CheckCircle2 } from 'lucide-react';
 import { multiTenantSupabase } from '@/integrations/supabase/tenant-client';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 export interface EdgeFunction {
   function_slug: string;
@@ -143,6 +144,7 @@ export const FeatureFlagsForm: React.FC<FeatureFlagsFormProps> = ({
   submitLabel = 'Save',
   showCard = true,
 }) => {
+  const industryConfig = useIndustryConfig();
   const [functions, setFunctions] = useState<EdgeFunction[]>([]);
   const [features, setFeatures] = useState<Record<string, boolean>>(defaultValues || {});
   const [loadingCatalog, setLoadingCatalog] = useState(true);
@@ -173,10 +175,16 @@ export const FeatureFlagsForm: React.FC<FeatureFlagsFormProps> = ({
         setFunctions(catalogFunctions);
 
         // Set default features (core enabled, others disabled)
+        // Roof-specific categories are only default-enabled for roofing industry
+        const ROOF_CATEGORIES = ['roof_analysis', 'imagery'];
         if (!defaultValues) {
           const defaultFeatures: Record<string, boolean> = {};
           catalogFunctions.forEach((f) => {
-            defaultFeatures[f.function_slug] = f.is_core;
+            if (ROOF_CATEGORIES.includes(f.category)) {
+              defaultFeatures[f.function_slug] = f.is_core || industryConfig.slug === 'roofing';
+            } else {
+              defaultFeatures[f.function_slug] = f.is_core;
+            }
           });
           setFeatures(defaultFeatures);
         }
@@ -188,7 +196,7 @@ export const FeatureFlagsForm: React.FC<FeatureFlagsFormProps> = ({
     };
 
     loadCatalog();
-  }, [defaultValues]);
+  }, [defaultValues, industryConfig.slug]);
 
   // Load tenant-specific features if tenantId provided
   useEffect(() => {

@@ -47,7 +47,7 @@ const solarImages: SolarImage[] = [
   },
   {
     src: '/lovable-uploads/52097ec4-ec66-4e7d-a13c-b329d7a7467a.png',
-    alt: 'Large commercial solar array on RoofingFriend.com warehouse metal roof',
+    alt: 'Large commercial solar array on warehouse metal roof',
     caption: 'Commercial Metal + Large Array'
   },
   {

@@ -9,9 +9,10 @@ import { UserPlus, Eye, EyeOff } from 'lucide-react';
 import { supabase } from '../integrations/supabase/client';
 import { useToast } from '../hooks/use-toast';
 import { useAuth } from '../contexts/AuthContext';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 const ProjectInvitation = () => {
+  const tenantConfig = useTenantConfig();
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -95,7 +96,7 @@ const ProjectInvitation = () => {
           <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-md mx-auto mb-4">
             <div className="w-8 h-8 bg-white rounded-sm"></div>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">{companyConfig.name}</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{tenantConfig.name}</h1>
           <p className="text-muted-foreground">Project Portal Access</p>
         </div>
 
@@ -208,7 +209,7 @@ const ProjectInvitation = () => {
         </Card>
 
         <div className="text-center mt-6 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} {companyConfig.name}. All rights reserved.</p>
+          <p>{`© ${new Date().getFullYear()} ${tenantConfig.name}. All rights reserved.`}</p>
         </div>
       </div>
     </div>

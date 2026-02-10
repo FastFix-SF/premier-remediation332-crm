@@ -284,6 +284,12 @@ export function useCreateEstimate() {
   
   return useMutation({
     mutationFn: async (data: Partial<Estimate>) => {
+      // Generate estimate_number if not provided
+      if (!data.estimate_number) {
+        const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+        const rand = Math.random().toString(36).substring(2, 6).toUpperCase();
+        data.estimate_number = `EST-${dateStr}-${rand}`;
+      }
       const { data: result, error } = await supabase
         .from('project_estimates')
         .insert(data as any)

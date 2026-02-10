@@ -17,7 +17,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { TeamNotificationBell } from '@/components/notifications/TeamNotificationBell';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 interface NavItem {
   id: string;
@@ -45,6 +45,7 @@ export const CommandCenterSidebar: React.FC<CommandCenterSidebarProps> = ({
   unreadMessages = 0,
   memberId = null,
 }) => {
+  const tenantConfig = useTenantConfig();
   const mainNavItems: NavItem[] = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'office', label: 'Office', icon: Building2 },
@@ -161,7 +162,7 @@ export const CommandCenterSidebar: React.FC<CommandCenterSidebarProps> = ({
         {/* Footer */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
           <div className="text-center">
-            <span className="text-white/40 text-xs">{companyConfig.name}</span>
+            <span className="text-white/40 text-xs">{tenantConfig.shortName}</span>
           </div>
         </div>
       </aside>

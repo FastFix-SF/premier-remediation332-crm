@@ -29,7 +29,6 @@ import {
 } from '@/components/ui/alert-dialog';
 import { cn } from '@/lib/utils';
 import { companyConfig } from '@/config/company';
-import { companyConfig } from '@/config/company';
 
 interface ProjectInvoicesModalProps {
   isOpen: boolean;
@@ -1141,7 +1140,7 @@ export const ProjectInvoicesModal: React.FC<ProjectInvoicesModalProps> = ({
             variant="outline" 
             className="w-full h-12 rounded-xl text-base" 
             onClick={async () => {
-              // Use configured website URL for shareable invoice links
+              // Use production domain for shareable invoice links
               const productionDomain = companyConfig.websiteUrl || window.location.origin;
               const paymentUrl = `${productionDomain}/invoice/${localInvoice.invoice_number}`;
               try {

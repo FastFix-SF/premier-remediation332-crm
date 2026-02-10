@@ -7,7 +7,8 @@ import { QuoteSummary } from '@/components/quote/QuoteSummary';
 import { HowItWorks } from '@/components/quote/HowItWorks';
 import { SuccessDialog } from '@/components/quote/SuccessDialog';
 import { Shield, Star, Award, MapPin } from 'lucide-react';
-import { useBusiness, useRatings } from '@/hooks/useBusinessConfig';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 interface FormData {
   firstName?: string;
@@ -29,11 +30,12 @@ interface FormData {
 }
 
 const RoofQuote = () => {
+  const tenantConfig = useTenantConfig();
+  const industryConfig = useIndustryConfig();
+  const industryLabel = industryConfig.label;
   const [formData, setFormData] = useState<FormData>({});
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
-  const business = useBusiness();
-  const ratings = useRatings();
 
   const handleFieldChange = (field: string, value: any) => {
     setFormData(prev => {
@@ -74,9 +76,9 @@ const RoofQuote = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={`Get Professional Quote in 24 Hours - Free Estimate | ${business.name}`}
-        description={`Get your professional quote in 24 hours. We use detailed analysis to provide accurate estimates${business.address?.region ? ` for ${business.address.region} homeowners` : ''}.`}
-        keywords={`quote, estimate, ${business.address?.region || ''}, professional services`}
+        title={`Get a Professional ${industryLabel} Quote in 24 Hours - Free Estimate | ${tenantConfig.name}`}
+        description={industryConfig.seo.defaultDescription || `Get your professional ${industryLabel.toLowerCase()} quote in 24 hours. We use detailed analysis to provide accurate estimates.`}
+        keywords={industryConfig.seo.defaultKeywords || `${industryLabel.toLowerCase()} quote, ${industryLabel.toLowerCase()} estimate, contractor`}
       />
       <RoofingFriendHeader />
       
@@ -84,34 +86,30 @@ const RoofQuote = () => {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent">
-            Get Your Professional Roof Quote in 24 Hours
+            Get Your Professional {industryLabel} Quote in 24 Hours
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            We use aerial imagery and your project details to build an accurate proposal.
+            We use your project details to build an accurate {industryLabel.toLowerCase()} proposal.
           </p>
           
           {/* Trust Row */}
           <div className="flex flex-wrap justify-center items-center gap-6 mb-8">
             <div className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-primary" />
-              <span className="text-sm font-medium">Quality Guaranteed</span>
+              <span className="text-sm font-medium">{industryConfig.warranty.description || `${industryConfig.warranty.defaultYears}-Year Warranty`}</span>
             </div>
-            {ratings && (
-              <div className="flex items-center gap-2">
-                <Star className="w-5 h-5 text-yellow-500 fill-current" />
-                <span className="text-sm font-medium">{ratings.average}/5 ({ratings.count}+ reviews)</span>
-              </div>
-            )}
+            <div className="flex items-center gap-2">
+              <Star className="w-5 h-5 text-yellow-500 fill-current" />
+              <span className="text-sm font-medium">4.9/5 (150+ reviews)</span>
+            </div>
             <div className="flex items-center gap-2">
               <Award className="w-5 h-5 text-primary" />
               <span className="text-sm font-medium">Licensed & Insured</span>
             </div>
-            {business.address?.region && (
-              <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">Serving {business.address.region}</span>
-              </div>
-            )}
+            <div className="flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-primary" />
+              <span className="text-sm font-medium">Serving the Bay Area</span>
+            </div>
           </div>
         </div>
 

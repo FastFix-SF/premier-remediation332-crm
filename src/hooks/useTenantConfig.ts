@@ -10,8 +10,10 @@ export interface TenantCompanyConfig {
   // Identity
   name: string;
   shortName: string;
+  legalName?: string;
   tagline?: string;
   description?: string;
+  websiteUrl?: string;
 
   // Contact
   phone?: string;
@@ -25,6 +27,7 @@ export interface TenantCompanyConfig {
     state?: string;
     zip?: string;
     full?: string;
+    region?: string;
   };
 
   // Branding
@@ -39,6 +42,47 @@ export interface TenantCompanyConfig {
   ownerName?: string;
   yearsInBusiness?: number;
 
+  // Industry
+  industry: string;
+
+  // Social
+  social?: {
+    youtube?: string;
+    instagram?: string;
+    facebook?: string;
+    tiktok?: string;
+    google?: string;
+    yelp?: string;
+    linkedin?: string;
+  };
+
+  // SEO
+  seo?: {
+    defaultTitle?: string;
+    defaultDescription?: string;
+    defaultKeywords?: string;
+    siteName?: string;
+    author?: string;
+  };
+
+  // Hours
+  hours?: {
+    weekdays?: string;
+    weekends?: string;
+    emergency?: string;
+    schema?: string;
+  };
+
+  // Services
+  services?: Array<{ name: string; path: string }>;
+  serviceAreas?: string[];
+
+  // Warranty / Ratings
+  warranty?: { years?: number; description?: string };
+  ratings?: { average?: string; count?: string; best?: string; worst?: string };
+  priceRange?: string;
+  coordinates?: { lat: number; lng: number };
+
   // Meta
   tenantId?: string;
   isLoading: boolean;
@@ -50,12 +94,21 @@ export function useTenantConfig(): TenantCompanyConfig {
 
   // If tenant is resolved, use dynamic data
   if (tenant && profile) {
+    const addressFull = [
+      profile.address_line_1,
+      profile.city,
+      profile.state,
+      profile.zip_code,
+    ].filter(Boolean).join(', ');
+
     return {
       // Identity
       name: profile.business_name || companyConfig.name,
       shortName: profile.business_name || companyConfig.shortName,
+      legalName: (profile as any).legal_name || profile.business_name?.toUpperCase() || companyConfig.legalName,
       tagline: profile.tagline || companyConfig.tagline,
       description: profile.description || companyConfig.description,
+      websiteUrl: (profile as any).website_url || profile.custom_domain ? `https://${profile.custom_domain}` : companyConfig.websiteUrl,
 
       // Contact
       phone: profile.phone || companyConfig.phone,
@@ -68,12 +121,8 @@ export function useTenantConfig(): TenantCompanyConfig {
         city: profile.city || companyConfig.address.city,
         state: profile.state || companyConfig.address.state,
         zip: profile.zip_code || companyConfig.address.zip,
-        full: [
-          profile.address_line_1,
-          profile.city,
-          profile.state,
-          profile.zip_code,
-        ].filter(Boolean).join(', ') || companyConfig.address.full,
+        full: addressFull || companyConfig.address.full,
+        region: profile.city && profile.state ? `${profile.city}, ${profile.state}` : companyConfig.address.region,
       },
 
       // Branding
@@ -88,6 +137,30 @@ export function useTenantConfig(): TenantCompanyConfig {
       ownerName: profile.owner_name || undefined,
       yearsInBusiness: profile.years_in_business || undefined,
 
+      // Industry
+      industry: profile.industry || 'roofing',
+
+      // Social (from DB JSON or fallback)
+      social: (profile as any).social_links || companyConfig.social,
+
+      // SEO
+      seo: {
+        defaultTitle: `${profile.business_name || companyConfig.name} - ${profile.tagline || companyConfig.tagline}`,
+        defaultDescription: profile.description || companyConfig.seo.defaultDescription,
+        defaultKeywords: companyConfig.seo.defaultKeywords,
+        siteName: profile.business_name || companyConfig.seo.siteName,
+        author: profile.business_name || companyConfig.seo.author,
+      },
+
+      // Hours / Services / etc from static fallback for now
+      hours: companyConfig.hours,
+      services: companyConfig.services,
+      serviceAreas: companyConfig.serviceAreas,
+      warranty: companyConfig.warranty,
+      ratings: companyConfig.ratings,
+      priceRange: companyConfig.priceRange,
+      coordinates: companyConfig.coordinates,
+
       // Meta
       tenantId: tenant.id,
       isLoading,
@@ -99,14 +172,26 @@ export function useTenantConfig(): TenantCompanyConfig {
   return {
     name: companyConfig.name,
     shortName: companyConfig.shortName,
+    legalName: companyConfig.legalName,
     tagline: companyConfig.tagline,
     description: companyConfig.description,
+    websiteUrl: companyConfig.websiteUrl,
     phone: companyConfig.phone,
     phoneRaw: companyConfig.phoneRaw,
     email: companyConfig.email,
     address: companyConfig.address,
     logo: companyConfig.logo,
     licenseNumber: companyConfig.licenseNumber,
+    industry: 'roofing',
+    social: companyConfig.social,
+    seo: companyConfig.seo,
+    hours: companyConfig.hours,
+    services: companyConfig.services,
+    serviceAreas: companyConfig.serviceAreas,
+    warranty: companyConfig.warranty,
+    ratings: companyConfig.ratings,
+    priceRange: companyConfig.priceRange,
+    coordinates: companyConfig.coordinates,
     isLoading,
     isResolved: false,
   };

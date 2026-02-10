@@ -1,0 +1,175 @@
+{
+  "slug": "hvac",
+  "label": "HVAC",
+  "icon": "Thermometer",
+  "servicesLabel": "HVAC Services",
+  "heroHeadline": "Stay Comfortable,",
+  "heroHighlight": "Year Round.",
+  "heroSubtitle": "Professional Heating and Cooling Solutions. Installed Right, Priced Fair.",
+  "projectCategories": [
+    { "value": "residential", "label": "Residential" },
+    { "value": "commercial", "label": "Commercial" },
+    { "value": "industrial", "label": "Industrial" }
+  ],
+  "projectTypes": [
+    { "value": "ac_install", "label": "AC Installation" },
+    { "value": "heating_install", "label": "Heating Installation" },
+    { "value": "heat_pump", "label": "Heat Pump Installation" },
+    { "value": "ductwork", "label": "Ductwork Installation/Repair" },
+    { "value": "ac_repair", "label": "AC Repair" },
+    { "value": "heating_repair", "label": "Heating Repair" },
+    { "value": "maintenance", "label": "Preventive Maintenance" },
+    { "value": "mini_split", "label": "Mini-Split Installation" },
+    { "value": "emergency", "label": "Emergency Service" }
+  ],
+  "industryFields": [
+    {
+      "key": "system_type",
+      "label": "System Type",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "central_ac", "label": "Central AC" },
+        { "value": "heat_pump", "label": "Heat Pump" },
+        { "value": "furnace_gas", "label": "Gas Furnace" },
+        { "value": "furnace_electric", "label": "Electric Furnace" },
+        { "value": "mini_split", "label": "Ductless Mini-Split" },
+        { "value": "boiler", "label": "Boiler" },
+        { "value": "package_unit", "label": "Package Unit" },
+        { "value": "geothermal", "label": "Geothermal" }
+      ],
+      "showInFilters": true,
+      "showInQuoteForm": true,
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "tonnage",
+      "label": "System Tonnage",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "1.5", "label": "1.5 Ton" },
+        { "value": "2", "label": "2 Ton" },
+        { "value": "2.5", "label": "2.5 Ton" },
+        { "value": "3", "label": "3 Ton" },
+        { "value": "3.5", "label": "3.5 Ton" },
+        { "value": "4", "label": "4 Ton" },
+        { "value": "5", "label": "5 Ton" }
+      ],
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "seer_rating",
+      "label": "SEER Rating",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "14", "label": "14 SEER" },
+        { "value": "16", "label": "16 SEER" },
+        { "value": "18", "label": "18 SEER" },
+        { "value": "20", "label": "20 SEER" },
+        { "value": "22+", "label": "22+ SEER" }
+      ],
+      "showInAdminForm": true
+    },
+    {
+      "key": "brand",
+      "label": "Equipment Brand",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "carrier", "label": "Carrier" },
+        { "value": "trane", "label": "Trane" },
+        { "value": "lennox", "label": "Lennox" },
+        { "value": "rheem", "label": "Rheem" },
+        { "value": "goodman", "label": "Goodman" },
+        { "value": "daikin", "label": "Daikin" },
+        { "value": "mitsubishi", "label": "Mitsubishi" },
+        { "value": "other", "label": "Other" }
+      ],
+      "showInAdminForm": true
+    }
+  ],
+  "servicePresets": [
+    { "name": "AC Installation", "description": "Central air conditioning system installation", "icon": "snowflake" },
+    { "name": "Heating Installation", "description": "Furnace and heating system installation", "icon": "flame" },
+    { "name": "Heat Pump", "description": "Energy-efficient heat pump installation", "icon": "thermometer" },
+    { "name": "AC Repair", "description": "Air conditioning repair and diagnostics", "icon": "wrench" },
+    { "name": "Ductwork", "description": "Duct installation, repair, and sealing", "icon": "wind" },
+    { "name": "Preventive Maintenance", "description": "Seasonal HVAC tune-ups and maintenance", "icon": "calendar" },
+    { "name": "Mini-Split Systems", "description": "Ductless mini-split installation", "icon": "layout" },
+    { "name": "Emergency HVAC", "description": "24/7 emergency heating and cooling service", "icon": "alert-triangle" }
+  ],
+  "navigationServices": [
+    { "label": "AC Installation", "path": "/services/ac-installation" },
+    { "label": "Heating Systems", "path": "/services/heating-systems" },
+    { "label": "Heat Pumps", "path": "/services/heat-pumps" },
+    { "label": "Maintenance Plans", "path": "/services/maintenance" }
+  ],
+  "seo": {
+    "defaultKeywords": "HVAC, air conditioning, heating, heat pump, furnace, AC repair",
+    "defaultDescription": "Professional HVAC installation, repair, and maintenance services. Licensed, insured, and committed to your comfort."
+  },
+  "warranty": {
+    "defaultYears": 10,
+    "description": "Manufacturer warranty on equipment plus workmanship warranty"
+  },
+  "filterLabels": {
+    "primaryFilter": "System Type"
+  },
+  "faqPresets": [
+    { "question": "How often should HVAC be serviced?", "answer": "We recommend seasonal maintenance twice per year - before summer and before winter." },
+    { "question": "How long does an HVAC system last?", "answer": "A well-maintained system typically lasts 15-25 years depending on the type and usage." },
+    { "question": "What SEER rating should I get?", "answer": "For most homes, 16-20 SEER offers the best balance of efficiency and value." }
+  ],
+  "defaultFeatures": [],
+  "quoteConfig": {
+    "headerTitle": "HVAC QUOTE",
+    "headerColor": "bg-orange-600",
+    "defaultTab": "overview",
+    "postCreateTab": "overview",
+    "tabs": [
+      { "key": "overview", "label": "Overview", "component": "GenericOverviewTab" },
+      { "key": "quote-builder", "label": "Quote Builder", "component": "QuoteBuilderTab" },
+      { "key": "reports", "label": "Reports", "component": "ReportsTab" }
+    ],
+    "lineItemCategories": [
+      {
+        "key": "equipment",
+        "label": "Equipment",
+        "unitTypes": ["ea"],
+        "defaultItems": [
+          { "name": "Condenser Unit", "unit": "ea", "unitPrice": 0 },
+          { "name": "Air Handler", "unit": "ea", "unitPrice": 0 },
+          { "name": "Thermostat", "unit": "ea", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "labor",
+        "label": "Labor",
+        "unitTypes": ["hr"],
+        "defaultItems": [
+          { "name": "Installation Labor", "unit": "hr", "unitPrice": 0 },
+          { "name": "Electrical Work", "unit": "hr", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "materials",
+        "label": "Materials & Supplies",
+        "unitTypes": ["ea", "lf"],
+        "defaultItems": [
+          { "name": "Ductwork", "unit": "lf", "unitPrice": 0 },
+          { "name": "Refrigerant Line Set", "unit": "ea", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "permits",
+        "label": "Permits & Fees",
+        "unitTypes": ["ea"],
+        "defaultItems": []
+      }
+    ]
+  }
+}

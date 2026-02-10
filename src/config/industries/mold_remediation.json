@@ -1,0 +1,168 @@
+{
+  "slug": "mold_remediation",
+  "label": "Mold Remediation",
+  "icon": "Bug",
+  "servicesLabel": "Remediation Services",
+  "heroHeadline": "Breathe Easy,",
+  "heroHighlight": "Live Healthy.",
+  "heroSubtitle": "Professional Mold Remediation and Indoor Air Quality Solutions.",
+  "projectCategories": [
+    { "value": "residential", "label": "Residential" },
+    { "value": "commercial", "label": "Commercial" }
+  ],
+  "projectTypes": [
+    { "value": "mold_inspection", "label": "Mold Inspection" },
+    { "value": "mold_testing", "label": "Mold Testing" },
+    { "value": "mold_removal", "label": "Mold Removal" },
+    { "value": "water_damage", "label": "Water Damage Restoration" },
+    { "value": "crawlspace", "label": "Crawlspace Remediation" },
+    { "value": "attic_mold", "label": "Attic Mold Treatment" },
+    { "value": "emergency", "label": "Emergency Response" }
+  ],
+  "industryFields": [
+    {
+      "key": "mold_type",
+      "label": "Mold Type",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "black_mold", "label": "Black Mold (Stachybotrys)" },
+        { "value": "aspergillus", "label": "Aspergillus" },
+        { "value": "penicillium", "label": "Penicillium" },
+        { "value": "cladosporium", "label": "Cladosporium" },
+        { "value": "alternaria", "label": "Alternaria" },
+        { "value": "unknown", "label": "Unknown / Not Yet Tested" }
+      ],
+      "showInFilters": true,
+      "showInQuoteForm": true,
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "affected_area",
+      "label": "Affected Area",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "bathroom", "label": "Bathroom" },
+        { "value": "basement", "label": "Basement" },
+        { "value": "attic", "label": "Attic" },
+        { "value": "crawlspace", "label": "Crawlspace" },
+        { "value": "kitchen", "label": "Kitchen" },
+        { "value": "hvac_ducts", "label": "HVAC / Ducts" },
+        { "value": "walls", "label": "Interior Walls" },
+        { "value": "multiple", "label": "Multiple Areas" }
+      ],
+      "showInQuoteForm": true,
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "affected_sqft",
+      "label": "Affected Area (sq ft)",
+      "type": "number",
+      "required": false,
+      "placeholder": "e.g. 200",
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "moisture_source",
+      "label": "Moisture Source",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "leak_roof", "label": "Roof Leak" },
+        { "value": "leak_plumbing", "label": "Plumbing Leak" },
+        { "value": "flooding", "label": "Flooding" },
+        { "value": "condensation", "label": "Condensation" },
+        { "value": "poor_ventilation", "label": "Poor Ventilation" },
+        { "value": "unknown", "label": "Unknown" }
+      ],
+      "showInAdminForm": true
+    }
+  ],
+  "servicePresets": [
+    { "name": "Mold Inspection", "description": "Comprehensive mold assessment and testing", "icon": "search" },
+    { "name": "Mold Removal", "description": "Professional mold remediation services", "icon": "shield" },
+    { "name": "Water Damage Restoration", "description": "Restore water-damaged areas", "icon": "droplet" },
+    { "name": "Air Quality Testing", "description": "Indoor air quality testing and monitoring", "icon": "wind" },
+    { "name": "Crawlspace Encapsulation", "description": "Moisture barrier installation", "icon": "layers" },
+    { "name": "Emergency Response", "description": "24/7 emergency mold response", "icon": "alert-triangle" }
+  ],
+  "navigationServices": [
+    { "label": "Mold Inspection", "path": "/services/mold-inspection" },
+    { "label": "Mold Removal", "path": "/services/mold-removal" },
+    { "label": "Water Damage", "path": "/services/water-damage" },
+    { "label": "Air Quality Testing", "path": "/services/air-quality" }
+  ],
+  "seo": {
+    "defaultKeywords": "mold remediation, mold removal, mold inspection, water damage restoration",
+    "defaultDescription": "Professional mold remediation and water damage restoration services. Licensed, insured, and certified."
+  },
+  "warranty": {
+    "defaultYears": 1,
+    "description": "Warranty on remediation workmanship with clearance testing"
+  },
+  "filterLabels": {
+    "primaryFilter": "Mold Type"
+  },
+  "faqPresets": [
+    { "question": "How long does mold remediation take?", "answer": "Most residential projects take 1-5 days depending on the extent of contamination." },
+    { "question": "Is mold dangerous?", "answer": "Some mold types can cause health issues. Professional testing determines the type and risk level." },
+    { "question": "Will mold come back after remediation?", "answer": "If the moisture source is properly addressed, mold should not return. We include clearance testing." }
+  ],
+  "defaultFeatures": [],
+  "quoteConfig": {
+    "headerTitle": "REMEDIATION QUOTE",
+    "headerColor": "bg-green-700",
+    "defaultTab": "overview",
+    "postCreateTab": "overview",
+    "tabs": [
+      { "key": "overview", "label": "Overview", "component": "GenericOverviewTab" },
+      { "key": "quote-builder", "label": "Quote Builder", "component": "QuoteBuilderTab" },
+      { "key": "reports", "label": "Reports", "component": "ReportsTab" }
+    ],
+    "lineItemCategories": [
+      {
+        "key": "testing",
+        "label": "Testing & Assessment",
+        "unitTypes": ["ea"],
+        "defaultItems": [
+          { "name": "Air Quality Testing", "unit": "ea", "unitPrice": 0 },
+          { "name": "Surface Sampling", "unit": "ea", "unitPrice": 0 },
+          { "name": "Moisture Assessment", "unit": "ea", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "containment",
+        "label": "Containment & Protection",
+        "unitTypes": ["sq", "ea"],
+        "defaultItems": [
+          { "name": "Containment Setup", "unit": "sq", "unitPrice": 0 },
+          { "name": "HEPA Air Scrubber", "unit": "ea", "unitPrice": 0 },
+          { "name": "Negative Air Machine", "unit": "ea", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "remediation",
+        "label": "Remediation Work",
+        "unitTypes": ["sq", "ea"],
+        "defaultItems": [
+          { "name": "Mold Removal", "unit": "sq", "unitPrice": 0 },
+          { "name": "Antimicrobial Treatment", "unit": "sq", "unitPrice": 0 },
+          { "name": "Drywall Replacement", "unit": "sq", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "labor",
+        "label": "Labor",
+        "unitTypes": ["hr"],
+        "defaultItems": [
+          { "name": "Remediation Technician", "unit": "hr", "unitPrice": 0 },
+          { "name": "Project Supervisor", "unit": "hr", "unitPrice": 0 }
+        ]
+      }
+    ]
+  }
+}

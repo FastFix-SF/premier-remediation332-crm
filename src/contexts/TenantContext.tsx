@@ -29,6 +29,14 @@ export interface TenantProfile {
   city?: string;
   state?: string;
   zip_code?: string;
+  license_number?: string;
+  years_in_business?: number;
+  owner_name?: string;
+  owner_title?: string;
+  owner_photo_url?: string;
+  custom_domain?: string;
+  google_place_id?: string;
+  industry?: string;
 }
 
 export interface TenantBranding {

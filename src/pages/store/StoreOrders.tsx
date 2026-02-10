@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 interface OrderItem {
   productId: string;
@@ -74,6 +74,7 @@ const formatDate = (dateString: string) => {
 };
 
 const StoreOrders = () => {
+  const tenantConfig = useTenantConfig();
   const navigate = useNavigate();
   const { user, loading: authLoading, isAuthenticated } = useStoreAuth();
   const [orders, setOrders] = useState<Order[]>([]);
@@ -136,8 +137,8 @@ const StoreOrders = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={`My Orders | ${companyConfig.name} Store`}
-        description="View your order history and track your material orders."
+        title={`My Orders | ${tenantConfig.name} Store`}
+        description="View your order history and track your roofing material orders."
       />
       <Header />
 

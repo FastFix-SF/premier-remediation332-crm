@@ -1,0 +1,161 @@
+{
+  "slug": "general_contracting",
+  "label": "General Contracting",
+  "icon": "Hammer",
+  "servicesLabel": "Our Services",
+  "heroHeadline": "Build Your Vision,",
+  "heroHighlight": "From Start to Finish.",
+  "heroSubtitle": "Full-Service General Contracting for Residential and Commercial Projects.",
+  "projectCategories": [
+    { "value": "residential", "label": "Residential" },
+    { "value": "commercial", "label": "Commercial" },
+    { "value": "remodel", "label": "Remodel" },
+    { "value": "new_construction", "label": "New Construction" }
+  ],
+  "projectTypes": [
+    { "value": "kitchen_remodel", "label": "Kitchen Remodel" },
+    { "value": "bathroom_remodel", "label": "Bathroom Remodel" },
+    { "value": "room_addition", "label": "Room Addition" },
+    { "value": "whole_home", "label": "Whole Home Renovation" },
+    { "value": "commercial_buildout", "label": "Commercial Build-Out" },
+    { "value": "deck_patio", "label": "Deck / Patio" },
+    { "value": "foundation", "label": "Foundation Work" },
+    { "value": "framing", "label": "Framing" },
+    { "value": "concrete", "label": "Concrete Work" },
+    { "value": "demolition", "label": "Demolition" }
+  ],
+  "industryFields": [
+    {
+      "key": "project_scope",
+      "label": "Project Scope",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "minor", "label": "Minor (under $10k)" },
+        { "value": "moderate", "label": "Moderate ($10k-$50k)" },
+        { "value": "major", "label": "Major ($50k-$150k)" },
+        { "value": "large", "label": "Large ($150k+)" }
+      ],
+      "showInFilters": true,
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "permits_required",
+      "label": "Permits Required",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "yes", "label": "Yes" },
+        { "value": "no", "label": "No" },
+        { "value": "tbd", "label": "To Be Determined" }
+      ],
+      "showInAdminForm": true
+    },
+    {
+      "key": "square_footage",
+      "label": "Project Square Footage",
+      "type": "number",
+      "required": false,
+      "placeholder": "e.g. 1500",
+      "showInAdminForm": true,
+      "showInSummary": true
+    }
+  ],
+  "servicePresets": [
+    { "name": "Kitchen Remodeling", "description": "Full kitchen design and renovation", "icon": "chef-hat" },
+    { "name": "Bathroom Remodeling", "description": "Complete bathroom renovation", "icon": "bath" },
+    { "name": "Room Additions", "description": "Expand your living space", "icon": "plus-square" },
+    { "name": "Commercial Build-Out", "description": "Office and retail space construction", "icon": "building" },
+    { "name": "Deck & Patio", "description": "Outdoor living space construction", "icon": "sun" },
+    { "name": "Concrete Work", "description": "Foundations, driveways, and flatwork", "icon": "layers" },
+    { "name": "Framing", "description": "Structural framing and carpentry", "icon": "frame" },
+    { "name": "General Repairs", "description": "Home maintenance and handyman services", "icon": "wrench" }
+  ],
+  "navigationServices": [
+    { "label": "Kitchen & Bath", "path": "/services/kitchen-bath" },
+    { "label": "Room Additions", "path": "/services/additions" },
+    { "label": "Commercial", "path": "/services/commercial" },
+    { "label": "Outdoor Living", "path": "/services/outdoor" }
+  ],
+  "seo": {
+    "defaultKeywords": "general contractor, remodeling, renovation, home improvement, construction",
+    "defaultDescription": "Professional general contracting services. Licensed, insured, and committed to quality construction."
+  },
+  "warranty": {
+    "defaultYears": 2,
+    "description": "Warranty on workmanship"
+  },
+  "filterLabels": {
+    "primaryFilter": "Project Scope"
+  },
+  "faqPresets": [
+    { "question": "How long does a kitchen remodel take?", "answer": "A typical kitchen remodel takes 6-12 weeks depending on scope and material availability." },
+    { "question": "Do I need permits?", "answer": "Most structural, electrical, and plumbing work requires permits. We handle all permit applications." },
+    { "question": "Do you provide design services?", "answer": "Yes, we work with professional designers or can provide design-build services." }
+  ],
+  "defaultFeatures": [],
+  "quoteConfig": {
+    "headerTitle": "PROJECT QUOTE",
+    "headerColor": "bg-slate-700",
+    "defaultTab": "overview",
+    "postCreateTab": "overview",
+    "tabs": [
+      { "key": "overview", "label": "Overview", "component": "GenericOverviewTab" },
+      { "key": "quote-builder", "label": "Quote Builder", "component": "QuoteBuilderTab" },
+      { "key": "reports", "label": "Reports", "component": "ReportsTab" }
+    ],
+    "lineItemCategories": [
+      {
+        "key": "demolition",
+        "label": "Demolition",
+        "unitTypes": ["sq", "ea"],
+        "defaultItems": [
+          { "name": "Demolition Work", "unit": "sq", "unitPrice": 0 },
+          { "name": "Debris Removal", "unit": "ea", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "framing",
+        "label": "Framing & Structure",
+        "unitTypes": ["lf", "sq", "ea"],
+        "defaultItems": [
+          { "name": "Wall Framing", "unit": "lf", "unitPrice": 0 },
+          { "name": "Header/Beam", "unit": "ea", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish Work",
+        "unitTypes": ["sq", "ea"],
+        "defaultItems": [
+          { "name": "Drywall", "unit": "sq", "unitPrice": 0 },
+          { "name": "Painting", "unit": "sq", "unitPrice": 0 },
+          { "name": "Trim/Molding", "unit": "lf", "unitPrice": 0 },
+          { "name": "Flooring", "unit": "sq", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "materials",
+        "label": "Materials",
+        "unitTypes": ["ea", "lf", "sq"],
+        "defaultItems": []
+      },
+      {
+        "key": "labor",
+        "label": "Labor",
+        "unitTypes": ["hr"],
+        "defaultItems": [
+          { "name": "General Labor", "unit": "hr", "unitPrice": 0 },
+          { "name": "Skilled Labor", "unit": "hr", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "permits",
+        "label": "Permits & Fees",
+        "unitTypes": ["ea"],
+        "defaultItems": []
+      }
+    ]
+  }
+}

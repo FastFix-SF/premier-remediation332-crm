@@ -30,6 +30,7 @@ import { ImageryTab } from '../roof-quoter/ImageryTab';
 import { getMaterialsForPin } from '@/lib/pinMaterialMapping';
 import { detectPolygons } from '@/lib/polygonDetection';
 import { geodesicArea } from '@/lib/roof/geodesic';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 // Helper function to extract polygon from SAM 2 mask image
 async function extractPolygonFromMaskImage(
@@ -733,6 +734,9 @@ export const DrawTab: React.FC<DrawTabProps> = ({
   
   // Roof measurements with AI (use quoteId as projectId)
   const { roofMeasurement, measureRoof } = useRoofMeasurements(quoteId);
+
+  // Industry gating
+  const industryConfig = useIndustryConfig();
   
   // Debug location data
   useEffect(() => {
@@ -2622,6 +2626,13 @@ export const DrawTab: React.FC<DrawTabProps> = ({
   const eaveLength = lines.filter(l => hasLabel(l, 'eave')).reduce((sum, l) => sum + l.length, 0);
   const rakeLength = lines.filter(l => hasLabel(l, 'rake')).reduce((sum, l) => sum + l.length, 0);
   const ridgeLength = lines.filter(l => hasLabel(l, 'ridge')).reduce((sum, l) => sum + l.length, 0);
+
+  // Gate: roof analysis features are only available for roofing tenants
+  if (industryConfig.slug !== 'roofing') {
+    return <div className="flex items-center justify-center h-[calc(100vh-7rem)] text-gray-500">
+        Roof analysis is only available for roofing tenants.
+      </div>;
+  }
 
   if (!latitude || !longitude) {
     return <div className="flex items-center justify-center h-[calc(100vh-7rem)] text-gray-500">

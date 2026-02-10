@@ -129,7 +129,7 @@ export const CommandCenter: React.FC = () => {
   const renderView = () => {
     switch (activeView) {
       case 'home':
-        return <CCHomeView memberId={memberId} memberName={memberName} />;
+        return <CCHomeView memberId={memberId} memberName={memberName} onNavigate={handleSetActiveView} />;
       case 'office':
         return <CCOfficeView memberId={memberId} />;
       case 'tasks':
@@ -151,7 +151,7 @@ export const CommandCenter: React.FC = () => {
       case 'settings':
         return <CCSettingsView memberId={memberId} />;
       default:
-        return <CCHomeView memberId={memberId} memberName={memberName} />;
+        return <CCHomeView memberId={memberId} memberName={memberName} onNavigate={handleSetActiveView} />;
     }
   };
 

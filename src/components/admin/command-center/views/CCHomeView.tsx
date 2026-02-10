@@ -22,6 +22,7 @@ import { format } from 'date-fns';
 interface CCHomeViewProps {
   memberId: string | null;
   memberName?: string;
+  onNavigate?: (view: string) => void;
 }
 
 interface TeamMember {
@@ -48,7 +49,7 @@ interface LeaderboardEntry {
   rank: number;
 }
 
-export const CCHomeView: React.FC<CCHomeViewProps> = ({ memberId, memberName }) => {
+export const CCHomeView: React.FC<CCHomeViewProps> = ({ memberId, memberName, onNavigate }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [recentActivity, setRecentActivity] = useState<ActivityLogEntry[]>([]);
@@ -236,11 +237,11 @@ export const CCHomeView: React.FC<CCHomeViewProps> = ({ memberId, memberName }) 
             </p>
           </div>
           <div className="flex gap-3">
-            <Button className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white border-0">
+            <Button className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white border-0" onClick={() => onNavigate?.('time')}>
               <Play className="w-4 h-4 mr-2" />
               Start Timer
             </Button>
-            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
+            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10" onClick={() => onNavigate?.('tasks')}>
               <Plus className="w-4 h-4 mr-2" />
               New Task
             </Button>

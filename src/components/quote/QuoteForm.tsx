@@ -15,6 +15,7 @@ import { CheckCircle, Upload, X } from 'lucide-react';
 import { usePlacesAutocomplete } from '@/hooks/usePlacesAutocomplete';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 const formSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -42,20 +43,27 @@ interface QuoteFormProps {
   onFieldChange: (field: string, value: any) => void;
 }
 
-const roofTypes = [
-  { id: 'shingle', label: 'Asphalt Shingle', color: 'bg-slate-500' },
-  { id: 'metal-standing-seam', label: 'Metal - Standing Seam', color: 'bg-zinc-600' },
-  { id: 'metal-corrugated', label: 'Metal - Corrugated', color: 'bg-zinc-500' },
-  { id: 'tile', label: 'Tile', color: 'bg-orange-600' },
-  { id: 'flat-tpo', label: 'Flat/TPO', color: 'bg-gray-400' },
-  { id: 'not-sure', label: 'Not Sure', color: 'bg-gray-300' },
-];
+// Default color palette for quote form chips
+const chipColors = ['bg-slate-500', 'bg-zinc-600', 'bg-zinc-500', 'bg-orange-600', 'bg-gray-400', 'bg-gray-300', 'bg-blue-500', 'bg-teal-500'];
 
 export function QuoteForm({ onSubmitSuccess, onFieldChange }: QuoteFormProps) {
   const [currentStep, setCurrentStep] = useState('contact');
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [isDragging, setIsDragging] = useState(false);
   const { toast } = useToast();
+
+  // Build roof/industry type chips from industry config
+  const industryConfig = useIndustryConfig();
+  const quoteFormField = industryConfig.industryFields.find(f => f.showInQuoteForm);
+  const roofTypes = (quoteFormField?.options || []).map((opt, i) => ({
+    id: opt.value,
+    label: opt.label,
+    color: chipColors[i % chipColors.length],
+  }));
+  // Always add a "Not Sure" option at the end
+  if (roofTypes.length > 0 && !roofTypes.some(r => r.id === 'not-sure')) {
+    roofTypes.push({ id: 'not-sure', label: 'Not Sure', color: 'bg-gray-300' });
+  }
   
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -418,12 +426,12 @@ export function QuoteForm({ onSubmitSuccess, onFieldChange }: QuoteFormProps) {
           <AccordionContent>
             <Card>
               <CardHeader>
-                <CardTitle>Tell us about your roofing project</CardTitle>
+                <CardTitle>Tell us about your {industryConfig.label.toLowerCase()} project</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Roof Type Chips */}
                 <div>
-                  <Label>What type of roof do you have? (Optional)</Label>
+                  <Label>{quoteFormField ? `${quoteFormField.label} (Optional)` : 'What type of roof do you have? (Optional)'}</Label>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {roofTypes.map((roof) => (
                       <Badge

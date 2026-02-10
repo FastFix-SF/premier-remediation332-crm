@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Home, Calendar, Wrench } from 'lucide-react';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 interface QuoteSummaryProps {
   formData: {
@@ -20,30 +21,12 @@ interface QuoteSummaryProps {
   onSubmit: () => void;
 }
 
-const roofTypeLabels: Record<string, string> = {
-  'shingle': 'Asphalt Shingle',
-  'metal-standing-seam': 'Metal - Standing Seam',
-  'metal-corrugated': 'Metal - Corrugated',
-  'tile': 'Tile',
-  'flat-tpo': 'Flat/TPO',
-  'not-sure': 'Not Sure'
-};
-
 const propertyTypeLabels: Record<string, string> = {
   'single-family': 'Single Family Home',
   'multi-family': 'Multi-Family Home',
   'commercial': 'Commercial Building',
   'industrial': 'Industrial Building',
   'other': 'Other'
-};
-
-const projectTypeLabels: Record<string, string> = {
-  'residential-roofing': 'Residential Roofing',
-  'commercial-roofing': 'Commercial Roofing',
-  'metal-roofing': 'Metal Roofing',
-  'roof-repair': 'Roof Repair',
-  'roof-replacement': 'Roof Replacement',
-  'roof-inspection': 'Roof Inspection'
 };
 
 const timelineLabels: Record<string, string> = {
@@ -55,7 +38,33 @@ const timelineLabels: Record<string, string> = {
 };
 
 export function QuoteSummary({ formData, isFormValid, onSubmit }: QuoteSummaryProps) {
-  const fullAddress = formData.address && formData.city && formData.state 
+  const industryConfig = useIndustryConfig();
+
+  // Build label maps dynamically from industry config
+  const roofTypeLabels = useMemo(() => {
+    const labels: Record<string, string> = { 'not-sure': 'Not Sure' };
+    for (const field of industryConfig.industryFields) {
+      if (field.showInQuoteForm && field.options) {
+        for (const opt of field.options) {
+          labels[opt.value] = opt.label;
+        }
+      }
+    }
+    return labels;
+  }, [industryConfig.industryFields]);
+
+  const projectTypeLabels = useMemo(() => {
+    const labels: Record<string, string> = {};
+    for (const pt of industryConfig.projectTypes) {
+      labels[pt.value] = pt.label;
+    }
+    return labels;
+  }, [industryConfig.projectTypes]);
+
+  // Determine the label for the industry-specific field section
+  const industryFieldLabel = industryConfig.industryFields.find(f => f.showInQuoteForm)?.label || 'Roof Type';
+
+  const fullAddress = formData.address && formData.city && formData.state
     ? `${formData.address}, ${formData.city}, ${formData.state}`
     : null;
 
@@ -116,13 +125,13 @@ export function QuoteSummary({ formData, isFormValid, onSubmit }: QuoteSummaryPr
           </div>
         )}
 
-        {/* Roof Type */}
+        {/* Industry-specific field (e.g. Roof Type) */}
         {formData.roofType ? (
           <div className="space-y-1">
             <div className="flex items-start gap-2">
               <Home className="w-4 h-4 mt-0.5 text-muted-foreground flex-shrink-0" />
               <div>
-                <p className="text-sm font-medium">Roof Type</p>
+                <p className="text-sm font-medium">{industryFieldLabel}</p>
                 <p className="text-sm text-muted-foreground">
                   {roofTypeLabels[formData.roofType] || formData.roofType}
                 </p>
@@ -132,7 +141,7 @@ export function QuoteSummary({ formData, isFormValid, onSubmit }: QuoteSummaryPr
         ) : (
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Home className="w-4 h-4" />
-            <span>Roof type not specified</span>
+            <span>{industryFieldLabel} not specified</span>
           </div>
         )}
 

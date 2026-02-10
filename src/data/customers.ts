@@ -1,14 +1,3 @@
-/**
- * DEMO/SAMPLE DATA
- *
- * This file contains sample customer data for development and demo purposes.
- * In production deployments, customer data is stored in the database and
- * managed through the CRM interface.
- *
- * Contact information shown here is sample data and should not be used
- * for actual business purposes.
- */
-
 export interface Customer {
   id: string;
   company: string;
@@ -334,7 +323,7 @@ export const customers: Customer[] = [
   { id: 'cust-311', company: 'BALI Construction', name: 'Jessica Grushus', phone: '(925) 478-8182', cell: '(916) 206-5606', address: '', email: 'jessica@bali-construction.com', type: 'customers' },
   { id: 'cust-312', company: '', name: 'Qimin Gu', phone: '', cell: '(650) 353-0227', address: '1469 Canton Drive, Milpitas, CA 95035', email: 'qimingu@yahoo.com', type: 'customers' },
   { id: 'cust-313', company: '', name: 'Natalie Guandique', phone: '', cell: '(415) 819-2675', address: '2164 Poplar Avenue, East Palo Alto, CA 94303', email: 'nguandique@hotmail.com', type: 'customers' },
-  { id: 'cust-314', company: '', name: 'Julia Guerrero', phone: '(510) 478-4316', cell: '(510) 478-4316', address: '', email: 'sample.customer@example.com', type: 'customers' },
+  { id: 'cust-314', company: '', name: 'Julia Guerrero', phone: '(510) 478-4316', cell: '(510) 478-4316', address: '', email: 'julia@example.com', type: 'customers' },
   { id: 'cust-315', company: '', name: 'Rahul Gupta', phone: '', cell: '(650) 215-0992', address: '3961 Stein Court, South San Francisco, CA 94080', email: 'rahul.nsit@gmail.com', type: 'customers' },
   { id: 'cust-316', company: 'NRG Clean Power', name: 'David Gyurdzhyan', phone: '', cell: '', address: '', email: 'david.g@nrgcleanpower.com', type: 'customers' },
   { id: 'cust-317', company: '', name: 'Jenny H', phone: '', cell: '(925) 202-1419', address: '7821 Marigold Court, Pleasanton, CA 94588', email: 'jenny.ebb@gmail.com', type: 'customers' },

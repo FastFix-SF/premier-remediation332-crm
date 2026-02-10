@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Star, ExternalLink, ArrowRight, Check } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 interface ReviewPromptModalProps {
   isOpen: boolean;
@@ -22,6 +22,7 @@ export default function ReviewPromptModal({
   const [currentStep, setCurrentStep] = useState<'intro' | 'google' | 'yelp' | 'complete' | 'mug-offer' | 'gift-accepted'>('intro');
   const [completedReviews, setCompletedReviews] = useState<Set<string>>(new Set());
   const { toast } = useToast();
+  const tenantConfig = useTenantConfig();
   
   const googleReviewUrl = "https://g.page/r/CR9CtPcwM9h8EAI/review";
   const yelpReviewUrl = "https://www.yelp.com/writeareview/biz/KhPXt_NOkqUQ02pTpQFvGA?return_url=%2Fbiz%2FKhPXt_NOkqUQ02pTpQFvGA&review_origin=biz-details-war-button";
@@ -312,8 +313,8 @@ export default function ReviewPromptModal({
                 <div className="space-y-3">
                   <p className="text-xl font-bold text-green-600">Gift Accepted!</p>
                   <p className="text-muted-foreground text-center leading-relaxed">
-                    We'll start the shipping process to the property on file.
-                    Have a blessed day and week from {companyConfig.name}!
+                    We'll start the shipping process to the property on file. 
+                    {`Have a blessed day and week from the ${tenantConfig.shortName} team!`}
                   </p>
                 </div>
               </div>

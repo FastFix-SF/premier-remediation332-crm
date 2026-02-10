@@ -7,9 +7,9 @@ import { Loader2, Wrench, Package, FileText, Image as ImageIcon } from 'lucide-r
 import { loadStripe } from '@stripe/stripe-js';
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || '');
+const stripePromise = loadStripe('pk_test_51QhvHODtIRUPPT2sM5tMbN82rXsYJEaVVUyOvFbMIAXXxqz9KZdE1O3yPqvIXJMZBkL3V38p8l4Vd0MZQxvVMTPv00EQZzSqOO');
 
 interface InvoiceItem {
   id: string;
@@ -24,6 +24,7 @@ interface InvoiceItem {
 }
 
 export const InvoicePayment = () => {
+  const tenantConfig = useTenantConfig();
   const { invoiceNumber } = useParams();
   const { toast } = useToast();
   const [invoice, setInvoice] = useState<any>(null);
@@ -210,9 +211,9 @@ export const InvoicePayment = () => {
       <div className="max-w-4xl mx-auto bg-card border rounded-lg shadow-lg">
         {/* Header */}
         <div className="bg-primary text-primary-foreground p-6 rounded-t-lg">
-          <h1 className="text-2xl font-bold">{companyConfig.legalName || companyConfig.name}</h1>
-          <p className="text-sm">{companyConfig.address.full}</p>
-          <p className="text-sm">{companyConfig.phone} | {companyConfig.email}</p>
+          <h1 className="text-2xl font-bold">{tenantConfig.legalName}</h1>
+          <p className="text-sm">244 Harbison Dr, Hayward, CA 94544</p>
+          <p className="text-sm">510-670-1907 | info@theroof.info</p>
         </div>
 
         <div className="p-6 space-y-6">
@@ -425,15 +426,22 @@ export const InvoicePayment = () => {
               <h3 className="font-semibold mb-4">Payment Instructions</h3>
               {selectedPayment === 'check' && (
                 <div className="space-y-2 text-sm">
-                  <p><strong>Make check payable to:</strong> {companyConfig.legalName || companyConfig.name}</p>
-                  <p><strong>Mail to:</strong> {companyConfig.address.full}</p>
+                  <p><strong>Make check payable to:</strong> {tenantConfig.legalName}</p>
+                  <p><strong>Mail to:</strong> 244 Jackson St, Hayward, CA 94544</p>
                   <p className="text-muted-foreground">Please include invoice number on the check</p>
                 </div>
               )}
               {selectedPayment === 'zelle' && (
                 <div className="space-y-4 text-sm">
-                  <p><strong>Send payment to:</strong> {companyConfig.email}</p>
+                  <p><strong>Send payment to:</strong> {tenantConfig.email}</p>
                   <p className="text-muted-foreground">Please include invoice number in the note</p>
+                  <div className="flex justify-center mt-4">
+                    <img 
+                      src="/zelle-qr.png" 
+                      alt="Zelle QR Code" 
+                      className="w-64 h-64 object-contain"
+                    />
+                  </div>
                 </div>
               )}
               {selectedPayment === 'ach' && (

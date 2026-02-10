@@ -9,7 +9,12 @@ import { FeedbackButton } from '@/components/admin/FeedbackButton';
 import { Loader2, Shield, LogOut } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 import { companyConfig } from '@/config/company';
+
+// DEV ONLY: Check if running on localhost
+const isLocalDev = typeof window !== 'undefined' &&
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
 
 interface AdminRouteProps {
   children: React.ReactNode;
@@ -25,10 +30,14 @@ export const AdminRoute: React.FC<AdminRouteProps> = ({
     data: adminStatus,
     isLoading: adminLoading
   } = useAdminStatus();
+
+  // DEV ONLY: Check for mock dev session
+  const hasDevMockSession = isLocalDev && localStorage.getItem('dev_mock_admin') === 'true';
   const navigate = useNavigate();
   const {
     toast
   } = useToast();
+  const tenantConfig = useTenantConfig();
   const [backgroundStyle, setBackgroundStyle] = useState<React.CSSProperties>({
     background: 'linear-gradient(135deg, rgb(249 250 251) 0%, rgb(255 255 255) 100%)'
   });
@@ -73,16 +82,22 @@ export const AdminRoute: React.FC<AdminRouteProps> = ({
     }
   };
   const handleSignOut = async () => {
+    // Clear dev mock session
+    localStorage.removeItem('dev_mock_session');
+    localStorage.removeItem('dev_mock_admin');
+    localStorage.removeItem('dev_mock_role');
+    localStorage.removeItem('dev_tenant_id');
+
     await supabase.auth.signOut();
     toast({
       title: "Signed Out",
       description: "You have been successfully signed out."
     });
-    navigate('/admin/login');
+    navigate('/admin-login');
   };
 
-  // Show loading while auth is initializing
-  if (authLoading) {
+  // Show loading while auth is initializing (skip for dev mock sessions)
+  if (authLoading && !hasDevMockSession) {
     return <div className="min-h-screen flex items-center justify-center bg-background">
         <Card className="w-96">
           <CardContent className="p-8 text-center">
@@ -96,13 +111,13 @@ export const AdminRoute: React.FC<AdminRouteProps> = ({
       </div>;
   }
 
-  // Redirect to login if not authenticated
-  if (!user) {
+  // Redirect to login if not authenticated (unless dev mock session exists)
+  if (!user && !hasDevMockSession) {
     return <Navigate to="/admin-login" replace />;
   }
 
-  // Show loading while checking admin status
-  if (adminLoading) {
+  // Show loading while checking admin status (skip for dev mock sessions)
+  if (adminLoading && !hasDevMockSession) {
     return <div className="min-h-screen flex items-center justify-center bg-background">
         <Card className="w-96">
           <CardContent className="p-8 text-center">
@@ -116,8 +131,8 @@ export const AdminRoute: React.FC<AdminRouteProps> = ({
       </div>;
   }
 
-  // Show access denied if not admin or owner
-  if (!adminStatus?.isAdmin) {
+  // Show access denied if not admin or owner (unless dev mock session)
+  if (!adminStatus?.isAdmin && !hasDevMockSession) {
     return <div className="min-h-screen flex items-center justify-center bg-background">
         <Card className="w-96">
           <CardContent className="p-8 text-center">
@@ -127,7 +142,7 @@ export const AdminRoute: React.FC<AdminRouteProps> = ({
               You are not authorized to access the admin dashboard.
             </p>
             <p className="text-sm text-muted-foreground mb-2">
-              User ID: {user.id}
+              User ID: {user?.id || 'Unknown'}
             </p>
             <p className="text-sm text-muted-foreground">
               Please contact an administrator if you believe this is an error.
@@ -148,16 +163,16 @@ export const AdminRoute: React.FC<AdminRouteProps> = ({
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
             <img 
-              src={companyConfig.logo}
-              alt={companyConfig.name}
+              src={tenantConfig.logo}
+              alt={tenantConfig.name}
               className="w-10 h-10"
             />
             <div>
               <div className="text-base font-display font-bold text-primary">
-                {companyConfig.name}
+                {tenantConfig.name}
               </div>
               <div className="text-xs text-muted-foreground">
-                {companyConfig.tagline}
+                {tenantConfig.tagline}
               </div>
             </div>
           </button>

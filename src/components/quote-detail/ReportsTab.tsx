@@ -4,6 +4,7 @@ import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
 import { FileText, Download, Share2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 interface ReportsTabProps {
   quoteId: string;
@@ -11,7 +12,8 @@ interface ReportsTabProps {
   propertyAddress: string;
 }
 
-const DEFAULT_SCOPE_LETTER = `Dear {customerName},
+const SCOPE_TEMPLATES: Record<string, string> = {
+  roofing: `Dear {customerName},
 
 Thank you for considering us for your roofing project at {propertyAddress}.
 
@@ -31,14 +33,33 @@ Our team will:
 This proposal is valid for 30 days. We look forward to working with you.
 
 Best regards,
-Roofing Team`;
+Roofing Team`,
+  default: `Dear {customerName},
 
-export const ReportsTab: React.FC<ReportsTabProps> = ({ 
-  quoteId, 
-  customerName, 
-  propertyAddress 
+Thank you for considering us for your project at {propertyAddress}.
+
+Below is a summary of the proposed scope of work. A detailed breakdown of line items, materials, and labor is available in the Quote Builder tab.
+
+Our team will:
+• Conduct a thorough assessment of the work site
+• Provide all materials and labor as outlined in the quote
+• Ensure all work meets local building codes and regulations
+• Complete a final walkthrough and cleanup upon project completion
+
+This proposal is valid for 30 days. We look forward to working with you.
+
+Best regards,
+Your Project Team`,
+};
+
+export const ReportsTab: React.FC<ReportsTabProps> = ({
+  quoteId,
+  customerName,
+  propertyAddress
 }) => {
-  const [scopeLetter, setScopeLetter] = useState(DEFAULT_SCOPE_LETTER);
+  const industryConfig = useIndustryConfig();
+  const template = SCOPE_TEMPLATES[industryConfig.slug] || SCOPE_TEMPLATES.default;
+  const [scopeLetter, setScopeLetter] = useState(template);
 
   const replacedTokens = scopeLetter
     .replace(/{customerName}/g, customerName)

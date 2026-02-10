@@ -201,7 +201,7 @@ const translations: Translations = {
   'requests.totalTimeOff': { en: 'Total time off', es: 'Total tiempo libre' },
   
   // Mobile app tip
-  'mobile.uploadTip': { en: "You're using the mobile app. Add photos even without internet—uploads will sync automatically.", es: 'Estás usando la app móvil. Agrega fotos sin internet—se sincronizarán automáticamente.' },
+  'mobile.uploadTip': { en: "You're using the company app. Add photos even without internet—uploads will sync automatically.", es: 'Estás usando la app de la empresa. Agrega fotos sin internet—se sincronizarán automáticamente.' },
   
   // Assignment Confirmation
   'assignment.newAssignment': { en: 'New Assignment', es: 'Nueva Asignación' },
@@ -565,24 +565,21 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       // Then sync with database if user is logged in
       try {
         const { data: { user } } = await supabase.auth.getUser();
-
+        
         if (user?.id) {
-          // Select all columns to avoid errors if 'language' column doesn't exist
           const { data: teamMember } = await supabase
             .from('team_directory')
-            .select('*')
+            .select('language')
             .eq('user_id', user.id)
             .maybeSingle();
 
-          // Only use if language column exists and has a value
-          if (teamMember && 'language' in teamMember && teamMember.language) {
+          if (teamMember?.language) {
             setLanguageState(teamMember.language as Language);
             localStorage.setItem('app_language', teamMember.language);
           }
         }
       } catch (error) {
-        // Silently fail - use localStorage or default
-        console.log('Language preference not loaded from database');
+        console.error('Error loading language preference:', error);
       }
     };
 
@@ -593,26 +590,25 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setLanguageState(lang);
     localStorage.setItem('app_language', lang);
 
-    // Save to database if user is logged in (may fail if language column doesn't exist)
+    // Save to database if user is logged in
     try {
       const { data: { user } } = await supabase.auth.getUser();
-
+      
       if (user?.id) {
         const { error } = await supabase
           .from('team_directory')
-          .update({ language: lang } as any)
+          .update({ language: lang })
           .eq('user_id', user.id);
-
+        
         if (error) {
-          // Silently fail - localStorage will be used instead
-          console.log('Language column not available in database');
-        } else {
-          console.log('Language preference saved to database:', lang);
+          console.error('Error updating language in database:', error);
+          throw error;
         }
+        
+        console.log('✅ Language preference saved to database:', lang);
       }
     } catch (error) {
-      // Silently fail - localStorage works as fallback
-      console.log('Language preference saved to localStorage only');
+      console.error('❌ Failed to save language preference to database:', error);
     }
   };
 

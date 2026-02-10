@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 interface InvitationLinkModalProps {
   isOpen: boolean;
@@ -27,6 +27,7 @@ export const InvitationLinkModal: React.FC<InvitationLinkModalProps> = ({
 }) => {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
+  const tenantConfig = useTenantConfig();
 
   const handleCopyLink = async () => {
     try {
@@ -47,14 +48,14 @@ export const InvitationLinkModal: React.FC<InvitationLinkModalProps> = ({
   };
 
   const handleEmailShare = () => {
-    const subject = encodeURIComponent(`Invitation to join ${companyConfig.name} Admin`);
+    const subject = encodeURIComponent(`Invitation to join ${tenantConfig.name} Admin`);
     const body = encodeURIComponent(
       `Hi ${invitationData.name},\n\n` +
-      `You've been invited to join the ${companyConfig.name} admin team as a ${invitationData.role}.\n\n` +
+      `You've been invited to join the ${tenantConfig.name} admin team as a ${invitationData.role}.\n\n` +
       `Please click the link below to accept your invitation:\n` +
       `${invitationData.url}\n\n` +
       `This invitation will expire on ${new Date(invitationData.expiresAt).toLocaleDateString()} for security purposes.\n\n` +
-      `Best regards,\n${companyConfig.name} Team`
+      `Best regards,\n${tenantConfig.name} Team`
     );
     window.open(`mailto:${invitationData.email}?subject=${subject}&body=${body}`);
   };

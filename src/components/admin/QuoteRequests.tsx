@@ -14,6 +14,8 @@ import { toast } from 'sonner';
 import QuoteRequestSummaryDrawer from './QuoteRequestSummaryDrawer';
 import { CreateQuoteDialog } from './CreateQuoteDialog';
 import QuoteCard from './QuoteCard';
+import { QuoteDetailModal } from '../quote-detail/QuoteDetailModal';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 interface QuoteRequest {
   id: string;
@@ -49,6 +51,8 @@ interface QuoteStats {
 
 const QuoteRequests = () => {
   const navigate = useNavigate();
+  const industryConfig = useIndustryConfig();
+  const isRoofing = industryConfig.slug === 'roofing';
   const [quoteRequests, setQuoteRequests] = useState<QuoteRequest[]>([]);
   const [stats, setStats] = useState<QuoteStats>({ total: 0, newThisWeek: 0, inProgress: 0, completed: 0 });
   const [loading, setLoading] = useState(true);
@@ -56,9 +60,16 @@ const QuoteRequests = () => {
   const [statusFilter, setStatusFilter] = useState('all');
   const [selectedRequest, setSelectedRequest] = useState<QuoteRequest | null>(null);
   const [runningMeasure, setRunningMeasure] = useState(false);
+  const [modalQuoteId, setModalQuoteId] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const [converting, setConverting] = useState(false);
   const [imageryOpen, setImageryOpen] = useState(false);
+
+  const openQuoteModal = (quoteId: string) => {
+    setModalQuoteId(quoteId);
+    setModalOpen(true);
+  };
 
   useEffect(() => {
     fetchQuoteRequests();
@@ -329,9 +340,9 @@ const filteredRequests = quoteRequests.filter(request => {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold text-gray-900">Quote Management</h2>
-          <p className="text-muted-foreground">Create and manage roofing quotes with integrated imagery selection</p>
+          <p className="text-muted-foreground">Create and manage quotes</p>
         </div>
-        <CreateQuoteDialog onQuoteCreated={fetchQuoteRequests} />
+        <CreateQuoteDialog onQuoteCreated={fetchQuoteRequests} onOpenQuoteModal={openQuoteModal} />
       </div>
 
       {/* Search and Filters */}
@@ -385,7 +396,7 @@ const filteredRequests = quoteRequests.filter(request => {
                 </p>
               </div>
               {(!searchTerm && statusFilter === 'all') && (
-                <CreateQuoteDialog onQuoteCreated={fetchQuoteRequests} />
+                <CreateQuoteDialog onQuoteCreated={fetchQuoteRequests} onOpenQuoteModal={openQuoteModal} />
               )}
             </div>
           </CardContent>
@@ -397,13 +408,23 @@ const filteredRequests = quoteRequests.filter(request => {
               key={request.id}
               quote={request}
               onOpenRoofQuoter={(quote) => {
-                // Navigate to quote detail page
-                navigate(`/quote/${quote.id}`);
+                if (isRoofing) {
+                  navigate(`/quote/${quote.id}`);
+                } else {
+                  openQuoteModal(quote.id);
+                }
               }}
             />
           ))}
         </div>
       )}
+      {/* Quote Detail Modal for non-roofing industries */}
+      <QuoteDetailModal
+        quoteId={modalQuoteId}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+        onDeleted={fetchQuoteRequests}
+      />
     </div>
   );
 };

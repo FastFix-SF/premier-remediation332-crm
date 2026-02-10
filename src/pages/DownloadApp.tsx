@@ -5,15 +5,16 @@ import { Smartphone, Share2, MoreVertical } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 const DownloadApp = () => {
   const navigate = useNavigate();
+  const tenantConfig = useTenantConfig();
   const [isSpanish, setIsSpanish] = useState(false);
 
   const content = {
     en: {
-      title: `Download ${companyConfig.name}`,
+      title: `Download ${tenantConfig.name}`,
       subtitle: "Add our app to your phone in 3 easy steps",
       iosTitle: "iPhone / iPad",
       iosStep1: "Open this page in Safari browser",
@@ -27,7 +28,7 @@ const DownloadApp = () => {
       language: "Español"
     },
     es: {
-      title: `Descargar ${companyConfig.name}`,
+      title: `Descargar ${tenantConfig.name}`,
       subtitle: "Agrega nuestra aplicación a tu teléfono en 3 pasos fáciles",
       iosTitle: "iPhone / iPad",
       iosStep1: "Abre esta página en el navegador Safari",
@@ -47,8 +48,8 @@ const DownloadApp = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted">
       <SEOHead
-        title={`Download App - ${companyConfig.name}`}
-        description={`Download the ${companyConfig.name} mobile app for easy access to your work schedule, time tracking, and team communication.`}
+        title={`Download App - ${tenantConfig.name}`}
+        description={`Download the ${tenantConfig.name} mobile app for easy access to your work schedule, time tracking, and team communication.`}
       />
       
       <div className="container max-w-2xl mx-auto px-4 py-4">

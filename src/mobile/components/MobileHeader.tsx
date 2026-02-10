@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { MoreVertical, LogIn, LogOut, User, HelpCircle } from 'lucide-react';
+import mobileLogo from '@/assets/mobile-logo.png';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 import { Button } from '@/components/ui/button';
-import {
+import { 
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -15,13 +17,13 @@ import { useToast } from '@/hooks/use-toast';
 import { HelpDialog } from './HelpDialog';
 import { MobileNotificationSheet } from '@/components/notifications/MobileNotificationSheet';
 import { supabase } from '@/integrations/supabase/client';
-import { companyConfig } from '@/config/company';
 
 export const MobileHeader: React.FC = () => {
   const { user, signOut } = useAuth();
   const { t } = useLanguage();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const tenantConfig = useTenantConfig();
   const [showHelpDialog, setShowHelpDialog] = useState(false);
   const [memberId, setMemberId] = useState<string | null>(null);
   const [firstName, setFirstName] = useState<string | null>(null);
@@ -75,8 +77,8 @@ export const MobileHeader: React.FC = () => {
     <header className="app-top-bar animated-wave-gradient text-white px-4 h-11 w-full flex items-center justify-between">
       {/* Logo */}
       <div className="flex items-center space-x-1.5 xs:space-x-2 min-w-0">
-        <img src={companyConfig.logo} alt={companyConfig.name} className="w-8 h-8 xs:w-10 xs:h-10 object-contain flex-shrink-0" />
-        <span className="font-semibold text-xs xs:text-sm truncate">{companyConfig.name}</span>
+        <img src={tenantConfig.logo || mobileLogo} alt={tenantConfig.name} className="w-8 h-8 xs:w-10 xs:h-10 object-contain flex-shrink-0" />
+        <span className="font-semibold text-xs xs:text-sm truncate">{tenantConfig.shortName}</span>
       </div>
       
       {/* Spacer */}

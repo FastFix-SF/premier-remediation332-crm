@@ -5,12 +5,14 @@ import { Download } from 'lucide-react';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, Zap } from 'lucide-react';
 import { Youtube } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 import { companyConfig } from '@/config/company';
 import { useFooterMenu, useAreas } from '@/hooks/useBusinessConfig';
 
 const Footer = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const tenantConfig = useTenantConfig();
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const footerMenu = useFooterMenu();
   const areas = useAreas();
@@ -55,17 +57,17 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className={isMobile ? "flex items-center space-x-2 mb-3" : "flex items-center space-x-3 mb-6"}>
-                <img src={companyConfig.logo} alt={companyConfig.name} className={isMobile ? "w-10 h-10" : "w-12 h-12"} />
+                <img src={tenantConfig.logo} alt={tenantConfig.name} className={isMobile ? "w-10 h-10" : "w-12 h-12"} />
                 <div>
                   <h3 className={isMobile ? "text-base font-display font-bold text-white" : "text-lg font-display font-bold text-white"}>
-                    {companyConfig.name}
+                    {tenantConfig.name}
                   </h3>
-                  <p className={isMobile ? "text-xs text-white/80" : "text-sm text-white/80"}>{companyConfig.tagline}</p>
+                  <p className={isMobile ? "text-xs text-white/80" : "text-sm text-white/80"}>{tenantConfig.tagline}</p>
                 </div>
               </div>
               {!isMobile && (
                 <p className="text-white/80 text-sm leading-relaxed mb-6">
-                  {companyConfig.description}
+                  {tenantConfig.description}
                 </p>
               )}
               
@@ -142,8 +144,8 @@ const Footer = () => {
                 <div className={isMobile ? "flex items-start space-x-2" : "flex items-start space-x-3"}>
                   <Phone className={isMobile ? "w-3.5 h-3.5 text-white mt-0.5 shrink-0" : "w-4 h-4 text-white mt-0.5 shrink-0"} />
                   <div>
-                    <a href={`tel:${companyConfig.phoneRaw}`} className={isMobile ? "text-xs font-medium text-white hover:text-accent transition-colors" : "text-sm font-medium text-white hover:text-accent transition-colors"}>
-                      {companyConfig.phone}
+                    <a href={`tel:${tenantConfig.phoneRaw}`} className={isMobile ? "text-xs font-medium text-white hover:text-accent transition-colors" : "text-sm font-medium text-white hover:text-accent transition-colors"}>
+                      {tenantConfig.phone}
                     </a>
                     {!isMobile && <p className="text-xs text-white/80">{companyConfig.hours.emergency}</p>}
                   </div>
@@ -152,7 +154,7 @@ const Footer = () => {
                 <div className={isMobile ? "flex items-start space-x-2" : "flex items-start space-x-3"}>
                   <Mail className={isMobile ? "w-3.5 h-3.5 text-white mt-0.5 shrink-0" : "w-4 h-4 text-white mt-0.5 shrink-0"} />
                   <div>
-                    <p className={isMobile ? "text-xs text-white break-all" : "text-sm text-white"}>{companyConfig.email}</p>
+                    <p className={isMobile ? "text-xs text-white break-all" : "text-sm text-white"}>{tenantConfig.email}</p>
                   </div>
                 </div>
                 
@@ -202,7 +204,7 @@ const Footer = () => {
         <div className={isMobile ? "border-t border-white/20 py-4" : "border-t border-white/20 py-6"}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className={isMobile ? "text-xs text-white/80 text-center md:text-left" : "text-sm text-white/80 text-center md:text-left"}>
-              © {currentYear} {companyConfig.name}{isMobile ? '' : `. All rights reserved. | Licensed & Insured | ${companyConfig.licenseNumber}`}
+              © {currentYear} {tenantConfig.name}{isMobile ? '' : `. All rights reserved. | Licensed & Insured | ${tenantConfig.licenseNumber}`}
             </div>
             <div className={isMobile ? "flex flex-col items-center space-y-2" : "flex items-center space-x-6"}>
               {!isMobile && (

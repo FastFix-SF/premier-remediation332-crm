@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 import { useTeamMembers, TeamMember } from '@/hooks/useTeamMembers';
 import { useDirectoryContacts, DirectoryContact } from '@/hooks/useDirectoryContacts';
 import ContactDetailDialog from './ContactDetailDialog';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 const categories = [
   { value: 'contractors', label: 'Contractors' },
@@ -39,6 +39,7 @@ export interface DirectoryEntry {
 }
 
 const TeamDirectory: React.FC = () => {
+  const tenantConfig = useTenantConfig();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [open, setOpen] = useState(false);
@@ -187,7 +188,7 @@ const TeamDirectory: React.FC = () => {
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-2">
           <Users className="h-5 w-5 text-primary" />
-          {companyConfig.name} Directory
+          {tenantConfig.shortName} Directory
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">

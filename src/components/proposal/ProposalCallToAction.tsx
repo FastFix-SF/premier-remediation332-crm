@@ -280,8 +280,8 @@ export const ProposalCallToAction: React.FC<ProposalCallToActionProps> = ({
               </a>
             </Button>
             <Button variant="outline" asChild>
-              <a
-                href={`mailto:${companyConfig.email}?subject=${encodeURIComponent(`Proposal Response - ${proposal.property_address}`)}&body=${encodeURIComponent(`Hi,\n\nI have reviewed the proposal for ${proposal.property_address} and would like to accept this quote.\n\nProposal Details:\n- Project: ${proposal.project_type}\n- Address: ${proposal.property_address}\n- Proposal Number: ${proposal.proposal_number}\n\nPlease contact me at your earliest convenience to schedule the next steps.\n\nThank you,\n${proposal.client_name}`)}`}
+              <a 
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${companyConfig.email}&su=${encodeURIComponent(`Proposal Response - ${proposal.property_address}`)}&body=${encodeURIComponent(`Hello,\n\nI have reviewed the roofing proposal for ${proposal.property_address} and would like to accept this quote.\n\nProposal Details:\n- Project: ${proposal.project_type}\n- Address: ${proposal.property_address}\n- Proposal Number: ${proposal.proposal_number}\n\nPlease contact me at your earliest convenience to schedule the next steps.\n\nThank you,\n${proposal.client_name}`)}`}
                 target="_blank"
                 rel="noopener"
                 className="flex items-center justify-center gap-2"

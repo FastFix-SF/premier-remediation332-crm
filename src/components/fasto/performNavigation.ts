@@ -18,7 +18,7 @@ const BLOCKED_IN_NATIVE = [
 ];
 
 // The only allowed domain for native stable builds
-const NATIVE_ALLOWED_DOMAIN = 'roofingfriend.lovable.app';
+const NATIVE_ALLOWED_DOMAIN = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
 
 /**
  * Check if a URL should be blocked in native mode
@@ -51,7 +51,7 @@ function isAllowedDomain(url: string): boolean {
     
     // In web browser mode, allow both published and preview domains
     const WEB_ALLOWED_DOMAINS = [
-      'roofingfriend.lovable.app',
+      window.location.hostname,
       'lovableproject.com',
       'lovable.app'
     ];

@@ -1,37 +1,48 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MapPin, Satellite, Ruler, FileText } from 'lucide-react';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
-const steps = [
-  {
-    icon: MapPin,
-    title: 'Address Submitted',
-    description: 'You provide your property address and project details through our secure form.'
-  },
-  {
-    icon: Satellite,
-    title: 'Aerial Analysis',
-    description: 'We use high-resolution satellite imagery to analyze your roof structure and condition.'
-  },
-  {
-    icon: Ruler,
-    title: 'Precise Measurements',
-    description: 'Our AI system calculates exact measurements, pitch, and material requirements.'
-  },
-  {
-    icon: FileText,
-    title: 'Professional Proposal',
-    description: 'Receive a detailed quote with materials, timeline, and warranty information within 24 hours.'
-  }
-];
+function getSteps(industryLabel: string, isRoofing: boolean) {
+  return [
+    {
+      icon: MapPin,
+      title: 'Address Submitted',
+      description: 'You provide your property address and project details through our secure form.',
+    },
+    {
+      icon: Satellite,
+      title: isRoofing ? 'Aerial Analysis' : 'Project Assessment',
+      description: isRoofing
+        ? 'We use high-resolution satellite imagery to analyze your roof structure and condition.'
+        : `We assess your property and project requirements to determine the best ${industryLabel.toLowerCase()} solution.`,
+    },
+    {
+      icon: Ruler,
+      title: 'Precise Measurements',
+      description: isRoofing
+        ? 'Our AI system calculates exact measurements, pitch, and material requirements.'
+        : 'Our system calculates exact measurements, scope, and material requirements for your project.',
+    },
+    {
+      icon: FileText,
+      title: 'Professional Proposal',
+      description: 'Receive a detailed quote with materials, timeline, and warranty information within 24 hours.',
+    },
+  ];
+}
 
 export function HowItWorks() {
+  const industryConfig = useIndustryConfig();
+  const isRoofing = industryConfig.slug === 'roofing';
+  const steps = getSteps(industryConfig.label, isRoofing);
+
   return (
     <section className="py-12">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold mb-4">How Our Automated Quoting Works</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Our advanced technology delivers accurate roofing quotes faster than traditional methods
+          Our advanced technology delivers accurate {industryConfig.label.toLowerCase()} quotes faster than traditional methods
         </p>
       </div>
       

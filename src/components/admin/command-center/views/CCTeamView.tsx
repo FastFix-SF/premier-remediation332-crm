@@ -19,6 +19,7 @@ import {
   UserCheck,
   UserX,
 } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface CCTeamViewProps {
   memberId: string | null;
@@ -129,7 +130,7 @@ export const CCTeamView: React.FC<CCTeamViewProps> = ({ memberId }) => {
               <p className="text-white/60">{members.length} team members</p>
             </div>
           </div>
-          <Button className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white border-0">
+          <Button className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white border-0" onClick={() => toast.info('Add team members from the Settings page or invite them via email.')}>
             <Plus className="w-4 h-4 mr-2" />
             Add Member
           </Button>
@@ -262,6 +263,13 @@ export const CCTeamView: React.FC<CCTeamViewProps> = ({ memberId }) => {
                   variant="ghost"
                   size="sm"
                   className="flex-1 text-white/60 hover:text-white hover:bg-white/10"
+                  onClick={() => {
+                    if (member.email) {
+                      window.location.href = `mailto:${member.email}`;
+                    } else {
+                      toast.info('No email address available');
+                    }
+                  }}
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Message
@@ -270,8 +278,15 @@ export const CCTeamView: React.FC<CCTeamViewProps> = ({ memberId }) => {
                   variant="ghost"
                   size="sm"
                   className="text-white/60 hover:text-white hover:bg-white/10"
+                  onClick={() => {
+                    if (member.phone_number) {
+                      window.location.href = `tel:${member.phone_number}`;
+                    } else {
+                      toast.info('No phone number available');
+                    }
+                  }}
                 >
-                  <Edit2 className="w-4 h-4" />
+                  <Phone className="w-4 h-4" />
                 </Button>
               </div>
             </Card>

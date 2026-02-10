@@ -1,0 +1,170 @@
+{
+  "slug": "plumbing",
+  "label": "Plumbing",
+  "icon": "Droplets",
+  "servicesLabel": "Plumbing Services",
+  "heroHeadline": "Reliable Plumbing,",
+  "heroHighlight": "Done Right.",
+  "heroSubtitle": "Expert Plumbing Services for Homes and Businesses. Fast, Honest, Guaranteed.",
+  "projectCategories": [
+    { "value": "residential", "label": "Residential" },
+    { "value": "commercial", "label": "Commercial" },
+    { "value": "industrial", "label": "Industrial" }
+  ],
+  "projectTypes": [
+    { "value": "pipe_repair", "label": "Pipe Repair" },
+    { "value": "pipe_replacement", "label": "Pipe Replacement" },
+    { "value": "drain_cleaning", "label": "Drain Cleaning" },
+    { "value": "water_heater", "label": "Water Heater Installation" },
+    { "value": "repiping", "label": "Whole-Home Repiping" },
+    { "value": "sewer_line", "label": "Sewer Line Service" },
+    { "value": "fixture_install", "label": "Fixture Installation" },
+    { "value": "leak_detection", "label": "Leak Detection" },
+    { "value": "emergency", "label": "Emergency Service" }
+  ],
+  "industryFields": [
+    {
+      "key": "pipe_material",
+      "label": "Pipe Material",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "copper", "label": "Copper" },
+        { "value": "pex", "label": "PEX" },
+        { "value": "pvc", "label": "PVC" },
+        { "value": "cpvc", "label": "CPVC" },
+        { "value": "galvanized", "label": "Galvanized Steel" },
+        { "value": "cast_iron", "label": "Cast Iron" },
+        { "value": "abs", "label": "ABS" },
+        { "value": "hdpe", "label": "HDPE" }
+      ],
+      "showInFilters": true,
+      "showInQuoteForm": true,
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "service_area",
+      "label": "Service Area",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "kitchen", "label": "Kitchen" },
+        { "value": "bathroom", "label": "Bathroom" },
+        { "value": "basement", "label": "Basement" },
+        { "value": "laundry", "label": "Laundry Room" },
+        { "value": "outdoor", "label": "Outdoor / Irrigation" },
+        { "value": "whole_house", "label": "Whole House" },
+        { "value": "sewer_main", "label": "Sewer / Main Line" }
+      ],
+      "showInQuoteForm": true,
+      "showInAdminForm": true,
+      "showInSummary": true
+    },
+    {
+      "key": "fixture_count",
+      "label": "Number of Fixtures",
+      "type": "number",
+      "required": false,
+      "placeholder": "e.g. 3",
+      "showInAdminForm": true
+    },
+    {
+      "key": "water_heater_type",
+      "label": "Water Heater Type",
+      "type": "select",
+      "required": false,
+      "options": [
+        { "value": "tank_gas", "label": "Tank - Gas" },
+        { "value": "tank_electric", "label": "Tank - Electric" },
+        { "value": "tankless_gas", "label": "Tankless - Gas" },
+        { "value": "tankless_electric", "label": "Tankless - Electric" },
+        { "value": "heat_pump", "label": "Heat Pump" },
+        { "value": "solar", "label": "Solar" }
+      ],
+      "showInAdminForm": true
+    }
+  ],
+  "servicePresets": [
+    { "name": "Pipe Repair", "description": "Fix leaking or burst pipes", "icon": "wrench" },
+    { "name": "Drain Cleaning", "description": "Clear clogged drains and sewer lines", "icon": "droplet" },
+    { "name": "Water Heater Services", "description": "Installation and repair of water heaters", "icon": "flame" },
+    { "name": "Repiping", "description": "Full home repiping with modern materials", "icon": "refresh-cw" },
+    { "name": "Fixture Installation", "description": "Sinks, faucets, toilets, and more", "icon": "settings" },
+    { "name": "Sewer Line Service", "description": "Sewer line repair, replacement, and inspection", "icon": "arrow-down" },
+    { "name": "Leak Detection", "description": "Advanced leak detection and location", "icon": "search" },
+    { "name": "Emergency Plumbing", "description": "24/7 emergency plumbing service", "icon": "alert-triangle" }
+  ],
+  "navigationServices": [
+    { "label": "Residential Plumbing", "path": "/services/residential-plumbing" },
+    { "label": "Commercial Plumbing", "path": "/services/commercial-plumbing" },
+    { "label": "Water Heaters", "path": "/services/water-heaters" },
+    { "label": "Drain & Sewer", "path": "/services/drain-sewer" }
+  ],
+  "seo": {
+    "defaultKeywords": "plumbing, plumber, pipe repair, drain cleaning, water heater",
+    "defaultDescription": "Professional plumbing services. Licensed, insured, and committed to quality workmanship."
+  },
+  "warranty": {
+    "defaultYears": 5,
+    "description": "Warranty on workmanship and materials"
+  },
+  "filterLabels": {
+    "primaryFilter": "Pipe Material"
+  },
+  "faqPresets": [
+    { "question": "How much does repiping cost?", "answer": "Whole-home repiping typically costs $4,000-$15,000 depending on home size and pipe material chosen." },
+    { "question": "What pipe material is best?", "answer": "PEX is the most popular choice for modern homes due to its flexibility, durability, and cost-effectiveness." },
+    { "question": "Do you offer emergency service?", "answer": "Yes, we offer 24/7 emergency plumbing service for burst pipes, major leaks, and sewer backups." }
+  ],
+  "defaultFeatures": [],
+  "quoteConfig": {
+    "headerTitle": "PLUMBING QUOTE",
+    "headerColor": "bg-cyan-600",
+    "defaultTab": "overview",
+    "postCreateTab": "overview",
+    "tabs": [
+      { "key": "overview", "label": "Overview", "component": "GenericOverviewTab" },
+      { "key": "quote-builder", "label": "Quote Builder", "component": "QuoteBuilderTab" },
+      { "key": "reports", "label": "Reports", "component": "ReportsTab" }
+    ],
+    "lineItemCategories": [
+      {
+        "key": "fixtures",
+        "label": "Fixtures",
+        "unitTypes": ["ea"],
+        "defaultItems": [
+          { "name": "Faucet", "unit": "ea", "unitPrice": 0 },
+          { "name": "Toilet", "unit": "ea", "unitPrice": 0 },
+          { "name": "Water Heater", "unit": "ea", "unitPrice": 0 },
+          { "name": "Garbage Disposal", "unit": "ea", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "piping",
+        "label": "Piping & Fittings",
+        "unitTypes": ["lf", "ea"],
+        "defaultItems": [
+          { "name": "Copper Pipe", "unit": "lf", "unitPrice": 0 },
+          { "name": "PEX Pipe", "unit": "lf", "unitPrice": 0 },
+          { "name": "PVC Drain Pipe", "unit": "lf", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "labor",
+        "label": "Labor",
+        "unitTypes": ["hr"],
+        "defaultItems": [
+          { "name": "Plumber Labor", "unit": "hr", "unitPrice": 0 },
+          { "name": "Apprentice Labor", "unit": "hr", "unitPrice": 0 }
+        ]
+      },
+      {
+        "key": "permits",
+        "label": "Permits & Inspections",
+        "unitTypes": ["ea"],
+        "defaultItems": []
+      }
+    ]
+  }
+}

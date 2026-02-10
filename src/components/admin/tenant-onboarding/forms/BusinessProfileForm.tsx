@@ -15,10 +15,19 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Building2, Phone, Mail, MapPin, Award, User } from 'lucide-react';
+import { getAllIndustries } from '@/config/industries';
 
 // Validation schema
 export const businessProfileSchema = z.object({
+  industry: z.string().min(1, 'Please select an industry'),
   business_name: z.string().min(2, 'Business name must be at least 2 characters'),
   tagline: z.string().optional(),
   description: z.string().optional(),
@@ -55,6 +64,7 @@ export const BusinessProfileForm: React.FC<BusinessProfileFormProps> = ({
   const form = useForm<BusinessProfileFormData>({
     resolver: zodResolver(businessProfileSchema),
     defaultValues: {
+      industry: '',
       business_name: '',
       tagline: '',
       description: '',
@@ -82,6 +92,34 @@ export const BusinessProfileForm: React.FC<BusinessProfileFormProps> = ({
             <Building2 className="h-5 w-5" />
             <span>Business Information</span>
           </div>
+
+          <FormField
+            control={form.control}
+            name="industry"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Industry *</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select an industry" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {getAllIndustries().map((ind) => (
+                      <SelectItem key={ind.slug} value={ind.slug}>
+                        {ind.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormDescription>
+                  Choose the industry that best describes this business.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField

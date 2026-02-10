@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 interface InviteData {
   id: string;
@@ -21,6 +21,7 @@ interface InviteData {
 }
 
 export default function InviteAcceptance() {
+  const tenantConfig = useTenantConfig();
   const { token } = useParams<{ token: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -203,7 +204,7 @@ export default function InviteAcceptance() {
         navigate('/admin/login');
       } else {
         toast({
-          title: `Welcome to ${companyConfig.name}!`,
+          title: `Welcome to ${tenantConfig.name}!`,
           description: "Your account has been activated. Redirecting to dashboard...",
         });
         
@@ -265,7 +266,7 @@ export default function InviteAcceptance() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
-          <CardTitle>Join {companyConfig.name} Admin</CardTitle>
+          <CardTitle>{`Join ${tenantConfig.name} Admin`}</CardTitle>
           <CardDescription>
             You've been invited to join as a <strong>{inviteData.role}</strong>
           </CardDescription>

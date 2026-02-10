@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { MessageSquare, HelpCircle, ExternalLink, RefreshCw, AlertCircle, ImageIcon } from 'lucide-react';
+import { MessageSquare, HelpCircle, ExternalLink } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useAuth } from '@/contexts/AuthContext';
 import { useProfile } from '@/hooks/useProfile';
 import { supabase } from '@/integrations/supabase/client';
@@ -13,7 +12,6 @@ import { useToast } from '@/hooks/use-toast';
 import { useNavigate, useLocation } from 'react-router-dom';
 import roofingFriendMascot from '@/assets/roofing-friend-mascot.png';
 import html2canvas from 'html2canvas';
-import { feedbackTracker } from '@/utils/feedbackContext';
 
 const POSITION_STORAGE_KEY = 'feedbackButtonPosition';
 
@@ -102,12 +100,7 @@ export const FeedbackButton: React.FC = () => {
     pageRoute?: string;
     pageUrl?: string;
   } | null>(null);
-  const [screenshotState, setScreenshotState] = useState<{
-    status: 'idle' | 'capturing' | 'preview' | 'failed';
-    dataUrl: string | null;
-    error: string | null;
-    retryCount: number;
-  }>({ status: 'idle', dataUrl: null, error: null, retryCount: 0 });
+  const [screenshotDataUrl, setScreenshotDataUrl] = useState<string | null>(null);
   const [feedback, setFeedback] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { user } = useAuth();
@@ -129,11 +122,6 @@ export const FeedbackButton: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   const dragRef = useRef<HTMLDivElement>(null);
   const dragStartRef = useRef<{ x: number; y: number; posX: number; posY: number } | null>(null);
-
-  // Initialize feedback context tracker
-  useEffect(() => {
-    feedbackTracker.init();
-  }, []);
 
   // Save position to localStorage when it changes
   useEffect(() => {
@@ -296,76 +284,47 @@ export const FeedbackButton: React.FC = () => {
       };
 
       // Capture screenshot with element highlighted and cropped to element area
-      // Retry up to 3 times if capture fails
-      const captureScreenshot = async (retries = 3): Promise<string | null> => {
-        for (let attempt = 0; attempt < retries; attempt++) {
-          try {
-            setScreenshotState(prev => ({ ...prev, status: 'capturing', retryCount: attempt }));
-
-            // Temporarily add highlight to the element
-            target.style.outline = '3px solid red';
-            target.style.boxShadow = '0 0 10px rgba(255,0,0,0.5)';
-
-            const scale = 1; // Full resolution for clarity
-            const padding = 100; // Padding around element
-
-            const fullCanvas = await html2canvas(document.body, {
-              useCORS: true,
-              logging: false,
-              scale: scale,
-              windowWidth: window.innerWidth,
-              windowHeight: window.innerHeight,
-              timeout: 5000, // 5 second timeout
-            });
-
-            // Remove highlight
-            target.style.outline = '';
-            target.style.boxShadow = '';
-
-            // Calculate crop bounds with padding (adjusted for scale)
-            const cropX = Math.max(0, (rect.left - padding) * scale);
-            const cropY = Math.max(0, (rect.top + window.scrollY - padding) * scale);
-            const cropWidth = Math.min((rect.width + padding * 2) * scale, fullCanvas.width - cropX);
-            const cropHeight = Math.min((rect.height + padding * 2) * scale, fullCanvas.height - cropY);
-
-            // Create cropped canvas
-            const croppedCanvas = document.createElement('canvas');
-            croppedCanvas.width = cropWidth;
-            croppedCanvas.height = cropHeight;
-            const ctx = croppedCanvas.getContext('2d');
-
-            if (ctx) {
-              ctx.drawImage(fullCanvas, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
-              const dataUrl = croppedCanvas.toDataURL('image/jpeg', 0.9);
-              setScreenshotState({ status: 'preview', dataUrl, error: null, retryCount: attempt });
-              return dataUrl;
-            }
-            throw new Error('Failed to get canvas context');
-          } catch (err) {
-            console.error(`Screenshot capture attempt ${attempt + 1} failed:`, err);
-            // Remove highlight on error
-            target.style.outline = '';
-            target.style.boxShadow = '';
-
-            if (attempt === retries - 1) {
-              setScreenshotState({
-                status: 'failed',
-                dataUrl: null,
-                error: 'Screenshot capture failed. You can still submit feedback without it.',
-                retryCount: attempt
-              });
-              toast({
-                title: "Screenshot capture failed",
-                description: "Your feedback can still be submitted without a screenshot",
-                variant: "default",
-              });
-            }
-          }
+      try {
+        // Temporarily add highlight to the element
+        target.style.outline = '3px solid red';
+        target.style.boxShadow = '0 0 10px rgba(255,0,0,0.5)';
+        
+        const scale = 1; // Full resolution for clarity
+        const padding = 100; // Padding around element
+        
+        const fullCanvas = await html2canvas(document.body, {
+          useCORS: true,
+          logging: false,
+          scale: scale,
+          windowWidth: window.innerWidth,
+          windowHeight: window.innerHeight,
+        });
+        
+        // Remove highlight
+        target.style.outline = '';
+        target.style.boxShadow = '';
+        
+        // Calculate crop bounds with padding (adjusted for scale)
+        const cropX = Math.max(0, (rect.left - padding) * scale);
+        const cropY = Math.max(0, (rect.top + window.scrollY - padding) * scale);
+        const cropWidth = Math.min((rect.width + padding * 2) * scale, fullCanvas.width - cropX);
+        const cropHeight = Math.min((rect.height + padding * 2) * scale, fullCanvas.height - cropY);
+        
+        // Create cropped canvas
+        const croppedCanvas = document.createElement('canvas');
+        croppedCanvas.width = cropWidth;
+        croppedCanvas.height = cropHeight;
+        const ctx = croppedCanvas.getContext('2d');
+        
+        if (ctx) {
+          ctx.drawImage(fullCanvas, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+          const dataUrl = croppedCanvas.toDataURL('image/jpeg', 0.9);
+          setScreenshotDataUrl(dataUrl);
         }
-        return null;
-      };
-
-      await captureScreenshot();
+      } catch (err) {
+        console.error('Failed to capture screenshot:', err);
+        // Continue without screenshot
+      }
 
       setSelectedElement(elementInfo);
       setIsSelectionMode(false);
@@ -510,8 +469,9 @@ export const FeedbackButton: React.FC = () => {
       let screenshotUrl: string | null = null;
 
       // Upload screenshot if available
-      if (screenshotState.dataUrl) {
-        const blob = await fetch(screenshotState.dataUrl).then(r => r.blob());
+      if (screenshotDataUrl) {
+        const base64Data = screenshotDataUrl.split(',')[1];
+        const blob = await fetch(screenshotDataUrl).then(r => r.blob());
         const fileName = `feedback-${Date.now()}-${Math.random().toString(36).substring(7)}.jpg`;
         
         const { data: uploadData, error: uploadError } = await supabase.storage
@@ -531,9 +491,6 @@ export const FeedbackButton: React.FC = () => {
         }
       }
 
-      // Get debug context for FastFixAI admins (not shown to tenant users)
-      const debugContext = feedbackTracker.getContext();
-
       const { error } = await supabase
         .from('admin_feedback' as any)
         .insert({
@@ -541,13 +498,9 @@ export const FeedbackButton: React.FC = () => {
           feedback_text: feedback.trim(),
           selected_element: selectedElement ? JSON.stringify(selectedElement) : null,
           screenshot_url: screenshotUrl,
-          debug_context: debugContext,
         });
 
       if (error) throw error;
-
-      // Clear context after successful submission
-      feedbackTracker.clearContext();
 
       toast({
         title: "Success",
@@ -556,7 +509,7 @@ export const FeedbackButton: React.FC = () => {
 
       setFeedback('');
       setSelectedElement(null);
-      setScreenshotState({ status: 'idle', dataUrl: null, error: null, retryCount: 0 });
+      setScreenshotDataUrl(null);
       setIsOpen(false);
     } catch (error) {
       console.error('Error submitting feedback:', error);
@@ -573,7 +526,7 @@ export const FeedbackButton: React.FC = () => {
   const handleCancel = () => {
     setIsOpen(false);
     setSelectedElement(null);
-    setScreenshotState({ status: 'idle', dataUrl: null, error: null, retryCount: 0 });
+    setScreenshotDataUrl(null);
     setFeedback('');
   };
 
@@ -628,9 +581,9 @@ export const FeedbackButton: React.FC = () => {
           className="w-16 h-16 bg-white hover:bg-gray-50 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 border-2 border-primary animate-pulse hover:animate-none"
           aria-label="Help menu - drag to reposition"
         >
-          <img
-            src={roofingFriendMascot}
-            alt="Help Mascot"
+          <img 
+            src={roofingFriendMascot} 
+            alt="Assistant" 
             className="w-12 h-12 object-contain pointer-events-none"
           />
         </button>
@@ -670,7 +623,7 @@ export const FeedbackButton: React.FC = () => {
               AI Assistant
             </DialogTitle>
             <DialogDescription>
-              Your AI coworker with full access to projects, schedules, employees, leads, and roofing expertise
+              Your AI coworker with full access to projects, schedules, employees, leads, and industry expertise
             </DialogDescription>
           </DialogHeader>
 
@@ -685,7 +638,7 @@ export const FeedbackButton: React.FC = () => {
                   <li>👷 Team schedules and assignments</li>
                   <li>⏰ Timesheets and hours worked</li>
                   <li>📋 Leads, quotes, and proposals</li>
-                  <li>🏠 Roofing best practices and materials</li>
+                  <li>🏠 Industry best practices and materials</li>
                 </ul>
               </div>
             ) : (
@@ -829,54 +782,6 @@ export const FeedbackButton: React.FC = () => {
                   </p>
                 )}
               </div>
-            )}
-
-            {/* Screenshot Preview */}
-            {screenshotState.status === 'preview' && screenshotState.dataUrl && (
-              <div className="space-y-2">
-                <Label className="text-sm flex items-center gap-2">
-                  <ImageIcon className="w-4 h-4" />
-                  Screenshot Preview
-                </Label>
-                <div className="relative border rounded-lg overflow-hidden bg-muted">
-                  <img
-                    src={screenshotState.dataUrl}
-                    alt="Screenshot preview"
-                    className="w-full h-auto max-h-48 object-contain"
-                  />
-                  <Button
-                    type="button"
-                    variant="secondary"
-                    size="sm"
-                    className="absolute top-2 right-2 gap-1"
-                    onClick={() => {
-                      setScreenshotState({ status: 'idle', dataUrl: null, error: null, retryCount: 0 });
-                      toast({
-                        title: "Screenshot removed",
-                        description: "You can still submit feedback without a screenshot",
-                      });
-                    }}
-                  >
-                    Remove
-                  </Button>
-                </div>
-              </div>
-            )}
-
-            {screenshotState.status === 'capturing' && (
-              <div className="flex items-center gap-2 text-sm text-muted-foreground p-3 bg-muted rounded-md">
-                <RefreshCw className="w-4 h-4 animate-spin" />
-                Capturing screenshot...
-              </div>
-            )}
-
-            {screenshotState.status === 'failed' && (
-              <Alert variant="default" className="border-amber-200 bg-amber-50">
-                <AlertCircle className="w-4 h-4 text-amber-600" />
-                <AlertDescription className="text-amber-800 text-sm">
-                  {screenshotState.error}
-                </AlertDescription>
-              </Alert>
             )}
 
             <div className="space-y-2">

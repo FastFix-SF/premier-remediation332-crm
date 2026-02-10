@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Grid, List, CheckCircle } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 interface Product {
   id: string;
@@ -42,7 +42,7 @@ const categoryData: Record<string, CategoryInfo> = {
       'Excellent for agricultural and commercial buildings',
       'Wide variety of colors and finishes',
     ],
-    seoTitle: 'Exposed Fastener Metal Roofing Panels | Store',
+    seoTitle: 'Exposed Fastener Metal Roofing Panels',
     seoDescription: 'Browse our selection of exposed fastener metal roofing panels. Cost-effective, durable, and easy to install. Perfect for residential, commercial, and agricultural buildings.',
   },
   'standing-seam': {
@@ -55,7 +55,7 @@ const categoryData: Record<string, CategoryInfo> = {
       'Excellent for low-slope roofs',
       'Long-lasting performance',
     ],
-    seoTitle: 'Standing Seam Metal Roofing Panels | Store',
+    seoTitle: 'Standing Seam Metal Roofing Panels',
     seoDescription: 'Premium standing seam metal roofing panels with concealed fasteners. Modern appearance, superior weather protection, and exceptional durability.',
   },
   'r-panel': {
@@ -68,7 +68,7 @@ const categoryData: Record<string, CategoryInfo> = {
       'Wide color selection',
       'Ideal for long-span applications',
     ],
-    seoTitle: 'R-Panel Metal Roofing Panels | Store',
+    seoTitle: 'R-Panel Metal Roofing Panels',
     seoDescription: 'Shop R-Panel metal roofing - the industry standard for commercial and agricultural buildings. Multiple gauges and colors available.',
   },
   'max-rib': {
@@ -81,7 +81,7 @@ const categoryData: Record<string, CategoryInfo> = {
       'Economical installation',
       'Great for residential and commercial',
     ],
-    seoTitle: 'Max-Rib Metal Roofing Panels | Store',
+    seoTitle: 'Max-Rib Metal Roofing Panels',
     seoDescription: 'Max-Rib metal panels with 38" coverage. Available with MoistureLok sealant option. Perfect for residential and commercial projects.',
   },
   'all': {
@@ -91,10 +91,10 @@ const categoryData: Record<string, CategoryInfo> = {
       'Premium McElroy Metal quality',
       'Wide selection of profiles and colors',
       'Residential and commercial options',
-      'Fast delivery available',
+      'Fast Bay Area delivery',
       'Expert support included',
     ],
-    seoTitle: 'Metal Roofing Panels | Store',
+    seoTitle: 'Metal Roofing Panels',
     seoDescription: 'Complete selection of McElroy Metal roofing panels. Exposed fastener, standing seam, and specialty panels for residential and commercial projects.',
   },
 };
@@ -118,6 +118,7 @@ const profileToCategory: Record<string, string> = {
 };
 
 const StoreCategory = () => {
+  const tenantConfig = useTenantConfig();
   const { category } = useParams<{ category: string }>();
   const navigate = useNavigate();
   const [products, setProducts] = useState<Product[]>([]);
@@ -188,7 +189,7 @@ const StoreCategory = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={categoryInfo.seoTitle}
+        title={`${categoryInfo.seoTitle} | ${tenantConfig.name}`}
         description={categoryInfo.seoDescription}
       />
       <Header />

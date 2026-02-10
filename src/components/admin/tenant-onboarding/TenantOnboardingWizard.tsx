@@ -287,6 +287,7 @@ export const TenantOnboardingWizard: React.FC = () => {
       await multiTenantSupabase
         .from('mt_business_profiles')
         .update({
+          industry: data.industry || 'roofing',
           business_name: data.business_name,
           tagline: data.tagline,
           description: data.description,
@@ -596,6 +597,7 @@ export const TenantOnboardingWizard: React.FC = () => {
             isLoading={isLoading}
             submitLabel="Continue"
             showCard={false}
+            industry={state.profile?.industry}
           />
         );
       case 'service_areas':

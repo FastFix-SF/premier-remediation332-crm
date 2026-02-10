@@ -132,9 +132,16 @@ export const useProposalManagement = () => {
       const user = await supabase.auth.getUser();
       if (!user.data.user) throw new Error('User not authenticated');
 
+      // Generate a proposal number: PROP-YYYYMMDD-XXXX
+      const now = new Date();
+      const dateStr = now.toISOString().slice(0, 10).replace(/-/g, '');
+      const rand = Math.random().toString(36).substring(2, 6).toUpperCase();
+      const proposalNumber = `PROP-${dateStr}-${rand}`;
+
       const { data, error } = await supabase
         .from('project_proposals')
         .insert({
+          proposal_number: proposalNumber,
           property_address: proposalData.property_address,
           project_type: proposalData.project_type,
           client_name: proposalData.client_name,

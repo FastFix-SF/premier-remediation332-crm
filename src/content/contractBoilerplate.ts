@@ -1,65 +1,41 @@
 import { companyConfig } from '@/config/company';
+import type { IndustrySlug } from '@/config/industries/types';
 
-export const COMPANY_INFO = {
+export const getCompanyInfo = (legalName = companyConfig.legalName, companyAddress = companyConfig.address.full) => ({
   name: companyConfig.name,
-  legalName: companyConfig.legalName || companyConfig.name,
+  legalName,
   licenseNumber: companyConfig.licenseNumber,
-  address: companyConfig.address.full,
+  address: companyAddress,
   phone: companyConfig.phone,
   email: companyConfig.email,
-  defaultPreparedBy: companyConfig.owner?.name || 'Owner',
+  defaultPreparedBy: 'Florentino Guerrero',
   contractorTitle: 'Owner',
-};
+});
 
-// Template placeholder for company legal name in legal documents
-const COMPANY_LEGAL_NAME = '{{COMPANY_LEGAL_NAME}}';
-const COMPANY_ADDRESS = '{{COMPANY_ADDRESS}}';
+// Keep backward-compatible static export
+export const COMPANY_INFO = getCompanyInfo();
 
-// Helper to replace placeholders with actual values
-export function processContractTemplate(template: string): string {
-  return template
-    .replace(/{{COMPANY_LEGAL_NAME}}/g, COMPANY_INFO.legalName)
-    .replace(/{{COMPANY_ADDRESS}}/g, COMPANY_INFO.address);
-}
+export const getStandardProvisions = (legalName = 'THE COMPANY, INC', industry: IndustrySlug = 'roofing') => {
+  const isRoofing = industry === 'roofing';
 
-const STANDARD_PROVISIONS_TEMPLATE = `
-<div class="standard-provisions-page" style="page-break-before: always; font-family: Arial, Helvetica, sans-serif; font-size: 11pt; line-height: 1.4;">
-  <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">STANDARD PROVISIONS</h3>
+  const section1ExtraWork = isRoofing
+    ? ` Any modification or addition after starting the roof (i.e. wood replacement,
+    additional layers or roof removal etc.) will be addressed with the owner before continuing.`
+    : ` Any modification or addition after starting the project will be addressed with the owner before continuing.`;
 
-  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">1. CHANGES IN THE WORK - CONCEALED CONDITIONS</h4>
-  <p style="text-align: justify; margin-bottom: 12px;">
-    Should the Owner, construction lender, or any public body or inspector direct any modification or addition to the work covered by this contract,
-    the contract price shall be adjusted accordingly. Modification or addition to the work shall be executed only when a Change Order has been signed
-    by both the Owner and ${COMPANY_LEGAL_NAME}. The change in the Contract Price caused by such Change Order shall be agreed to in writing, or if
-    the parties are not in agreement as to the change in Contract Price, or whether the term(s) or work constitute a change. ${COMPANY_LEGAL_NAME}'s
-    actual cost of all labor, equipment, subcontracts and materials, plus 18% for its overhead and 20% for its profit shall be the change in Contract
-    Price. The Change Order may also increase the time within which the contract is to be completed.
-  </p>
-  <p style="text-align: justify; margin-bottom: 12px;">
-    ${COMPANY_LEGAL_NAME} shall promptly notify the Owner of: (a) latent physical conditions at the site differing materially from those indicated
-    in this contract, or (b) unknown physical conditions differing materially from those ordinarily encountered and generally recognized as inherent
-    in work of the character provided for in this contract. Any expense incurred due to such conditions shall be paid for by Owner as added work.
-    No extra or change order work shall be required to be performed without prior written authorization or the person contracting for the construction
-    of the home improvement. Any Change Order forms for changes or extra work shall be incorporated in, and become a part of the contract. However,
-    in the event that the building department or the governing body requires a change or modification then ${COMPANY_LEGAL_NAME} may make that
-    change prior to receiving written authorization and thereafter negotiate the effect of that change with the Owner. Payments for extra work will
-    be made as extra work progress, concurrently with progress payments. Any modification or addition after starting the roof (i.e. wood replacement,
-    additional layers or roof removal etc.) will be addressed with the owner before continuing.
-  </p>
-
-  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">2. OWNER'S RESPONSIBILITIES</h4>
-  <p style="text-align: justify; margin-bottom: 12px;">
-    The Owner is responsible to supply staging area and electrical utilities unless otherwise agreed to in writing. Electricity and staging area to
-    the site is necessary. The Owner agrees to allow and provide the contractor and his equipment access to the property. The Owner is responsible
-    for having sufficient funds to comply with this agreement. This is a cash transaction unless otherwise specified. The Owner is responsible to
-    remove or protect any personal property and the contractor is not responsible for the same nor for any carpets, drapes, furniture, driveway,
-    lawns, shrubs, etc. The Owner will point out and warrant the property lines to ${COMPANY_LEGAL_NAME}. Spark arrestors, gutters, chimneys,
-    roof drains, etc., are continual maintenance items and should be cleaned, tightened, etc. yearly. ${COMPANY_LEGAL_NAME} is not responsible
+  const section2Owner = isRoofing
+    ? `The Owner will point out and warrant the property lines to \${legalName}. Spark arrestors, gutters, chimneys,
+    roof drains, etc., are continual maintenance items and should be cleaned, tightened, etc. yearly. \${legalName} is not responsible
     for any interior work on skylights, exhaust ducts, vent tubes, etc. Owner warrants to contractor that structures and access ways (i.e. driveways,
     walkways, patios, etc.) covered by this contract are in good condition and that said structures and access ways will withstand weight or vibration
-    caused by the workmen, materials, suppliers or equipment used therein by Contractor.
-  </p>
+    caused by the workmen, materials, suppliers or equipment used therein by Contractor.`
+    : `The Owner will point out and warrant the property lines to \${legalName}. Owner warrants to contractor that structures and access ways
+    (i.e. driveways, walkways, patios, etc.) covered by this contract are in good condition and that said structures and access ways will withstand
+    weight or vibration caused by the workmen, materials, suppliers or equipment used therein by Contractor.`;
 
+  // Subsection A is heavily roof-specific
+  const subsectionA = isRoofing
+    ? `
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">A.</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
     Contractor is not responsible for repitching, re-sloping or correcting existing roof surfaces to eliminate ponding or collection of water on
@@ -68,22 +44,112 @@ const STANDARD_PROVISIONS_TEMPLATE = `
     will not be held liable for oil canning or use of less than full length panels on roofs. Ponding of water in gutters caused by settling of home
     or bows in the roof line of the home is not the responsibility of Contractor, when installing gutters, Contractor follows the roof line unless
     homeowner specifies gutters should be slanted toward the outlets.
-  </p>
+  </p>`
+    : `
+  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">A.</h4>
+  <p style="text-align: justify; margin-bottom: 12px;">
+    Contractor is not responsible for pre-existing conditions or damages. It is agreed Contractor will not be held liable for any deficiencies
+    in the existing structure or systems that are not part of the contracted scope of work. Owner acknowledges that unforeseen conditions may be
+    discovered during the course of work and will be addressed via Change Order.
+  </p>`;
 
+  const subsectionB = isRoofing
+    ? `
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">B.</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
     Contractor is not responsible for power or phone lines, TV antennas, guide wires, cable service, satellite dishes, or adjustments of rooftop
     equipment. These items may need service after job completion. All heat exhaust vent connections through the attic should be checked by the gas
     provider after job completion.
-  </p>
+  </p>`
+    : `
+  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">B.</h4>
+  <p style="text-align: justify; margin-bottom: 12px;">
+    Contractor is not responsible for power or phone lines, cable service, or adjustments of existing equipment not included in the scope of work.
+    These items may need service after job completion.
+  </p>`;
 
+  const subsectionC = isRoofing
+    ? `
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">C.</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
     Contractor is not responsible for damage to property inside the building caused by vibration or the falling of objects from the roof. Homeowner
     should take due care to ensure chandelier, crystal, painting, etc. are hung securely or wrapped to ensure no chipping or cracking occurs.
     Contractor is not responsible for the loosening of screws, nails or cracking of tape between sheetrock, or dust and dirt falling between wood
     slat, t-bar or drywall ceilings caused by vibrations associated with the reroofing process.
+  </p>`
+    : `
+  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">C.</h4>
+  <p style="text-align: justify; margin-bottom: 12px;">
+    Contractor is not responsible for damage to property inside the building caused by vibration or the movement of materials during the construction
+    process. Homeowner should take due care to ensure fragile items are secured or protected. Contractor is not responsible for the loosening of
+    screws, nails or cracking of tape between sheetrock, or dust and dirt falling between ceilings caused by vibrations associated with the
+    construction process.
+  </p>`;
+
+  const subsectionE = isRoofing
+    ? `
+  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">E.</h4>
+  <p style="text-align: justify; margin-bottom: 12px;">
+    Contractor agrees to use reasonable care when moving, raising or lifting objects such as solar panels, gutters, conduits, signs, skylights,
+    air conditioners etc., but shall assume no responsibility for the operation of, or damage to, such objects. Solar panels and water lines must
+    be cut and drained before roofing.
+  </p>`
+    : `
+  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">E.</h4>
+  <p style="text-align: justify; margin-bottom: 12px;">
+    Contractor agrees to use reasonable care when moving, raising or lifting objects such as fixtures, conduits, signs, equipment,
+    etc., but shall assume no responsibility for the operation of, or damage to, such objects.
+  </p>`;
+
+  const subsectionF = isRoofing
+    ? `
+  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">F.</h4>
+  <p style="text-align: justify; margin-bottom: 12px;">
+    Replacement of existing flashings into, stucco, siding, skylight, chimney, walls, etc. is not included in agreement and will be based on time
+    and materials if required once roof is removed and inspected. Painting of stucco, siding, eave, gable, or wood replacement is not included in agreement.
+  </p>`
+    : `
+  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">F.</h4>
+  <p style="text-align: justify; margin-bottom: 12px;">
+    Repair or replacement of existing finishes, surfaces, or structures not included in the scope of work shall be based on time and materials
+    if required. Painting, patching, or cosmetic work outside the agreed scope is not included in this agreement.
+  </p>`;
+
+  return `
+<div class="standard-provisions-page" style="page-break-before: always; font-family: Arial, Helvetica, sans-serif; font-size: 11pt; line-height: 1.4;">
+  <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">STANDARD PROVISIONS</h3>
+
+  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">1. CHANGES IN THE WORK - CONCEALED CONDITIONS</h4>
+  <p style="text-align: justify; margin-bottom: 12px;">
+    Should the Owner, construction lender, or any public body or inspector direct any modification or addition to the work covered by this contract,
+    the contract price shall be adjusted accordingly. Modification or addition to the work shall be executed only when a Change Order has been signed
+    by both the Owner and ${legalName}. The change in the Contract Price caused by such Change Order shall be agreed to in writing, or if
+    the parties are not in agreement as to the change in Contract Price, or whether the term(s) or work constitute a change. ${legalName}'s
+    actual cost of all labor, equipment, subcontracts and materials, plus 18% for its overhead and 20% for its profit shall be the change in Contract
+    Price. The Change Order may also increase the time within which the contract is to be completed.
   </p>
+  <p style="text-align: justify; margin-bottom: 12px;">
+    ${legalName} shall promptly notify the Owner of: (a) latent physical conditions at the site differing materially from those indicated
+    in this contract, or (b) unknown physical conditions differing materially from those ordinarily encountered and generally recognized as inherent
+    in work of the character provided for in this contract. Any expense incurred due to such conditions shall be paid for by Owner as added work.
+    No extra or change order work shall be required to be performed without prior written authorization or the person contracting for the construction
+    of the home improvement. Any Change Order forms for changes or extra work shall be incorporated in, and become a part of the contract. However,
+    in the event that the building department or the governing body requires a change or modification then ${legalName} may make that
+    change prior to receiving written authorization and thereafter negotiate the effect of that change with the Owner. Payments for extra work will
+    be made as extra work progress, concurrently with progress payments.${section1ExtraWork}
+  </p>
+
+  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">2. OWNER'S RESPONSIBILITIES</h4>
+  <p style="text-align: justify; margin-bottom: 12px;">
+    The Owner is responsible to supply staging area and electrical utilities unless otherwise agreed to in writing. Electricity and staging area to
+    the site is necessary. The Owner agrees to allow and provide the contractor and his equipment access to the property. The Owner is responsible
+    for having sufficient funds to comply with this agreement. This is a cash transaction unless otherwise specified. The Owner is responsible to
+    remove or protect any personal property and the contractor is not responsible for the same nor for any carpets, drapes, furniture, driveway,
+    lawns, shrubs, etc. ${section2Owner.replace(/\$\{legalName\}/g, legalName)}
+  </p>
+${subsectionA}
+${subsectionB}
+${subsectionC}
 
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">D.</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
@@ -91,23 +157,31 @@ const STANDARD_PROVISIONS_TEMPLATE = `
     is unavoidable considering the nature of the job. Contractor does not warrant or guarantee to identify any/all damages due to dry rot, termite,
     molds, fungus, etc. If damage is suspected or questioned, owner should have a specialist inspect.
   </p>
-
-  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">E.</h4>
-  <p style="text-align: justify; margin-bottom: 12px;">
-    Contractor agrees to use reasonable care when moving, raising or lifting objects such as solar panels, gutters, conduits, signs, skylights,
-    air conditioners etc., but shall assume no responsibility for the operation of, or damage to, such objects. Solar panels and water lines must
-    be cut and drained before roofing.
-  </p>
-
-  <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">F.</h4>
-  <p style="text-align: justify; margin-bottom: 12px;">
-    Replacement of existing flashings into, stucco, siding, skylight, chimney, walls, etc. is not included in agreement and will be based on time
-    and materials if required once roof is removed and inspected. Painting of stucco, siding, eave, gable, or wood replacement is not included in agreement.
-  </p>
+${subsectionE}
+${subsectionF}
 </div>
 `;
+};
 
-const STANDARD_PROVISIONS_PAGE_2_TEMPLATE = `
+// Keep backward-compatible static export
+export const STANDARD_PROVISIONS = getStandardProvisions();
+
+export const getStandardProvisionsPage2 = (legalName = 'THE COMPANY, INC', industry: IndustrySlug = 'roofing') => {
+  const isRoofing = industry === 'roofing';
+
+  const warrantyClause = isRoofing
+    ? `WARRANTIES AND LIABILITIES ARE LIMITED TO THE ROOFING SYSTEM ONLY AND INVALID IF CONTRACT PAYMENT IS NOT RECEIVED IN FULL. IN
+    THE EVENT THAT THE MANUFACTURER OF ANYTHING INSTALLED HEREIN OFFERS A DIFFERENT WARRANTY. THEN OWNER`
+    : `WARRANTIES AND LIABILITIES ARE LIMITED TO THE SCOPE OF WORK DEFINED IN THIS CONTRACT AND INVALID IF CONTRACT PAYMENT IS NOT RECEIVED IN FULL.
+    IN THE EVENT THAT THE MANUFACTURER OF ANYTHING INSTALLED HEREIN OFFERS A DIFFERENT WARRANTY. THEN OWNER`;
+
+  const section11Extra = isRoofing
+    ? ` If owner requests gutters, downspouts, section of roof, etc. left off, balance of final
+    payment minus requested items are due forthwith.`
+    : ` If owner requests any portion of the contracted scope left incomplete, balance of final
+    payment minus requested items are due forthwith.`;
+
+  return `
 <div class="standard-provisions-page2" style="page-break-before: always; font-family: Arial, Helvetica, sans-serif; font-size: 11pt; line-height: 1.4;">
   <h4 style="font-weight: bold; margin-top: 0; margin-bottom: 8px;">G.</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
@@ -117,19 +191,19 @@ const STANDARD_PROVISIONS_PAGE_2_TEMPLATE = `
 
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">3. DELAYS AND INCREASES IN MATERIAL COSTS:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
-    ${COMPANY_LEGAL_NAME} shall be excused for any delay in completion of the contract caused by acts of God; stormy or inclement weather;
+    ${legalName} shall be excused for any delay in completion of the contract caused by acts of God; stormy or inclement weather;
     strikes, lockouts, boycotts, or other labor union activities; acts of Owner, of Owner's agent, or of Owner's employees or independent contractor,
     disbursement of funds into funding control or escrow; acts of public utilities or public bodies; acts of public enemy, riots or civil commotion,
     inability to secure material through regular recognized channels; imposition of Government priority or allocation of materials; delays caused by
     inspection or changes ordered by the inspectors of authorized governmental bodies; changes requested by Owner; Owner's failure to make progress
     payments promptly; failure of the issuance of all necessary building permits within a reasonable length of time; or other contingencies unforeseen
-    by ${COMPANY_LEGAL_NAME} and beyond its reasonable control.
+    by ${legalName} and beyond its reasonable control.
   </p>
   <p style="text-align: justify; margin-bottom: 12px;">
-    Additionally, while ${COMPANY_LEGAL_NAME} believes that it can complete the Project without any increases in costs, to the extent that material
-    costs increase by more than 1% from the costs of said materials on the date this Agreement was signed, ${COMPANY_LEGAL_NAME} shall be entitled
+    Additionally, while ${legalName} believes that it can complete the Project without any increases in costs, to the extent that material
+    costs increase by more than 1% from the costs of said materials on the date this Agreement was signed, ${legalName} shall be entitled
     to an increase in the contract price equal to the increased cost above the 1% increase in material cost. To the extent material costs increase due
-    to delay caused by Owner, Owner's agents or separate contractors, ${COMPANY_LEGAL_NAME} shall be entitled to all cost increases incurred as a
+    to delay caused by Owner, Owner's agents or separate contractors, ${legalName} shall be entitled to all cost increases incurred as a
     result, in addition to any extended field and home office expenses. There shall be no additional markup for overhead or profit on the increased
     cost, except as otherwise indicated. Contractor has no liability for failures or availability in material caused by improper manufacturing or
     ordering or defects in the product which are beyond the control of the contractor.
@@ -143,7 +217,7 @@ const STANDARD_PROVISIONS_PAGE_2_TEMPLATE = `
 
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">5. CLEAN-UP:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
-    ${COMPANY_LEGAL_NAME} will remove from Owner's property debris and surplus materials created by its operation and leave driveway/walkway in a
+    ${legalName} will remove from Owner's property debris and surplus materials created by its operation and leave driveway/walkway in a
     neat and broom clean condition. Contractor does not guarantee to remove every little piece of construction material from the yard, planters,
     planter boxes, etc.
   </p>
@@ -157,40 +231,39 @@ const STANDARD_PROVISIONS_PAGE_2_TEMPLATE = `
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">7. DESTRUCTION OF WORK:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
     If the project is destroyed or damaged by accident, disaster or calamity, such as fire, storm, earthquake, flood, landslide, or by theft,
-    vandalism, or another contractor's error, any work done by ${COMPANY_LEGAL_NAME} in rebuilding or restoring the Project shall be paid by
+    vandalism, or another contractor's error, any work done by ${legalName} in rebuilding or restoring the Project shall be paid by
     the Owner as extra work.
   </p>
 
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">8. SUBCONTRACTS:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
-    ${COMPANY_LEGAL_NAME} may subcontract portions of this work to properly licensed and qualified subcontractors.
+    ${legalName} may subcontract portions of this work to properly licensed and qualified subcontractors.
   </p>
 
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">9. FEES, TAXES AND ASSESSMENTS:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
-    Taxes, Permits, Fees, and assessments of all descriptions will be paid for by Owner. ${COMPANY_LEGAL_NAME} will obtain all required building
-    permits, at the sole expense of Owner. Upon demand by ${COMPANY_LEGAL_NAME}, Owner shall provide ample funds to acquire any and all necessary
+    Taxes, Permits, Fees, and assessments of all descriptions will be paid for by Owner. ${legalName} will obtain all required building
+    permits, at the sole expense of Owner. Upon demand by ${legalName}, Owner shall provide ample funds to acquire any and all necessary
     permits on a timely basis. Owner will pay assessments, and charges required by public bodies and utilities for the financing or repaying the cost
     of sewers, storm drains, water services, school and school facilities, other utilities, hook-up charges and the like.
   </p>
 
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">10. LABOR AND MATERIAL:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
-    ${COMPANY_LEGAL_NAME} shall pay all valid charges for labor and material incurred by ${COMPANY_LEGAL_NAME} and used in the construction or
-    repair of the Project. ${COMPANY_LEGAL_NAME} is excused from this obligation for bills received in any period during which the Owner is in
-    arrears in making progress payments to ${COMPANY_LEGAL_NAME}. No Waiver or release of mechanic's lien given by ${COMPANY_LEGAL_NAME} shall
-    be binding until all payments due to ${COMPANY_LEGAL_NAME} when the release was executed have been made.
+    ${legalName} shall pay all valid charges for labor and material incurred by ${legalName} and used in the construction or
+    repair of the Project. ${legalName} is excused from this obligation for bills received in any period during which the Owner is in
+    arrears in making progress payments to ${legalName}. No Waiver or release of mechanic's lien given by ${legalName} shall
+    be binding until all payments due to ${legalName} when the release was executed have been made.
   </p>
 
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">11. PAYMENT AND RIGHT TO STOP WORK:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
-    Past due payments shall bear interest at the rate of .004 per week (21% per annum), until paid in full. ${COMPANY_LEGAL_NAME} shall have the
-    right to stop work if any payment shall not be made, when due, to ${COMPANY_LEGAL_NAME} under this Agreement. ${COMPANY_LEGAL_NAME} may keep
-    the job idle until all payments due are received. This remedy is in addition to any other right or remedy that ${COMPANY_LEGAL_NAME} may have.
+    Past due payments shall bear interest at the rate of .004 per week (21% per annum), until paid in full. ${legalName} shall have the
+    right to stop work if any payment shall not be made, when due, to ${legalName} under this Agreement. ${legalName} may keep
+    the job idle until all payments due are received. This remedy is in addition to any other right or remedy that ${legalName} may have.
     Such failure by Owner to make payment, when due, is a material breach of this agreement and homeowner is responsible for any damage to structure
     caused by idleness for non or late payment as agreed. Completion of project is achieved when materials are installed as per manufacturers
-    instructions, or permit agency deems project finaled. If owner requests gutters, downspouts, section of roof, etc. left off, balance of final
-    payment minus requested items are due forthwith.
+    instructions, or permit agency deems project finaled.${section11Extra}
   </p>
 
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">12. RIGHT TO CANCEL:</h4>
@@ -200,24 +273,40 @@ const STANDARD_PROVISIONS_PAGE_2_TEMPLATE = `
 
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">13. WEATHER AND OTHER DAMAGE:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
-    ${COMPANY_LEGAL_NAME} shall attempt to keep the project reasonably covered during the construction. However, Owner understands that unexpected
-    weather conditions can arise that might cause damage to the project or its contents. ${COMPANY_LEGAL_NAME} shall not be responsible for any such
+    ${legalName} shall attempt to keep the project reasonably covered during the construction. However, Owner understands that unexpected
+    weather conditions can arise that might cause damage to the project or its contents. ${legalName} shall not be responsible for any such
     damage beyond its reasonable control.
   </p>
 
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">14. WARRANTY:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
-    ${COMPANY_LEGAL_NAME} hereby warrants, subject to the Terms and Conditions set forth herein, that it will make all necessary repairs to leaks
-    which result from defects in workmanship and materials furnished by ${COMPANY_LEGAL_NAME} at no cost to the Owner when those leaks occur within
+    ${legalName} hereby warrants, subject to the Terms and Conditions set forth herein, that it will make all necessary repairs to defects
+    which result from defects in workmanship and materials furnished by ${legalName} at no cost to the Owner when those defects occur within
     the 5 year term of this warranty. Such repairs are expressly agreed to be the Owner's exclusive remedy. THE LIMITED LABOR WARRANTY PROVIDED BY
-    ${COMPANY_LEGAL_NAME} IS ONLY AS CONTAINED WITHIN THIS WRITTEN AGREEMENT. NO OTHER WARRANTY, EXPRESS OR IMPLIED, ORAL OR WRITTEN, IS INCLUDED
-    IN THIS CONTRACT. WARRANTIES AND LIABILITIES ARE LIMITED TO THE ROOFING SYSTEM ONLY AND INVALID IF CONTRACT PAYMENT IS NOT RECEIVED IN FULL. IN
-    THE EVENT THAT THE MANUFACTURER OF ANYTHING INSTALLED HEREIN OFFERS A DIFFERENT WARRANTY. THEN OWNER
+    ${legalName} IS ONLY AS CONTAINED WITHIN THIS WRITTEN AGREEMENT. NO OTHER WARRANTY, EXPRESS OR IMPLIED, ORAL OR WRITTEN, IS INCLUDED
+    IN THIS CONTRACT. ${warrantyClause}
   </p>
 </div>
 `;
+};
 
-const STANDARD_PROVISIONS_PAGE_3_TEMPLATE = `
+// Keep backward-compatible static export
+export const STANDARD_PROVISIONS_PAGE_2 = getStandardProvisionsPage2();
+
+export const getStandardProvisionsPage3 = (legalName = 'THE COMPANY, INC', industry: IndustrySlug = 'roofing') => {
+  const isRoofing = industry === 'roofing';
+
+  const commencedWorkTrigger = isRoofing
+    ? `(2) the time removal or modification for any existing roof covering begins.`
+    : `(2) the time demolition, removal, or modification of any existing work begins.`;
+
+  const commencedWorkCancel = isRoofing
+    ? `Should work not commence on the roof within 180 days of acceptance of this Agreement, then either party shall have the right to cancel
+    the Agreement.`
+    : `Should work not commence on the project within 180 days of acceptance of this Agreement, then either party shall have the right to cancel
+    the Agreement.`;
+
+  return `
 <div class="standard-provisions-page3" style="page-break-before: always; font-family: Arial, Helvetica, sans-serif; font-size: 11pt; line-height: 1.4;">
   <h4 style="font-weight: bold; margin-top: 0; margin-bottom: 8px;">15. MOLD, ASBESTOS AND HAZARDOUS SUBSTANCES:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
@@ -248,18 +337,21 @@ const STANDARD_PROVISIONS_PAGE_3_TEMPLATE = `
   <h4 style="font-weight: bold; margin-top: 15px; margin-bottom: 8px;">16. COMMENCED WORK:</h4>
   <p style="text-align: justify; margin-bottom: 12px;">
     Contractor shall be deemed to have substantially commenced work at the earlier of (1) the time materials or equipment are delivered to the jobsite, or
-    (2) the time removal or modification for any existing roof covering begins. Contractor's failure to substantially commence work within 20 days from the
+    ${commencedWorkTrigger} Contractor's failure to substantially commence work within 20 days from the
     approximate date specified on the Agreement is a violation of the Contractor's License Law and buyer shall have the right to cancel this contract unless
     the Contractor has a legal excuse for such delay. The Contractor shall be excused for any delay in starting or completion of the contract caused by acts
     of God, acts of the owner or the owner's agent, employee or independent contractor, stormy weather, labor trouble, acts of public utilities, public bodies
     or inspectors extra work, failure of the owner to make progress payments promptly, or other contingencies unforeseeable by or beyond the reasonable control
-    of the contractor. Should work not commence on the roof within 180 days of acceptance of this Agreement, then either party shall have the right to cancel
-    the Agreement.
+    of the contractor. ${commencedWorkCancel}
   </p>
 </div>
 `;
+};
 
-const MECHANICS_LIEN_WARNING_TEMPLATE = `
+// Keep backward-compatible static export
+export const STANDARD_PROVISIONS_PAGE_3 = getStandardProvisionsPage3();
+
+export const MECHANICS_LIEN_WARNING = `
 <div class="mechanics-lien-page" style="page-break-before: always; font-family: Arial, Helvetica, sans-serif; font-size: 11pt; line-height: 1.4;">
   <h3 style="font-weight: bold; margin-bottom: 15px;">MECHANICS LIEN WARNING:</h3>
   <p>
@@ -308,7 +400,7 @@ const MECHANICS_LIEN_WARNING_TEMPLATE = `
 </div>
 `;
 
-const NOTICE_OF_CANCELLATION_TEMPLATE = `
+export const getNoticeOfCancellation = (legalName = 'THE COMPANY, INC', companyAddress = companyConfig.address.full) => `
 <div class="cancellation-form-page" style="page-break-before: always; font-family: Arial, Helvetica, sans-serif; font-size: 11pt; line-height: 1.4;">
   <h3 style="font-weight: bold; margin-bottom: 20px; text-align: center;">Notice of Cancellation Form</h3>
 
@@ -339,7 +431,7 @@ const NOTICE_OF_CANCELLATION_TEMPLATE = `
   </p>
 
   <p style="text-align: center; font-weight: bold; margin: 25px 0;">
-    ${COMPANY_LEGAL_NAME} at ${COMPANY_ADDRESS}<br/>
+    ${legalName} at ${companyAddress}<br/>
     not later than Midnight of the third day after signing.
   </p>
 
@@ -359,9 +451,5 @@ const NOTICE_OF_CANCELLATION_TEMPLATE = `
 </div>
 `;
 
-// Export processed templates (with company name replaced)
-export const STANDARD_PROVISIONS = processContractTemplate(STANDARD_PROVISIONS_TEMPLATE);
-export const STANDARD_PROVISIONS_PAGE_2 = processContractTemplate(STANDARD_PROVISIONS_PAGE_2_TEMPLATE);
-export const STANDARD_PROVISIONS_PAGE_3 = processContractTemplate(STANDARD_PROVISIONS_PAGE_3_TEMPLATE);
-export const MECHANICS_LIEN_WARNING = processContractTemplate(MECHANICS_LIEN_WARNING_TEMPLATE);
-export const NOTICE_OF_CANCELLATION = processContractTemplate(NOTICE_OF_CANCELLATION_TEMPLATE);
+// Keep backward-compatible static export
+export const NOTICE_OF_CANCELLATION = getNoticeOfCancellation();

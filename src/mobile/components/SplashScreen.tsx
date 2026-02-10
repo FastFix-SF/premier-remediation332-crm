@@ -1,11 +1,12 @@
 import React from 'react';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 interface SplashScreenProps {
   isVisible: boolean;
 }
 
 export const SplashScreen: React.FC<SplashScreenProps> = ({ isVisible }) => {
+  const tenantConfig = useTenantConfig();
   if (!isVisible) return null;
 
   return (
@@ -31,7 +32,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ isVisible }) => {
         </div>
         
         {/* Brand Name */}
-        <h1 className="splash-title">{companyConfig.name}</h1>
+        <h1 className="splash-title">{tenantConfig.shortName}</h1>
         <p className="splash-subtitle">Employee App</p>
         
         {/* Loading Indicator */}

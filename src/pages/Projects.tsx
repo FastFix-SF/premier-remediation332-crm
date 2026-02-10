@@ -30,8 +30,7 @@ import { ImageFit } from '../components/ui/ImageFit';
 import { type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../components/ui/carousel';
 import { useIsMobile } from '../hooks/use-mobile';
 import { useOptimizedDrag } from '../hooks/useOptimizedDrag';
-import { useBusiness, useAreas, useServices, useProjects, useFeaturedProjects, type ProjectConfig } from '../hooks/useBusinessConfig';
-
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 interface Project {
   id: string;
   name: string;
@@ -68,8 +67,8 @@ const Projects = () => {
   const [comparisonSlider, setComparisonSlider] = useState([50]);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
-const [filterCategory, setFilterCategory] = useState<'all' | 'residential' | 'commercial'>('all');
-const [filterRoof, setFilterRoof] = useState<'all' | 'standing_seam' | 'metal_panels' | 'stone_coated' | 'shingles' | 'flat_roof'>('all');
+const [filterCategory, setFilterCategory] = useState<string>('all');
+const [filterIndustryField, setFilterIndustryField] = useState<string>('all');
 const { toast } = useToast();
   const isMobile = useIsMobile();
 
@@ -389,30 +388,20 @@ const { toast } = useToast();
 const toSlug = (s?: string | null) =>
   s ? s.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '') : '';
 
-type CategorySlug = 'residential' | 'commercial';
-const CATEGORY_OPTIONS: { label: string; slug: CategorySlug }[] = [
-  { label: 'Residential', slug: 'residential' },
-  { label: 'Commercial', slug: 'commercial' },
-];
-
-type RoofSlug = 'standing_seam' | 'metal_panels' | 'stone_coated' | 'shingles' | 'flat_roof';
-const ROOF_OPTIONS: { label: string; slug: RoofSlug }[] = [
-  { label: 'Standing Seam', slug: 'standing_seam' },
-  { label: 'Metal Panels', slug: 'metal_panels' },
-  { label: 'Stone Coated', slug: 'stone_coated' },
-  { label: 'Shingles', slug: 'shingles' },
-  { label: 'Flat Roof', slug: 'flat_roof' },
-];
-
-
+const industryConfig = useIndustryConfig();
+const CATEGORY_OPTIONS = industryConfig.projectCategories.map(c => ({ label: c.label, slug: c.value }));
+const primaryFilterField = industryConfig.industryFields.find(f => f.showInFilters);
+const INDUSTRY_FIELD_OPTIONS = (primaryFilterField?.options || []).map(o => ({ label: o.label, slug: o.value }));
+const primaryFilterKey = primaryFilterField?.key || 'roof_type';
+const primaryFilterLabel = industryConfig.filterLabels.primaryFilter;
 
 const filteredProjects = projects
   .filter(project => {
     const projectCategorySlug = toSlug(project.project_category || project.project_type || '');
-    const projectRoofSlug = toSlug(project.roof_type || '');
+    const projectFieldSlug = toSlug((project as any)[primaryFilterKey] || project.roof_type || '');
     const matchesCategory = filterCategory === 'all' || projectCategorySlug === filterCategory;
-    const matchesRoof = filterRoof === 'all' || projectRoofSlug === filterRoof;
-    return matchesCategory && matchesRoof;
+    const matchesField = filterIndustryField === 'all' || projectFieldSlug === filterIndustryField;
+    return matchesCategory && matchesField;
   })
   .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
@@ -851,23 +840,25 @@ const shownCount = filteredProjects.length;
             ))}
           </ToggleGroup>
         </div>
+        {INDUSTRY_FIELD_OPTIONS.length > 0 && (
         <div className="w-full flex items-center gap-1 sm:gap-2 overflow-x-auto pb-1">
-          <span className="text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap">Roof</span>
+          <span className="text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap">{primaryFilterLabel}</span>
           <ToggleGroup
             type="single"
-            value={filterRoof}
-            onValueChange={(v) => setFilterRoof((v as any) || 'all')}
+            value={filterIndustryField}
+            onValueChange={(v) => setFilterIndustryField((v as string) || 'all')}
             className="flex min-w-0"
-            aria-label="Filter by roof type"
+            aria-label={`Filter by ${primaryFilterLabel}`}
           >
-            <ToggleGroupItem value="all" aria-label="All roof types" className="text-xs sm:text-sm px-2 sm:px-3 flex-shrink-0">All</ToggleGroupItem>
-            {ROOF_OPTIONS.map((opt) => (
+            <ToggleGroupItem value="all" aria-label={`All ${primaryFilterLabel}`} className="text-xs sm:text-sm px-2 sm:px-3 flex-shrink-0">All</ToggleGroupItem>
+            {INDUSTRY_FIELD_OPTIONS.map((opt) => (
               <ToggleGroupItem key={opt.slug} value={opt.slug} aria-label={opt.label} className="text-xs sm:text-sm px-2 sm:px-3 whitespace-nowrap flex-shrink-0">
                 {opt.label}
               </ToggleGroupItem>
             ))}
           </ToggleGroup>
         </div>
+        )}
       </div>
       <div className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap pt-2 lg:pt-0 flex-shrink-0" aria-live="polite">
         {shownCount} of {totalCount} projects
@@ -917,7 +908,7 @@ const shownCount = filteredProjects.length;
   <Button 
     variant="outline" 
     size="lg"
-    onClick={() => { setFilterCategory('all'); setFilterRoof('all'); }}
+    onClick={() => { setFilterCategory('all'); setFilterIndustryField('all'); }}
     className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-xl"
   >
     Clear Filters

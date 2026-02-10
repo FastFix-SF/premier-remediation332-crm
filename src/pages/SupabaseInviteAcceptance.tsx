@@ -8,9 +8,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 export default function SupabaseInviteAcceptance() {
+  const tenantConfig = useTenantConfig();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { toast } = useToast();
@@ -150,7 +151,7 @@ export default function SupabaseInviteAcceptance() {
 
         toast({
           title: "Account Activated Successfully",
-          description: `Your account has been set up. You can now access ${companyConfig.name} Admin.`,
+          description: `Your account has been set up. You can now access ${tenantConfig.name} Admin.`,
         });
 
         // Redirect to admin dashboard
@@ -179,7 +180,7 @@ export default function SupabaseInviteAcceptance() {
           <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
           <CardTitle>Complete Your Invitation</CardTitle>
           <CardDescription>
-            Set your password to activate your {companyConfig.name} Admin account
+            {`Set your password to activate your ${tenantConfig.name} Admin account`}
           </CardDescription>
         </CardHeader>
         <CardContent>

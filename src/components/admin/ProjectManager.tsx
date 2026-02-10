@@ -16,7 +16,7 @@ import { format } from 'date-fns';
 import { useProjectManagement } from '../../hooks/use-project-management';
 import { useProjectsWithPhotos, type ProjectWithPhoto } from '../../hooks/useProjectsWithPhotos';
 import FiltersBar from '@/components/filters/FiltersBar';
-import type { CategoryValue, RoofTypeValue } from '@/components/filters/FiltersBar';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 const ProjectManager = () => {
   const navigate = useNavigate();
   const {
@@ -35,41 +35,35 @@ const ProjectManager = () => {
     updateProjectVisibility
   } = useProjectManagement();
 
+  // Industry config for dynamic filters
+  const industryConfig = useIndustryConfig();
+  const primaryFilterField = industryConfig.industryFields.find(f => f.showInFilters);
+  const primaryFilterLabel = industryConfig.filterLabels.primaryFilter;
+  const primaryFilterKey = primaryFilterField?.key || 'roof_type';
+
   // Filters (Admin parity)
-  const [selectedCategories, setSelectedCategories] = useState<CategoryValue[]>([]);
-  const [selectedRoofTypes, setSelectedRoofTypes] = useState<RoofTypeValue[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedIndustryFilters, setSelectedIndustryFilters] = useState<string[]>([]);
   const [sortOption, setSortOption] = useState<'newest' | 'oldest' | 'photos'>('newest');
-  const categories = useMemo(() => [{
-    label: 'Residential',
-    value: 'Residential' as CategoryValue
-  }, {
-    label: 'Commercial',
-    value: 'Commercial' as CategoryValue
-  }], []);
-  const roofTypes = useMemo(() => [{
-    label: 'Standing Seam',
-    value: 'Standing Seam' as RoofTypeValue
-  }, {
-    label: 'Metal Panels',
-    value: 'Metal Panels' as RoofTypeValue
-  }, {
-    label: 'Stone Coated',
-    value: 'Stone Coated' as RoofTypeValue
-  }, {
-    label: 'Shingles',
-    value: 'Shingles' as RoofTypeValue
-  }, {
-    label: 'Flat Roof',
-    value: 'Flat Roof' as RoofTypeValue
-  }], []);
-  const hasActiveFilters = selectedCategories.length > 0 || selectedRoofTypes.length > 0 || sortOption !== 'newest';
+  const categories = useMemo(() =>
+    industryConfig.projectCategories.map(c => ({ label: c.label, value: c.label })),
+    [industryConfig.projectCategories]
+  );
+  const industryFilterOptions = useMemo(() =>
+    (primaryFilterField?.options || []).map(o => ({ label: o.label, value: o.label })),
+    [primaryFilterField]
+  );
+  const hasActiveFilters = selectedCategories.length > 0 || selectedIndustryFilters.length > 0 || sortOption !== 'newest';
   const filteredProjects = useMemo(() => {
     let list = [...projects];
     if (selectedCategories.length > 0) {
-      list = list.filter(p => p.project_category ? selectedCategories.includes(p.project_category as CategoryValue) : false);
+      list = list.filter(p => p.project_category ? selectedCategories.includes(p.project_category) : false);
     }
-    if (selectedRoofTypes.length > 0) {
-      list = list.filter(p => p.roof_type ? selectedRoofTypes.includes(p.roof_type as RoofTypeValue) : false);
+    if (selectedIndustryFilters.length > 0) {
+      list = list.filter(p => {
+        const fieldValue = (p as any)[primaryFilterKey] || p.roof_type;
+        return fieldValue ? selectedIndustryFilters.includes(fieldValue) : false;
+      });
     }
 
     // Sort by featured status first, then by selected sort option
@@ -96,10 +90,10 @@ const ProjectManager = () => {
       }
     });
     return list;
-  }, [projects, selectedCategories, selectedRoofTypes, sortOption]);
+  }, [projects, selectedCategories, selectedIndustryFilters, sortOption, primaryFilterKey]);
   const clearAllFilters = () => {
     setSelectedCategories([]);
-    setSelectedRoofTypes([]);
+    setSelectedIndustryFilters([]);
     setSortOption('newest');
   };
   const [newProject, setNewProject] = useState({
@@ -308,7 +302,7 @@ const ProjectManager = () => {
         </div>}
 
       {/* Admin Filters Bar */}
-      <FiltersBar className="bg-card border rounded-lg p-4" categories={categories} roofTypes={roofTypes} selectedCategories={selectedCategories} selectedRoofTypes={selectedRoofTypes} onToggleCategory={v => setSelectedCategories(prev => prev.includes(v) ? prev.filter(x => x !== v) : [...prev, v])} onToggleRoofType={v => setSelectedRoofTypes(prev => prev.includes(v) ? prev.filter(x => x !== v) : [...prev, v])} sort={sortOption} onSortChange={setSortOption} onClearAll={clearAllFilters} resultCount={filteredProjects.length} totalCount={allProjects.length} />
+      <FiltersBar className="bg-card border rounded-lg p-4" categories={categories} industryFilterOptions={industryFilterOptions} industryFilterLabel={primaryFilterLabel} selectedCategories={selectedCategories} selectedIndustryFilters={selectedIndustryFilters} onToggleCategory={v => setSelectedCategories(prev => prev.includes(v) ? prev.filter(x => x !== v) : [...prev, v])} onToggleIndustryFilter={v => setSelectedIndustryFilters(prev => prev.includes(v) ? prev.filter(x => x !== v) : [...prev, v])} sort={sortOption} onSortChange={setSortOption} onClearAll={clearAllFilters} resultCount={filteredProjects.length} totalCount={allProjects.length} />
 
       {/* Modern Card Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -441,31 +435,31 @@ const ProjectManager = () => {
                     <SelectValue placeholder="Select category" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Residential">Residential</SelectItem>
-                    <SelectItem value="Commercial">Commercial</SelectItem>
+                    {industryConfig.projectCategories.map(cat => (
+                      <SelectItem key={cat.value} value={cat.label}>{cat.label}</SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
-              
+
+              {primaryFilterField && primaryFilterField.options && (
               <div>
-                <Label htmlFor="roof_type">Roof Type</Label>
+                <Label htmlFor={primaryFilterKey}>{primaryFilterLabel}</Label>
                 <Select value={newProject.roof_type} onValueChange={value => setNewProject({
                 ...newProject,
                 roof_type: value
               })}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select roof type" />
+                    <SelectValue placeholder={`Select ${primaryFilterLabel.toLowerCase()}`} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Standing Seam">Standing Seam</SelectItem>
-                    <SelectItem value="Metal Panels">Metal Panels</SelectItem>
-                    <SelectItem value="Stone Coated">Stone Coated</SelectItem>
-                    <SelectItem value="Shingles">Shingles</SelectItem>
-                    <SelectItem value="Tile Roof">Tile Roof</SelectItem>
-                    <SelectItem value="Flat Roof">Flat Roof</SelectItem>
+                    {primaryFilterField.options.map(opt => (
+                      <SelectItem key={opt.value} value={opt.label}>{opt.label}</SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
+              )}
             </div>
 
             <div>

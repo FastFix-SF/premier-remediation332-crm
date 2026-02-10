@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { supabase } from '../integrations/supabase/client';
-import { useBusiness } from '../hooks/useBusinessConfig';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 interface ChatMessage {
   id: string;
@@ -31,10 +31,11 @@ const formatBionicText = (text: string) => {
 };
 
 const SearchInterface: React.FC = () => {
+  const tenantConfig = useTenantConfig();
   const {
-    isSearchOpen,
-    setIsSearchOpen,
-    searchMode,
+    isSearchOpen, 
+    setIsSearchOpen, 
+    searchMode, 
     setSearchMode,
     chatMessages,
     addChatMessage,
@@ -48,7 +49,6 @@ const SearchInterface: React.FC = () => {
     sessionId
   } = useSearch();
 
-  const business = useBusiness();
   const [searchQuery, setSearchQuery] = useState('');
   const [chatInput, setChatInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -173,20 +173,20 @@ const SearchInterface: React.FC = () => {
       const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: data?.message || `I apologize, but I'm having trouble responding right now. Please try again or contact us directly at ${business.phone || 'our office'} for immediate assistance.`,
+        content: data?.message || "I apologize, but I'm having trouble responding right now. Please try again or contact us directly at (510) 555-ROOF for immediate assistance with your roofing needs.",
         timestamp: new Date().toISOString()
       };
 
       addChatMessage(assistantMessage);
       
-      // Enhanced interest scoring based on service keywords
-      const serviceKeywords = [
+      // Enhanced interest scoring based on roofing keywords
+      const roofingKeywords = [
         'quote', 'price', 'cost', 'install', 'replace', 'urgent', 'when', 'how much',
-        'repair', 'fix', 'emergency', 'service', 'help', 'need',
+        'repair', 'leak', 'emergency', 'metal roof', 'standing seam', 'r-panel',
         'estimate', 'consultation', 'contractor', 'residential', 'commercial'
       ];
-
-      const messageScore = serviceKeywords.reduce((score, keyword) => {
+      
+      const messageScore = roofingKeywords.reduce((score, keyword) => {
         return chatInput.toLowerCase().includes(keyword) ? score + 1 : score;
       }, 0);
       
@@ -199,7 +199,7 @@ const SearchInterface: React.FC = () => {
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: `I apologize, but I'm having trouble connecting right now. Please try again or contact us directly at ${business.phone || 'our office'} for immediate assistance.`,
+        content: "I apologize, but I'm having trouble connecting right now. Please try again or contact us directly at (510) 555-ROOF for immediate assistance with your roofing needs.",
         timestamp: new Date().toISOString()
       };
       addChatMessage(errorMessage);
@@ -227,10 +227,10 @@ const SearchInterface: React.FC = () => {
               </div>
               <div>
                 <DialogTitle className="text-lg font-semibold text-foreground">
-                  {business.name} Assistant
+                  {tenantConfig.shortName} Assistant
                 </DialogTitle>
                 <p className="text-sm text-muted-foreground">
-                  Search content or chat with our expert
+                  Search content or chat with our roofing expert
                 </p>
               </div>
             </div>
@@ -277,7 +277,7 @@ const SearchInterface: React.FC = () => {
                   <Input
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search for services, tips, resources..."
+                    placeholder="Search for roofing materials, installation tips..."
                     className="pl-10 h-12 text-base border-2 focus:border-primary"
                   />
                 </div>
@@ -349,12 +349,12 @@ const SearchInterface: React.FC = () => {
                     <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
                       <MessageCircle className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-2">Hi! I'm your {business.name} Expert</h3>
+                    <h3 className="text-lg font-semibold mb-2">Hi! I'm your Roofing Expert</h3>
                     <p className="text-muted-foreground mb-4 max-w-md">
-                      Your virtual assistant
+                      Your roofing technology assistant
                     </p>
                     <p className="text-sm text-muted-foreground max-w-lg">
-                      I can help you with services, guidance, pricing estimates, and connect you with our specialists.
+                      I can help you with roofing materials, installation guidance, pricing estimates, and connect you with our roofing specialists.
                     </p>
                   </div>
                 ) : (
@@ -408,7 +408,7 @@ const SearchInterface: React.FC = () => {
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Ask about services, pricing, or schedule a consultation..."
+                    placeholder="Ask about roofing materials, pricing, or schedule a consultation..."
                     className="flex-1 h-12 text-base"
                     disabled={isLoading}
                   />
@@ -421,7 +421,7 @@ const SearchInterface: React.FC = () => {
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
-                  Our expert can help with questions, consultations, and professional guidance
+                  Our expert can help with roofing questions, consultations, and professional guidance
                 </p>
               </div>
             </div>

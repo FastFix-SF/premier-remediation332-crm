@@ -113,7 +113,7 @@ export const generateProposalPDF = async (data: ProposalData): Promise<void> => 
     await new Promise((resolve, reject) => {
       logo.onload = resolve;
       logo.onerror = reject;
-      logo.src = '/images/roofing-friend-logo.png';
+      logo.src = companyConfig.logo || '/images/company-logo.png';
     });
     
     // Add logo on the left side of the banner
@@ -127,7 +127,7 @@ export const generateProposalPDF = async (data: ProposalData): Promise<void> => 
   pdf.setTextColor(255, 255, 255);
   pdf.setFontSize(16);
   pdf.setFont('helvetica', 'bold');
-  pdf.text(companyConfig.legalName || companyConfig.name, pageWidth / 2 + 10, 20, { align: 'center' });
+  pdf.text(companyConfig.legalName || companyConfig.name || 'Company Name', pageWidth / 2 + 10, 20, { align: 'center' });
 
   pdf.setFontSize(11);
   pdf.setFont('helvetica', 'normal');

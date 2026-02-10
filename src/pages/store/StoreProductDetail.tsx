@@ -9,7 +9,7 @@ import AuthPromptModal from '@/components/store/AuthPromptModal';
 import { useStoreAuth } from '@/hooks/useStoreAuth';
 import { ArrowLeft, ShoppingCart, ChevronLeft, ChevronRight, FileText, Package, Building2, Home, Factory, Warehouse } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 // Import 5V specific images
 import fiveVResidentialHero from '@/assets/store/5v-residential-hero.jpg';
@@ -149,6 +149,7 @@ const getDefaultProductData = (product: Product) => ({
 });
 
 const StoreProductDetail = () => {
+  const tenantConfig = useTenantConfig();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { isAuthenticated } = useStoreAuth();
@@ -266,8 +267,8 @@ const StoreProductDetail = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={`${product.title} | Metal Roofing Panels | ${companyConfig.name}`}
-        description={`${product.title} - ${product.panelProfile} metal roofing panel with ${product.finishType} finish. Available in ${product.gauge} gauge. Buy online from ${companyConfig.name}.`}
+        title={`${product.title} | Metal Roofing Panels | ${tenantConfig.name}`}
+        description={`${product.title} - ${product.panelProfile} metal roofing panel with ${product.finishType} finish. Available in ${product.gauge} gauge. Buy online from ${tenantConfig.name}.`}
       />
       <Header />
 

@@ -23,7 +23,7 @@ import { AdminLayout } from "./components/layout/AdminLayout";
 import { MobileAdminGuard } from "./mobile/components/guards/MobileAdminGuard";
 import { MobileShiftGuard } from "./mobile/components/guards/MobileShiftGuard";
 import { ChunkLoadErrorBoundary } from "./components/ChunkLoadErrorBoundary";
-import { ThemeProvider } from "./components/ThemeProvider";
+import { DevIndustrySwitcher } from "./components/dev/DevIndustrySwitcher";
 import AdminDashboardPage from "./pages/AdminDashboard";
 
 // Retry wrapper for React.lazy() imports (helps with transient Vite/SW cache issues)
@@ -114,6 +114,7 @@ const StormFireEnergy = lazy(() => import("./pages/StormFireEnergy"));
 const ServicePage = lazy(() => import("./pages/ServicePage"));
 const AreaPage = lazy(() => import("./pages/AreaPage"));
 const AreasPage = lazy(() => import("./pages/AreasPage"));
+const LocationService = lazy(() => import("./pages/LocationService"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
@@ -321,6 +322,9 @@ const AppRoutes = () => (
     <Route path="/roof-quote" element={<RoofQuote />} />
     <Route path="/quote/:id" element={<QuoteDetail />} />
     <Route path="/quote/:id/draw" element={<RoofDrawingInterface />} />
+    {/* Dynamic industry service pages */}
+    <Route path="/services/:slug" element={<ServicePage />} />
+    {/* Legacy roofing routes kept for backwards compatibility */}
     <Route path="/residential-roofing" element={<ResidentialRoofing />} />
     <Route path="/commercial-roofing" element={<CommercialRoofing />} />
     <Route path="/metal-roof-installation" element={<MetalRoofInstallation />} />
@@ -372,6 +376,7 @@ const AppContent = () => {
       <Sonner />
       <AnalyticsTracker />
       {!isMobilePWA && <SearchInterface />}
+      {import.meta.env.DEV && <DevIndustrySwitcher />}
       <ChunkLoadErrorBoundary>
         <Suspense fallback={<PageLoader />}>
           <AppRoutes />

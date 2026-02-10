@@ -6,8 +6,11 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Filter } from 'lucide-react';
 
-export type CategoryValue = 'Residential' | 'Commercial';
-export type RoofTypeValue = 'Standing Seam' | 'Metal Panels' | 'Stone Coated' | 'Shingles' | 'Flat Roof';
+/** @deprecated Use generic string type instead */
+export type CategoryValue = string;
+/** @deprecated Use generic string type — renamed to IndustryFilterValue */
+export type RoofTypeValue = string;
+export type IndustryFilterValue = string;
 
 export interface Option<T extends string = string> {
   label: string;
@@ -16,12 +19,23 @@ export interface Option<T extends string = string> {
 }
 
 interface FiltersBarProps {
-  categories: Option<CategoryValue>[];
-  roofTypes: Option<RoofTypeValue>[];
-  selectedCategories: CategoryValue[];
-  selectedRoofTypes: RoofTypeValue[];
-  onToggleCategory: (value: CategoryValue) => void;
-  onToggleRoofType: (value: RoofTypeValue) => void;
+  categories: Option<string>[];
+  /** Generic industry-specific filter options (e.g. roof types for roofing, service types for plumbing) */
+  industryFilterOptions?: Option<string>[];
+  /** @deprecated Use industryFilterOptions instead */
+  roofTypes?: Option<string>[];
+  /** Label for the industry-specific filter group (e.g. "Roof Type", "Service Type") */
+  industryFilterLabel?: string;
+  selectedCategories: string[];
+  /** Selected industry-specific filter values */
+  selectedIndustryFilters?: string[];
+  /** @deprecated Use selectedIndustryFilters instead */
+  selectedRoofTypes?: string[];
+  onToggleCategory: (value: string) => void;
+  /** Toggle handler for industry-specific filter */
+  onToggleIndustryFilter?: (value: string) => void;
+  /** @deprecated Use onToggleIndustryFilter instead */
+  onToggleRoofType?: (value: string) => void;
   sort: SortOption;
   onSortChange: (value: SortOption) => void;
   onClearAll: () => void;
@@ -32,10 +46,14 @@ interface FiltersBarProps {
 
 const FiltersBar: React.FC<FiltersBarProps> = ({
   categories,
+  industryFilterOptions,
   roofTypes,
+  industryFilterLabel = 'Roof Type',
   selectedCategories,
+  selectedIndustryFilters,
   selectedRoofTypes,
   onToggleCategory,
+  onToggleIndustryFilter,
   onToggleRoofType,
   sort,
   onSortChange,
@@ -44,7 +62,12 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
   totalCount,
   className,
 }) => {
-  const hasActive = selectedCategories.length > 0 || selectedRoofTypes.length > 0 || sort !== 'newest';
+  // Support both new generic props and legacy roofType props
+  const filterOptions = industryFilterOptions || roofTypes || [];
+  const selectedFilters = selectedIndustryFilters || selectedRoofTypes || [];
+  const handleToggleFilter = onToggleIndustryFilter || onToggleRoofType || (() => {});
+
+  const hasActive = selectedCategories.length > 0 || selectedFilters.length > 0 || sort !== 'newest';
 
   const Content = () => (
     <div className="space-y-3">
@@ -62,19 +85,21 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
         </div>
       </div>
 
-      <div className="flex items-center gap-2">
-        <span className="text-sm font-medium text-muted-foreground">Roof Type</span>
-        <div className="flex flex-wrap gap-2">
-          {roofTypes.map((opt) => (
-            <FilterChip
-              key={opt.value}
-              label={opt.label + (typeof opt.count === 'number' ? ` (${opt.count})` : '')}
-              selected={selectedRoofTypes.includes(opt.value)}
-              onClick={() => onToggleRoofType(opt.value)}
-            />
-          ))}
+      {filterOptions.length > 0 && (
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-medium text-muted-foreground">{industryFilterLabel}</span>
+          <div className="flex flex-wrap gap-2">
+            {filterOptions.map((opt) => (
+              <FilterChip
+                key={opt.value}
+                label={opt.label + (typeof opt.count === 'number' ? ` (${opt.count})` : '')}
+                selected={selectedFilters.includes(opt.value)}
+                onClick={() => handleToggleFilter(opt.value)}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="flex items-center gap-3">
         <SortSelect value={sort} onChange={onSortChange} />

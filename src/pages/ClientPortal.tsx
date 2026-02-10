@@ -9,15 +9,15 @@ import { Textarea } from '@/components/ui/textarea';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Progress } from '@/components/ui/progress';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import {
-  FileText, MessageSquare, ListChecks, DollarSign,
+import { 
+  FileText, MessageSquare, ListChecks, DollarSign, 
   Calendar, User, Loader2, Home, Send, Phone, Mail,
   Clock, CheckCircle2, AlertCircle, Download, Wrench,
   FileCheck, ClipboardList, MapPin, Building2
 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 // Types
 interface PortalData {
@@ -83,6 +83,7 @@ const getStatusColor = (status: string) => {
 };
 
 export default function ClientPortal() {
+  const tenantConfig = useTenantConfig();
   const { slug } = useParams<{ slug: string }>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -686,7 +687,7 @@ export default function ClientPortal() {
       {/* Footer */}
       <footer className="border-t border-white/10 py-6 mt-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-white/40 text-sm">Powered by {companyConfig.name}</p>
+          <p className="text-white/40 text-sm">{`Powered by ${tenantConfig.shortName}`}</p>
         </div>
       </footer>
     </div>

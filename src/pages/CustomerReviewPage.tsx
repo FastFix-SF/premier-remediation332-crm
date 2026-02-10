@@ -4,7 +4,7 @@ import { Check, Copy, Sparkles, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { companyConfig } from '@/config/company';
+import { useTenantConfig } from '@/hooks/useTenantConfig';
 
 const EMOTION_OPTIONS = [
   { emoji: '🤩', label: 'Amazing', value: 'amazing' },
@@ -28,6 +28,7 @@ interface ProjectInfo {
 }
 
 const CustomerReviewPage: React.FC = () => {
+  const tenantConfig = useTenantConfig();
   const { projectId } = useParams<{ projectId: string }>();
   const [project, setProject] = useState<ProjectInfo | null>(null);
   const [loading, setLoading] = useState(true);
@@ -88,7 +89,7 @@ const CustomerReviewPage: React.FC = () => {
     } catch (error) {
       console.error('Error generating review:', error);
       // Fallback generic review
-      setGeneratedReview(`I'm so ${emotion.toLowerCase()} with the work ${companyConfig.name} did! The team was professional and the results exceeded my expectations. Highly recommend!`);
+      setGeneratedReview(`I'm so ${emotion.toLowerCase()} with the work ${tenantConfig.shortName} did on my roof! The team was professional and the results exceeded my expectations. Highly recommend!`);
     } finally {
       setIsGenerating(false);
     }

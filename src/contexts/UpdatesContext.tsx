@@ -62,14 +62,14 @@ const fetchUpdatesData = async (userId: string): Promise<Update[]> => {
   if (updatesError) throw updatesError;
   if (!teamUpdates) return [];
 
-  // Get all unique user IDs from updates
-  const userIds = [...new Set(teamUpdates.map(u => u.created_by))];
+  // Get all unique user IDs from updates (filter out undefined/null)
+  const userIds = [...new Set(teamUpdates.map(u => u.created_by).filter((id): id is string => !!id))];
   
-  // Fetch profiles for all authors
-  const { data: profiles } = await supabase
+  // Fetch profiles for all authors (only if there are user IDs)
+  const { data: profiles } = userIds.length > 0 ? await supabase
     .from('profiles')
     .select('id, display_name, avatar_url')
-    .in('id', userIds);
+    .in('id', userIds) : { data: [] };
 
   const profileMap = new Map(profiles?.map(p => [p.id, p]) || []);
 
@@ -97,11 +97,11 @@ const fetchUpdatesData = async (userId: string): Promise<Update[]> => {
   // Build comments map with author data
   const commentsMap = new Map<string, Comment[]>();
   if (comments) {
-    const commentUserIds = [...new Set(comments.map(c => c.user_id))];
-    const { data: commentProfiles } = await supabase
+    const commentUserIds = [...new Set(comments.map(c => c.user_id).filter((id): id is string => !!id))];
+    const { data: commentProfiles } = commentUserIds.length > 0 ? await supabase
       .from('profiles')
       .select('id, display_name, avatar_url')
-      .in('id', commentUserIds);
+      .in('id', commentUserIds) : { data: [] };
     
     const commentProfileMap = new Map(commentProfiles?.map(p => [p.id, p]) || []);
     

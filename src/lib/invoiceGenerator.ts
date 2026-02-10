@@ -59,10 +59,8 @@ export const generateInvoicePDF = (data: InvoiceData) => {
   pdf.setTextColor(darkGray);
   pdf.text(companyAddress, 40, 75);
   pdf.text(companyPhone, 40, 85);
-  if (companyLicense) {
-    pdf.text(`Lic.# ${companyLicense}`, 40, 95);
-  }
-  
+  pdf.text(companyLicense ? `Lic.# ${companyLicense}` : '', 40, 95);
+
   // Invoice Info Table (top right)
   pdf.setTextColor(darkGray);
   const infoX = pageWidth - 280;
@@ -176,7 +174,7 @@ export const generateInvoicePDF = (data: InvoiceData) => {
   
   currentY += 25;
   const paymentMethods = [
-    { id: 'check', label: `Check: Payable to ${companyConfig.legalName || companyConfig.name}` },
+    { id: 'check', label: `Check: Payable to ${companyName}` },
     { id: 'zelle', label: `Zelle: ${companyConfig.email}` },
     { id: 'credit_card', label: 'Credit Card: with credit card process fees.' },
     { id: 'ach', label: 'ACH Payment.' }
@@ -262,8 +260,8 @@ export const generateInvoicePDF = (data: InvoiceData) => {
   pdf.setFont('helvetica', 'normal');
   pdf.setFontSize(7);
   pdf.setTextColor(lightGray);
-  const footerText = `${companyConfig.legalName || companyConfig.name}, Phone: ${companyPhone}`;
-  const footerText2 = `244 Jackson st., Hayward, CA 94544, ${companyLicense}, ${companyBusiness}`;
+  const footerText = `${companyName}, Phone: ${companyPhone}`;
+  const footerText2 = `${companyAddress}, ${companyLicense ? `Lic.# ${companyLicense}` : ''}, ${companyBusiness}`;
   pdf.text(footerText, pageWidth / 2, pageHeight - 35, { align: 'center' });
   pdf.text(footerText2, pageWidth / 2, pageHeight - 25, { align: 'center' });
   pdf.text('Page 1', 35, pageHeight - 25);
@@ -275,9 +273,9 @@ export const generateInvoicePDF = (data: InvoiceData) => {
   pdf.setFontSize(8);
   pdf.setFont('helvetica', 'normal');
   pdf.setTextColor(darkGray);
-  pdf.text('244 Jackson St., Hayward, CA 94544', 40, 75);
-  pdf.text('(510) 999-7663', 40, 85);
-  pdf.text('Lic.# 1067709', 40, 95);
+  pdf.text(companyAddress, 40, 75);
+  pdf.text(companyPhone, 40, 85);
+  pdf.text(companyLicense ? `Lic.# ${companyLicense}` : '', 40, 95);
   
   // Invoice info on page 2
   pdf.setTextColor(darkGray);

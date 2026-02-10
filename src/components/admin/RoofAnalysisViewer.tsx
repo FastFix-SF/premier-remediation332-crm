@@ -8,6 +8,7 @@ import { useRoofAnalysis, RoofAnalysis } from '@/hooks/useRoofAnalysis';
 import { useRoofMeasurements } from '@/hooks/useRoofMeasurements';
 import MeasurementsViewer from './MeasurementsViewer';
 import { toast } from 'sonner';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 interface RoofAnalysisViewerProps {
   aerialImageId: string;
@@ -24,6 +25,7 @@ const RoofAnalysisViewer: React.FC<RoofAnalysisViewerProps> = ({
   projectId,
   onAnalysisUpdate
 }) => {
+  const industryConfig = useIndustryConfig();
   const [showAnalysisModal, setShowAnalysisModal] = useState(false);
   const {
     roofAnalysis,
@@ -39,6 +41,9 @@ const RoofAnalysisViewer: React.FC<RoofAnalysisViewerProps> = ({
     roofMeasurement,
     measureRoof
   } = useRoofMeasurements(projectId);
+
+  // Gate: only render for roofing industry tenants
+  if (industryConfig.slug !== 'roofing') return null;
 
   const handleAnalyzeRoof = async () => {
     try {
