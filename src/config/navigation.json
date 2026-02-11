@@ -48,6 +48,10 @@
       ]
     },
     {
+      "label": "Projects",
+      "href": "/projects"
+    },
+    {
       "label": "Service Areas",
       "href": "/service-areas",
       "visible": true,
