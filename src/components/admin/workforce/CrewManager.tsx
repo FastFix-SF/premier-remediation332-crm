@@ -13,6 +13,7 @@ import { useTeamMembers } from '@/hooks/useTeamMembers';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { useQueryClient } from '@tanstack/react-query';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 const CrewManager = () => {
   const [isCreating, setIsCreating] = useState(false);
@@ -27,6 +28,7 @@ const CrewManager = () => {
   const { data: teamMembers = [] } = useTeamMembers();
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const industryConfig = useIndustryConfig();
 
   const handleCreateCrew = async () => {
     if (!newCrew.crew_name.trim()) {
@@ -114,18 +116,7 @@ const CrewManager = () => {
     return email.slice(0, 2).toUpperCase();
   };
 
-  const specialties = [
-    'TPO/PVC',
-    'Metal Roofing',
-    'Shingle',
-    'Flat Roof',
-    'Tile',
-    'Slate',
-    'Commercial',
-    'Residential',
-    'Repairs',
-    'Maintenance',
-  ];
+  const specialties = industryConfig.specialties || ['Commercial', 'Residential', 'Repairs', 'Maintenance'];
 
   return (
     <div className="space-y-6">

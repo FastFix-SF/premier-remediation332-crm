@@ -18,6 +18,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Switch } from '@/components/ui/switch';
 import { Plus, Trash2, GripVertical, Wrench } from 'lucide-react';
 import { getIndustryConfig } from '@/config/industries';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 // Single service schema
 export const serviceSchema = z.object({
@@ -50,17 +51,7 @@ interface ServicesFormProps {
   industry?: string;
 }
 
-// Fallback roofing presets used when no industry config is available
-const FALLBACK_PRESETS: Partial<ServiceFormData>[] = [
-  { name: 'Residential Roofing', description: 'Complete roofing solutions for homes', icon: 'home' },
-  { name: 'Commercial Roofing', description: 'Professional roofing for businesses', icon: 'building' },
-  { name: 'Roof Repair', description: 'Expert repair services for all roof types', icon: 'wrench' },
-  { name: 'Metal Roofing', description: 'Durable metal roof installation', icon: 'shield' },
-  { name: 'Roof Inspection', description: 'Comprehensive roof assessments', icon: 'search' },
-  { name: 'Emergency Services', description: '24/7 emergency roof repairs', icon: 'alert-triangle' },
-  { name: 'Gutter Installation', description: 'Professional gutter systems', icon: 'droplet' },
-  { name: 'Skylights', description: 'Skylight installation and repair', icon: 'sun' },
-];
+
 
 const generateSlug = (name: string): string => {
   return name
@@ -222,7 +213,9 @@ export const ServicesForm: React.FC<ServicesFormProps> = ({
   showCard = true,
   industry,
 }) => {
-  // Get service presets from industry config, falling back to hardcoded roofing defaults
+  const industryConfig = useIndustryConfig();
+
+  // Get service presets from industry config, falling back to tenant's industry config
   const presetServices: Partial<ServiceFormData>[] = React.useMemo(() => {
     if (industry) {
       const config = getIndustryConfig(industry);
@@ -234,8 +227,12 @@ export const ServicesForm: React.FC<ServicesFormProps> = ({
         }));
       }
     }
-    return FALLBACK_PRESETS;
-  }, [industry]);
+    return industryConfig.servicePresets.map((p) => ({
+      name: p.name,
+      description: p.description,
+      icon: p.icon,
+    }));
+  }, [industry, industryConfig]);
 
   const [services, setServices] = useState<ServiceFormData[]>(
     defaultValues?.services || [{ name: '', display_order: 0, is_featured: false }]

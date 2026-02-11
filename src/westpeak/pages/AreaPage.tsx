@@ -26,14 +26,45 @@ import contraCostaHero from '@/assets/westpeak/areas/contra-costa-county-hero.jp
 import marinHero from '@/assets/westpeak/areas/marin-county-hero.jpg';
 import bayAreaHero from '@/assets/westpeak/areas/bay-area-hero.jpg';
 
-// Map slugs to imported images
+// Map area slugs to imported images (city slugs → county/region images)
 const areaImages: Record<string, string> = {
+  // Direct matches
   'san-francisco': sanFranciscoHero,
+  'san-francisco-ca': sanFranciscoHero,
   'santa-clara-county': santaClaraHero,
   'alameda-county': alamedaHero,
   'contra-costa-county': contraCostaHero,
   'marin-county': marinHero,
   'bay-area': bayAreaHero,
+  // City → county mappings
+  'san-jose-ca': santaClaraHero,
+  'san-jose': santaClaraHero,
+  'berkeley-ca': alamedaHero,
+  'berkeley': alamedaHero,
+  'oakland-ca': alamedaHero,
+  'oakland': alamedaHero,
+  'hayward-ca': alamedaHero,
+  'hayward': alamedaHero,
+  'fremont-ca': alamedaHero,
+  'fremont': alamedaHero,
+  'san-mateo-ca': bayAreaHero,
+  'san-mateo': bayAreaHero,
+  'palo-alto-ca': santaClaraHero,
+  'palo-alto': santaClaraHero,
+  'mountain-view-ca': santaClaraHero,
+  'mountain-view': santaClaraHero,
+  'sunnyvale-ca': santaClaraHero,
+  'sunnyvale': santaClaraHero,
+  'redwood-city-ca': bayAreaHero,
+  'redwood-city': bayAreaHero,
+  'daly-city-ca': sanFranciscoHero,
+  'daly-city': sanFranciscoHero,
+  'richmond-ca': contraCostaHero,
+  'richmond': contraCostaHero,
+  'concord-ca': contraCostaHero,
+  'concord': contraCostaHero,
+  'walnut-creek-ca': contraCostaHero,
+  'walnut-creek': contraCostaHero,
 };
 
 export const AreaPage: React.FC = () => {
@@ -43,8 +74,8 @@ export const AreaPage: React.FC = () => {
   const areaServices = useAreaServices(slug || '');
   const reviews = useGoogleReviews();
 
-  // Get the actual image URL from imports
-  const heroImageUrl = slug ? areaImages[slug] : undefined;
+  // Get the actual image URL from imports (fallback to bay-area image)
+  const heroImageUrl = slug ? (areaImages[slug] || bayAreaHero) : bayAreaHero;
 
   // Redirect if area not found
   if (!area) {

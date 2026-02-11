@@ -283,5 +283,22 @@
     ],
     "lineItemCategories": [],
     "measurementUnit": "sq"
-  }
+  },
+  "commonSkills": [
+    "TPO Installation", "PVC Installation", "Metal Roofing", "Shingle Installation",
+    "Flat Roof Repair", "Tile Installation", "Slate Work", "Skylight Installation",
+    "Flashing", "Gutters", "Membrane Welding", "Torch Down", "Spray Foam", "Coatings",
+    "Crane Operation", "Forklift", "Safety Rigging", "Blueprint Reading",
+    "Estimating", "Project Management"
+  ],
+  "specialties": [
+    "TPO/PVC", "Metal Roofing", "Shingle", "Flat Roof", "Tile", "Slate",
+    "Commercial", "Residential", "Repairs", "Maintenance"
+  ],
+  "skillCategories": [
+    { "value": "roof_type", "label": "Roof Type" },
+    { "value": "equipment", "label": "Equipment" },
+    { "value": "general", "label": "General" },
+    { "value": "safety", "label": "Safety" }
+  ]
 }

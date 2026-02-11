@@ -39,7 +39,7 @@ const ProjectManager = () => {
   const industryConfig = useIndustryConfig();
   const primaryFilterField = industryConfig.industryFields.find(f => f.showInFilters);
   const primaryFilterLabel = industryConfig.filterLabels.primaryFilter;
-  const primaryFilterKey = primaryFilterField?.key || 'roof_type';
+  const primaryFilterKey = primaryFilterField?.key || 'project_type';
 
   // Filters (Admin parity)
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -366,10 +366,10 @@ const ProjectManager = () => {
                     </Badge>
                   </div>}
                 
-                {project.roof_type && <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Roof</span>
+                {(project as any)[primaryFilterKey] && <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">{primaryFilterLabel}</span>
                     <Badge variant="outline" className="text-xs">
-                      {project.roof_type}
+                      {(project as any)[primaryFilterKey]}
                     </Badge>
                   </div>}
 

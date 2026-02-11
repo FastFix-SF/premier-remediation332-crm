@@ -26,6 +26,7 @@ import { useToast } from '../../hooks/use-toast';
 import { format } from 'date-fns';
 import { useProposalManagement, type ProjectProposal } from '../../hooks/useProposalManagement';
 import { useIsMobile } from '../../hooks/use-mobile';
+import { useIndustryConfig } from '../../hooks/useIndustryConfig';
 
 interface QuoteOption {
   id: string;
@@ -53,11 +54,14 @@ const ProposalManager = () => {
   const [imagePreview, setImagePreview] = useState<{ url: string; title: string } | null>(null);
   const [showAddQuoteDialog, setShowAddQuoteDialog] = useState(false);
   const [selectedProposalForQuote, setSelectedProposalForQuote] = useState<string | null>(null);
-  const [newQuote, setNewQuote] = useState({
+  const [newQuote, setNewQuote] = useState<{
+    option_name: string;
+    total_amount: string;
+    fieldValues: Record<string, string>;
+  }>({
     option_name: '',
     total_amount: '',
-    roofType: '',
-    roofColor: '',
+    fieldValues: {},
   });
   const [showEditQuoteDialog, setShowEditQuoteDialog] = useState(false);
   const [editingQuote, setEditingQuote] = useState<QuoteOption | null>(null);
@@ -70,13 +74,16 @@ const ProposalManager = () => {
     proposalId: string;
     currentImageUrl: string;
   } | null>(null);
-  const [roofDetails, setRoofDetails] = useState({
-    roofType: '',
-    roofColor: '',
+  const [roofDetails, setRoofDetails] = useState<{
+    fieldValues: Record<string, string>;
+  }>({
+    fieldValues: {},
   });
   const { toast } = useToast();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const industryConfig = useIndustryConfig();
+  const adminFields = useMemo(() => industryConfig.industryFields.filter(f => f.showInAdminForm), [industryConfig]);
 
   const { 
     createProposal, 
@@ -320,7 +327,7 @@ const ProposalManager = () => {
   const handleGenerateProposed = async (proposalId: string, currentImageUrl: string) => {
     // Open dialog to collect roof details
     setRoofDetailsForGeneration({ proposalId, currentImageUrl });
-    setRoofDetails({ roofType: '', roofColor: '' });
+    setRoofDetails({ fieldValues: {} });
     setShowRoofDetailsDialog(true);
   };
 
@@ -365,8 +372,7 @@ const ProposalManager = () => {
       const { data, error } = await supabase.functions.invoke('generate-proposed-image', {
         body: { 
           currentImageUrl,
-          roofType: roofDetails.roofType,
-          roofColor: roofDetails.roofColor,
+          ...roofDetails.fieldValues,
           roofingDetails: proposals.find(p => p.id === proposalId)?.scope_of_work 
         }
       });
@@ -592,7 +598,7 @@ const ProposalManager = () => {
 
         // Check if there's a current image and automatically generate proposed image
         const proposal = proposals.find(p => p.id === selectedProposalForQuote);
-        if (proposal?.currentImage && newQuote.roofType && newQuote.roofColor) {
+        if (proposal?.currentImage && Object.keys(newQuote.fieldValues).length > 0) {
           toast({
             title: "Generating AI Image",
             description: "Creating proposed roof visualization...",
@@ -602,8 +608,7 @@ const ProposalManager = () => {
             const { data: aiData, error: aiError } = await supabase.functions.invoke('generate-proposed-image', {
               body: { 
                 currentImageUrl: proposal.currentImage,
-                roofType: newQuote.roofType,
-                roofColor: newQuote.roofColor,
+                ...newQuote.fieldValues,
                 roofingDetails: proposal.scope_of_work 
               }
             });
@@ -660,7 +665,7 @@ const ProposalManager = () => {
 
       setShowAddQuoteDialog(false);
       setSelectedProposalForQuote(null);
-      setNewQuote({ option_name: '', total_amount: '', roofType: '', roofColor: '' });
+      setNewQuote({ option_name: '', total_amount: '', fieldValues: {} });
       fetchProposals();
     } catch (error) {
       console.error('Error creating quote:', error);
@@ -1316,50 +1321,75 @@ const ProposalManager = () => {
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="roof_type">Roof Type</Label>
-              <Select
-                value={newQuote.roofType}
-                onValueChange={(value) => setNewQuote(prev => ({ ...prev, roofType: value }))}
-              >
-                <SelectTrigger id="roof_type">
-                  <SelectValue placeholder="Select roof type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Asphalt Shingles">Asphalt Shingles</SelectItem>
-                  <SelectItem value="Metal Roofing">Metal Roofing</SelectItem>
-                  <SelectItem value="Tile Roofing">Tile Roofing</SelectItem>
-                  <SelectItem value="Slate Roofing">Slate Roofing</SelectItem>
-                  <SelectItem value="Wood Shingles">Wood Shingles</SelectItem>
-                  <SelectItem value="Pine Crest">Pine Crest</SelectItem>
-                  <SelectItem value="Flat Roofing">Flat Roofing</SelectItem>
-                  <SelectItem value="TPO">TPO</SelectItem>
-                  <SelectItem value="EPDM">EPDM</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="roof_color">Roof Color</Label>
-              <Input
-                id="roof_color"
-                value={newQuote.roofColor}
-                onChange={(e) => setNewQuote(prev => ({ ...prev, roofColor: e.target.value }))}
-                placeholder="e.g., Charcoal Gray, Weathered Wood, Terra Cotta"
-              />
-            </div>
+            {adminFields.map((field) => (
+              <div key={field.key} className="space-y-2">
+                <Label htmlFor={`new_quote_${field.key}`}>{field.label}</Label>
+                {field.type === 'select' && field.options ? (
+                  <Select
+                    value={newQuote.fieldValues[field.key] || ''}
+                    onValueChange={(value) => setNewQuote(prev => ({
+                      ...prev,
+                      fieldValues: { ...prev.fieldValues, [field.key]: value },
+                    }))}
+                  >
+                    <SelectTrigger id={`new_quote_${field.key}`}>
+                      <SelectValue placeholder={field.placeholder || `Select ${field.label.toLowerCase()}`} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {field.options.map((opt) => (
+                        <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                ) : field.type === 'nested_select' && field.groups ? (
+                  <Select
+                    value={newQuote.fieldValues[field.key] || ''}
+                    onValueChange={(value) => setNewQuote(prev => ({
+                      ...prev,
+                      fieldValues: { ...prev.fieldValues, [field.key]: value },
+                    }))}
+                  >
+                    <SelectTrigger id={`new_quote_${field.key}`}>
+                      <SelectValue placeholder={field.placeholder || `Select ${field.label.toLowerCase()}`} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {field.groups.map((group) => (
+                        <React.Fragment key={group.groupLabel}>
+                          <SelectItem value={`__group_${group.groupLabel}`} disabled className="font-semibold text-xs uppercase text-muted-foreground">
+                            {group.groupLabel}
+                          </SelectItem>
+                          {group.options.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                          ))}
+                        </React.Fragment>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                ) : (
+                  <Input
+                    id={`new_quote_${field.key}`}
+                    value={newQuote.fieldValues[field.key] || ''}
+                    onChange={(e) => setNewQuote(prev => ({
+                      ...prev,
+                      fieldValues: { ...prev.fieldValues, [field.key]: e.target.value },
+                    }))}
+                    placeholder={field.placeholder || `Enter ${field.label.toLowerCase()}`}
+                  />
+                )}
+              </div>
+            ))}
           </div>
 
           <DialogFooter>
             <Button variant="outline" onClick={() => {
               setShowAddQuoteDialog(false);
-              setNewQuote({ option_name: '', total_amount: '', roofType: '', roofColor: '' });
+              setNewQuote({ option_name: '', total_amount: '', fieldValues: {} });
             }}>
               Cancel
             </Button>
             <Button 
               onClick={handleCreateQuote}
-              disabled={!newQuote.option_name || !newQuote.total_amount || !newQuote.roofType || !newQuote.roofColor}
+              disabled={!newQuote.option_name || !newQuote.total_amount}
             >
               Add Quote Option
             </Button>
@@ -1422,54 +1452,82 @@ const ProposalManager = () => {
       <Dialog open={showRoofDetailsDialog} onOpenChange={setShowRoofDetailsDialog}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Roof Details</DialogTitle>
+            <DialogTitle>Details</DialogTitle>
             <DialogDescription>
-              Specify the type and color of roof you want to visualize.
+              Specify the details for visualization.
             </DialogDescription>
           </DialogHeader>
 
           <div className="space-y-4 py-4">
-            <div className="space-y-2">
-              <Label htmlFor="roofType">Roof Type</Label>
-              <Select
-                value={roofDetails.roofType}
-                onValueChange={(value) => setRoofDetails(prev => ({ ...prev, roofType: value }))}
-              >
-                <SelectTrigger id="roofType">
-                  <SelectValue placeholder="Select roof type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="asphalt_shingles">Asphalt Shingles</SelectItem>
-                  <SelectItem value="metal">Metal Roofing</SelectItem>
-                  <SelectItem value="tile">Tile</SelectItem>
-                  <SelectItem value="slate">Slate</SelectItem>
-                  <SelectItem value="wood_shakes">Wood Shakes</SelectItem>
-                  <SelectItem value="flat">Flat/TPO</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="roofColor">Roof Color</Label>
-              <Input
-                id="roofColor"
-                value={roofDetails.roofColor}
-                onChange={(e) => setRoofDetails(prev => ({ ...prev, roofColor: e.target.value }))}
-                placeholder="e.g., Charcoal Gray, Weathered Wood, Terra Cotta"
-              />
-            </div>
+            {adminFields.map((field) => (
+              <div key={field.key} className="space-y-2">
+                <Label htmlFor={`roof_detail_${field.key}`}>{field.label}</Label>
+                {field.type === 'select' && field.options ? (
+                  <Select
+                    value={roofDetails.fieldValues[field.key] || ''}
+                    onValueChange={(value) => setRoofDetails(prev => ({
+                      ...prev,
+                      fieldValues: { ...prev.fieldValues, [field.key]: value },
+                    }))}
+                  >
+                    <SelectTrigger id={`roof_detail_${field.key}`}>
+                      <SelectValue placeholder={field.placeholder || `Select ${field.label.toLowerCase()}`} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {field.options.map((opt) => (
+                        <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                ) : field.type === 'nested_select' && field.groups ? (
+                  <Select
+                    value={roofDetails.fieldValues[field.key] || ''}
+                    onValueChange={(value) => setRoofDetails(prev => ({
+                      ...prev,
+                      fieldValues: { ...prev.fieldValues, [field.key]: value },
+                    }))}
+                  >
+                    <SelectTrigger id={`roof_detail_${field.key}`}>
+                      <SelectValue placeholder={field.placeholder || `Select ${field.label.toLowerCase()}`} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {field.groups.map((group) => (
+                        <React.Fragment key={group.groupLabel}>
+                          <SelectItem value={`__group_${group.groupLabel}`} disabled className="font-semibold text-xs uppercase text-muted-foreground">
+                            {group.groupLabel}
+                          </SelectItem>
+                          {group.options.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                          ))}
+                        </React.Fragment>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                ) : (
+                  <Input
+                    id={`roof_detail_${field.key}`}
+                    value={roofDetails.fieldValues[field.key] || ''}
+                    onChange={(e) => setRoofDetails(prev => ({
+                      ...prev,
+                      fieldValues: { ...prev.fieldValues, [field.key]: e.target.value },
+                    }))}
+                    placeholder={field.placeholder || `Enter ${field.label.toLowerCase()}`}
+                  />
+                )}
+              </div>
+            ))}
           </div>
 
           <DialogFooter>
             <Button variant="outline" onClick={() => {
               setShowRoofDetailsDialog(false);
-              setRoofDetails({ roofType: '', roofColor: '' });
+              setRoofDetails({ fieldValues: {} });
             }}>
               Cancel
             </Button>
             <Button 
               onClick={handleConfirmGenerateProposed}
-              disabled={!roofDetails.roofType || !roofDetails.roofColor}
+              disabled={Object.keys(roofDetails.fieldValues).length === 0}
             >
               Generate Image
             </Button>

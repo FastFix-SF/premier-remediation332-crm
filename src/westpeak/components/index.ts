@@ -1,14 +1,14 @@
 // Hero Components
-export * from './hero';
+export * from '@/westpeak/components/hero';
 
 // Section Components
-export * from './sections';
+export * from '@/westpeak/components/sections';
 
 // Card Components
-export * from './cards';
+export * from '@/westpeak/components/cards';
 
 // Layout Components
-export * from './layout';
+export * from '@/westpeak/components/layout';
 
 // Modal Components
-export * from './modals';
+export * from '@/westpeak/components/modals';

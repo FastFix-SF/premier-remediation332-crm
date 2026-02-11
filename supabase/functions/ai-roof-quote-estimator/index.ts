@@ -3,7 +3,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-tenant-id',
 };
 
 interface RoofFeature {
@@ -198,9 +198,9 @@ async function detectRoofFeatures(
   imageUrl: string,
   maskPolygon: Array<{ x: number; y: number }>
 ): Promise<RoofFeature[]> {
-  const lovableApiKey = Deno.env.get('LOVABLE_API_KEY');
+  const lovableApiKey = Deno.env.get('OPENAI_API_KEY');
   if (!lovableApiKey) {
-    console.warn('⚠️ LOVABLE_API_KEY not configured, skipping feature detection');
+    console.warn('⚠️ OPENAI_API_KEY not configured, skipping feature detection');
     return [];
   }
 
@@ -221,14 +221,14 @@ For each feature, provide:
 
 Return as JSON array with structure: [{ type, position: { x, y }, confidence, dimensions: { width, height } }]`;
 
-    const response = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${lovableApiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'google/gemini-2.5-flash',
+        model: 'gpt-4o',
         messages: [
           {
             role: 'user',

@@ -139,6 +139,7 @@ export const TenantProvider: React.FC<TenantProviderProps> = ({ children }) => {
       city: business.address?.city,
       state: business.address?.state,
       zip_code: business.address?.zip,
+      industry: (business as any).industry,
     };
   }, [business, tenantId]);
 

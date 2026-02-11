@@ -84,9 +84,9 @@ const PRESET_FAQS: Partial<FAQFormData>[] = [
     category: 'General',
   },
   {
-    question: 'What roofing materials do you work with?',
-    answer: 'We work with a wide variety of materials including asphalt shingles, metal roofing, tile, slate, and flat roofing systems. We can help you choose the best option for your needs and budget.',
-    category: 'Materials',
+    question: 'What services do you offer?',
+    answer: 'We offer a full range of professional services for both residential and commercial properties. Contact us for a free estimate.',
+    category: 'Services',
   },
   {
     question: 'Do you handle insurance claims?',
@@ -292,7 +292,7 @@ export const FAQsForm: React.FC<FAQsFormProps> = ({
 
           {showPresets && (
             <div className="p-4 bg-muted rounded-lg space-y-3">
-              <p className="text-sm text-muted-foreground">Click to add common roofing FAQs:</p>
+              <p className="text-sm text-muted-foreground">Click to add common FAQs:</p>
               <div className="flex flex-wrap gap-2">
                 {PRESET_FAQS.map((preset, i) => (
                   <Button

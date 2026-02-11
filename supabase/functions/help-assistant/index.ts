@@ -3,7 +3,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.3';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-tenant-id',
 };
 
 // Comprehensive tools covering all major database tables with CREATE, UPDATE, READ capabilities
@@ -829,9 +829,9 @@ serve(async (req) => {
       );
     }
 
-    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
-    if (!LOVABLE_API_KEY) {
-      throw new Error('LOVABLE_API_KEY is not configured');
+    const OPENAI_API_KEY = Deno.env.get('OPENAI_API_KEY');
+    if (!OPENAI_API_KEY) {
+      throw new Error('OPENAI_API_KEY is not configured');
     }
 
     // Initialize Supabase client for database queries
@@ -843,7 +843,7 @@ serve(async (req) => {
 
     // Conversational and human system prompt
     const today = new Date().toISOString().split('T')[0];
-    const systemPrompt = `You're the Roofing Friend assistant - think of me as your super-knowledgeable coworker who's always happy to help!
+    const systemPrompt = `You're the Business Assistant - think of me as your super-knowledgeable coworker who's always happy to help!
 
 🚨 CRITICAL INSTRUCTION - READ THIS FIRST 🚨
 The data you receive contains employee names in the "employee_name" field. You MUST use these names directly when talking about people.
@@ -857,7 +857,7 @@ I know everything about the business - every project, every schedule, every team
 Today is ${today}, so when you ask about "today" or "this week", I know exactly what you mean.
 
 Here's what I can help with:
-- Projects (I know all 50+ active projects, their locations, status, who's working on them)
+- Projects (all active projects, their locations, status, who's working on them)
 - Job schedules (who's working where today, tomorrow, this week)
 - Team members (all employees, their roles, contact info, availability)
 - Timesheets (who clocked in, total hours worked, overtime)
@@ -871,7 +871,7 @@ Here's what I can help with:
 
 🔧 ACTIONS I CAN TAKE:
 - CREATE leads (e.g., "add a new lead named John Smith", "create lead for 123 Main St")
-- CREATE projects (e.g., "create a new project called Oak St Reroof", "add project for customer Mike")
+- CREATE projects (e.g., "create a new project called Oak St", "add project for customer Mike")
 - CREATE schedules (e.g., "schedule a job for tomorrow at 8am", "add Cedar Ave to the schedule for Monday")
 - UPDATE lead statuses (e.g., "mark John Smith as contacted", "change the ABC lead to quoted")
   Valid statuses: new, contacted, qualified, ready_to_quote, quoted, proposal_sent, won, lost, paid
@@ -904,15 +904,12 @@ Available navigation routes:
 Examples:
 - If asked about team members: "Here are your team members... [[NAV:Go to Team|/admin|workforce:team]]"
 - If asked about today's schedule: "Here's who's working today... [[NAV:View Full Schedule|/admin|workforce:schedules]]"
-- If asked about a specific project: "Here's the Jackson St project details... [[NAV:Open Project|/admin/projects/PROJECT_ID/summary|]]"
+- If asked about a specific project: "Here's the project details... [[NAV:Open Project|/admin/projects/PROJECT_ID/summary|]]"
 - If asked about leads: "You have 5 new leads... [[NAV:View All Leads|/admin|leads]]"
 
 Only add ONE navigation link per response - the most relevant one. Don't overwhelm with multiple links.
 
-A few quick notes about roofing:
-- We work with materials like asphalt shingles, metal roofing, TPO, and EPDM
-- Projects go from lead → quote → contract → installation → invoice
-- We measure in squares (100 sq ft) and linear feet for edges
+Projects typically go from lead → quote → contract → service → invoice.
 
 Just ask naturally - "who's working today?", "create a lead for John at 123 Main", "schedule Oak St for Monday at 8am", "mark the Garcia lead as won" - and I'll handle it!`;
 
@@ -925,14 +922,14 @@ Just ask naturally - "who's working today?", "create a lead for John at 123 Main
     ];
 
     // First API call - let AI decide if it needs tools
-    let response = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
+    let response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+        'Authorization': `Bearer ${OPENAI_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'google/gemini-2.5-flash',
+        model: 'gpt-4o',
         messages,
         tools,
       }),
@@ -983,14 +980,14 @@ Just ask naturally - "who's working today?", "create a lead for John at 123 Main
       }
 
       // Second API call with tool results
-      response = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
+      response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+          'Authorization': `Bearer ${OPENAI_API_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          model: 'google/gemini-2.5-flash',
+          model: 'gpt-4o',
           messages,
         }),
       });

@@ -261,7 +261,7 @@ const LeadManagement = () => {
   const formatServiceName = (service: string) => {
     const serviceMap: Record<string, string> = {
       'residential-installation': 'Residential Installation',
-      'commercial-roofing': 'Commercial Roofing',
+      'commercial-roofing': 'Commercial',
       'roof-repair': 'Roof Repair',
       'roof-inspection': 'Roof Inspection',
       'storm-damage': 'Storm Damage Repair',
@@ -906,7 +906,7 @@ const LeadManagement = () => {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="residential-installation">Residential Installation</SelectItem>
-                        <SelectItem value="commercial-roofing">Commercial Roofing</SelectItem>
+                        <SelectItem value="commercial-roofing">Commercial</SelectItem>
                         <SelectItem value="roof-repair">Roof Repair</SelectItem>
                         <SelectItem value="roof-inspection">Roof Inspection</SelectItem>
                         <SelectItem value="storm-damage">Storm Damage Repair</SelectItem>
@@ -1336,7 +1336,7 @@ const LeadManagement = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="residential-installation">Residential Installation</SelectItem>
-                    <SelectItem value="commercial-roofing">Commercial Roofing</SelectItem>
+                    <SelectItem value="commercial-roofing">Commercial</SelectItem>
                     <SelectItem value="roof-repair">Roof Repair</SelectItem>
                     <SelectItem value="roof-inspection">Roof Inspection</SelectItem>
                     <SelectItem value="storm-damage">Storm Damage Repair</SelectItem>

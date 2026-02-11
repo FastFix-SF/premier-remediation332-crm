@@ -100,6 +100,8 @@ const WPHome = lazy(() => import("./westpeak/pages/Home"));
 const WPServicePage = lazy(() => import("./westpeak/pages/ServicePage"));
 const WPAreaPage = lazy(() => import("./westpeak/pages/AreaPage"));
 const WPNeighborhoodPage = lazy(() => import("./westpeak/pages/NeighborhoodPage"));
+const WPAboutPage = lazy(() => import("./westpeak/pages/AboutPage"));
+const WPContactPage = lazy(() => import("./westpeak/pages/ContactPage"));
 
 // CRM desktop components still needed for store, quotes, etc.
 const Store = lazy(() => import("./pages/Store"));
@@ -238,11 +240,13 @@ const AppRoutes = () => (
       <Route path="requests/time-off" element={<AddTimeOffRequestPage />} />
     </Route>
     
-    {/* Westpeak Public Marketing Pages */}
-    <Route path="/" element={<WPHome />} />
-    <Route path="/services/:slug" element={<WPServicePage />} />
-    <Route path="/service-areas/:slug" element={<WPAreaPage />} />
-    <Route path="/service-areas/:areaSlug/:neighborhoodSlug" element={<WPNeighborhoodPage />} />
+    {/* Westpeak Public Marketing Pages — wrapped in dark gold theme */}
+    <Route path="/" element={<div className="westpeak-theme"><WPHome /></div>} />
+    <Route path="/services/:slug" element={<div className="westpeak-theme"><WPServicePage /></div>} />
+    <Route path="/service-areas/:slug" element={<div className="westpeak-theme"><WPAreaPage /></div>} />
+    <Route path="/service-areas/:areaSlug/:neighborhoodSlug" element={<div className="westpeak-theme"><WPNeighborhoodPage /></div>} />
+    <Route path="/about" element={<div className="westpeak-theme"><WPAboutPage /></div>} />
+    <Route path="/contact" element={<div className="westpeak-theme"><WPContactPage /></div>} />
 
     {/* Regular Desktop Routes */}
     <Route path="/download" element={<DownloadApp />} />

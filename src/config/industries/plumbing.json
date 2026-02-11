@@ -166,5 +166,22 @@
         "defaultItems": []
       }
     ]
-  }
+  },
+  "commonSkills": [
+    "Pipe Fitting", "Soldering/Brazing", "PEX Crimping", "Drain Snaking",
+    "Hydro Jetting", "Camera Inspection", "Trenchless Repair", "Water Heater Install",
+    "Gas Line Work", "Backflow Testing", "Leak Detection", "Slab Leak Repair",
+    "Fixture Install", "Sewer Lining", "Forklift", "Safety Rigging",
+    "Blueprint Reading", "Estimating", "Project Management"
+  ],
+  "specialties": [
+    "Trenchless/CIPP", "Drain & Sewer", "Water Heaters", "Gas Lines",
+    "Repiping", "Commercial", "Residential", "Repairs", "Emergency", "Maintenance"
+  ],
+  "skillCategories": [
+    { "value": "pipe_material", "label": "Pipe Material" },
+    { "value": "equipment", "label": "Equipment" },
+    { "value": "general", "label": "General" },
+    { "value": "safety", "label": "Safety" }
+  ]
 }

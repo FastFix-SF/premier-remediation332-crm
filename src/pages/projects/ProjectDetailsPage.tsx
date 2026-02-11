@@ -13,6 +13,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { ProjectSidebar } from '@/components/projects/ProjectSidebar';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 import { format } from 'date-fns';
 import { MessageSquare, Eye, Users, Edit, MapPin, Trash2, User, Mail, Phone, Building2, Calendar, Home, FileText, Globe, Clock, Briefcase, HardHat } from 'lucide-react';
 
@@ -31,6 +32,8 @@ export const ProjectDetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const industryConfig = useIndustryConfig();
+  const isRoofing = industryConfig.slug === 'roofing';
 
   const [editingDescription, setEditingDescription] = useState(false);
   const [editDescriptionValue, setEditDescriptionValue] = useState('');
@@ -1026,8 +1029,8 @@ export const ProjectDetailsPage: React.FC = () => {
             </CardContent>
           </Card>
 
-          {/* Roof Specifications */}
-          <Card>
+          {/* Roof Specifications - only for roofing industry */}
+          {isRoofing && <Card>
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-lg flex items-center gap-2">
                 <HardHat className="w-5 h-5" />
@@ -1137,7 +1140,7 @@ export const ProjectDetailsPage: React.FC = () => {
                 </div>
               )}
             </CardContent>
-          </Card>
+          </Card>}
 
           {/* Project Notes & Description */}
           <Card>

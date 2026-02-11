@@ -218,7 +218,7 @@ const CRMDashboard = () => {
   const formatServiceName = (service: string) => {
     const serviceMap: Record<string, string> = {
       'residential-installation': 'Residential Installation',
-      'commercial-roofing': 'Commercial Roofing',
+      'commercial-roofing': 'Commercial',
       'roof-repair': 'Roof Repair',
       'roof-inspection': 'Roof Inspection',
       'storm-damage': 'Storm Damage Repair',
@@ -598,7 +598,7 @@ const CRMDashboard = () => {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
               <CardTitle className="text-xl font-semibold">Lead Management</CardTitle>
-              <CardDescription>Manage and track all your roofing leads</CardDescription>
+              <CardDescription>Manage and track all your leads</CardDescription>
             </div>
             <Button className="bg-primary hover:bg-primary/90" onClick={() => { setNewLead({ name: '', email: '', phone: '', company_name: '', status: 'new', source: '', project_type: '', timeline: '', budget_range: '', notes: '' }); setShowCreateDialog(true); }}>
               <Plus className="w-4 h-4 mr-2" />
@@ -813,7 +813,7 @@ const CRMDashboard = () => {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="residential-installation">Residential Installation</SelectItem>
-                        <SelectItem value="commercial-roofing">Commercial Roofing</SelectItem>
+                        <SelectItem value="commercial-roofing">Commercial</SelectItem>
                         <SelectItem value="roof-repair">Roof Repair</SelectItem>
                         <SelectItem value="roof-inspection">Roof Inspection</SelectItem>
                         <SelectItem value="storm-damage">Storm Damage Repair</SelectItem>
@@ -952,7 +952,7 @@ const CRMDashboard = () => {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="residential-installation">Residential Installation</SelectItem>
-                      <SelectItem value="commercial-roofing">Commercial Roofing</SelectItem>
+                      <SelectItem value="commercial-roofing">Commercial</SelectItem>
                       <SelectItem value="roof-repair">Roof Repair</SelectItem>
                       <SelectItem value="roof-inspection">Roof Inspection</SelectItem>
                       <SelectItem value="storm-damage">Storm Damage Repair</SelectItem>

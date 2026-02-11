@@ -89,4 +89,7 @@ export interface IndustryConfig {
   faqPresets: { question: string; answer: string }[];
   defaultFeatures: string[];
   quoteConfig: QuoteConfig;
+  commonSkills?: string[];
+  specialties?: string[];
+  skillCategories?: { value: string; label: string }[];
 }

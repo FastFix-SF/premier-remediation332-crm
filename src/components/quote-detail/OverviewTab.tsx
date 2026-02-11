@@ -10,6 +10,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { GooglePlacesAutocomplete } from '../ui/google-places-autocomplete';
 import { useTeamMembers } from '@/hooks/useTeamMembers';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
 
 // Import shingles images
@@ -129,6 +130,8 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ quote, onUpdate }) => 
   const [attachments, setAttachments] = useState<QuoteAttachment[]>([]);
   const [uploadingFiles, setUploadingFiles] = useState(false);
   const { data: teamMembers = [] } = useTeamMembers();
+  const industryConfig = useIndustryConfig();
+  const isRoofing = industryConfig.slug === 'roofing';
 
   const getInitials = (name: string) => {
     return name
@@ -280,29 +283,34 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ quote, onUpdate }) => 
 
   const handleSave = async () => {
     try {
+      const updatePayload: Record<string, any> = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || null,
+        company_name: formData.company_name || null,
+        property_address: formData.property_address || null,
+        project_type: formData.project_type || null,
+        property_type: formData.property_type || null,
+        timeline: formData.timeline || null,
+        notes: formData.notes || null,
+        status: formData.status,
+        source: formData.source || null,
+        project_manager_id: formData.project_manager_id || null,
+        site_manager_id: formData.site_manager_id || null,
+        sales_representative_id: formData.sales_representative_id || null
+      };
+
+      if (isRoofing) {
+        updatePayload.existing_roof = formData.existing_roof || null;
+        updatePayload.wanted_roof = formData.wanted_roof || null;
+        updatePayload.existing_roof_deck = formData.existing_roof_deck || null;
+        updatePayload.wanted_roof_deck = formData.wanted_roof_deck || null;
+        updatePayload.insulation = formData.insulation || null;
+      }
+
       const { error } = await supabase
         .from('quote_requests')
-        .update({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone || null,
-          company_name: formData.company_name || null,
-          property_address: formData.property_address || null,
-          project_type: formData.project_type || null,
-          property_type: formData.property_type || null,
-          timeline: formData.timeline || null,
-          notes: formData.notes || null,
-          status: formData.status,
-          source: formData.source || null,
-          existing_roof: formData.existing_roof || null,
-          wanted_roof: formData.wanted_roof || null,
-          existing_roof_deck: formData.existing_roof_deck || null,
-          wanted_roof_deck: formData.wanted_roof_deck || null,
-          insulation: formData.insulation || null,
-          project_manager_id: formData.project_manager_id || null,
-          site_manager_id: formData.site_manager_id || null,
-          sales_representative_id: formData.sales_representative_id || null
-        })
+        .update(updatePayload)
         .eq('id', quote.id);
 
       if (error) throw error;
@@ -763,8 +771,8 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ quote, onUpdate }) => 
             </div>
           </div>
 
-          {/* Roof Details */}
-          <div className="border-t pt-3 mt-3">
+          {/* Roof Details - only for roofing industry */}
+          {isRoofing && <div className="border-t pt-3 mt-3">
             <h3 className="text-sm font-semibold mb-3">Roof Specifications</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
@@ -1147,7 +1155,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ quote, onUpdate }) => 
                 )}
               </div>
             </div>
-          </div>
+          </div>}
         </CardContent>
       </Card>
 

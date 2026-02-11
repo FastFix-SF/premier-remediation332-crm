@@ -5,7 +5,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.7.1';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-tenant-id',
 };
 
 serve(async (req) => {
@@ -47,10 +47,10 @@ serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     );
 
-    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
+    const OPENAI_API_KEY = Deno.env.get('OPENAI_API_KEY');
     
-    if (!LOVABLE_API_KEY) {
-      throw new Error('LOVABLE_API_KEY not configured');
+    if (!OPENAI_API_KEY) {
+      throw new Error('OPENAI_API_KEY not configured');
     }
     
     console.log(`✅ [${((Date.now() - requestStart) / 1000).toFixed(1)}s] Ready to analyze`);
@@ -136,14 +136,14 @@ serve(async (req) => {
 
     const aiCallStart = Date.now();
     // Image is already in data URL format from the browser
-    const visionResponse = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
+    const visionResponse = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+        'Authorization': `Bearer ${OPENAI_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'google/gemini-2.5-flash', // More accurate than flash-lite for vision
+        model: 'gpt-4o', // More accurate than flash-lite for vision
         messages: [
           {
             role: "user",
@@ -262,7 +262,7 @@ serve(async (req) => {
           confidence_score: analysis.confidenceScore,
           detected_edges: analysis.edges,
           analysis_notes: analysis.analysisNotes,
-          model_used: 'google/gemini-2.5-flash'
+          model_used: 'gpt-4o'
         });
       
       console.log('💾 Vision analysis stored for training');

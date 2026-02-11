@@ -106,6 +106,8 @@ export const AddInspectionDialog: React.FC<AddInspectionDialogProps> = ({
                 <SelectItem value="roofing">Roofing</SelectItem>
                 <SelectItem value="framing">Framing</SelectItem>
                 <SelectItem value="foundation">Foundation</SelectItem>
+                <SelectItem value="environmental">Environmental</SelectItem>
+                <SelectItem value="clearance">Clearance Testing</SelectItem>
                 <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>

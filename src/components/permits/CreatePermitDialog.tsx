@@ -114,6 +114,8 @@ export const CreatePermitDialog: React.FC<CreatePermitDialogProps> = ({
                 <SelectItem value="plumbing">Plumbing</SelectItem>
                 <SelectItem value="mechanical">Mechanical</SelectItem>
                 <SelectItem value="roofing">Roofing</SelectItem>
+                <SelectItem value="environmental">Environmental</SelectItem>
+                <SelectItem value="demolition">Demolition</SelectItem>
                 <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>

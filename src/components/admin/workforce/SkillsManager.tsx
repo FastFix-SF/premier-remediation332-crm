@@ -16,6 +16,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useQueryClient, useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
 import { useAuth } from '@/contexts/AuthContext';
+import { useIndustryConfig } from '@/hooks/useIndustryConfig';
 
 const SkillsManager = () => {
   const [activeTab, setActiveTab] = useState('skills');
@@ -40,6 +41,7 @@ const SkillsManager = () => {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const { user } = useAuth();
+  const industryConfig = useIndustryConfig();
 
   // Fetch all skills
   const { data: allSkills = [] } = useQuery({
@@ -67,12 +69,7 @@ const SkillsManager = () => {
     },
   });
 
-  const skillCategories = [
-    { value: 'roof_type', label: 'Roof Type' },
-    { value: 'equipment', label: 'Equipment' },
-    { value: 'general', label: 'General' },
-    { value: 'safety', label: 'Safety' },
-  ];
+  const skillCategories = industryConfig.skillCategories || [{ value: 'general', label: 'General' }, { value: 'equipment', label: 'Equipment' }, { value: 'safety', label: 'Safety' }];
 
   const certTypes = [
     { value: 'safety', label: 'Safety' },
@@ -81,28 +78,7 @@ const SkillsManager = () => {
     { value: 'license', label: 'License' },
   ];
 
-  const commonSkills = [
-    'TPO Installation',
-    'PVC Installation',
-    'Metal Roofing',
-    'Shingle Installation',
-    'Flat Roof Repair',
-    'Tile Installation',
-    'Slate Work',
-    'Skylight Installation',
-    'Flashing',
-    'Gutters',
-    'Membrane Welding',
-    'Torch Down',
-    'Spray Foam',
-    'Coatings',
-    'Crane Operation',
-    'Forklift',
-    'Safety Rigging',
-    'Blueprint Reading',
-    'Estimating',
-    'Project Management',
-  ];
+  const commonSkills = industryConfig.commonSkills || ['Estimating', 'Project Management', 'Safety Rigging', 'Blueprint Reading'];
 
   const commonCerts = [
     'OSHA 10',

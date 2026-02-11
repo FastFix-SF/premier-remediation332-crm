@@ -91,7 +91,7 @@ const Contact = () => {
     try {
       // Get tenant ID from environment
       const tenantId = import.meta.env.VITE_TENANT_ID;
-      const fastfixEdgeUrl = import.meta.env.VITE_FASTFIX_EDGE_URL || 'https://ivainhvckowigupafbae.supabase.co/functions/v1';
+      const fastfixEdgeUrl = import.meta.env.VITE_FASTFIX_EDGE_URL || import.meta.env.VITE_SUPABASE_URL + '/functions/v1';
 
       // Call the FastFix AI create-tenant-lead function
       const response = await fetch(`${fastfixEdgeUrl}/create-tenant-lead`, {

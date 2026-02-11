@@ -13,7 +13,7 @@ export const companyConfig = {
   legalName: "YOUR COMPANY, INC",
   shortName: "Company",
   tagline: "Quality Service, Every Time",
-  description: "Professional roofing services. Licensed, insured, and committed to excellence.",
+  description: "Professional services. Licensed, insured, and committed to excellence.",
 
   // Contact Information
   phone: "(000) 000-0000",
@@ -77,12 +77,7 @@ export const companyConfig = {
   priceRange: "$$-$$$",
 
   // Services
-  services: [
-    { name: "Roof Installation", path: "/services/installation" },
-    { name: "Roof Repair & Maintenance", path: "/services/repair" },
-    { name: "Commercial Roofing", path: "/services/commercial" },
-    { name: "Residential Roofing", path: "/services/residential" },
-  ],
+  services: [] as { name: string; path: string }[],
 
   // Warranty Info
   warranty: {

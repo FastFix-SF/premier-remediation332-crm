@@ -31,8 +31,13 @@
    
    const [videoEnded, setVideoEnded] = useState(false);
    const videoRef = useRef<HTMLVideoElement>(null);
- 
+
    const handleVideoEnd = () => {
+     setVideoEnded(true);
+   };
+
+   // Fallback: if video fails to load or play, show project cards immediately
+   const handleVideoError = () => {
      setVideoEnded(true);
    };
  
@@ -114,7 +119,7 @@
            <div className="relative w-full mt-4 lg:mt-0">
              {/* Video Container */}
               <div
-               className={`relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl bg-card/80 backdrop-blur-sm border border-primary/30 glow-sm transition-all duration-700 ${
+               className={`relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl bg-background backdrop-blur-sm border border-primary/30 glow-sm transition-all duration-700 ${
                  videoEnded ? 'opacity-0 scale-95 pointer-events-none h-0 overflow-hidden' : 'opacity-100 scale-100'
                }`}
              >
@@ -125,6 +130,7 @@
                  muted
                  playsInline
                  onEnded={handleVideoEnd}
+                 onError={handleVideoError}
                  className="w-full aspect-video object-cover"
                />
                {/* Video glow effect */}

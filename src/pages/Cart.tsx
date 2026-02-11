@@ -63,7 +63,7 @@ const Cart = () => {
           <div className="text-center">
             <ShoppingCart className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
             <h2 className="text-2xl font-bold text-foreground mb-2">Your cart is empty</h2>
-            <p className="text-muted-foreground mb-6">Start adding some roofing materials to your cart.</p>
+            <p className="text-muted-foreground mb-6">Start adding items to your cart.</p>
             <button
               onClick={() => navigate('/store')}
               className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors duration-200"

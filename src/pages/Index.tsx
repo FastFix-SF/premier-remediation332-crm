@@ -181,7 +181,7 @@ const Index = () => {
         <div className="flex items-center justify-center py-20">
           <div className="text-center">
             <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <div className="text-muted-foreground font-medium">Loading premium roofing materials...</div>
+            <div className="text-muted-foreground font-medium">Loading products...</div>
           </div>
         </div>
       </div>
@@ -317,7 +317,7 @@ const Index = () => {
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-3">No materials found</h3>
             <p className="text-gray-600 mb-8 max-w-md mx-auto">
-              Try adjusting your search criteria or filters to find the perfect roofing materials.
+              Try adjusting your search criteria or filters to find what you need.
             </p>
             <button
               onClick={clearFilters}

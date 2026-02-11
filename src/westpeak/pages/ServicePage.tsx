@@ -56,7 +56,7 @@ export const ServicePage: React.FC = () => {
   const reviews = useGoogleReviews();
 
   // Get the actual image URL from imports
-  const heroImageUrl = slug ? serviceImages[slug] : undefined;
+  const heroImageUrl = slug ? (serviceImages[slug] || trenchlessHero) : trenchlessHero;
 
   // Redirect if service not found
   if (!service) {

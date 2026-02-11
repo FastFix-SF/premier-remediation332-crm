@@ -143,7 +143,7 @@ export const BusinessProfileForm: React.FC<BusinessProfileFormProps> = ({
                 <FormItem>
                   <FormLabel>Tagline</FormLabel>
                   <FormControl>
-                    <Input placeholder="Quality roofing since 1990" {...field} />
+                    <Input placeholder="Quality service since 1990" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

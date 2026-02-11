@@ -89,7 +89,7 @@ const CustomerReviewPage: React.FC = () => {
     } catch (error) {
       console.error('Error generating review:', error);
       // Fallback generic review
-      setGeneratedReview(`I'm so ${emotion.toLowerCase()} with the work ${tenantConfig.shortName} did on my roof! The team was professional and the results exceeded my expectations. Highly recommend!`);
+      setGeneratedReview(`I'm so ${emotion.toLowerCase()} with the work ${tenantConfig.shortName} did on my property! The team was professional and the results exceeded my expectations. Highly recommend!`);
     } finally {
       setIsGenerating(false);
     }
@@ -163,7 +163,7 @@ const CustomerReviewPage: React.FC = () => {
         {currentStep === 'emotion' && (
           <div className="space-y-4 animate-fade-in">
             <h2 className="text-center text-lg font-semibold mb-4">
-              How did your new roof make you feel?
+              How did our service make you feel?
             </h2>
             <div className="grid grid-cols-2 gap-3">
               {EMOTION_OPTIONS.map((option) => (

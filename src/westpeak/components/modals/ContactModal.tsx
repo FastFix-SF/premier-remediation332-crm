@@ -77,7 +77,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
           tenantId: import.meta.env.VITE_TENANT_ID,
           name: formData.name,
           phone: formData.phone,
-          email: formData.email,
+          email: formData.email || '',
           service: formData.service,
           message: formData.message,
           referralSource: 'website',
@@ -94,10 +94,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     setIsSubmitting(false);
     setIsSubmitted(true);
 
-    // Auto-close after success
     setTimeout(() => {
       onClose();
       setFormData({ name: '', phone: '', email: '', service: '', message: '' });
+      setIsSubmitted(false);
     }, 2000);
   };
 
