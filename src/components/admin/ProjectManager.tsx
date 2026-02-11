@@ -17,6 +17,8 @@ import { useProjectManagement } from '../../hooks/use-project-management';
 import { useProjectsWithPhotos, type ProjectWithPhoto } from '../../hooks/useProjectsWithPhotos';
 import FiltersBar from '@/components/filters/FiltersBar';
 import { useIndustryConfig } from '@/hooks/useIndustryConfig';
+import { useBusiness } from '@/hooks/useBusinessConfig';
+import { generateProjectStory, generateProjectImage } from '@/lib/ai-generation';
 const ProjectManager = () => {
   const navigate = useNavigate();
   const {
@@ -35,7 +37,8 @@ const ProjectManager = () => {
     updateProjectVisibility
   } = useProjectManagement();
 
-  // Industry config for dynamic filters
+  // Business and industry config
+  const business = useBusiness();
   const industryConfig = useIndustryConfig();
   const primaryFilterField = industryConfig.industryFields.find(f => f.showInFilters);
   const primaryFilterLabel = industryConfig.filterLabels.primaryFilter;
@@ -179,20 +182,74 @@ const ProjectManager = () => {
       });
     }
   };
+  const [generatingAI, setGeneratingAI] = useState<string | null>(null);
+
   const handleVisibilityToggle = async (projectId: string, currentVisibility: boolean) => {
     const newVisibility = !currentVisibility;
     try {
-      const {
-        error
-      } = await supabase.from('projects').update({
+      const { error } = await supabase.from('projects').update({
         is_public: newVisibility
       }).eq('id', projectId);
       if (error) throw error;
+
       toast({
         title: "Success",
         description: `Project ${newVisibility ? 'made public' : 'made private'} successfully`
       });
       refetch();
+
+      // Auto-generate AI content when making a project public
+      if (newVisibility) {
+        const project = allProjects.find(p => p.id === projectId);
+        if (!project) return;
+
+        const needsStory = !project.short_description || !project.story;
+        const needsImage = !project.ai_image_url && !project.best_photo;
+
+        if (needsStory || needsImage) {
+          setGeneratingAI(projectId);
+          toast({ title: "Generating AI content", description: "Creating description and story for your project..." });
+
+          try {
+            const updates: Record<string, any> = {};
+
+            if (needsStory) {
+              const story = await generateProjectStory({
+                description: project.description || project.original_scope,
+                scopeOfWork: project.original_scope,
+                projectType: project.project_category || project.project_type,
+                propertyAddress: project.address,
+                industry: industryConfig.label,
+              });
+              updates.short_description = story.shortDescription;
+              updates.story = story.story;
+            }
+
+            if (needsImage) {
+              const imageUrl = await generateProjectImage({
+                businessName: business.name,
+                industry: industryConfig.label,
+                projectName: project.name,
+                projectType: project.project_category || project.project_type,
+                projectDescription: project.description,
+                projectId,
+              });
+              if (imageUrl) updates.ai_image_url = imageUrl;
+            }
+
+            if (Object.keys(updates).length > 0) {
+              await supabase.from('projects').update(updates).eq('id', projectId);
+              toast({ title: "AI content ready", description: "Project description and story have been generated." });
+              refetch();
+            }
+          } catch (aiError) {
+            console.error('AI generation failed (project is still public):', aiError);
+            toast({ title: "AI generation skipped", description: "Project is public but AI content could not be generated. You can add descriptions manually.", variant: "default" });
+          } finally {
+            setGeneratingAI(null);
+          }
+        }
+      }
     } catch (error) {
       console.error('Error updating project visibility:', error);
       toast({

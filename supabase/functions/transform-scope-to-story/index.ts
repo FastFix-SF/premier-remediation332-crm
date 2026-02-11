@@ -12,10 +12,11 @@ serve(async (req) => {
   }
 
   try {
-    const { scopeOfWork, clientName, propertyAddress, projectType } = await req.json();
+    const { scopeOfWork, description, clientName, propertyAddress, projectType, industry } = await req.json();
 
-    if (!scopeOfWork) {
-      throw new Error('Scope of work is required');
+    const textToTransform = scopeOfWork || description;
+    if (!textToTransform) {
+      throw new Error('Scope of work or description is required');
     }
 
     const openAIApiKey = Deno.env.get('OPENAI_API_KEY');
@@ -23,24 +24,33 @@ serve(async (req) => {
       throw new Error('OpenAI API key not configured');
     }
 
-    const prompt = `Transform this technical scope of work into an engaging story-style description for a roofing project portfolio. The story should:
+    const industryLabel = industry || 'home improvement';
 
-1. Sound like an exciting transformation narrative
-2. Be written for public viewing (homeowners and potential customers)
-3. Highlight the challenges overcome and benefits achieved
-4. Use engaging, professional language
-5. Keep the key technical details but present them in an accessible way
-6. Focus on the customer experience and outcome
+    const prompt = `Transform this technical scope of work into TWO outputs for a ${industryLabel} project portfolio:
+
+OUTPUT 1 - SHORT DESCRIPTION (1-2 sentences):
+A compelling teaser for a project card. Should grab attention and make readers want to learn more.
+
+OUTPUT 2 - FULL STORY (2-3 paragraphs):
+An engaging story-style description that:
+1. Sounds like an exciting transformation narrative
+2. Is written for public viewing (homeowners and potential customers)
+3. Highlights the challenges overcome and benefits achieved
+4. Uses engaging, professional language
+5. Keeps the key technical details but presents them in an accessible way
+6. Focuses on the customer experience and outcome
 
 Project Details:
-- Client: ${clientName || 'The homeowner'}
-- Property: ${propertyAddress || 'A residential property'}
-- Project Type: ${projectType || 'Roofing project'}
+- Client: ${clientName || 'The property owner'}
+- Property: ${propertyAddress || 'A local property'}
+- Project Type: ${projectType || industryLabel + ' project'}
+- Industry: ${industryLabel}
 
-Technical Scope of Work:
-${scopeOfWork}
+Technical Scope / Description:
+${textToTransform}
 
-Transform this into a compelling story (2-3 paragraphs) that would make other homeowners want to hire this roofing company. Start with the challenge or opportunity, describe the solution and process, and end with the successful outcome.`;
+IMPORTANT: Respond in this exact JSON format:
+{"shortDescription": "...", "story": "..."}`;
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -53,15 +63,16 @@ Transform this into a compelling story (2-3 paragraphs) that would make other ho
         messages: [
           {
             role: 'system',
-            content: 'You are an expert storyteller specializing in home improvement narratives. Create engaging, professional stories that showcase successful roofing projects while maintaining credibility and highlighting technical expertise.'
+            content: `You are an expert storyteller specializing in ${industryLabel} narratives. Create engaging, professional stories that showcase successful projects while maintaining credibility and highlighting technical expertise. Always respond with valid JSON.`
           },
           {
             role: 'user',
             content: prompt
           }
         ],
-        max_tokens: 800,
+        max_tokens: 1000,
         temperature: 0.7,
+        response_format: { type: "json_object" },
       }),
     });
 
@@ -70,22 +81,33 @@ Transform this into a compelling story (2-3 paragraphs) that would make other ho
     }
 
     const data = await response.json();
-    const storyDescription = data.choices[0].message.content;
+    const content = data.choices[0].message.content;
+
+    let parsed;
+    try {
+      parsed = JSON.parse(content);
+    } catch {
+      // Fallback: use the whole response as the story
+      parsed = { shortDescription: content.substring(0, 150), story: content };
+    }
 
     console.log('Story transformation completed successfully');
 
-    return new Response(JSON.stringify({ 
-      success: true, 
-      storyDescription,
-      originalScope: scopeOfWork 
+    return new Response(JSON.stringify({
+      success: true,
+      shortDescription: parsed.shortDescription,
+      story: parsed.story,
+      // Keep backwards compatibility
+      storyDescription: parsed.story,
+      originalScope: textToTransform,
     }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
 
   } catch (error) {
     console.error('Error in transform-scope-to-story function:', error);
-    return new Response(JSON.stringify({ 
-      success: false, 
+    return new Response(JSON.stringify({
+      success: false,
       error: error instanceof Error ? error.message : String(error)
     }), {
       status: 500,

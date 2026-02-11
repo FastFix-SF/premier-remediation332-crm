@@ -21,6 +21,9 @@ export interface ProjectWithPhoto {
   customer_rating?: number;
   rating_submitted_at?: string;
   customer_email?: string;
+  short_description?: string;
+  story?: string;
+  ai_image_url?: string;
   project_assignments?: { customer_email: string }[];
   best_photo?: {
     id: string;

@@ -14,6 +14,8 @@ import { ProjectSidebar } from '@/components/projects/ProjectSidebar';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { useIndustryConfig } from '@/hooks/useIndustryConfig';
+import { useBusiness } from '@/hooks/useBusinessConfig';
+import { generateProjectStory, generateProjectImage } from '@/lib/ai-generation';
 import { format } from 'date-fns';
 import { MessageSquare, Eye, Users, Edit, MapPin, Trash2, User, Mail, Phone, Building2, Calendar, Home, FileText, Globe, Clock, Briefcase, HardHat } from 'lucide-react';
 
@@ -33,8 +35,10 @@ export const ProjectDetailsPage: React.FC = () => {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const industryConfig = useIndustryConfig();
+  const business = useBusiness();
   const isRoofing = industryConfig.slug === 'roofing';
 
+  const [generatingAI, setGeneratingAI] = useState(false);
   const [editingDescription, setEditingDescription] = useState(false);
   const [editDescriptionValue, setEditDescriptionValue] = useState('');
   const [savingDescription, setSavingDescription] = useState(false);
@@ -228,15 +232,63 @@ export const ProjectDetailsPage: React.FC = () => {
 
   const handleVisibilityToggle = async (isPublic: boolean) => {
     if (!project) return;
+    const newVisibility = !isPublic;
     try {
       const { error } = await supabase
         .from('projects')
-        .update({ is_public: !isPublic })
+        .update({ is_public: newVisibility })
         .eq('id', project.id);
 
       if (error) throw error;
-      toast({ title: 'Success', description: `Project is now ${!isPublic ? 'public' : 'private'}` });
+      toast({ title: 'Success', description: `Project is now ${newVisibility ? 'public' : 'private'}` });
       refetch();
+
+      // Auto-generate AI content when making public
+      if (newVisibility) {
+        const needsStory = !(project as any).short_description || !(project as any).story;
+        const hasPhotos = (project as any).project_photos?.length > 0;
+        const needsImage = !hasPhotos && !(project as any).ai_image_url;
+
+        if (needsStory || needsImage) {
+          setGeneratingAI(true);
+          toast({ title: 'Generating AI content', description: 'Creating description and story...' });
+          try {
+            const updates: Record<string, any> = {};
+            if (needsStory) {
+              const story = await generateProjectStory({
+                description: (project as any).description || (project as any).original_scope,
+                scopeOfWork: (project as any).original_scope,
+                projectType: (project as any).project_category || (project as any).project_type,
+                propertyAddress: (project as any).address,
+                industry: industryConfig.label,
+              });
+              updates.short_description = story.shortDescription;
+              updates.story = story.story;
+            }
+            if (needsImage) {
+              const imageUrl = await generateProjectImage({
+                businessName: business.name,
+                industry: industryConfig.label,
+                projectName: project.name,
+                projectType: (project as any).project_category || (project as any).project_type,
+                projectDescription: (project as any).description,
+                projectId: project.id,
+              });
+              if (imageUrl) updates.ai_image_url = imageUrl;
+            }
+            if (Object.keys(updates).length > 0) {
+              await supabase.from('projects').update(updates).eq('id', project.id);
+              toast({ title: 'AI content ready', description: 'Project story and description generated.' });
+              refetch();
+            }
+          } catch (aiError) {
+            console.error('AI generation failed:', aiError);
+            toast({ title: 'AI generation skipped', description: 'You can add descriptions manually.', variant: 'default' });
+          } finally {
+            setGeneratingAI(false);
+          }
+        }
+      }
     } catch (error) {
       toast({ title: 'Error', description: 'Failed to update visibility', variant: 'destructive' });
     }

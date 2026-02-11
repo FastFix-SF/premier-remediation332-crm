@@ -3,6 +3,7 @@
   */
 
  import React from 'react';
+ import { Link } from 'react-router-dom';
  import { MapPin, Wrench } from 'lucide-react';
 
  interface ProjectCardProps {
@@ -20,8 +21,9 @@
 
  export const ProjectCard: React.FC<ProjectCardProps> = ({ project, image, index }) => {
    return (
-     <div
-       className="group relative overflow-hidden rounded-lg border border-primary/20 bg-card animate-card-reveal opacity-0 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+     <Link
+       to={`/projects/${project.id}`}
+       className="group relative overflow-hidden rounded-lg border border-primary/20 bg-card animate-card-reveal opacity-0 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 block"
        style={{
          animationDelay: `${index * 150}ms`,
          animationFillMode: 'forwards'
@@ -62,7 +64,7 @@
            </div>
          </div>
        </div>
-     </div>
+     </Link>
    );
  };
 

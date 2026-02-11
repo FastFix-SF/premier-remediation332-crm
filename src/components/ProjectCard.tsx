@@ -11,6 +11,8 @@ interface Project {
   id: string;
   name: string;
   description?: string;
+  short_description?: string;
+  ai_image_url?: string;
   address?: string;
   project_type?: string;
   project_category?: string;
@@ -97,6 +99,13 @@ const ProjectCard = ({ project, photos = [], highlightCTA, showFeaturedBadge = f
               </div>
             )}
           </>
+        ) : project.ai_image_url ? (
+          <img
+            src={project.ai_image_url}
+            alt={project.name}
+            className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+            loading="lazy"
+          />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/20">
             <div className="text-center">
@@ -132,6 +141,16 @@ const ProjectCard = ({ project, photos = [], highlightCTA, showFeaturedBadge = f
         )}>
           {project.name}
         </h3>
+
+        {/* Short Description */}
+        {project.short_description && (
+          <p className={cn(
+            "text-gray-600 line-clamp-2",
+            isMobile && showFeaturedBadge ? "text-xs" : "text-sm"
+          )}>
+            {project.short_description}
+          </p>
+        )}
 
         {/* Address */}
         {project.address && (

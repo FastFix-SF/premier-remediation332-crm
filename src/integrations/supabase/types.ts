@@ -9009,6 +9009,9 @@ export type Database = {
           wanted_roof_deck: string | null
           warranty_months: number | null
           warranty_start_date: string | null
+          short_description: string | null
+          story: string | null
+          ai_image_url: string | null
         }
         Insert: {
           additional_contact?: string | null
@@ -9072,6 +9075,9 @@ export type Database = {
           wanted_roof_deck?: string | null
           warranty_months?: number | null
           warranty_start_date?: string | null
+          short_description?: string | null
+          story?: string | null
+          ai_image_url?: string | null
         }
         Update: {
           additional_contact?: string | null
@@ -9135,6 +9141,9 @@ export type Database = {
           wanted_roof_deck?: string | null
           warranty_months?: number | null
           warranty_start_date?: string | null
+          short_description?: string | null
+          story?: string | null
+          ai_image_url?: string | null
         }
         Relationships: [
           {

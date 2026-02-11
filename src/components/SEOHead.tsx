@@ -31,7 +31,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   const resolvedTitle = title || tenantConfig.seo?.defaultTitle || '';
   const resolvedDescription = description || tenantConfig.seo?.defaultDescription || '';
   const resolvedKeywords = keywords || tenantConfig.seo?.defaultKeywords || '';
-  const resolvedOgImage = ogImage || `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'><rect width='1200' height='630' fill='%232563eb'/><text x='600' y='350' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='200' font-weight='bold'>R</text><text x='600' y='450' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='40'>${tenantConfig.shortName}</text></svg>`;
+  const brandInitial = tenantConfig.shortName?.charAt(0) || 'F';
+  const resolvedOgImage = ogImage || `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'><rect width='1200' height='630' fill='%232563eb'/><text x='600' y='350' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='200' font-weight='bold'>${brandInitial}</text><text x='600' y='450' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='40'>${tenantConfig.shortName}</text></svg>`;
 
   const fullTitle = location
     ? `${resolvedTitle} | ${location.name}, ${location.region}`

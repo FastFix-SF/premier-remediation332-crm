@@ -35,6 +35,9 @@ interface Project {
   id: string;
   name: string;
   description?: string;
+  short_description?: string;
+  story?: string;
+  ai_image_url?: string;
   address?: string;
   project_type?: string;
   project_category?: string;
@@ -485,6 +488,18 @@ const shownCount = filteredProjects.length;
                 )}
               </div>
             </div>
+
+            {/* Project Story */}
+            {(selectedProject as any).story && (
+              <div className="w-full bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
+                <div className="p-6 sm:p-8 lg:p-10">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">The Story</h3>
+                  <div className="prose prose-gray max-w-none text-gray-700 leading-relaxed whitespace-pre-line">
+                    {(selectedProject as any).story}
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Before & After Showcase */}
             {(primaryBefore || primaryAfter) && (
