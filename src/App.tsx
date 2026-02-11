@@ -95,7 +95,9 @@ const StoreOrders = lazy(() => import("./pages/store/StoreOrders"));
 const StoreProductDetail = lazy(() => import("./pages/store/StoreProductDetail"));
 const StoreCategory = lazy(() => import("./pages/store/StoreCategory"));
 
-// Westpeak marketing frontend pages (replaces default CRM public pages)
+// Original tenant homepage
+const Home = lazy(() => import("./pages/Home"));
+// Westpeak marketing frontend pages
 const WPHome = lazy(() => import("./westpeak/pages/Home"));
 const WPServicePage = lazy(() => import("./westpeak/pages/ServicePage"));
 const WPAreaPage = lazy(() => import("./westpeak/pages/AreaPage"));
@@ -241,7 +243,7 @@ const AppRoutes = () => (
     </Route>
     
     {/* Westpeak Public Marketing Pages — wrapped in dark gold theme */}
-    <Route path="/" element={<div className="westpeak-theme"><WPHome /></div>} />
+    <Route path="/" element={<Home />} />
     <Route path="/services/:slug" element={<div className="westpeak-theme"><WPServicePage /></div>} />
     <Route path="/service-areas/:slug" element={<div className="westpeak-theme"><WPAreaPage /></div>} />
     <Route path="/service-areas/:areaSlug/:neighborhoodSlug" element={<div className="westpeak-theme"><WPNeighborhoodPage /></div>} />
