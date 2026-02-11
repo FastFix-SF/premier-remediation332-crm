@@ -31,6 +31,7 @@ import { type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselNext
 import { useIsMobile } from '../hooks/use-mobile';
 import { useOptimizedDrag } from '../hooks/useOptimizedDrag';
 import { useIndustryConfig } from '@/hooks/useIndustryConfig';
+import { useBusiness, useAreas, useServices, useProjects, useFeaturedProjects } from '@/hooks/useBusinessConfig';
 interface Project {
   id: string;
   name: string;
